@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('pages/index');
 });
+
+Route::get('/ajan', function () {
+    return view('admin/login');
+});
+
+Route::post('/ajan/loginsubmit', 'AdminAuth@submit');
