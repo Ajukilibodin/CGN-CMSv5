@@ -1,3 +1,8 @@
+@if($message = Session::get('error'))
+<div class="alert alert-danger">
+  {{$message}}
+</div>
+@endif
 @if(count($errors) > 0)
   @foreach($errors->all() as $error)
     <div class="alert alert-danger">

@@ -4,16 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\AdminLogin;
 
 class AdminAuth extends Controller
 {
     public function submit(Request $request)
     {
-      $this->validate($request,[
+      $rules = [
         'username' => 'required',
         'password' => 'required'
-      ]);
+      ];
 
-      return 'Success';
+      $customMessages = [
+        'required' => ':attribute alanını doldurunuz.'
+      ];
+
+      $this->validate($request, $rules, $customMessages);
+
+      $username = $request->input('username');
+      $password = $request->input('password');
+      $countUser = AdminLogin::where('Username', $username)->where('password', $password)->count();
+      if( $countUser > 0){
+        \Cookie::queue(\Cookie::make('ajanlogin', $username, 24*60)); //60 minute * 24 hour = 1 day
+        return back();
+      }
+      else{
+        return back()->with('error', 'Yanlış Kullanıcı Bilgileri');
+      }
+    }
+
+    public function logout()
+    {
+      \Cookie::queue(\Cookie::forget('ajanlogin'));
+      return redirect('/ajan');
     }
 }
