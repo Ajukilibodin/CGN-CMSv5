@@ -17,7 +17,7 @@ class CreateAdminLoginsTable extends Migration
             $table->increments('id');
             $table->string('Username');
             $table->string('Password');
-            $table->dateTime('LastLogin');
+            $table->dateTime('LastLogin')->nullable();
         });
     }
 
