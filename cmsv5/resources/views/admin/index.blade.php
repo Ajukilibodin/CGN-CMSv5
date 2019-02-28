@@ -1,8 +1,9 @@
 @extends('masters.admin')
 
-@section('content')
-
+@section('contenttitle')
 <h1>admin index</h1>
-<a href="{{ url('ajan/logout') }}" class="btn btn-primary">Çıkış</a>
-
+@endsection
+@section('content')
+<h2>CMSv5 Admin Panelindesiniz</h2>
+<h3>Yapmak istediğiniz işlemler için yandaki menüyü kullanın.</h3>
 @endsection

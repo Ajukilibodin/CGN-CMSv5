@@ -16,10 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/ajan', function () {
-  if(Cookie::get('ajanlogin'))
-    return view('admin/index');
-  else
-    return view('admin/login');
+  if(Cookie::get('ajanlogin')) return view('admin/index');
+  else return view('admin/login');
 });
 
 Route::post('/ajan/loginsubmit', 'AdminAuth@submit');
