@@ -22,3 +22,5 @@ Route::get('/ajan', function () {
 
 Route::post('/ajan/loginsubmit', 'AdminAuth@submit');
 Route::get('/ajan/logout', 'AdminAuth@logout');
+
+Route::get('/ajan/sitesettings', 'SiteEdit@mainload');

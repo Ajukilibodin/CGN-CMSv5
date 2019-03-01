@@ -1,10 +1,10 @@
-<a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+<a id="show-sidebar" class="btn btn-sm btn-dark" href="javascript:;">
 <i class="fas fa-bars"></i>
 </a>
 <nav id="sidebar" class="sidebar-wrapper">
 <div class="sidebar-content">
   <div class="sidebar-brand">
-    <a href="#">Admin Panel</a>
+    <a href="javascript:;">Admin Panel</a>
     <div id="close-sidebar">
       <i class="fas fa-times"></i>
     </div>
@@ -21,42 +21,42 @@
         </a>
       </li>
       <li class="sidebar-dropdown"> <!-- class+= active -->
-        <a href="#">
+        <a href="javascript:;">
           <i class="fas fa-globe"></i>
           <span>Site Bilgileri</span>
         </a>
         <div class="sidebar-submenu"> <!-- style+= "display:block;" -->
           <ul>
             <li>
-              <a href="#">Site Düzenleyici</a>
+              <a href="/ajan/sitesettings">Site Düzenleyici</a>
             </li>
             <li>
-              <a href="#">Referanslarım</a>
+              <a href="javascript:;">Referanslarım</a>
             </li>
             <li>
-              <a href="#">Galeri</a>
+              <a href="javascript:;">Galeri</a>
             </li>
             <li>
-              <a href="#">Menü & Sayfa</a>
+              <a href="javascript:;">Menü & Sayfa</a>
             </li>
           </ul>
         </div>
       </li>
       <li class="sidebar-dropdown">
-        <a href="#">
+        <a href="javascript:;">
           <i class="fas fa-pencil-alt"></i>
           <span>Paylaşım Menüsü</span>
         </a>
         <div class="sidebar-submenu">
           <ul>
             <li>
-              <a href="#">Makale Paylaşımı</a>
+              <a href="javascript:;">Makale Paylaşımı</a>
             </li>
             <li>
-              <a href="#">Haber Paylaşımı</a>
+              <a href="javascript:;">Haber Paylaşımı</a>
             </li>
             <li>
-              <a href="#">Blog Paylaşımı</a>
+              <a href="javascript:;">Blog Paylaşımı</a>
             </li>
           </ul>
         </div>
@@ -65,48 +65,48 @@
         <span>E-Ticaret</span>
       </li>
       <li class="sidebar-dropdown">
-        <a href="#">
+        <a href="javascript:;">
           <i class="fas fa-user"></i>
           <span>Üyelik Yönetimi</span>
         </a>
         <div class="sidebar-submenu">
           <ul>
             <li>
-              <a href="#">Üye Kayıtları</a>
+              <a href="javascript:;">Üye Kayıtları</a>
             </li>
             <li>
-              <a href="#">Üye Siparişleri</a>
+              <a href="javascript:;">Üye Siparişleri</a>
             </li>
             <li>
-              <a href="#">Kazanım Raporları</a>
+              <a href="javascript:;">Kazanım Raporları</a>
             </li>
           </ul>
         </div>
       </li>
       <li class="sidebar-dropdown">
-        <a href="#">
+        <a href="javascript:;">
           <i class="fas fa-shopping-cart"></i>
           <span>Ürün Yönetimi</span>
         </a>
         <div class="sidebar-submenu">
           <ul>
             <li>
-              <a href="#">Ürün Kategorileri</a>
+              <a href="javascript:;">Ürün Kategorileri</a>
             </li>
             <li>
-              <a href="#">Ürün Özellik Paneli</a>
+              <a href="javascript:;">Ürün Özellik Paneli</a>
             </li>
             <li>
-              <a href="#">Ürünlerim</a>
+              <a href="javascript:;">Ürünlerim</a>
             </li>
             <li>
-              <a href="#">Stok Takip Sistemi</a>
+              <a href="javascript:;">Stok Takip Sistemi</a>
             </li>
           </ul>
         </div>
       </li>
       <li>
-        <a href="#">
+        <a href="javascript:;">
           <i class="fas fa-life-ring"></i>
           <span>Müşteri Destek</span>
         </a>
@@ -115,7 +115,7 @@
         <span>Teknik İşlemler</span>
       </li>
       <li>
-        <a href="#">
+        <a href="javascript:;">
           <i class="fas fa-mail-bulk"></i>
           <span>E-Bülten Paneli</span>
         </a>
@@ -133,105 +133,105 @@
         <span>General</span>
       </li>
       <li class="sidebar-dropdown active">
-        <a href="#">
+        <a href="javascript:;">
           <i class="fa fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
         <div class="sidebar-submenu" style="display:block;">
           <ul>
             <li>
-              <a href="#">Dashboard 1
+              <a href="javascript:;">Dashboard 1
               </a>
             </li>
             <li>
-              <a href="#">Dashboard 2</a>
+              <a href="javascript:;">Dashboard 2</a>
             </li>
             <li>
-              <a href="#">Dashboard 3</a>
+              <a href="javascript:;">Dashboard 3</a>
             </li>
           </ul>
         </div>
       </li>
       <li class="sidebar-dropdown">
-        <a href="#">
+        <a href="javascript:;">
           <i class="fa fa-shopping-cart"></i>
           <span>E-commerce</span>
         </a>
         <div class="sidebar-submenu">
           <ul>
             <li>
-              <a href="#">Products
+              <a href="javascript:;">Products
 
               </a>
             </li>
             <li>
-              <a href="#">Orders</a>
+              <a href="javascript:;">Orders</a>
             </li>
             <li>
-              <a href="#">Credit cart</a>
+              <a href="javascript:;">Credit cart</a>
             </li>
           </ul>
         </div>
       </li>
       <li class="sidebar-dropdown">
-        <a href="#">
+        <a href="javascript:;">
           <i class="far fa-gem"></i>
           <span>Components</span>
         </a>
         <div class="sidebar-submenu">
           <ul>
             <li>
-              <a href="#">General</a>
+              <a href="javascript:;">General</a>
             </li>
             <li>
-              <a href="#">Panels</a>
+              <a href="javascript:;">Panels</a>
             </li>
             <li>
-              <a href="#">Tables</a>
+              <a href="javascript:;">Tables</a>
             </li>
             <li>
-              <a href="#">Icons</a>
+              <a href="javascript:;">Icons</a>
             </li>
             <li>
-              <a href="#">Forms</a>
+              <a href="javascript:;">Forms</a>
             </li>
           </ul>
         </div>
       </li>
       <li class="sidebar-dropdown">
-        <a href="#">
+        <a href="javascript:;">
           <i class="fa fa-chart-line"></i>
           <span>Charts</span>
         </a>
         <div class="sidebar-submenu">
           <ul>
             <li>
-              <a href="#">Pie chart</a>
+              <a href="javascript:;">Pie chart</a>
             </li>
             <li>
-              <a href="#">Line chart</a>
+              <a href="javascript:;">Line chart</a>
             </li>
             <li>
-              <a href="#">Bar chart</a>
+              <a href="javascript:;">Bar chart</a>
             </li>
             <li>
-              <a href="#">Histogram</a>
+              <a href="javascript:;">Histogram</a>
             </li>
           </ul>
         </div>
       </li>
       <li class="sidebar-dropdown">
-        <a href="#">
+        <a href="javascript:;">
           <i class="fa fa-globe"></i>
           <span>Maps</span>
         </a>
         <div class="sidebar-submenu">
           <ul>
             <li>
-              <a href="#">Google maps</a>
+              <a href="javascript:;">Google maps</a>
             </li>
             <li>
-              <a href="#">Open street map</a>
+              <a href="javascript:;">Open street map</a>
             </li>
           </ul>
         </div>
@@ -240,20 +240,20 @@
         <span>Extra</span>
       </li>
       <li>
-        <a href="#">
+        <a href="javascript:;">
           <i class="fa fa-book"></i>
           <span>Documentation</span>
           <span class="badge badge-pill badge-primary">Beta</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="javascript:;">
           <i class="fa fa-calendar"></i>
           <span>Calendar</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="javascript:;">
           <i class="fa fa-folder"></i>
           <span>Examples</span>
         </a>
@@ -265,15 +265,15 @@
 </div>
 <!-- sidebar-content  -->
 <div class="sidebar-footer">
-  <a href="#">
+  <a href="javascript:;">
     <i class="fa fa-bell"></i>
     <span class="badge badge-pill badge-warning notification">3</span>
   </a>
-  <a href="#">
+  <a href="javascript:;">
     <i class="fa fa-envelope"></i>
     <span class="badge badge-pill badge-success notification">7</span>
   </a>
-  <a href="#">
+  <a href="javascript:;">
     <i class="fa fa-cog"></i>
     <span class="badge-sonar"></span>
   </a>
