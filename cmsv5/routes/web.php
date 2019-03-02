@@ -11,15 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages/index');
-});
+Route::get('/', 'VisitorNav@index');
 
-Route::get('/ajan', function () {
-  if(Cookie::get('ajanlogin')) return view('admin/index');
-  else return view('admin/login');
-});
-
+Route::get('/ajan', 'AdminAuth@mainload');
 Route::post('/ajan/loginsubmit', 'AdminAuth@submit');
 Route::get('/ajan/logout', 'AdminAuth@logout');
 

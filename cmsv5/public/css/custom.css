@@ -1,0 +1,110 @@
+.content-wrap {
+	position: relative;
+	padding:0;
+}
+
+
+.justify-text{ text-align: justify;}
+
+.revo-slider-emphasis-text {
+font-size: 58px;
+font-weight: 700;
+letter-spacing: 1px;
+font-family: 'Raleway', sans-serif;
+padding: 15px 20px;
+border-top: 2px solid #FFF;
+border-bottom: 2px solid #FFF;
+}
+
+.revo-slider-desc-text {
+font-size: 20px;
+font-family: 'Lato', sans-serif;
+width: 650px;
+text-align: center;
+line-height: 1.5;
+}
+
+.revo-slider-caps-text {
+font-size: 16px;
+font-weight: 400;
+letter-spacing: 3px;
+font-family: 'Raleway', sans-serif;
+}
+
+.tp-video-play-button { display: none !important; }
+
+.tp-caption { white-space: nowrap; }
+
+/* Outline Out */
+.hvr-outline-out {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(227, 81, 31, 1);
+  position: relative;
+}
+.hvr-outline-out:before {
+  content: '';
+  position: absolute;
+  border: #e1e1e1 solid 2px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: top, right, bottom, left;
+  transition-property: top, right, bottom, left;
+}
+
+.hvr-outline-out:after {  border: #e3511f solid 2px;}
+.hvr-outline-out:hover:before, .hvr-outline-out:focus:before, .hvr-outline-out:active:before {
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+}
+
+
+/* CSS for Credit Card Payment form */
+.credit-card-box .panel-title {
+    display: inline;
+    font-weight: bold;
+}
+.credit-card-box .form-control.error {
+    border-color: red;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
+}
+.credit-card-box label.error {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.credit-card-box .payment-errors {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.credit-card-box label {
+    display: block;
+}
+/* The old "center div vertically" hack */
+.credit-card-box .display-table {
+    display: table;
+}
+.credit-card-box .display-tr {
+    display: table-row;
+}
+.credit-card-box .display-td {
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+}
+/* Just looks nicer */
+.credit-card-box .panel-heading img {
+    min-width: 180px;
+}

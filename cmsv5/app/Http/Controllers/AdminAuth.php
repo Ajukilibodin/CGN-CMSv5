@@ -8,6 +8,13 @@ use App\AdminLogin;
 
 class AdminAuth extends Controller
 {
+    public function mainload()
+    {
+        if(\Cookie::get('ajanlogin'))
+          return view('admin/index');
+        else return view('admin/login');
+    }
+
     public function submit(Request $request)
     {
       $rules = [
