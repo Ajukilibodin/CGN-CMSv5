@@ -20,6 +20,8 @@ Route::get('/checkout', 'VisitorNav@checkout');
 Route::get('/category', 'VisitorNav@category');
 Route::get('/page', 'VisitorNav@page');
 Route::get('/profile', 'VisitorNav@profile');
+Route::get('/products', 'VisitorNav@products');
+Route::get('/product', 'VisitorNav@product');
 
 Route::get('/ajan', 'AdminAuth@mainload');
 Route::post('/ajan/loginsubmit', 'AdminAuth@submit');

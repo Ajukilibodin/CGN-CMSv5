@@ -51,7 +51,7 @@
       <div id="top-account" class="dropdown">
         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-          <li><a href="profile.php">Profilim</a></li>
+          <li><a href="/profile">Profilim</a></li>
           <li><a href="#">Mesajlarım <span class="badge">5</span></a></li>
           <li><a href="#">Takip Listem</a></li>
           <li><a href="#">Siparişlerim</a></li>

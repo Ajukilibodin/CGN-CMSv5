@@ -8,8 +8,8 @@
       <div class="oc-item">
         <div class="product clearfix">
         <div class="product-image">
-        <a href="product.php"><img src="img/demo/t/8.jpg" alt="Erkek Tshirt"></a>
-        <a href="product.php"><img src="img/demo/t/2.jpg" alt="Erkek Tshirt"></a>
+        <a href="/product"><img src="img/demo/t/8.jpg" alt="Erkek Tshirt"></a>
+        <a href="/product"><img src="img/demo/t/2.jpg" alt="Erkek Tshirt"></a>
         <div class="sale-flash">İNDİRİM</div>
         <div class="product-overlay">
         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Sepete Ekle</span></a>
@@ -26,8 +26,8 @@
       <div class="oc-item">
         <div class="product clearfix">
         <div class="product-image">
-        <a href="product.php"><img src="img/demo/t/2.jpg" alt="Erkek Tshirt"></a>
-        <a href="product.php"><img src="img/demo/t/8.jpg" alt="Erkek Tshirt"></a>
+        <a href="/product"><img src="img/demo/t/2.jpg" alt="Erkek Tshirt"></a>
+        <a href="/product"><img src="img/demo/t/8.jpg" alt="Erkek Tshirt"></a>
         <div class="sale-flash">İNDİRİM</div>
         <div class="product-overlay">
         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Sepete Ekle</span></a>
@@ -44,8 +44,8 @@
       <div class="oc-item">
         <div class="product clearfix">
         <div class="product-image">
-        <a href="product.php"><img src="img/demo/t/8.jpg" alt="Erkek Tshirt"></a>
-        <a href="product.php"><img src="img/demo/t/2.jpg" alt="Erkek Tshirt"></a>
+        <a href="/product"><img src="img/demo/t/8.jpg" alt="Erkek Tshirt"></a>
+        <a href="/product"><img src="img/demo/t/2.jpg" alt="Erkek Tshirt"></a>
         <div class="sale-flash">İNDİRİM</div>
         <div class="product-overlay">
         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Sepete Ekle</span></a>
@@ -62,8 +62,8 @@
       <div class="oc-item">
         <div class="product clearfix">
         <div class="product-image">
-        <a href="product.php"><img src="img/demo/t/2.jpg" alt="Erkek Tshirt"></a>
-        <a href="product.php"><img src="img/demo/t/8.jpg" alt="Erkek Tshirt"></a>
+        <a href="/product"><img src="img/demo/t/2.jpg" alt="Erkek Tshirt"></a>
+        <a href="/product"><img src="img/demo/t/8.jpg" alt="Erkek Tshirt"></a>
         <div class="sale-flash">İNDİRİM</div>
         <div class="product-overlay">
         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Sepete Ekle</span></a>
@@ -80,8 +80,8 @@
       <div class="oc-item">
         <div class="product clearfix">
         <div class="product-image">
-        <a href="product.php"><img src="img/demo/t/8.jpg" alt="Erkek Tshirt"></a>
-        <a href="product.php"><img src="img/demo/t/2.jpg" alt="Erkek Tshirt"></a>
+        <a href="/product"><img src="img/demo/t/8.jpg" alt="Erkek Tshirt"></a>
+        <a href="/product"><img src="img/demo/t/2.jpg" alt="Erkek Tshirt"></a>
         <div class="sale-flash">İNDİRİM</div>
         <div class="product-overlay">
         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Sepete Ekle</span></a>
@@ -98,8 +98,8 @@
       <div class="oc-item">
         <div class="product clearfix">
         <div class="product-image">
-        <a href="product.php"><img src="img/demo/t/2.jpg" alt="Erkek Tshirt"></a>
-        <a href="product.php"><img src="img/demo/t/8.jpg" alt="Erkek Tshirt"></a>
+        <a href="/product"><img src="img/demo/t/2.jpg" alt="Erkek Tshirt"></a>
+        <a href="/product"><img src="img/demo/t/8.jpg" alt="Erkek Tshirt"></a>
         <div class="sale-flash">İNDİRİM</div>
         <div class="product-overlay">
         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Sepete Ekle</span></a>

@@ -40,13 +40,13 @@
 								<h4>KURUMSAL</h4>
 
 								<ul>
-									<li><a href="page.php">Hakkımızda</a></li>
-									<li><a href="page.php">Kullanıcı Sözleşmesi</a></li>
-									<li><a href="page.php">Gizlilik Bildirimi</a></li>
-									<li><a href="page.php">İade ve Değişim</a></li>
-									<li><a href="page.php">Site Güvenliği</a></li>
-									<li><a href="page.php">Garanti Şartları</a></li>
-									<li><a href="page.php">Sıkça Sorulan Sorular</a></li>
+									<li><a href="/page">Hakkımızda</a></li>
+									<li><a href="/page">Kullanıcı Sözleşmesi</a></li>
+									<li><a href="/page">Gizlilik Bildirimi</a></li>
+									<li><a href="/page">İade ve Değişim</a></li>
+									<li><a href="/page">Site Güvenliği</a></li>
+									<li><a href="/page">Garanti Şartları</a></li>
+									<li><a href="/page">Sıkça Sorulan Sorular</a></li>
 								</ul>
 
 							</div>
