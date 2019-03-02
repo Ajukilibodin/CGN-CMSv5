@@ -14,6 +14,10 @@ class VisitorNav extends Controller
       return view('pages/login-register');
     }
 
+    public function cart(){
+      return view('pages/cart');
+    }
+
     public function f_login(Request $request){
       return view('pages/login-register');
     }

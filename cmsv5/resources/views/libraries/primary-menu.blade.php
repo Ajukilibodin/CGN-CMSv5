@@ -134,7 +134,6 @@
 <div class="top-cart-action clearfix">
 <span class="fleft top-checkout-price">44.98 tl</span>
 <button class="button button-3d button-small nomargin fright" onclick="sepetegit();">SEPETE GİT</button>
-<script type="text/javascript">function sepetegit() { window.location.href = "cart.php"; }</script>
 </div>
 </div>
 </div>

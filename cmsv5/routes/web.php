@@ -15,6 +15,7 @@ Route::get('/', 'VisitorNav@index');
 Route::get('/login', 'VisitorNav@login');
 Route::post('/login/login', 'VisitorNav@f_login');
 Route::post('/login/register', 'VisitorNav@f_register');
+Route::get('/cart', 'VisitorNav@cart');
 
 Route::get('/ajan', 'AdminAuth@mainload');
 Route::post('/ajan/loginsubmit', 'AdminAuth@submit');
