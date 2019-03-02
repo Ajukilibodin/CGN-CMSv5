@@ -58,7 +58,7 @@
     <a href="#" class="button button-3d nomargin fright">SEPETİ GÜNCELLE</a>
 </td>
 <td>
-    <a href="checkout.php" class="button button-3d notopmargin fright">SİPARİŞİ TAMAMLA >> </a>
+    <a href="/checkout" class="button button-3d notopmargin fright">SİPARİŞİ TAMAMLA >> </a>
 </td>
 </tr>
 </tbody>

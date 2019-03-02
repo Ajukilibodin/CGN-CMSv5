@@ -9,5 +9,7 @@ function sepetegit() {
  }
 </script>
 @if(Request::is('/'))
-  @include('libraries.index.index-js')
+  @include('libraries.footer.pagebased.index-js')
+@elseif(Request::is('checkout'))
+  @include('libraries.footer.pagebased.checkout-page-js')
 @endif
