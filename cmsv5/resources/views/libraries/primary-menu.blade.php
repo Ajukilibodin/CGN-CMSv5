@@ -98,7 +98,7 @@
 
 <li><a href="/category"><div>SPORLAR</div></a></li>
 <li><a href="#"><div>İNDİRİM</div></a></li>
-<li><a href="page.php"><div>BLOG</div></a></li>
+<li><a href="/page"><div>BLOG</div></a></li>
 <li><a href="#"><div>İLETİŞİM</div></a></li>
 </ul>
 
