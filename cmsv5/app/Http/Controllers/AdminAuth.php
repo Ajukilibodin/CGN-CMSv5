@@ -25,7 +25,6 @@ class AdminAuth extends Controller
       $password = $request->input('password');
 
       $getUser = AdminLogin::where('Username', $username)->first();
-      //$flight = AdminLogin::create(['Username' => 'cgn', 'Password' => \Hash::make('123')]);
 
       if( \Hash::check($password ,$getUser->Password) ){
         \Cookie::queue(\Cookie::make('ajanlogin', $username, 24*60)); //60 minute * 24 hour = 1 day
