@@ -26,7 +26,7 @@
               <li><a href="#"><img src="images/icons/flags/german.png" alt="German"> DE</a></li>
             </ul>
           </li>
-          <li><a href="login-register.php">Yeni Üye</a></li>
+          <li><a href="/login">Yeni Üye</a></li>
           <li><a href="#">Giriş</a>
             <div class="top-link-section">
               <form id="top-login" role="form">
