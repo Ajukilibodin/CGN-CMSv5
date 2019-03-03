@@ -22,6 +22,7 @@ Route::get('/page', 'VisitorNav@page');
 Route::get('/profile', 'VisitorNav@profile');
 Route::get('/products', 'VisitorNav@products');
 Route::get('/product', 'VisitorNav@product');
+Route::get('/orderdetail', 'VisitorNav@orderdetail');
 
 Route::get('/ajan', 'AdminAuth@mainload');
 Route::post('/ajan/loginsubmit', 'AdminAuth@submit');

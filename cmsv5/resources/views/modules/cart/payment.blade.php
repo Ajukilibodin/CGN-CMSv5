@@ -61,5 +61,5 @@ IBAN NO : TR04 0006 2001 6050 0006 2997 58
 <p>Kapıda ödeme seçenekli alışverişleriniz de adres bilgilerinizi ve telefon bilgilerinizi eksiksiz girmeniz gerekmektedir. Telefon ile müşteri temsilcilerimiz tarafından gün içerisinde teyid alınmaktadır. Telefon bilgileri eksik yanlış veya farklı girilmesi dahilinde siparişiniz iptal edilerek gönderilmeyecektir.</p>
     </div>
   </div>
-  <a href="#" class="button button-3d fright">ÖDEMEYİ GERÇEKLEŞTİR</a>
+  <a href="/orderdetail" class="button button-3d fright">ÖDEMEYİ GERÇEKLEŞTİR</a>
 </div>
