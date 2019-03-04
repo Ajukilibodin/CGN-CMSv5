@@ -58,7 +58,50 @@ class VisitorNav extends Controller
     }
 
     public function f_register(Request $request){
-      return view('pages/login-register');
+      if(\Cookie::get('customerlogin'))
+        return redirect("/");
+      else{
+        $rules = [
+          'register-form-name' => 'required|max:255',
+          'register-form-lname' => 'required|max:255',
+          'register-form-email' => 'required|email',
+          'register-form-password' => 'required|max:100',
+          'register-form-repassword' => 'required|max:100',
+          'read-contract' => 'required'
+        ];
+
+        $this->validate($request, $rules);
+
+        $name = $request->input('register-form-name');
+        $lname = $request->input('register-form-lname');
+        $email = $request->input('register-form-email');
+        $phone = $request->input('register-form-phone');
+        $password = $request->input('register-form-password');
+        $repassword = $request->input('register-form-repassword');
+        if($request->input('read-contract')) $readcontract = true;
+        else $readcontract = false;
+        if($request->input('want-mail-subscribe')) $mailsub = true;
+        else $mailsub = false;
+
+        if(!$readcontract)
+          return back()->with('error', 'Üyelik sözleşmesini kabul etmeden üye olamazsınız.');
+
+        if($password != $repassword)
+          return back()->with('error', 'Şifreler birbirine uyuşmuyor.');
+
+        $newcustomer = new \App\Customer;
+        $newcustomer->Name = $name;
+        $newcustomer->Surname = $lname;
+        $newcustomer->Email = $email;
+        $newcustomer->Phone = $phone;
+        $newcustomer->Password = \Hash::make($password);
+        $newcustomer->MailSub = $mailsub;
+        $newcustomer->save();
+
+        // TODO: Burada üye olma maili gönderecek, mail onaylanırsa üye sistemde olacak
+
+        return redirect('/')->with('welcomemessage', 'Hoşgeldin '.$name );
+      }
     }
 
     public function profile(Request $request){
