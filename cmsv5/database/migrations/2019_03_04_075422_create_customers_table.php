@@ -22,6 +22,7 @@ class CreateCustomersTable extends Migration
             $table->char('Password', 70);
             $table->char('Phone', 11)->nullable();
             $table->text('WishList')->nullable();//->default(json([]));
+            $table->boolean('MailSub')->default(false);
             $table->dateTime('LastLogin')->nullable();
             $table->timestamps();
         });

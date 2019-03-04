@@ -22,9 +22,9 @@ class AdminAuth extends Controller
         'password' => 'required'
       ];
 
-      $customMessages = [
+      /*$customMessages = [
         'required' => ':attribute alanını doldurunuz.'
-      ];
+      ];*/
 
       $this->validate($request, $rules, $customMessages);
 

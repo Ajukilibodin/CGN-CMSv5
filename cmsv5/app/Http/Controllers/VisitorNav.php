@@ -33,11 +33,7 @@ class VisitorNav extends Controller
           'login-form-password' => 'required'
         ];
 
-        $customMessages = [
-          'required' => 'Zorunlu alanı doldurunuz.'
-        ];
-
-        $this->validate($request, $rules, $customMessages);
+        $this->validate($request, $rules);
 
         $username = $request->input('login-form-username');
         $password = $request->input('login-form-password');
@@ -46,13 +42,14 @@ class VisitorNav extends Controller
         $getUser = Customer::where('Email', $username);
 
         if( $getUser->count() > 0 && \Hash::check($password ,$getUser->first()->Password) ){
+          $getUser = $getUser->first();
           $cookietime = 60*24; //60 min * 24 hour = 1 day
           if($remember) $cookietime *= 30; //30 day
-          \Cookie::queue(\Cookie::make('customerlogin', $getUser->first()->id, $cookietime));
-          \Cookie::queue(\Cookie::make('customername', $getUser->first()->Name, $cookietime));
-          $getUser->first()->LastLogin = \Carbon\Carbon::now();
-          $getUser->first()->save();
-          return back()->with('welcomemessage', 'Hoşgeldin '.$getUser->first()->Name );
+          \Cookie::queue(\Cookie::make('customerlogin', $getUser->id, $cookietime));
+          \Cookie::queue(\Cookie::make('customername', $getUser->Name, $cookietime));
+          $getUser->LastLogin = \Carbon\Carbon::now();
+          $getUser->save();
+          return back()->with('welcomemessage', 'Hoşgeldin '.$getUser->Name );
         }
         else{
           return back()->with('error', 'Yanlış Kullanıcı Bilgileri');
@@ -64,11 +61,49 @@ class VisitorNav extends Controller
       return view('pages/login-register');
     }
 
-    public function profile(){
+    public function profile(Request $request){
       if( !\Cookie::get('customerlogin') )
         return redirect('/');
       else{
         return view('pages/profile');
+      }
+    }
+
+    public function profile_update(Request $request){
+      if( !\Cookie::get('customerlogin') )
+        return redirect('/');
+      else{
+        $rules = [
+          'userinfo-form-name' => 'required|max:255',
+          'userinfo-form-lname' => 'required|max:255',
+          'userinfo-form-email' => 'required|email'
+        ];
+
+        $this->validate($request, $rules);
+
+        $name = $request->input('userinfo-form-name');
+        $lname = $request->input('userinfo-form-lname');
+        $email = $request->input('userinfo-form-email');
+        $phone = $request->input('userinfo-form-phone');
+        if($request->input('mail-subscribe')) $mailsub = true;
+        else $mailsub = false;
+
+        $getUser = Customer::where('id', \Cookie::get('customerlogin'));
+
+        if($getUser->count() > 0)
+        {
+          $getUser = $getUser->first();
+          $getUser->Name = $name;
+          $getUser->Surname = $lname;
+          $getUser->Email = $email;
+          $getUser->Phone = $phone;
+          $getUser->MailSub = $mailsub;
+          $getUser->save();
+          return back()->with('success', 'Üyelik bilgileriniz güncellenmiştir.');
+        }
+        else{
+          return back()->with('error', 'Giriş yapan kullanıcı sistemde bulunamadı!');
+        }
       }
     }
 
