@@ -26,17 +26,19 @@
               <li><a href="#"><img src="images/icons/flags/german.png" alt="German"> DE</a></li>
             </ul>
           </li>
+          @if( !\Cookie::get('customerlogin') )
           <li><a href="/login">Yeni Üye</a></li>
           <li><a href="#">Giriş</a>
             <div class="top-link-section">
-              <form id="top-login" role="form">
+              <form id="top-login" role="form" method="post" action="/login/login">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="input-group" id="top-login-username">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
-                  <input type="email" class="form-control" placeholder="Email" required="">
+                  <input name="login-form-username" type="email" class="form-control" placeholder="Email" required="">
                 </div>
                 <div class="input-group" id="top-login-password">
                   <span class="input-group-addon"><i class="icon-key"></i></span>
-                  <input type="password" class="form-control" placeholder="Şifre" required="">
+                  <input name="login-form-password" type="password" class="form-control" placeholder="Şifre" required="">
                 </div>
                 <label class="checkbox">
                   <input type="checkbox" value="remember-me"> Hatırla
@@ -46,8 +48,12 @@
               </form>
             </div>
           </li>
+          @else
+          <li>Hoşgeldin {{\Cookie::get('customername')}}</li>
+          @endif
         </ul>
       </div>
+      @if( \Cookie::get('customerlogin') )
       <div id="top-account" class="dropdown">
         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
@@ -56,9 +62,10 @@
           <li><a href="#">Takip Listem</a></li>
           <li><a href="#">Siparişlerim</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="#">Çıkış <i class="icon-signout"></i></a></li>
+          <li><a href="/logout">Çıkış <i class="icon-signout"></i></a></li>
         </ul>
       </div>
+      @endif
     </div>
   </div>
 </div>

@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', 'VisitorNav@index');
+Route::get('/', 'VisitorNav@index')->name('index');
 Route::get('/login', 'VisitorNav@login');
+Route::get('/logout', 'VisitorNav@logout');
 Route::post('/login/login', 'VisitorNav@f_login');
 Route::post('/login/register', 'VisitorNav@f_register');
 Route::get('/cart', 'VisitorNav@cart');

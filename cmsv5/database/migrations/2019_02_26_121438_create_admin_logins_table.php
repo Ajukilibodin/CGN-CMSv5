@@ -13,12 +13,19 @@ class CreateAdminLoginsTable extends Migration
      */
     public function up()
     {
+        $datenow = \Carbon\Carbon::now();
         Schema::create('cmsv5_adminlogins', function (Blueprint $table) {
             $table->increments('id');
             $table->string('Username');
-            $table->string('Password');
+            $table->char('Password',70);
             $table->dateTime('LastLogin')->nullable();
         });
+
+        \App\AdminLogin::create([
+          'Username' => 'cgn',
+          'Password' => \Hash::make('123'),
+          'LastLogin' => $datenow
+        ]);
     }
 
     /**

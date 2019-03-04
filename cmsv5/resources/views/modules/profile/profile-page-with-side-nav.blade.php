@@ -3,14 +3,14 @@
 <div id="snav-content1">
 <h3>ÜYELİK BİLGİLERİM</h3>
 
-<?php 	include("include/ui-modules/get-member-info.php");	?>
+@include("modules.profile.get-member-info")
 
 </div>
 
 <div id="snav-content2">
 <h3>ADRES BİLGİLERİM</h3>
 
-<?php 	include("include/ui-modules/get-member-address-info.php");	?>
+@include("modules.profile.get-member-address-info")
 
 </div>
 
@@ -64,5 +64,11 @@ Siparişimi iptal etmek / değiştirmek istiyorum. Nasıl yapabilirim?</br>
 Detaylı bilgi için buraya tıklayabilirsiniz.</br>
 </div>
 
+<div id="snav-content7">
+<h3>GÜVENLİ ÇIKIŞ</h3>
+
+<a href="/logout" class="button button-3d fright">GÜVENLİ ÇIKIŞ</a>
+
+</div>
 
 </div>

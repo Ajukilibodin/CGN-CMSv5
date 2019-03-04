@@ -31,10 +31,12 @@ class AdminAuth extends Controller
       $username = $request->input('username');
       $password = $request->input('password');
 
-      $getUser = AdminLogin::where('Username', $username)->first();
+      $getUser = AdminLogin::where('Username', $username);
 
-      if( \Hash::check($password ,$getUser->Password) ){
+      if( $getUser->count() > 0 && \Hash::check($password ,$getUser->first()->Password) ){
         \Cookie::queue(\Cookie::make('ajanlogin', $username, 24*60)); //60 minute * 24 hour = 1 day
+        $getUser->first()->LastLogin = \Carbon\Carbon::now();
+        $getUser->first()->save();
         return back();
       }
       else{

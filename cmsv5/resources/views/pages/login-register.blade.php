@@ -7,7 +7,9 @@
       <div class="col_one_third nobottommargin">
         <div class="well well-lg nobottommargin">
           <form id="login-form" name="login-form" class="nobottommargin" action="/login/login" method="post">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <h3>Hesabınıza Giriş Yapın</h3>
+            @include('libraries.errorpopper')
             <div class="col_full">
               <label for="login-form-username">Email:</label>
               <input type="text" id="login-form-username" name="login-form-username" value="" class="form-control" />
@@ -60,10 +62,10 @@
           <div class="clear"></div>
           <div class="col_two_third">
             <label class="checkbox">
-              <input type="checkbox" value="remember-me"> 	<a href="#"> Üyelik sözleşmesini </a>okudum onaylıyorum.
+              <input type="checkbox" value="read-contract"> 	<a href="#"> Üyelik sözleşmesini </a>okudum onaylıyorum.
             </label>
             <label class="checkbox">
-              <input type="checkbox" value="remember-me"> Kampanyalar ile ilgili eposta mesajları almak istiyorum.
+              <input type="checkbox" value="want-mail-subscribe"> Kampanyalar ile ilgili eposta mesajları almak istiyorum.
             </label>
           </div>
           <div class="col_one_third col_last">

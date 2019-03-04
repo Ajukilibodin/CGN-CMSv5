@@ -9,7 +9,7 @@
 <li><a href="#snav-content4">TAKİP LİSTEM<i class="icon-chevron-right"></i></a></li>
 <li><a href="#snav-content5">MESAJLARIM<i class="icon-chevron-right"></i></a></li>
 <li><a href="#snav-content6">ŞİFRE DEĞİŞTİRME<i class="icon-chevron-right"></i></a></li>
-<li><a href="LOGOUT:PHP">GÜVENLİ ÇIKIŞ<i class="icon-chevron-right"></i></a></li>
+<li><a href="#snav-content7">GÜVENLİ ÇIKIŞ<i class="icon-chevron-right"></i></a></li>
 </ul>
 
 </div>

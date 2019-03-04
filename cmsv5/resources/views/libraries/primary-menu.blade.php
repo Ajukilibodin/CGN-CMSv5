@@ -2,7 +2,7 @@
 <nav id="primary-menu">
 
 <ul>
-<li class="current"><a href="index.php"><div>ANA SAYFA</div></a>	</li>
+<li class="current"><a href="/"><div>ANA SAYFA</div></a>	</li>
 
 <!-- Mega Menu	============================================= -->
 
