@@ -14,6 +14,14 @@ class VisitorNav extends Controller
       return view('pages/login-register');
     }
 
+    public function f_login(Request $request){
+      return view('pages/login-register');
+    }
+
+    public function f_register(Request $request){
+      return view('pages/login-register');
+    }
+
     public function cart(){
       return view('pages/cart');
     }
@@ -44,13 +52,5 @@ class VisitorNav extends Controller
 
     public function orderdetail(){
       return view('pages/order-detail');
-    }
-
-    public function f_login(Request $request){
-      return view('pages/login-register');
-    }
-
-    public function f_register(Request $request){
-      return view('pages/login-register');
     }
 }
