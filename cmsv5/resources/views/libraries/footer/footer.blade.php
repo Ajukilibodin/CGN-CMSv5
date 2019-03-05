@@ -5,9 +5,9 @@
       <div class="col-md-3">
         <div class="widget widget_links clearfix">
           <ul>
-          <li><a href="">(90) 212 123 45 67</a></li>
-          <li><a href="">(90) 532 123 45 67</a></li>
-          <li><a href=""> bilgi@wsa.com.tr</a></li>
+          <li><a href="">{{$_SITEVALUES[3]->Value}}</a></li>
+          <li><a href="">{{$_SITEVALUES[4]->Value}}</a></li>
+          <li><a href="">{{$_SITEVALUES[2]->Value}}</a></li>
           </ul>
         </div>
       </div>

@@ -2,11 +2,11 @@
 <div id="top-bar" class="hidden-xs">
   <div class="container clearfix">
     <div class="col-md-4 fleft nobottommargin">
-      <p class="nobottommargin"> 232 123 45 67 | bilgi@wsa.com.tr</p>
+      <p class="nobottommargin"> {{$_SITEVALUES[3]->Value}} | {{$_SITEVALUES[2]->Value}}</p>
     </div>
     <div class="col-md-4 nobottommargin">
       <div class="slideInRight animated" alt="" title="" data-animate="slideInRight">
-        Your slide-in text goes here
+        {{$_SITEVALUES[0]->Value}}
       </div>
     </div>
     <div class="col-md-4 col_last fright nobottommargin">

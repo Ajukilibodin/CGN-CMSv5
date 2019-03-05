@@ -16,17 +16,17 @@
 
 								<img src="images/footer-widget-logo.png" alt="" class="footer-logo">
 
-								<p>Sizin için <strong>yaz</strong>  &amp;  <strong>kış</strong><strong>macera</strong> ürünleri tasarlıyoruz.</p>
+								<p>Sizin için <strong>yaz</strong>  &amp;  <strong>kış</strong> <strong>macera</strong> ürünleri tasarlıyoruz.</p>
 
 								<div>
 									<address>
 										<strong>Merkezimiz:</strong><br>
-										Sahil caddesi No:20<br>
-										Kadıköy, İSTANBUL<br>
+										{{$_SITEVALUES[5]->Value}}<br>
+										{{$_SITEVALUES[6]->Value}}<br>
 									</address>
-									<abbr title="Phone Number"><strong>Tel:</strong></abbr> (90) 212 123 45 67<br>
-									<abbr title="Fax"><strong>Mobil:</strong></abbr> (90) 212 123 45 67<br>
-									<abbr title="Email Address"><strong>Email:</strong></abbr> bilgi@wsa.com.tr
+									<abbr title="Phone Number"><strong>Tel:</strong></abbr> {{$_SITEVALUES[3]->Value}}<br>
+									<abbr title="Mobile Phone Number"><strong>Mobil:</strong></abbr> {{$_SITEVALUES[4]->Value}}<br>
+									<abbr title="Email Address"><strong>Email:</strong></abbr> {{$_SITEVALUES[2]->Value}}
 								</div>
 
 							</div>

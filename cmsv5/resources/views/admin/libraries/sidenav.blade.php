@@ -281,9 +281,9 @@
 </div>
 <!-- sidebar-content  -->
 <div class="sidebar-footer">
-  <a href="javascript:;">
-    <i class="fa fa-bell"></i>
-    <span class="badge badge-pill badge-warning notification">3</span>
+  <a href="/">
+    <i class="fas fa-globe"></i>
+    <!-- <span class="badge badge-pill badge-warning notification">3</span> -->
   </a>
   <a href="javascript:;">
     <i class="fa fa-envelope"></i>
