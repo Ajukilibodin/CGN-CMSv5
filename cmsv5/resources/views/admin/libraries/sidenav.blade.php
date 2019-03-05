@@ -20,12 +20,20 @@
           <span>Ana Sayfa</span>
         </a>
       </li>
+      @if( Request::is('ajan/sitesettings') )
+      <li class="sidebar-dropdown active">
+      @else
       <li class="sidebar-dropdown"> <!-- class+= active -->
+      @endif
         <a href="javascript:;">
           <i class="fas fa-globe"></i>
           <span>Site Bilgileri</span>
         </a>
+        @if( Request::is('ajan/sitesettings') )
+        <div class="sidebar-submenu" style="display:block;">
+        @else
         <div class="sidebar-submenu"> <!-- style+= "display:block;" -->
+        @endif
           <ul>
             <li>
               <a href="/ajan/sitesettings">Site Düzenleyici</a>
@@ -64,15 +72,23 @@
       <li class="header-menu">
         <span>E-Ticaret</span>
       </li>
-      <li class="sidebar-dropdown">
+      @if( Request::is('ajan/customers') )
+      <li class="sidebar-dropdown active">
+      @else
+      <li class="sidebar-dropdown"> <!-- class+= active -->
+      @endif
         <a href="javascript:;">
           <i class="fas fa-user"></i>
           <span>Üyelik Yönetimi</span>
         </a>
-        <div class="sidebar-submenu">
+        @if( Request::is('ajan/customers') )
+        <div class="sidebar-submenu" style="display:block;">
+        @else
+        <div class="sidebar-submenu"> <!-- style+= "display:block;" -->
+        @endif
           <ul>
             <li>
-              <a href="javascript:;">Üye Kayıtları</a>
+              <a href="/ajan/customers">Üye Kayıtları</a>
             </li>
             <li>
               <a href="javascript:;">Üye Siparişleri</a>

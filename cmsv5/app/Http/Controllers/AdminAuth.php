@@ -26,7 +26,7 @@ class AdminAuth extends Controller
         'required' => ':attribute alanını doldurunuz.'
       ];*/
 
-      $this->validate($request, $rules, $customMessages);
+      $this->validate($request, $rules);
 
       $username = $request->input('username');
       $password = $request->input('password');

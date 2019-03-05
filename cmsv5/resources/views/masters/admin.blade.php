@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    @include('libraries.adminhead')
+    @include('admin.libraries.head')
   </head>
   <body>
     <div class="page-wrapper chiller-theme toggled">
       @if ( Cookie::get('ajanlogin') )
-      @include('libraries.adminsidenav')
+      @include('admin.libraries.sidenav')
       <main class="page-content">
         <div class="container-fluid">
         @yield('contenttitle')
@@ -27,6 +27,6 @@
       @endif
       <!-- page-content" -->
     </div>
-    @include('libraries.adminfooter')
+    @include('admin.libraries.footer')
   </body>
 </html>
