@@ -23,7 +23,7 @@
             <th scope="col">id</th>
             <th scope="col">Açıklama</th>
             <th scope="col">Değer</th>
-            <th scope="col">Kaydet</th>
+            <th scope="col" style="width: 70px;">Kaydet</th>
           </tr>
         </thead>
         <tbody>

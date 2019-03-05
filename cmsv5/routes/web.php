@@ -33,3 +33,5 @@ Route::get('/ajan/sitesettings', 'AdminSiteEdit@mainload');
 Route::post('/ajan/sitesettings/update/{w_id}', 'AdminSiteEdit@saveSetting');
 Route::get('/ajan/customers', 'AdminCustomerEdit@mainload');
 Route::get('/ajan/customers/delete/{w_id}', 'AdminCustomerEdit@deleteCustomer');
+Route::get('/ajan/menupage', 'Admin\MenuPage@mainload');
+Route::get('/ajan/menupage/{p_id}', 'Admin\MenuPage@pagesload');

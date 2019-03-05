@@ -20,7 +20,7 @@
           <span>Ana Sayfa</span>
         </a>
       </li>
-      @if( Request::is('ajan/sitesettings') )
+      @if( Request::is('ajan/sitesettings') or Request::is('ajan/menupage') or Request::is('ajan/menupage/*') )
       <li class="sidebar-dropdown active">
       @else
       <li class="sidebar-dropdown"> <!-- class+= active -->
@@ -29,7 +29,7 @@
           <i class="fas fa-globe"></i>
           <span>Site Bilgileri</span>
         </a>
-        @if( Request::is('ajan/sitesettings') )
+        @if( Request::is('ajan/sitesettings') or Request::is('ajan/menupage') or Request::is('ajan/menupage/*') )
         <div class="sidebar-submenu" style="display:block;">
         @else
         <div class="sidebar-submenu"> <!-- style+= "display:block;" -->
@@ -45,7 +45,7 @@
               <a href="javascript:;">Galeri</a>
             </li>
             <li>
-              <a href="javascript:;">Menü & Sayfa</a>
+              <a href="/ajan/menupage">Menü & Sayfa</a>
             </li>
           </ul>
         </div>

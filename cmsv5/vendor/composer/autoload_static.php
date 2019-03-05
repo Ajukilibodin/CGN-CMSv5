@@ -426,7 +426,7 @@ class ComposerStaticInit0c23a2f427f04edded77e1ef754097cf
     );
 
     public static $classMap = array (
-        'App\\AdminLogin' => __DIR__ . '/../..' . '/app/AdminLogin.php',
+        'App\\Admin\\AdminLogin' => __DIR__ . '/../..' . '/app/Admin/AdminLogin.php',
         'App\\Admin\\SiteValues' => __DIR__ . '/../..' . '/app/Admin/SiteValues.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Customer' => __DIR__ . '/../..' . '/app/Customer.php',
@@ -434,11 +434,6 @@ class ComposerStaticInit0c23a2f427f04edded77e1ef754097cf
         'App\\Http\\Controllers\\AdminAuth' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminAuth.php',
         'App\\Http\\Controllers\\AdminCustomerEdit' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminCustomerEdit.php',
         'App\\Http\\Controllers\\AdminSiteEdit' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminSiteEdit.php',
-        'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
-        'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
-        'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
-        'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
-        'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\VisitorNav' => __DIR__ . '/../..' . '/app/Http/Controllers/VisitorNav.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -454,7 +449,7 @@ class ComposerStaticInit0c23a2f427f04edded77e1ef754097cf
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\SitePage' => __DIR__ . '/../..' . '/app/SitePage.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',

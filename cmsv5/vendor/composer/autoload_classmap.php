@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\AdminLogin' => $baseDir . '/app/AdminLogin.php',
+    'App\\Admin\\AdminLogin' => $baseDir . '/app/Admin/AdminLogin.php',
     'App\\Admin\\SiteValues' => $baseDir . '/app/Admin/SiteValues.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Customer' => $baseDir . '/app/Customer.php',
@@ -14,11 +14,6 @@ return array(
     'App\\Http\\Controllers\\AdminAuth' => $baseDir . '/app/Http/Controllers/AdminAuth.php',
     'App\\Http\\Controllers\\AdminCustomerEdit' => $baseDir . '/app/Http/Controllers/AdminCustomerEdit.php',
     'App\\Http\\Controllers\\AdminSiteEdit' => $baseDir . '/app/Http/Controllers/AdminSiteEdit.php',
-    'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
-    'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
-    'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
-    'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
-    'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\VisitorNav' => $baseDir . '/app/Http/Controllers/VisitorNav.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
@@ -34,7 +29,7 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
-    'App\\User' => $baseDir . '/app/User.php',
+    'App\\SitePage' => $baseDir . '/app/SitePage.php',
     'BeyondCode\\DumpServer\\DumpServerCommand' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
     'BeyondCode\\DumpServer\\DumpServerServiceProvider' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
     'BeyondCode\\DumpServer\\Dumper' => $vendorDir . '/beyondcode/laravel-dump-server/src/Dumper.php',

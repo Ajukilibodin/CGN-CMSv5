@@ -46,7 +46,7 @@
             <th scope="col">id</th>
             <th scope="col">Ad Soyad</th>
             <th scope="col">Son Giriş</th>
-            <th scope="col">İşlem</th>
+            <th scope="col" style="width: 70px;">İşlem</th>
           </tr>
         </thead>
         <tbody>
