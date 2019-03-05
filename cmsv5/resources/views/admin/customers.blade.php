@@ -46,7 +46,7 @@
             <th scope="col">id</th>
             <th scope="col">Ad Soyad</th>
             <th scope="col">Son Giriş</th>
-            <th scope="col">İncele</th>
+            <th scope="col">İşlem</th>
           </tr>
         </thead>
         <tbody>
@@ -58,7 +58,7 @@
             <td>{{ $customer->LastLogin }}</td>
             <td>
               <span data-href="/ajan/customers/delete/{{$customer->id}}" data-toggle="modal" data-target="#confirm-delete">
-                <a title="Kullanıcı Sil" href="javascript:;" data-toggle="tooltip">
+                <a class="text-danger" title="Kullanıcı Sil" href="javascript:;" data-toggle="tooltip">
                   <i class="fas fa-trash-alt"></i>
                 </a>
               </span>

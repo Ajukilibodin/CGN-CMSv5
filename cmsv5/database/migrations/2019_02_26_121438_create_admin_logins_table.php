@@ -21,7 +21,7 @@ class CreateAdminLoginsTable extends Migration
             $table->dateTime('LastLogin')->nullable();
         });
 
-        \App\AdminLogin::create([
+        \App\Admin\AdminLogin::create([
           'Username' => 'cgn',
           'Password' => \Hash::make('123'),
           'LastLogin' => $datenow
