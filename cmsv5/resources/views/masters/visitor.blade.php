@@ -1,7 +1,6 @@
 @include('libraries.head.head')
 <body class="stretched">
-  @if($_SITEVALUES = \App\Admin\SiteValues::all())
-  @endif
+  @php($_SITEVALUES = \App\Admin\SiteValues::all())
   <div id="wrapper" class="clearfix">
     @include('libraries.topbar')
     @include('libraries.header')
