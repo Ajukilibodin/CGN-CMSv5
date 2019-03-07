@@ -37,6 +37,8 @@ class MenuPage extends Controller
   public function addmenupost(Request $request)
   {
       if(\Cookie::get('ajanlogin')){
+        $this->validate($request, ['menu-title' => 'required|max:100']);
+
         $mtitle = $request->input('menu-title');
         $mtype = $request->input('menu-type');
         if($mtype=="-1"){
@@ -78,6 +80,8 @@ class MenuPage extends Controller
   public function addpagepost(Request $request, $p_id)
   {
       if(\Cookie::get('ajanlogin')){
+        $this->validate($request, ['page-title' => 'required|max:100']);
+
         $mtitle = $request->input('page-title');
         $mcontent = $request->input('page-content');
 
