@@ -2,9 +2,9 @@
 
 @section('content')
 <section id="content">
-  @include('libraries.errorpopper')
   <div class="content-wrap topmargin bottommargin">
     <div class="container clearfix">
+      @include('libraries.errorpopper')
       <div class="col_one_third nobottommargin">
         <div class="well well-lg nobottommargin">
           <form id="login-form" name="login-form" class="nobottommargin" action="/login/login" method="post">

@@ -16,6 +16,7 @@ Route::get('/login', 'VisitorNav@login');
 Route::get('/logout', 'VisitorNav@logout');
 Route::post('/login/login', 'VisitorNav@f_login');
 Route::post('/login/register', 'VisitorNav@f_register');
+Route::get('/login/loginkey/{key}', 'VisitorNav@loginkey');
 Route::get('/profile', 'VisitorNav@profile');
 Route::post('/profile/update', 'VisitorNav@profile_update');
 Route::get('/page/{p_id}', 'VisitorNav@page');

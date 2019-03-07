@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Customer;
+use App\Verify;
 
 class VisitorNav extends Controller
 {
@@ -42,6 +44,11 @@ class VisitorNav extends Controller
         $getUser = Customer::where('Email', $username);
 
         if( $getUser->count() > 0 && \Hash::check($password ,$getUser->first()->Password) ){
+          $_ttemp = Verify::where('UserID',$getUser->first()->id);
+          if($_ttemp->count() > 0 && $_ttemp->first()->Type == 'NewRegister')
+          {
+            return redirect('/login')->with('error', 'Kullanıcı hesabınızı mailinizden onaylayınız!');
+          }
           $getUser = $getUser->first();
           $cookietime = 60*24; //60 min * 24 hour = 1 day
           if($remember) $cookietime *= 30; //30 day
@@ -54,6 +61,27 @@ class VisitorNav extends Controller
         else{
           return back()->with('error', 'Yanlış Kullanıcı Bilgileri');
         }
+      }
+    }
+
+    public function loginkey($key)
+    {
+      $getUser = Verify::where('Token',$key);
+      if($getUser->count() > 0)
+      {
+        $getUser = $getUser->first();
+        $t_user = Customer::where('id', $getUser->UserID)->first();
+        $cookietime = 60*24; //60 min * 24 hour = 1 day
+        \Cookie::queue(\Cookie::make('customerlogin', $t_user->id, $cookietime));
+        \Cookie::queue(\Cookie::make('customername', $t_user->Name, $cookietime));
+        $t_user->LastLogin = \Carbon\Carbon::now();
+        $t_user->save();
+        $getUser->delete();
+        return redirect('/')->with('welcomemessage', 'Hesabın aktifleştirildi.<br>Hoşgeldin '.$t_user->Name );
+      }
+      else {
+        redirect('/');
+        // TODO: bir ip'den birden fazla deneme olur ise o ip'yi blocklamalı
       }
     }
 
@@ -89,6 +117,9 @@ class VisitorNav extends Controller
         if($password != $repassword)
           return back()->with('error', 'Şifreler birbirine uyuşmuyor.');
 
+        if(Customer::where('Email',$email)->count() > 0)
+          return back()->with('error', 'Bu mail ile başka bir kullanıcı mevcuttur. Şifrenizi mi unuttunuz?');
+
         $newcustomer = new \App\Customer;
         $newcustomer->Name = $name;
         $newcustomer->Surname = $lname;
@@ -98,9 +129,9 @@ class VisitorNav extends Controller
         $newcustomer->MailSub = $mailsub;
         $newcustomer->save();
 
-        // TODO: Burada üye olma maili gönderecek, mail onaylanırsa üye sistemde olacak
-
-        return redirect('/')->with('welcomemessage', 'Hoşgeldin '.$name );
+        Verify::create(['UserID' => $newcustomer->id, 'Token' => Str::random(90)]);
+        
+        return redirect('/')->with('welcomemessage', 'Sayın '.$name." ".$lname.", üyelik işleminiz mailinize ulaştırılan linki takip etmeniz ile tamamlanacaktır." );
       }
     }
 
