@@ -10,11 +10,15 @@
     <li class="breadcrumb-item active" aria-current="page">Menü & Sayfa</li>
   </ol>
 </nav>
-
+@if($message = Session::get('successmsg'))
+<div class="alert alert-success">
+  {{$message}}
+</div>
+@endif
 <section class="content">
   <div class="row">
     <div class="col-12 table-responsive">
-      <a title="Yeni Ekle" class="btn btn-primary text-white m-1" data-toggle="tooltip">
+      <a title="Yeni Ekle" class="btn btn-primary text-white m-1" data-toggle="tooltip" href="/ajan/addmenu">
         <i class="fas fa-plus"></i> Yeni Menü Ekle</a>
       <div class="float-right">
         {{ $pagevalues->links() }}
@@ -34,7 +38,12 @@
             <th scope="row">{{ $pagevalue->id }}</th>
             <td>{{ $pagevalue->Title }}</td>
             @if($pagevalue->Type == 'DefinedPage')
-            <td>Tanımlı Sayfa(...)</td>
+            <td>Tanımlı Sayfa (
+              @if($pagevalue->Value == 0) {{"Ana Sayfa"}}
+              @elseif($pagevalue->Value == 1) {{"İletişim"}}
+              @elseif($pagevalue->Value == 2) {{"Ürünler"}}
+              @endif
+              )</td>
             <td>
               <a title="Tanımlı Sayfa Değiştir" class="text-primary" data-toggle="tooltip">
                 <i class="fas fa-pencil-alt"></i></a>

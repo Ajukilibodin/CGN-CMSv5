@@ -28,4 +28,9 @@ array_push($searchVal, "register-form-repassword");
 array_push($replaceVal, "Şifre Tekrarı");
 array_push($searchVal, "read-contract");
 array_push($replaceVal, "Üyelik Sözleşmesi");
+
+array_push($searchVal, "username");
+array_push($replaceVal, "Kullanıcı Adı");
+array_push($searchVal, "password");
+array_push($replaceVal, "Parola");
 ?>

@@ -1,7 +1,7 @@
 @extends('masters.admin')
 
 @section('contenttitle')
-<h1>admin login panel</h1>
+<h1>Admin Login Panel</h1>
 @endsection
 
 @section('content')

@@ -20,20 +20,22 @@
           <span>Ana Sayfa</span>
         </a>
       </li>
-      @if( Request::is('ajan/sitesettings') or Request::is('ajan/menupage') or Request::is('ajan/menupage/*') )
+      @if( Request::is('ajan/sitesettings') or Request::is('ajan/menupage')
+       or Request::is('ajan/menupage/*') or Request::is('ajan/addmenu') or Request::is('ajan/addmenu/*') )
       <li class="sidebar-dropdown active">
-      @else
-      <li class="sidebar-dropdown"> <!-- class+= active -->
-      @endif
         <a href="javascript:;">
           <i class="fas fa-globe"></i>
           <span>Site Bilgileri</span>
         </a>
-        @if( Request::is('ajan/sitesettings') or Request::is('ajan/menupage') or Request::is('ajan/menupage/*') )
         <div class="sidebar-submenu" style="display:block;">
-        @else
+      @else
+      <li class="sidebar-dropdown"> <!-- class+= active -->
+        <a href="javascript:;">
+          <i class="fas fa-globe"></i>
+          <span>Site Bilgileri</span>
+        </a>
         <div class="sidebar-submenu"> <!-- style+= "display:block;" -->
-        @endif
+      @endif
           <ul>
             <li>
               <a href="/ajan/sitesettings">Site Düzenleyici</a>
@@ -74,18 +76,19 @@
       </li>
       @if( Request::is('ajan/customers') )
       <li class="sidebar-dropdown active">
-      @else
-      <li class="sidebar-dropdown"> <!-- class+= active -->
-      @endif
         <a href="javascript:;">
           <i class="fas fa-user"></i>
           <span>Üyelik Yönetimi</span>
         </a>
-        @if( Request::is('ajan/customers') )
         <div class="sidebar-submenu" style="display:block;">
-        @else
+      @else
+      <li class="sidebar-dropdown"> <!-- class+= active -->
+        <a href="javascript:;">
+          <i class="fas fa-user"></i>
+          <span>Üyelik Yönetimi</span>
+        </a>
         <div class="sidebar-submenu"> <!-- style+= "display:block;" -->
-        @endif
+      @endif
           <ul>
             <li>
               <a href="/ajan/customers">Üye Kayıtları</a>

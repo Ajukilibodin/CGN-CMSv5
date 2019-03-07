@@ -35,3 +35,5 @@ Route::get('/ajan/customers', 'AdminCustomerEdit@mainload');
 Route::get('/ajan/customers/delete/{w_id}', 'AdminCustomerEdit@deleteCustomer');
 Route::get('/ajan/menupage', 'Admin\MenuPage@mainload');
 Route::get('/ajan/menupage/{p_id}', 'Admin\MenuPage@pagesload');
+Route::get('/ajan/addmenu', 'Admin\MenuPage@addmenuload');
+Route::post('/ajan/addmenu', 'Admin\MenuPage@addmenupost');
