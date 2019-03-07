@@ -70,7 +70,7 @@
               @endif
               )</td>
             <td>
-              <a title="Tanımlı Sayfa Değiştir" class="text-primary" data-toggle="tooltip">
+              <a href="/ajan/modmenu/{{$pagevalue->id}}" title="Tanımlı Sayfa Değiştir" class="text-primary" data-toggle="tooltip">
                 <i class="fas fa-pencil-alt"></i></a>
               <span data-href="/ajan/delmenu/{{$pagevalue->id}}" data-toggle="modal" data-target="#confirm-delete">
                 <a class="text-danger" title="Menü Sil" href="javascript:;" data-toggle="tooltip">

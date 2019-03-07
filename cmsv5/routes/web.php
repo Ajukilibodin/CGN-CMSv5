@@ -41,3 +41,5 @@ Route::get('/ajan/delmenu/{w_id}', 'Admin\MenuPage@delmenu');
 Route::get('/ajan/addpage/{p_id}', 'Admin\MenuPage@addpageload');
 Route::post('/ajan/addpage/{p_id}', 'Admin\MenuPage@addpagepost');
 Route::get('/ajan/delpage/{w_id}/{p_id}', 'Admin\MenuPage@delpage');
+Route::get('/ajan/modmenu/{w_id}', 'Admin\MenuPage@modmenuload');
+Route::post('/ajan/modmenu/{w_id}', 'Admin\MenuPage@modmenupost');
