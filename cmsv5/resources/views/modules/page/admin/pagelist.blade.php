@@ -65,7 +65,7 @@
             <td>{{ $pagevalue->Title }}</td>
             <td>{!! substr(strip_tags($pagevalue->Content),0,110) !!}{{"..."}}</td>
             <td>
-              <a title="Sayfa Düzenle" class="text-primary" data-toggle="tooltip">
+              <a href="/ajan/modpage/{{$pagevalue->id}}" title="Sayfa Düzenle" class="text-primary" data-toggle="tooltip">
                 <i class="fas fa-pencil-alt"></i></a>
               <span data-href="/ajan/delpage/{{$p_id}}/{{$pagevalue->id}}" data-toggle="modal" data-target="#confirm-delete">
                 <a class="text-danger" title="Menü Sil" href="javascript:;" data-toggle="tooltip">

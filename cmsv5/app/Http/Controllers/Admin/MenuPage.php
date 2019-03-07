@@ -138,4 +138,29 @@ class MenuPage extends Controller
     else return view('admin/login');
   }
 
+  public function modpageload($p_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $pagevalues = SitePage::where('id', $p_id)->first();
+      return view('modules/page/admin/modpage', ['pagevalues' => $pagevalues]);
+    }
+    else return view('admin/login');
+  }
+
+  public function modpagepost(Request $request, $w_id, $p_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $this->validate($request, ['page-title' => 'required|max:100']);
+
+      $ptitle = $request->input('page-title');
+      $pcontent = $request->input('page-content');
+      $t_page = SitePage::where('id',$p_id)->first();
+      $t_page->Title = $ptitle;
+      $t_page->Content = $pcontent;
+      $t_page->save();
+      return redirect('/ajan/menupage/'.$w_id)->with('successmsg', 'Menüyü güncelleştirdiniz.');
+    }
+    else return view('admin/login');
+  }
+
 }

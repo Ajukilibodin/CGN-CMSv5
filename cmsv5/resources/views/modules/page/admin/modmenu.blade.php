@@ -11,7 +11,6 @@
     <li class="breadcrumb-item active" aria-current="page">Menü Düzenle</li>
   </ol>
 </nav>
-@include('libraries.errorpopper')
 {!! Form::open(['url' => 'ajan/modmenu/'.$menuvalues->id]) !!}
 <div class="form-group">
 {{Form::label('menu-title', 'Menü Başlığı')}}
