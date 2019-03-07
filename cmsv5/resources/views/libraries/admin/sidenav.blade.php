@@ -21,7 +21,8 @@
         </a>
       </li>
       @if( Request::is('ajan/sitesettings') or Request::is('ajan/menupage')
-       or Request::is('ajan/menupage/*') or Request::is('ajan/addmenu') or Request::is('ajan/addmenu/*') )
+       or Request::is('ajan/menupage/*') or Request::is('ajan/addmenu') or Request::is('ajan/addmenu/*')
+        or Request::is('ajan/addpage/*') )
       <li class="sidebar-dropdown active">
         <a href="javascript:;">
           <i class="fas fa-globe"></i>

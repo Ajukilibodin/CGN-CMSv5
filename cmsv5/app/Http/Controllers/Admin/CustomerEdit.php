@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AdminCustomerEdit extends Controller
+class CustomerEdit extends Controller
 {
     public function mainload()
     {
@@ -18,7 +18,10 @@ class AdminCustomerEdit extends Controller
 
     public function deleteCustomer($w_id)
     {
-      \App\Customer::destroy($w_id);
-      return redirect('/ajan/customers');
+      if(\Cookie::get('ajanlogin')){
+        \App\Customer::destroy($w_id);
+        return redirect('/ajan/customers');
+      }
+      else return view('admin/login');
     }
 }

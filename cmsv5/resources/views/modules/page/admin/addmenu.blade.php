@@ -31,6 +31,4 @@
   <a class="btn btn-secondary" href="/ajan/menupage">Geri</a>
 </div>
 {!! Form::close() !!}
-<script src="//cdn.ckeditor.com/4.11.3/standard/ckeditor.js"></script>
-<script>CKEDITOR.replace( 'menu-content' );</script>
 @endsection

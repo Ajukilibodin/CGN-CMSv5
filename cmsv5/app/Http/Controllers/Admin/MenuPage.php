@@ -21,7 +21,7 @@ class MenuPage extends Controller
   {
       if(\Cookie::get('ajanlogin')){
         $pagevalues = SitePage::where('Value', $p_id)->paginate(10);
-        return view('modules/page/admin/pagelist', ['pagevalues' => $pagevalues]);
+        return view('modules/page/admin/pagelist', ['pagevalues' => $pagevalues, 'p_id' => $p_id]);
       }
       else return view('admin/login');
   }
@@ -55,6 +55,50 @@ class MenuPage extends Controller
         return redirect('/ajan/menupage')->with('successmsg', 'Yeni menü oluşturulmuştur.');
       }
       else return view('admin/login');
+  }
+
+  public function delmenu($w_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      SitePage::where('Type',2)->where('Value', $w_id)->delete();
+      SitePage::destroy($w_id);
+      return redirect('/ajan/menupage');
+    }
+    else return view('admin/login');
+  }
+
+  public function addpageload($p_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      return view('modules/page/admin/addpage')->with('p_id', $p_id);
+    }
+    else return view('admin/login');
+  }
+
+  public function addpagepost(Request $request, $p_id)
+  {
+      if(\Cookie::get('ajanlogin')){
+        $mtitle = $request->input('page-title');
+        $mcontent = $request->input('page-content');
+
+        SitePage::create([
+          'Title' => $mtitle,
+          'Type' => 2,
+          'Value' => $p_id,
+          'Content' => $mcontent
+        ]);
+        return redirect('/ajan/menupage/'.$p_id)->with('successmsg', 'Yeni sayfa oluşturulmuştur.');
+      }
+      else return view('admin/login');
+  }
+
+  public function delpage( $w_id, $p_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      SitePage::destroy($p_id);
+      return redirect('/ajan/menupage/'.$w_id);
+    }
+    else return view('admin/login');
   }
 
 }
