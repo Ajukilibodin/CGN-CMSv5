@@ -1,10 +1,10 @@
 <!-- Select-Boxes CSS -->
-<link rel="stylesheet" href="css/select-boxes.css" type="text/css" />
+<link rel="stylesheet" href="/css/select-boxes.css" type="text/css" />
 <!-- Select-Boxes Plugin -->
-<script type="text/javascript" src="js/components/select-boxes.js"></script>
+<script type="text/javascript" src="/js/components/select-boxes.js"></script>
 
 <!-- Select-Splitter Plugin -->
-<script type="text/javascript" src="js/components/selectsplitter.js"></script>
+<script type="text/javascript" src="/js/components/selectsplitter.js"></script>
 
 <script type="text/javascript">
 jQuery(document).ready( function($){

@@ -21,9 +21,9 @@
           </li>
           <li><a href="#">EN</a>
             <ul>
-              <li><a href="#"><img src="images/icons/flags/french.png" alt="French"> FR</a></li>
-              <li><a href="#"><img src="images/icons/flags/italian.png" alt="Italian"> IT</a></li>
-              <li><a href="#"><img src="images/icons/flags/german.png" alt="German"> DE</a></li>
+              <li><a href="#"><img src="/images/icons/flags/french.png" alt="French"> FR</a></li>
+              <li><a href="#"><img src="/images/icons/flags/italian.png" alt="Italian"> IT</a></li>
+              <li><a href="#"><img src="/images/icons/flags/german.png" alt="German"> DE</a></li>
             </ul>
           </li>
           @if( !\Cookie::get('customerlogin') )
@@ -31,7 +31,7 @@
           <li><a href="#">Giriş</a>
             <div class="top-link-section">
               <form id="top-login" role="form" method="post" action="/login/login">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                @csrf
                 <div class="input-group" id="top-login-username">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
                   <input name="login-form-username" type="email" class="form-control" placeholder="Email" required="">

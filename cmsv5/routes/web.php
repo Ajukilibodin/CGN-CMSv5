@@ -18,7 +18,7 @@ Route::post('/login/login', 'VisitorNav@f_login');
 Route::post('/login/register', 'VisitorNav@f_register');
 Route::get('/profile', 'VisitorNav@profile');
 Route::post('/profile/update', 'VisitorNav@profile_update');
-Route::get('/page', 'VisitorNav@page');
+Route::get('/page/{p_id}', 'VisitorNav@page');
 Route::get('/cart', 'VisitorNav@cart');
 Route::get('/checkout', 'VisitorNav@checkout');
 Route::get('/category', 'VisitorNav@category');
