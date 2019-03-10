@@ -22,7 +22,7 @@
       </li>
       @if( Request::is('ajan/sitesettings') or Request::is('ajan/menupage')
        or Request::is('ajan/menupage/*') or Request::is('ajan/addmenu') or Request::is('ajan/addmenu/*')
-        or Request::is('ajan/addpage/*') )
+        or Request::is('ajan/addpage/*') or Request::is('ajan/slidersettings') )
       <li class="sidebar-dropdown active">
         <a href="javascript:;">
           <i class="fas fa-globe"></i>
@@ -42,10 +42,10 @@
               <a href="/ajan/sitesettings">Site Düzenleyici</a>
             </li>
             <li>
-              <a href="javascript:;">Referanslarım</a>
+              <a href="/ajan/slidersettings">Slider</a>
             </li>
             <li>
-              <a href="javascript:;">Galeri</a>
+              <a href="javascript:;">Referanslarım</a>
             </li>
             <li>
               <a href="/ajan/menupage">Menü & Sayfa</a>

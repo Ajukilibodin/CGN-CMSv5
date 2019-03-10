@@ -12,14 +12,18 @@
 */
 
 Route::get('/', 'VisitorNav@index')->name('index');
+
 Route::get('/login', 'VisitorNav@login');
 Route::get('/logout', 'VisitorNav@logout');
 Route::post('/login/login', 'VisitorNav@f_login');
 Route::post('/login/register', 'VisitorNav@f_register');
 Route::get('/login/loginkey/{key}', 'VisitorNav@loginkey');
+
 Route::get('/profile', 'VisitorNav@profile');
 Route::post('/profile/update', 'VisitorNav@profile_update');
+
 Route::get('/page/{p_id}', 'VisitorNav@page');
+
 Route::get('/cart', 'VisitorNav@cart');
 Route::get('/checkout', 'VisitorNav@checkout');
 Route::get('/category', 'VisitorNav@category');
@@ -27,13 +31,18 @@ Route::get('/products', 'VisitorNav@products');
 Route::get('/product', 'VisitorNav@product');
 Route::get('/orderdetail', 'VisitorNav@orderdetail');
 
+/*********************************************************/
+
 Route::get('/ajan', 'AdminAuth@mainload');
 Route::post('/ajan/loginsubmit', 'AdminAuth@submit');
 Route::get('/ajan/logout', 'AdminAuth@logout');
+
 Route::get('/ajan/sitesettings', 'Admin\SiteEdit@mainload');
 Route::post('/ajan/sitesettings/update/{w_id}', 'Admin\SiteEdit@saveSetting');
+
 Route::get('/ajan/customers', 'Admin\CustomerEdit@mainload');
 Route::get('/ajan/customers/delete/{w_id}', 'Admin\CustomerEdit@deleteCustomer');
+
 Route::get('/ajan/menupage', 'Admin\MenuPage@mainload');
 Route::get('/ajan/menupage/{p_id}', 'Admin\MenuPage@pagesload');
 Route::get('/ajan/addmenu', 'Admin\MenuPage@addmenuload');
@@ -46,3 +55,5 @@ Route::get('/ajan/modmenu/{w_id}', 'Admin\MenuPage@modmenuload');
 Route::post('/ajan/modmenu/{w_id}', 'Admin\MenuPage@modmenupost');
 Route::get('/ajan/modpage/{p_id}', 'Admin\MenuPage@modpageload');
 Route::post('/ajan/modpage/{w_id}/{p_id}', 'Admin\MenuPage@modpagepost');
+
+Route::get('/ajan/slidersettings', 'Admin\Slider@mainload');

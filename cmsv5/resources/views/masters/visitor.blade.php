@@ -13,7 +13,7 @@
     </div>
     @endif
     @if(Request::is('/'))
-      @include('modules.slider')
+      @include('modules.slider.slider')
     @else
       @include('libraries.page-title')
     @endif

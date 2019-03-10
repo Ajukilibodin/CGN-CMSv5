@@ -109,29 +109,6 @@
 		</div>
 		<div class="clear"></div>
 		</div>
-		<!--
-		<div class="section dark parallax notopmargin nobottommargin noborder" style="height: 500px; padding: 145px 0;">
-
-		<div class="container clearfix">
-
-		<div class="slider-caption slider-caption-center" style="position: relative;">
-		<div data-animate="fadeInUp">
-		<h2 style="font-size: 42px;">WINTER SUMMER ADVENTURE</h2>
-		<p>Yaz Kış Maceralarınızın tadını maximumda çıkarabilmeniz için, W.S.A markasını oluşturduk.</p>
-		<a href="#" class="button button-border button-rounded button-white button-light button-large noleftmargin nobottommargin" style="margin-top: 20px;">KEŞFET</a>
-		</div>
-		</div>
-
-		</div>
-
-		<div class="video-wrap">
-		<video poster="images/videos/explore.jpg" preload="none" loop autoplay muted>
-		<source src='images/videos/1.mp4' type='video/mp4' />
-		<source src='images/videos/1.webm' type='video/webm' />
-		</video>
-		<div class="video-overlay" style="background-color: rgba(0,0,0,0.3);"></div>
-		</div>
-		</div>-->
 		<div class="section yt-bg-player nomargin dark" data-quality="hd1080" data-start="20" data-stop="40" data-video="http://youtu.be/A3PDXmYoF5U" style="height: 600px;">
 			<div class="container vertical-middle center clearfix">
 				<i class="i-plain i-large icon-line-video divcenter" data-animate="fadeInDown"></i>
