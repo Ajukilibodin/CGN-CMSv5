@@ -18,6 +18,7 @@ class SiteEdit extends Controller
 
     public function saveSetting(Request $request, $w_id)
     {
+      $this->validate($request, ['sitevalue-input' => 'required|max:250']);
       $temp = \App\Admin\SiteValues::where('id',$w_id)->first();
       $temp->Value = $request->input('sitevalue-input');
       $temp->save();

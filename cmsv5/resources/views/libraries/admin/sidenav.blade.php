@@ -156,9 +156,9 @@
     <i class="fa fa-envelope"></i>
     <span class="badge badge-pill badge-success notification">7</span>
   </a>
-  <a href="javascript:;">
+  <a href="/ajan/sitesettings">
     <i class="fa fa-cog"></i>
-    <span class="badge-sonar"></span>
+    <!--<span class="badge-sonar"></span> -->
   </a>
   <a href="/ajan/logout">
     <i class="fa fa-power-off"></i>
