@@ -33,4 +33,13 @@ array_push($searchVal, "username");
 array_push($replaceVal, "Kullanıcı Adı");
 array_push($searchVal, "password");
 array_push($replaceVal, "Parola");
+
+array_push($searchVal, "slider-title");
+array_push($replaceVal, "Slider Başlığı");
+array_push($searchVal, "slider-bigtitle");
+array_push($replaceVal, "Slider Büyük Başlığı");
+array_push($searchVal, "slider-subtext");
+array_push($replaceVal, "Slider Altyazısı");
+array_push($searchVal, "slider-buttontext");
+array_push($replaceVal, "Slider Button Yazısı");
 ?>

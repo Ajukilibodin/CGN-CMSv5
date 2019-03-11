@@ -58,6 +58,8 @@
       <h6>SubText: {{$slider->SubText}}</h6>
       <div class="m-2"></div>
       <h6>ButtonText: {{$slider->ButtonText}}</h6>
+      <div class="m-2"></div>
+      <h6>ButtonLink: {{$slider->ButtonLink}}</h6>
     </div>
     @endforeach
   </div>

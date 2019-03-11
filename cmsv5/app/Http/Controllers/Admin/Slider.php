@@ -27,14 +27,21 @@ class Slider extends Controller
   public function addpost(Request $request)
   {
       if(\Cookie::get('ajanlogin')){
-        $this->validate($request, ['slider-title' => 'required|max:100']);
+        $this->validate($request, [
+          'slider-title' => 'required|max:250',
+          'slider-bigtitle' => 'required|max:250',
+          'slider-subtext' => 'required|max:250',
+          'slider-buttontext' => 'required|max:250',
+        ]);
 
         $title = $request->input('slider-title');
         $btitle = $request->input('slider-bigtitle');
         $subtext = $request->input('slider-subtext');
         $buttontext = $request->input('slider-buttontext');
         $buttonlink = $request->input('slider-buttonlink');
+        if($request->hasFile('slider-filepath'))
         $filepath = $request->file('slider-filepath')->getClientOriginalName();
+        if($request->hasFile('slider-picpath'))
         $picpath = $request->file('slider-picpath')->getClientOriginalName();
 
         $slide = new \App\Slider;
@@ -47,12 +54,19 @@ class Slider extends Controller
         $slide->save();
 
         //return $request;
+        if($request->hasFile('slider-filepath'))
         $file1 = ($slide->id).(substr($filepath, strrpos($filepath,'.')));
+        if($request->hasFile('slider-picpath'))
         $file2 = ($slide->id)."-1".(substr($picpath, strrpos($picpath,'.')));
+
+        if($request->hasFile('slider-filepath'))
         $request->file('slider-filepath')->storeAs('modules/slider', $file1, 'public_uploads');
+        if($request->hasFile('slider-picpath'))
         $request->file('slider-picpath')->storeAs('modules/slider', $file2, 'public_uploads');
 
+        if($request->hasFile('slider-filepath'))
         $slide->FilePath = $file1;
+        if($request->hasFile('slider-picpath'))
         $slide->PicPath = $file2;
         $slide->save();
 
