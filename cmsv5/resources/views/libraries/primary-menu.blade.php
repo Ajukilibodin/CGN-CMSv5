@@ -2,104 +2,113 @@
 <nav id="primary-menu">
 
 <ul>
-<li class="current"><a href="/"><div>ANA SAYFA</div></a>	</li>
+  @foreach(\App\SitePage::all() as $page)
+    @if($page->Type=='DefinedPage')
+      @if($page->Value==0)
+      <li class="current"><a href="/"><div>{{$page->Title}}</div></a>	</li>
+      @elseif($page->Value==1)
+      <li><a href="/contact"><div>{{$page->Title}}</div></a>	</li>
+      @elseif($page->Value==2)
+      <li><a href="/products"><div>{{$page->Title}}</div></a>	</li>
+      @else
+      <li><a href="/"><div>{{$page->Title}}</div></a>	</li>
+      @endif
+    @elseif($page->Type=='PageHeader')
+      <li><a href="/page/{{$page->id}}"><div>{{$page->Title}}</div></a></li>
+    @endif
+  @endforeach
 
-<!-- Mega Menu	============================================= -->
+  <!--
 
-<li class="mega-menu"><a href="#"><div>ERKEK</div></a>
-<div class="mega-menu-content style-2 clearfix">
-<ul class="mega-menu-column col-md-3">
-<li class="mega-menu-title"><a href="#"><div>GİYİM</div></a>
-<ul>
-<li><a href="#"><div>Ayakkabı</div></a></li>
-<li><a href="#"><div>T-shirt</div></a></li>
-<li><a href="#"><div>Sweat Shirt</div></a></li>
-<li><a href="#"><div>Pantalon</div></a></li>
-<li><a href="#"><div>Mont</div></a></li>
-<li><a href="#"><div>Termal İçlik</div></a></li>
-<li><a href="#"><div>Şort</div></a></li>
-</ul>
-</li>
-</ul>
+  <li class="mega-menu"><a href="#"><div>ERKEK</div></a>
+  <div class="mega-menu-content style-2 clearfix">
+  <ul class="mega-menu-column col-md-3">
+  <li class="mega-menu-title"><a href="#"><div>GİYİM</div></a>
+  <ul>
+  <li><a href="#"><div>Ayakkabı</div></a></li>
+  <li><a href="#"><div>T-shirt</div></a></li>
+  <li><a href="#"><div>Sweat Shirt</div></a></li>
+  <li><a href="#"><div>Pantalon</div></a></li>
+  <li><a href="#"><div>Mont</div></a></li>
+  <li><a href="#"><div>Termal İçlik</div></a></li>
+  <li><a href="#"><div>Şort</div></a></li>
+  </ul>
+  </li>
+  </ul>
 
-<ul class="mega-menu-column col-md-3">
-<li class="mega-menu-title"><a href="#"><div>EKİPMAN</div></a>
-<ul>
-<li><a href="#"><div>Ayakkabı</div></a></li>
-<li><a href="#"><div>T-shirt</div></a></li>
-<li><a href="#"><div>Sweat Shirt</div></a></li>
-<li><a href="#"><div>Pantalon</div></a></li>
-<li><a href="#"><div>Mont</div></a></li>
-<li><a href="#"><div>Termal İçlik</div></a></li>
-<li><a href="#"><div>Şort</div></a></li>
-</ul>
-</li>
-</ul>
+  <ul class="mega-menu-column col-md-3">
+  <li class="mega-menu-title"><a href="#"><div>EKİPMAN</div></a>
+  <ul>
+  <li><a href="#"><div>Ayakkabı</div></a></li>
+  <li><a href="#"><div>T-shirt</div></a></li>
+  <li><a href="#"><div>Sweat Shirt</div></a></li>
+  <li><a href="#"><div>Pantalon</div></a></li>
+  <li><a href="#"><div>Mont</div></a></li>
+  <li><a href="#"><div>Termal İçlik</div></a></li>
+  <li><a href="#"><div>Şort</div></a></li>
+  </ul>
+  </li>
+  </ul>
 
-<ul class="mega-menu-column col-md-3">
-<li class="mega-menu-title"><a href="#"><div>SPOR</div></a>
-<ul>
-<li><a href="#"><div>Ayakkabı</div></a></li>
-<li><a href="#"><div>T-shirt</div></a></li>
-<li><a href="#"><div>Sweat Shirt</div></a></li>
-<li><a href="#"><div>Pantalon</div></a></li>
-<li><a href="#"><div>Mont</div></a></li>
-<li><a href="#"><div>Termal İçlik</div></a></li>
-<li><a href="#"><div>Şort</div></a></li>
-</ul>
-</li>
-</ul>
-<ul class="mega-menu-column col-md-3">
-<li class="mega-menu-title"><a href="#"><div>OUTLET</div></a>
-<ul>
-<li><a href="#"><div>Ayakkabı</div></a></li>
-<li><a href="#"><div>T-shirt</div></a></li>
-<li><a href="#"><div>Sweat Shirt</div></a></li>
-<li><a href="#"><div>Pantalon</div></a></li>
-<li><a href="#"><div>Mont</div></a></li>
-<li><a href="#"><div>Termal İçlik</div></a></li>
-<li><a href="#"><div>Şort</div></a></li>
-</ul>
-</li>
-</ul>
+  <ul class="mega-menu-column col-md-3">
+  <li class="mega-menu-title"><a href="#"><div>SPOR</div></a>
+  <ul>
+  <li><a href="#"><div>Ayakkabı</div></a></li>
+  <li><a href="#"><div>T-shirt</div></a></li>
+  <li><a href="#"><div>Sweat Shirt</div></a></li>
+  <li><a href="#"><div>Pantalon</div></a></li>
+  <li><a href="#"><div>Mont</div></a></li>
+  <li><a href="#"><div>Termal İçlik</div></a></li>
+  <li><a href="#"><div>Şort</div></a></li>
+  </ul>
+  </li>
+  </ul>
+  <ul class="mega-menu-column col-md-3">
+  <li class="mega-menu-title"><a href="#"><div>OUTLET</div></a>
+  <ul>
+  <li><a href="#"><div>Ayakkabı</div></a></li>
+  <li><a href="#"><div>T-shirt</div></a></li>
+  <li><a href="#"><div>Sweat Shirt</div></a></li>
+  <li><a href="#"><div>Pantalon</div></a></li>
+  <li><a href="#"><div>Mont</div></a></li>
+  <li><a href="#"><div>Termal İçlik</div></a></li>
+  <li><a href="#"><div>Şort</div></a></li>
+  </ul>
+  </li>
+  </ul>
 
-    </div>
-  </li><!-- .mega-menu end -->
-  <li><a href="#"><div>KADIN</div></a>
-    <div class="mega-menu-content style-2 clearfix">
-      <ul class="mega-menu-column col-md-6">
-        <li class="mega-menu-title"><a href="#"><div>GİYİM</div></a>
-          <ul>
-            <li><a href="#"><div>Ayakkabı</div></a></li>
-            <li><a href="#"><div>T-shirt</div></a></li>
-            <li><a href="#"><div>Sweat Shirt</div></a></li>
-            <li><a href="#"><div>Pantalon</div></a></li>
-            <li><a href="#"><div>Mont</div></a></li>
-            <li><a href="#"><div>Termal İçlik</div></a></li>
-            <li><a href="#"><div>Şort</div></a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="mega-menu-column col-md-6">
-        <li class="mega-menu-title"><a href="#"><div>EKİPMAN</div></a>
-          <ul>
-            <li><a href="#"><div>Ayakkabı</div></a></li>
-            <li><a href="#"><div>T-shirt</div></a></li>
-            <li><a href="#"><div>Sweat Shirt</div></a></li>
-            <li><a href="#"><div>Pantalon</div></a></li>
-            <li><a href="#"><div>Mont</div></a></li>
-            <li><a href="#"><div>Termal İçlik</div></a></li>
-            <li><a href="#"><div>Şort</div></a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </li><!-- .mega-menu end -->
-
-<li><a href="/category"><div>SPORLAR</div></a></li>
-<li><a href="/products"><div>İNDİRİM</div></a></li>
-<li><a href="/page/2"><div>BLOG</div></a></li>
-<li><a href="#"><div>İLETİŞİM</div></a></li>
+      </div>
+    </li>
+    <li><a href="#"><div>KADIN</div></a>
+      <div class="mega-menu-content style-2 clearfix">
+        <ul class="mega-menu-column col-md-6">
+          <li class="mega-menu-title"><a href="#"><div>GİYİM</div></a>
+            <ul>
+              <li><a href="#"><div>Ayakkabı</div></a></li>
+              <li><a href="#"><div>T-shirt</div></a></li>
+              <li><a href="#"><div>Sweat Shirt</div></a></li>
+              <li><a href="#"><div>Pantalon</div></a></li>
+              <li><a href="#"><div>Mont</div></a></li>
+              <li><a href="#"><div>Termal İçlik</div></a></li>
+              <li><a href="#"><div>Şort</div></a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="mega-menu-column col-md-6">
+          <li class="mega-menu-title"><a href="#"><div>EKİPMAN</div></a>
+            <ul>
+              <li><a href="#"><div>Ayakkabı</div></a></li>
+              <li><a href="#"><div>T-shirt</div></a></li>
+              <li><a href="#"><div>Sweat Shirt</div></a></li>
+              <li><a href="#"><div>Pantalon</div></a></li>
+              <li><a href="#"><div>Mont</div></a></li>
+              <li><a href="#"><div>Termal İçlik</div></a></li>
+              <li><a href="#"><div>Şort</div></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </li> --><!-- .mega-menu end -->
 </ul>
 
 <!-- Top Cart	============================================= -->

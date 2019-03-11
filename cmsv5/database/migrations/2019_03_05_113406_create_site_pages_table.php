@@ -32,6 +32,16 @@ class CreateSitePagesTable extends Migration
           'Type' => 1
         ]);
         \App\SitePage::create([
+          'Title' => 'Ürünlerimiz',
+          'Type' => 3,
+          'Value' => 2
+        ]);
+        \App\SitePage::create([
+          'Title' => 'İletişim',
+          'Type' => 3,
+          'Value' => 1
+        ]);
+        \App\SitePage::create([
           'Title' => 'Kurumsal',
           'Type' => 2,
           'Value' => 2,
