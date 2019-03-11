@@ -20,9 +20,10 @@
           <span>Ana Sayfa</span>
         </a>
       </li>
+      <!-- if(in_array($val, $array)) -->
       @if( Request::is('ajan/sitesettings') or Request::is('ajan/menupage')
        or Request::is('ajan/menupage/*') or Request::is('ajan/addmenu') or Request::is('ajan/addmenu/*')
-        or Request::is('ajan/addpage/*') or Request::is('ajan/slidersettings') )
+        or Request::is('ajan/addpage/*') or Request::is('ajan/slidersettings') or Request::is('ajan/addslider') )
       <li class="sidebar-dropdown active">
         <a href="javascript:;">
           <i class="fas fa-globe"></i>

@@ -57,3 +57,6 @@ Route::get('/ajan/modpage/{p_id}', 'Admin\MenuPage@modpageload');
 Route::post('/ajan/modpage/{w_id}/{p_id}', 'Admin\MenuPage@modpagepost');
 
 Route::get('/ajan/slidersettings', 'Admin\Slider@mainload');
+Route::get('/ajan/delslider/{s_id}', 'Admin\Slider@delslider');
+Route::get('/ajan/addslider', 'Admin\Slider@addload');
+Route::post('/ajan/addslider', 'Admin\Slider@addpost');
