@@ -104,15 +104,24 @@
           </ul>
         </div>
       </li>
+      @if( Request::is('ajan/categories') )
+      <li class="sidebar-dropdown active">
+        <a href="javascript:;">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Ürün Yönetimi</span>
+        </a>
+        <div class="sidebar-submenu" style="display:block;">
+      @else
       <li class="sidebar-dropdown">
         <a href="javascript:;">
           <i class="fas fa-shopping-cart"></i>
           <span>Ürün Yönetimi</span>
         </a>
         <div class="sidebar-submenu">
+      @endif
           <ul>
             <li>
-              <a href="javascript:;">Ürün Kategorileri</a>
+              <a href="{{url('/ajan/categories')}}">Ürün Kategorileri</a>
             </li>
             <li>
               <a href="javascript:;">Ürün Özellik Paneli</a>

@@ -60,3 +60,5 @@ Route::get('/ajan/slidersettings', 'Admin\Slider@mainload');
 Route::get('/ajan/delslider/{s_id}', 'Admin\Slider@delslider');
 Route::get('/ajan/addslider', 'Admin\Slider@addload');
 Route::post('/ajan/addslider', 'Admin\Slider@addpost');
+
+Route::get('/ajan/categories', 'Admin\ProductModule@categoryload');
