@@ -62,3 +62,10 @@ Route::get('/ajan/addslider', 'Admin\Slider@addload');
 Route::post('/ajan/addslider', 'Admin\Slider@addpost');
 
 Route::get('/ajan/categories', 'Admin\ProductModule@categoryload');
+Route::get('/ajan/categories/{c_id}', 'Admin\ProductModule@subcateload');
+Route::get('/ajan/delcategory/{c_id}', 'Admin\ProductModule@delcategory');
+Route::get('/ajan/delsubcategory/{p_id}/{c_id}', 'Admin\ProductModule@delcategory');
+Route::get('/ajan/addcategory/{c_id}', 'Admin\ProductModule@addcategory');
+Route::post('/ajan/addcategory/{c_id}', 'Admin\ProductModule@addcategorypost');
+Route::get('/ajan/editcategory/{c_id}', 'Admin\ProductModule@editcategory');
+Route::post('/ajan/editcategory/{c_id}', 'Admin\ProductModule@editcategorypost');

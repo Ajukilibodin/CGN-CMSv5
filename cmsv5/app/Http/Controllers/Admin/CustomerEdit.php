@@ -13,7 +13,7 @@ class CustomerEdit extends Controller
           $customers = \App\Customer::paginate(10);
           return view('admin/customers', ['customers' => $customers]);
         }
-        else return view('admin/login');
+        else return redirect('/ajan');
     }
 
     public function deleteCustomer($w_id)
@@ -22,6 +22,6 @@ class CustomerEdit extends Controller
         \App\Customer::destroy($w_id);
         return redirect('/ajan/customers');
       }
-      else return view('admin/login');
+      else return redirect('/ajan');
     }
 }

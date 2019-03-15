@@ -12,7 +12,7 @@ class AdminAuth extends Controller
     {
         if(\Cookie::get('ajanlogin'))
           return view('admin/index');
-        else return view('admin/login');
+        else return redirect('/ajan');
     }
 
     public function submit(Request $request)

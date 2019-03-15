@@ -13,7 +13,7 @@ class Slider extends Controller
         $sliders = \App\Slider::paginate(12);
         return view('modules/slider/admin/sliderlist', ['sliders' => $sliders]);
       }
-      else return view('admin/login');
+      else return redirect('/ajan');
   }
 
   public function addload()
@@ -21,7 +21,7 @@ class Slider extends Controller
       if(\Cookie::get('ajanlogin')){
         return view('modules/slider/admin/addslider');
       }
-      else return view('admin/login');
+      else return redirect('/ajan');
   }
 
   public function addpost(Request $request)
@@ -73,7 +73,7 @@ class Slider extends Controller
 
         return redirect('/ajan/slidersettings')->with('successmsg', 'Yeni slider oluşturulmuştur.');
       }
-      else return view('admin/login');
+      else return redirect('/ajan');
   }
 
   public function delslider($s_id)
@@ -87,6 +87,6 @@ class Slider extends Controller
       \App\Slider::destroy($s_id);
       return redirect('/ajan/slidersettings');
     }
-    else return view('admin/login');
+    else return redirect('/ajan');
   }
 }

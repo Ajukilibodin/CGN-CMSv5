@@ -14,7 +14,7 @@ class MenuPage extends Controller
         $pagevalues = SitePage::where('Type','<>', 2)->paginate(10);
         return view('modules/page/admin/menupage', ['pagevalues' => $pagevalues]);
       }
-      else return view('admin/login');
+      else return redirect('/ajan');
   }
 
   public function pagesload($p_id)
@@ -23,7 +23,7 @@ class MenuPage extends Controller
         $pagevalues = SitePage::where('Value', $p_id)->paginate(10);
         return view('modules/page/admin/pagelist', ['pagevalues' => $pagevalues, 'p_id' => $p_id]);
       }
-      else return view('admin/login');
+      else return redirect('/ajan');
   }
 
   public function addmenuload()
@@ -31,7 +31,7 @@ class MenuPage extends Controller
       if(\Cookie::get('ajanlogin')){
         return view('modules/page/admin/addmenu');
       }
-      else return view('admin/login');
+      else return redirect('/ajan');
   }
 
   public function addmenupost(Request $request)
@@ -56,7 +56,7 @@ class MenuPage extends Controller
         }
         return redirect('/ajan/menupage')->with('successmsg', 'Yeni menü oluşturulmuştur.');
       }
-      else return view('admin/login');
+      else return redirect('/ajan');
   }
 
   public function delmenu($w_id)
@@ -66,7 +66,7 @@ class MenuPage extends Controller
       SitePage::destroy($w_id);
       return redirect('/ajan/menupage');
     }
-    else return view('admin/login');
+    else return redirect('/ajan');
   }
 
   public function addpageload($p_id)
@@ -74,7 +74,7 @@ class MenuPage extends Controller
     if(\Cookie::get('ajanlogin')){
       return view('modules/page/admin/addpage')->with('p_id', $p_id);
     }
-    else return view('admin/login');
+    else return redirect('/ajan');
   }
 
   public function addpagepost(Request $request, $p_id)
@@ -93,7 +93,7 @@ class MenuPage extends Controller
         ]);
         return redirect('/ajan/menupage/'.$p_id)->with('successmsg', 'Yeni sayfa oluşturulmuştur.');
       }
-      else return view('admin/login');
+      else return redirect('/ajan');
   }
 
   public function delpage( $w_id, $p_id)
@@ -102,7 +102,7 @@ class MenuPage extends Controller
       SitePage::destroy($p_id);
       return redirect('/ajan/menupage/'.$w_id);
     }
-    else return view('admin/login');
+    else return redirect('/ajan');
   }
 
   public function modmenuload($w_id)
@@ -111,7 +111,7 @@ class MenuPage extends Controller
       $menuvalues = SitePage::where('id', $w_id)->first();
       return view('modules/page/admin/modmenu', ['menuvalues' => $menuvalues]);
     }
-    else return view('admin/login');
+    else return redirect('/ajan');
   }
 
   public function modmenupost(Request $request, $w_id)
@@ -135,7 +135,7 @@ class MenuPage extends Controller
       $t_page->save();
       return redirect('/ajan/menupage')->with('successmsg', 'Menüyü güncelleştirdiniz.');
     }
-    else return view('admin/login');
+    else return redirect('/ajan');
   }
 
   public function modpageload($p_id)
@@ -144,7 +144,7 @@ class MenuPage extends Controller
       $pagevalues = SitePage::where('id', $p_id)->first();
       return view('modules/page/admin/modpage', ['pagevalues' => $pagevalues]);
     }
-    else return view('admin/login');
+    else return redirect('/ajan');
   }
 
   public function modpagepost(Request $request, $w_id, $p_id)
@@ -160,7 +160,7 @@ class MenuPage extends Controller
       $t_page->save();
       return redirect('/ajan/menupage/'.$w_id)->with('successmsg', 'Menüyü güncelleştirdiniz.');
     }
-    else return view('admin/login');
+    else return redirect('/ajan');
   }
 
 }

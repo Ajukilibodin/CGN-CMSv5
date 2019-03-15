@@ -104,7 +104,7 @@
           </ul>
         </div>
       </li>
-      @if( Request::is('ajan/categories') )
+      @if( Request::is('ajan/categories') or Request::is('ajan/categories/*') or Request::is('ajan/addcategory/*') )
       <li class="sidebar-dropdown active">
         <a href="javascript:;">
           <i class="fas fa-shopping-cart"></i>
