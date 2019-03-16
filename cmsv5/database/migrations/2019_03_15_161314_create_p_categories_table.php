@@ -21,12 +21,12 @@ class CreatePCategoriesTable extends Migration
             $table->timestamps();
         });
         \App\PCategory::create([
-          'Title' => 'Beden',
+          'Title' => 'Giyim Bedeni',
           'UnitName' => 'Beden',
           'UnitList' => 'XS,S,M,L,XL,XXL'
         ]);
         \App\PCategory::create([
-          'Title' => 'Ayakkabı Numarası',
+          'Title' => 'Ayak Numarası',
           'UnitName' => 'Numara',
           'UnitList' => '30-32,32-34,34-36,36-38,38-40,40-42,42-44,44-46'
         ]);

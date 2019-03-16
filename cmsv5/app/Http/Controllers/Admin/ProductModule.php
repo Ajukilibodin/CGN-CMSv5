@@ -69,7 +69,8 @@ class ProductModule extends Controller
       else{
         Category::create([
           'Title' => $ctitle,
-          'ParentCategory' => $c_id
+          'ParentCategory' => $c_id,
+          'UnitType' => $request->input('cate-type')
         ]);
         return redirect('/ajan/categories/'.$c_id);
       }
@@ -92,6 +93,9 @@ class ProductModule extends Controller
       $ctitle = $request->input('cate-title');
       $temp = Category::where('id',$c_id)->first();
       $temp->Title = $ctitle;
+      if($temp->Type=='Category'){
+        $temp->UnitType = $request->input('cate-type');
+      }
       $temp->save();
       if($c_id==0){
         return redirect('/ajan/categories/');

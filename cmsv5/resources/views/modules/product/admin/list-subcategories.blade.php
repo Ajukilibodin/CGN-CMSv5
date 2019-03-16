@@ -55,6 +55,7 @@
             <th scope="col">id</th>
             <th scope="col">Başlık</th>
             <th scope="col">Ürün Sayısı</th>
+            <th scope="col">Ürün Özellik Türü</th>
             <th scope="col" style="width: 70px;">İşlem</th>
           </tr>
         </thead>
@@ -63,8 +64,12 @@
           <tr>
             <th scope="row">{{ $pagevalue->id }}</th>
             <td>{{ $pagevalue->Title }}</td>
-
             <td>{{ \App\Category::where('ParentCategory', $pagevalue->id )->count() }} </td>
+            @if( $pagevalue->UnitType==0 )
+            <td><i>*Tanımsız*</i></td>
+            @else
+            <td>{{ \App\PCategory::where('id', $pagevalue->UnitType )->first()->Title }} </td>
+            @endif
             <td>
               <a href="/ajan/editcategory/{{$pagevalue->id}}" title="Kategori Düzenle" class="text-primary" data-toggle="tooltip">
                 <i class="fas fa-pencil-alt"></i></a>

@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('Title');
             $table->enum('Type', ['Category','Header'])->default('Category');
             $table->integer('ParentCategory')->default(0);
+            $table->integer('UnitType')->default(0);
             $table->timestamps();
         });
         \App\Category::create([
@@ -30,11 +31,13 @@ class CreateCategoriesTable extends Migration
         ]);
         \App\Category::create([
           'Title' => 'T-shirt',
-          'ParentCategory' => 1
+          'ParentCategory' => 1,
+          'UnitType' => 1
         ]);
         \App\Category::create([
           'Title' => 'Ayakkabı',
-          'ParentCategory' => 1
+          'ParentCategory' => 1,
+          'UnitType' => 2
         ]);
         \App\Category::create([
           'Title' => 'Kadın',
