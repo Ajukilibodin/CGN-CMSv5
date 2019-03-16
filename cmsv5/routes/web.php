@@ -69,3 +69,10 @@ Route::get('/ajan/addcategory/{c_id}', 'Admin\ProductModule@addcategory');
 Route::post('/ajan/addcategory/{c_id}', 'Admin\ProductModule@addcategorypost');
 Route::get('/ajan/editcategory/{c_id}', 'Admin\ProductModule@editcategory');
 Route::post('/ajan/editcategory/{c_id}', 'Admin\ProductModule@editcategorypost');
+
+Route::get('/ajan/prodcate', 'Admin\ProductModule@prodcateload');
+Route::get('/ajan/addprodcate', 'Admin\ProductModule@addprodcateload');
+Route::post('/ajan/addprodcate', 'Admin\ProductModule@addprodcatepost');
+Route::get('/ajan/editprodcate/{c_id}', 'Admin\ProductModule@editprodcateload');
+Route::post('/ajan/editprodcate/{c_id}', 'Admin\ProductModule@editprodcatepost');
+Route::get('/ajan/delprodcate/{c_id}', 'Admin\ProductModule@delprodcate');

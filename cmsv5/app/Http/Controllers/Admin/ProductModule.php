@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
+use App\PCategory;
 
 class ProductModule extends Controller
 {
@@ -98,6 +99,85 @@ class ProductModule extends Controller
       else{
         return redirect('/ajan/categories/'.$temp->ParentCategory);
       }
+    }
+    else return redirect('/ajan');
+  }
+
+  public function prodcateload()
+  {
+    if(\Cookie::get('ajanlogin')){
+      $pagevalues = PCategory::paginate(10);
+      return view('modules/product/admin/list-prodcate', ['pagevalues' => $pagevalues]);
+    }
+    else return redirect('/ajan');
+  }
+
+  public function addprodcateload()
+  {
+    if(\Cookie::get('ajanlogin')){
+      return view('modules/product/admin/addprodcate');
+    }
+    else return redirect('/ajan');
+  }
+
+  public function editprodcateload($c_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $pagevalues = PCategory::where('id', $c_id)->first();
+      return view('modules/product/admin/editprodcate', ['pagevalues' => $pagevalues]);
+    }
+    else return redirect('/ajan');
+  }
+
+  public function delprodcate($c_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      PCategory::where('id', $c_id)->delete();
+      return redirect('/ajan/prodcate');
+    }
+    else return redirect('/ajan');
+  }
+
+  public function addprodcatepost(Request $request)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $this->validate($request, [
+        'prca-title' => 'required|max:250',
+        'prca-name' => 'required|max:250',
+        'prca-values' => 'required|max:250'
+        ]);
+      $ctitle = $request->input('prca-title');
+      $cname = $request->input('prca-name');
+      $cvalues = $request->input('prca-values');
+
+      $pagevalues = PCategory::create([
+        'Title' => $ctitle,
+        'UnitName' => $cname,
+        'UnitList' => $cvalues
+      ]);
+      return redirect('/ajan/prodcate');
+    }
+    else return redirect('/ajan');
+  }
+
+  public function editprodcatepost(Request $request, $c_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $this->validate($request, [
+        'prca-title' => 'required|max:250',
+        'prca-name' => 'required|max:250',
+        'prca-values' => 'required|max:250'
+        ]);
+      $ctitle = $request->input('prca-title');
+      $cname = $request->input('prca-name');
+      $cvalues = $request->input('prca-values');
+
+      $temp = PCategory::where('id',$c_id)->first();
+      $temp->Title = $ctitle;
+      $temp->UnitName = $cname;
+      $temp->UnitList = $cvalues;
+      $temp->save();
+      return redirect('/ajan/prodcate');
     }
     else return redirect('/ajan');
   }

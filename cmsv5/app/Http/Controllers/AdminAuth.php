@@ -10,9 +10,11 @@ class AdminAuth extends Controller
 {
     public function mainload()
     {
-        if(\Cookie::get('ajanlogin'))
+        if($temp = \Cookie::get('ajanlogin')){
+          \Cookie::queue(\Cookie::make('ajanlogin', $temp, 24*60));  
           return view('admin/index');
-        else return redirect('/ajan');
+        }
+        else return view('admin/login');
     }
 
     public function submit(Request $request)

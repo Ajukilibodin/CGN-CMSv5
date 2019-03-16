@@ -104,7 +104,8 @@
           </ul>
         </div>
       </li>
-      @if( Request::is('ajan/categories') or Request::is('ajan/categories/*') or Request::is('ajan/addcategory/*') )
+      @if( Request::is('ajan/categories') or Request::is('ajan/categories/*') or Request::is('ajan/addcategory/*')
+       or Request::is('ajan/prodcate') or Request::is('ajan/addprodcate') )
       <li class="sidebar-dropdown active">
         <a href="javascript:;">
           <i class="fas fa-shopping-cart"></i>
@@ -124,7 +125,7 @@
               <a href="{{url('/ajan/categories')}}">Ürün Kategorileri</a>
             </li>
             <li>
-              <a href="javascript:;">Ürün Özellik Paneli</a>
+              <a href="{{url('/ajan/prodcate')}}">Ürün Özellik Paneli</a>
             </li>
             <li>
               <a href="javascript:;">Ürünlerim</a>
