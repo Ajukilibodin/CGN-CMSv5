@@ -76,3 +76,5 @@ Route::post('/ajan/addprodcate', 'Admin\ProductModule@addprodcatepost');
 Route::get('/ajan/editprodcate/{c_id}', 'Admin\ProductModule@editprodcateload');
 Route::post('/ajan/editprodcate/{c_id}', 'Admin\ProductModule@editprodcatepost');
 Route::get('/ajan/delprodcate/{c_id}', 'Admin\ProductModule@delprodcate');
+
+Route::get('/ajan/products', 'Admin\ProductModule@productsload');

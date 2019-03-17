@@ -185,4 +185,13 @@ class ProductModule extends Controller
     }
     else return redirect('/ajan');
   }
+
+  public function productsload()
+  {
+    if(\Cookie::get('ajanlogin')){
+      $pagevalues = PCategory::paginate(10);
+      return view('modules/product/admin/list-productmain', ['pagevalues' => $pagevalues]);
+    }
+    else return redirect('/ajan');
+  }
 }
