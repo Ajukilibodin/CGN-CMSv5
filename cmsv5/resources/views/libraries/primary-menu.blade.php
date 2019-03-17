@@ -5,16 +5,30 @@
   @foreach(\App\SitePage::all() as $page)
     @if($page->Type=='DefinedPage')
       @if($page->Value==0)
-      <li class="current"><a href="/"><div>{{$page->Title}}</div></a>	</li>
+      <li class="current"><a href="{{url('/')}}"><div>{{$page->Title}}</div></a>	</li>
       @elseif($page->Value==1)
-      <li><a href="/contact"><div>{{$page->Title}}</div></a>	</li>
+      <li><a href="{{url('/contact')}}"><div>{{$page->Title}}</div></a>	</li>
       @elseif($page->Value==2)
-      <li><a href="/products"><div>{{$page->Title}}</div></a>	</li>
+      <li class="mega-menu"><a href="{{url('/products')}}"><div>{{$page->Title}}</div></a>
+        <div class="mega-menu-content style-2 clearfix">
+          @foreach(\App\Category::all()->where('ParentCategory', 0)->take(4) as $cate)
+          <ul class="mega-menu-column col-md-3">
+            <li class="mega-menu-title"><a href="#"><div>{{$cate->Title}}</div></a>
+              <ul>
+                @foreach(\App\Category::all()->where('ParentCategory', $cate->id) as $scate)
+                <li><a href="#"><div>{{$scate->Title}}</div></a></li>
+                @endforeach
+              </ul>
+            </li>
+          </ul>
+          @endforeach
+        </div>
+      </li>
       @else
-      <li><a href="/"><div>{{$page->Title}}</div></a>	</li>
+      <li><a href="{{url('/')}}"><div>{{$page->Title}}</div></a>	</li>
       @endif
     @elseif($page->Type=='PageHeader')
-      <li><a href="/page/{{$page->id}}"><div>{{$page->Title}}</div></a></li>
+      <li><a href="{{url('/page/'.$page->id)}}"><div>{{$page->Title}}</div></a></li>
     @endif
   @endforeach
 
