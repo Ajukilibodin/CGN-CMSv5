@@ -39,7 +39,18 @@
               <div class="card-body">
                 <ul style="list-style-type:none;">
                   @foreach(\App\Category::all()->where('ParentCategory', $cate->id) as $scate)
-                  <li><a href="#" class="btn btn-info w-75 text-left m-1">{{$scate->Title}} (Ürün Adedi: 0) </a>
+                  <li><a href="{{url('/ajan/products/'.$scate->id)}}" class="btn btn-info w-75 text-left m-1">{{$scate->Title}} (Ürün Adedi:
+                    @php($count = 0)
+                    @foreach(\App\Product::all() as $prod)
+                      @foreach(explode(',', $prod->Categories) as $prodcates)
+                        @if( $prodcates == strval($scate->id) )
+                          @php($count+=1)
+                        @endif
+                      @endforeach
+                    @endforeach
+                    {{$count}}
+                    <?php // TODO: burayı daha efektif kullanmanın bi yolu olmalı... ?>
+                    ) </a>
                     <a href="#" class="btn btn-danger text-left m-1">Ürünleri Temizle</a></li>
                   @endforeach
                 </ul>

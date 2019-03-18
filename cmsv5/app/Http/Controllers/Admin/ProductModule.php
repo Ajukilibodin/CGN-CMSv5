@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
 use App\PCategory;
+use App\Product;
 
 class ProductModule extends Controller
 {
@@ -191,6 +192,15 @@ class ProductModule extends Controller
     if(\Cookie::get('ajanlogin')){
       $pagevalues = PCategory::paginate(10);
       return view('modules/product/admin/list-productmain', ['pagevalues' => $pagevalues]);
+    }
+    else return redirect('/ajan');
+  }
+
+  public function productlist($c_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $pagevalues = Product::paginate(10);
+      return view('modules/product/admin/list-products', ['pagevalues' => $pagevalues, 'c_id'=>$c_id]);
     }
     else return redirect('/ajan');
   }
