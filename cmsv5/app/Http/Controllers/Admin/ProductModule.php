@@ -259,4 +259,12 @@ class ProductModule extends Controller
     }
     else return redirect('/ajan');
   }
+  public function delproduct($c_id,$p_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      Product::destroy($p_id);
+      return redirect('/ajan/products/'.$c_id);
+    }
+    else return redirect('/ajan');
+  }
 }

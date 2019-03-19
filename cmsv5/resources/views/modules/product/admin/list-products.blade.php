@@ -23,14 +23,14 @@
         <div class="modal-content">
 
             <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">Ürün Özelliği Silme</h4>
+              <h4 class="modal-title" id="myModalLabel">Ürün Silme</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
 
             <div class="modal-body">
-                <p>Şu an kayıtlı bir Ürün Özelliği silmek üzeresiniz.</p>
+                <p>Şu an kayıtlı bir Ürün silmek üzeresiniz.</p>
                 <p>Bu işlem geri alınamaz!</p>
-                <p>Ürün Özelliğini silmek istediğinize emin misiniz?</p>
+                <p>Ürün silmek istediğinize emin misiniz?</p>
             </div>
 
             <div class="modal-footer">
@@ -82,10 +82,10 @@
             {{ \App\Exchange::where('id',$pagevalue->PriceExchange)->first()->Title }}
             </td>
             <td>
-              <a href="#" title="Ürün Özelliği Düzenle" class="text-primary" data-toggle="tooltip">
+              <a href="{{url('/ajan/modproduct/'.$pagevalue->id)}}" title="Ürün Düzenle" class="text-primary" data-toggle="tooltip">
                 <i class="fas fa-pencil-alt"></i></a>
-              <span data-href="#" data-toggle="modal" data-target="#confirm-delete">
-                <a class="text-danger" title="Ürün Özelliği Sil" href="javascript:;" data-toggle="tooltip">
+              <span data-href="{{url('/ajan/delproduct/'.$c_id.'/'.$pagevalue->id)}}" data-toggle="modal" data-target="#confirm-delete">
+                <a class="text-danger" title="Ürün Sil" href="javascript:;" data-toggle="tooltip">
                   <i class="fas fa-trash-alt"></i>
                 </a>
               </span>
