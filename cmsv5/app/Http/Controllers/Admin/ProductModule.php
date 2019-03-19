@@ -244,15 +244,21 @@ class ProductModule extends Controller
       }
       if($catetext=="") return back()->with('error','Ürün için en az 1 kategori tanımlanmalıdır.');
 
-      \App\Product::create([
-        'Title'=>$title,
-        'Categories'=>$catetext,
-        'Desc'=> ''.$pdesc,
-        'Price'=>$price,
-        'PriceExchange'=>$excha,
-        'DetailID'=>$cd_id,
-        'Stock'=> $cd_text
-      ]);
+      $temp_product = new \App\Product;
+      $temp_product->Title=$title;
+      $temp_product->Categories=$catetext;
+      $temp_product->Desc= ''.$pdesc;
+      $temp_product->Price=$price;
+      $temp_product->PriceExchange=$excha;
+      $temp_product->DetailID=$cd_id;
+      $temp_product->Stock= $cd_text;
+      $temp_product->save();
+
+      $file = ($temp_product->id).(substr($fpath, strrpos($fpath,'.')));
+      $request->file('prod-filepath')->storeAs('modules/product', $file, 'public_uploads');
+
+      $temp_product->ImgPaths = $file;
+      $temp_product->save();
 
       // TODO: eklediği ürüne stok girme penceresini aç
       return redirect('/ajan/products');

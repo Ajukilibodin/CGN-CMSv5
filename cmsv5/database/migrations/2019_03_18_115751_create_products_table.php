@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->string('Stock');
             $table->tinyInteger('Discount')->nullable();
             $table->tinyInteger('Ribbons')->nullable();
+            $table->string('ImgPaths')->nullable();
             $table->timestamps();
         });
         \App\Product::create([
@@ -32,14 +33,16 @@ class CreateProductsTable extends Migration
           'Categories'=>'3,6',
           'DetailID'=>3,
           'Price'=>15.00,
-          'Stock'=>'{"XS":0, "S":1, "M":2, "L":5, "XL":-1, "XXL":3}'
+          'Stock'=>'{"XS":0, "S":1, "M":2, "L":5, "XL":-1, "XXL":3}',
+          'ImgPaths'=>"1.jpg"
         ]);
         \App\Product::create([
           'Title'=>'Kadın Tshirt',
           'Categories'=>'3,5',
           'DetailID'=>3,
           'Price'=>15.00,
-          'Stock'=>'{"XS":0, "S":1, "M":2, "L":5, "XL":-1, "XXL":3}'
+          'Stock'=>'{"XS":0, "S":1, "M":2, "L":5, "XL":-1, "XXL":3}',
+          'ImgPaths'=>"2.jpg"
         ]);
     }
 
