@@ -1,14 +1,14 @@
 @extends('masters.admin')
 
 @section('contenttitle')
-<h1>Ürün Özelliği Ekle</h1>
+<h1>Ürün Özelliği Düzenle</h1>
 @endsection
 @section('content')
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/ajan">Anasayfa</a></li>
     <li class="breadcrumb-item"><a href="/ajan/prodcate">Ürün Özellik Yönetimi</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Ürün Özelliği Ekle</li>
+    <li class="breadcrumb-item active" aria-current="page">Ürün Özelliği Düzenle</li>
   </ol>
 </nav>
 {!! Form::open(['url' => 'ajan/editprodcate/'.$pagevalues->id]) !!}

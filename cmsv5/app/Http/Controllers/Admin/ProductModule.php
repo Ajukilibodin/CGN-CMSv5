@@ -213,6 +213,62 @@ class ProductModule extends Controller
     else return redirect('/ajan');
   }
 
+  public function editproductload($p_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $pagevalues = Product::where('id', $p_id)->first();
+      return view('modules/product/admin/editproduct', ['pagevalues' => $pagevalues, 'p_id'=>$p_id]);
+    }
+    else return redirect('/ajan');
+  }
+
+  public function editproductpost(Request $request, $p_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $this->validate($request, [
+        'prod-title' => 'required|max:250',
+        'prod-price' => 'required'
+        ]);
+
+      $title = $request->input('prod-title');
+      $price = $request->input('prod-price');
+      $excha = $request->input('prod-exchange');
+      $pdesc = $request->input('prod-desc');
+      if($request->hasFile('prod-filepath'))
+      $fpath = $request->file('prod-filepath')->getClientOriginalName();
+
+      $catetext="";
+      foreach (Category::all()->where('Type', 'Header') as $cate) {
+        $catetemp = $request->input('radio'.$cate->id);
+        if($catetemp != '0'){
+          if($catetext=="") $catetext = $catetemp;
+          else $catetext .= ",".$catetemp;
+          $scate =Category::all()->where('id', $catetemp)->first();
+        }
+      }
+      if($catetext=="") return back()->with('error','Ürün için en az 1 kategori tanımlanmalıdır.');
+
+      $temp_product = Product::where('id',$p_id)->first();
+      $temp_product->Title=$title;
+      $temp_product->Categories=$catetext;
+      $temp_product->Desc= ''.$pdesc;
+      $temp_product->Price=$price;
+      $temp_product->PriceExchange=$excha;
+      $temp_product->save();
+
+      if($request->hasFile('prod-filepath')){
+        $file = ($temp_product->id).(substr($fpath, strrpos($fpath,'.')));
+        $request->file('prod-filepath')->storeAs('modules/product', $file, 'public_uploads');
+
+        $temp_product->ImgPaths = $file;
+        $temp_product->save();
+      }
+
+      return redirect('/ajan/products');
+    }
+    else return redirect('/ajan');
+  }
+
   public function addproductpost(Request $request)
   {
     if(\Cookie::get('ajanlogin')){
