@@ -24,7 +24,7 @@
       <select class="form-control" id="cate-type" name="cate-type">
         <option value="0">*Tanımsız*</option>
         @foreach(\App\PCategory::all() as $unit)
-          <option value="$unit->id">{{$unit->Title}} ({{$unit->UnitName}})</option>
+          <option value="{{$unit->id}}">{{$unit->Title}} ({{$unit->UnitName}})</option>
         @endforeach
       </select>
     </div>

@@ -35,34 +35,6 @@
   </div>
 </div>
 <div class="form-group row">
-  <style>
-    .btn-file {
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-file input[type=file] {
-      position: absolute;
-      top: 0;
-      right: 0;
-      min-width: 100%;
-      min-height: 100%;
-      font-size: 100px;
-      text-align: right;
-      filter: alpha(opacity=0);
-      opacity: 0;
-      outline: none;
-      background: white;
-      cursor: inherit;
-      display: block;
-    }
-
-    #img-upload{
-      width: 100%;
-    }
-    #img-upload2{
-      width: 100%;
-    }
-  </style>
   <div class="col-8">
       <div class="form-group">
           <label>Arkaplan Resmi</label>
@@ -74,7 +46,7 @@
               </span>
               <input type="text" class="form-control" readonly>
           </div>
-          <img id='img-upload'/>
+          <img id='img-upload' style="width:100%;"/>
       </div>
   </div>
   <div class="col-4">
@@ -88,7 +60,7 @@
               </span>
               <input type="text" class="form-control" readonly>
           </div>
-          <img id='img-upload2'/>
+          <img id='img-upload2' style="width:100%;"/>
       </div>
   </div>
 </div>

@@ -43,7 +43,7 @@
 <section class="content">
   <div class="row">
     <div class="col-12 table-responsive">
-      <a title="Yeni Ekle" class="btn btn-primary text-white m-1" data-toggle="tooltip" href="/ajan/addprodcate/">
+      <a title="Yeni Ekle" class="btn btn-primary text-white m-1" data-toggle="tooltip" href="/ajan/addproduct">
         <i class="fas fa-plus"></i> Yeni Ürün Ekle</a>
       <div class="float-right">
         {{ $pagevalues->links() }}

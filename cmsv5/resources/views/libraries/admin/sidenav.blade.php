@@ -105,7 +105,8 @@
         </div>
       </li>
       @if( Request::is('ajan/categories') or Request::is('ajan/categories/*') or Request::is('ajan/addcategory/*')
-       or Request::is('ajan/prodcate') or Request::is('ajan/addprodcate') or Request::is('ajan/products') )
+       or Request::is('ajan/prodcate') or Request::is('ajan/addprodcate') or Request::is('ajan/products')
+        or Request::is('ajan/products/*') or Request::is('ajan/addproduct') )
       <li class="sidebar-dropdown active">
         <a href="javascript:;">
           <i class="fas fa-shopping-cart"></i>
@@ -126,6 +127,9 @@
             </li>
             <li>
               <a href="{{url('/ajan/prodcate')}}">Ürün Özellik Paneli</a>
+            </li>
+            <li>
+              <a href="javascript:;">Kur Girişi</a>
             </li>
             <li>
               <a href="{{url('/ajan/products')}}">Ürünlerim</a>

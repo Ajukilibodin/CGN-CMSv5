@@ -204,4 +204,59 @@ class ProductModule extends Controller
     }
     else return redirect('/ajan');
   }
+
+  public function addproductload()
+  {
+    if(\Cookie::get('ajanlogin')){
+      return view('modules/product/admin/addproduct');
+    }
+    else return redirect('/ajan');
+  }
+
+  public function addproductpost(Request $request)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $this->validate($request, [
+        'prod-title' => 'required|max:250',
+        'prod-price' => 'required',
+        'prod-filepath' => 'required'
+        ]);
+
+      $title = $request->input('prod-title');
+      $price = $request->input('prod-price');
+      $excha = $request->input('prod-exchange');
+      $pdesc = $request->input('prod-desc');
+      $fpath = $request->file('prod-filepath')->getClientOriginalName();
+
+      $catetext="";
+      $cd_id = 0; $cd_text="";
+      foreach (Category::all()->where('Type', 'Header') as $cate) {
+        $catetemp = $request->input('radio'.$cate->id);
+        if($catetemp != '0'){
+          if($catetext=="") $catetext = $catetemp;
+          else $catetext .= ",".$catetemp;
+          $scate =Category::all()->where('id', $catetemp)->first();
+          if($cd_text == "" && $scate->UnitType != 0){
+            $cd_id = (int)$catetemp;
+            $cd_text = '{"'.str_replace(',','":-1,"', PCategory::where('id',$scate->UnitType)->first()->UnitList).'":-1}';
+          }
+        }
+      }
+      if($catetext=="") return back()->with('error','Ürün için en az 1 kategori tanımlanmalıdır.');
+
+      \App\Product::create([
+        'Title'=>$title,
+        'Categories'=>$catetext,
+        'Desc'=> ''.$pdesc,
+        'Price'=>$price,
+        'PriceExchange'=>$excha,
+        'DetailID'=>$cd_id,
+        'Stock'=> $cd_text
+      ]);
+
+      // TODO: eklediği ürüne stok girme penceresini aç
+      return redirect('/ajan/products');
+    }
+    else return redirect('/ajan');
+  }
 }

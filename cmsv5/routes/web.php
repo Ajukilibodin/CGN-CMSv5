@@ -79,3 +79,5 @@ Route::get('/ajan/delprodcate/{c_id}', 'Admin\ProductModule@delprodcate');
 
 Route::get('/ajan/products', 'Admin\ProductModule@productsload');
 Route::get('/ajan/products/{c_id}', 'Admin\ProductModule@productlist');
+Route::get('/ajan/addproduct', 'Admin\ProductModule@addproductload');
+Route::post('/ajan/addproduct', 'Admin\ProductModule@addproductpost');
