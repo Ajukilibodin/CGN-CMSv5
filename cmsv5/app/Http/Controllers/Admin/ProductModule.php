@@ -329,4 +329,24 @@ class ProductModule extends Controller
     }
     else return redirect('/ajan');
   }
+
+  public function exchangesload()
+  {
+    if(\Cookie::get('ajanlogin')){
+      $sitevalues = \App\Exchange::where('id','<>',1)->paginate(10);
+      return view('modules/product/admin/editexchange', ['sitevalues' => $sitevalues]);
+    }
+    else return redirect('/ajan');
+  }
+  public function exchangespost(Request $request, $e_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $this->validate($request, ['sitevalue-input' => 'required']);
+      $temp = \App\Exchange::where('id',$e_id)->first();
+      $temp->Multipler = $request->input('sitevalue-input');
+      $temp->save();
+      return redirect('/ajan/exchanges')->with('successid', $e_id);
+    }
+    else return redirect('/ajan');
+  }
 }
