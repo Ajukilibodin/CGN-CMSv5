@@ -21,6 +21,7 @@
             <div class="col_full nobottommargin">
               <button class="button button-3d nomargin" id="login-form-submit" name="login-form-submit" value="login">Giriş</button>
               <a href="#" class="fright">Şifremi Unuttum</a>
+              <?php // TODO: şifremi unuttum yönlendirmesi ?>
             </div>
             <div class="col_full nobottommargin">
               <label class="checkbox">

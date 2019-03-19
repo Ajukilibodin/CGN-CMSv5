@@ -12,15 +12,16 @@
     <div class="col-md-4 col_last fright nobottommargin">
       <div class="top-links">
         <ul>
-          <li><a href="#">USD</a>
+          <li><a href="#">TRY</a>
             <ul>
-              <li><a href="#">EUR</a></li>
-              <li><a href="#">AUD</a></li>
-              <li><a href="#">GBP</a></li>
+              @foreach(\App\Exchange::all()->where('id','<>',1) as $excha)
+              <li><a href="#">{{$excha->Title.' ('.$excha->Multipler.')'}}</a></li>
+              @endforeach
             </ul>
           </li>
-          <li><a href="#">EN</a>
+          <li><a href="#">TR</a>
             <ul>
+              <li><a href="#"><img src="/images/icons/flags/english.png" alt="English"> EN</a></li>
               <li><a href="#"><img src="/images/icons/flags/french.png" alt="French"> FR</a></li>
               <li><a href="#"><img src="/images/icons/flags/italian.png" alt="Italian"> IT</a></li>
               <li><a href="#"><img src="/images/icons/flags/german.png" alt="German"> DE</a></li>

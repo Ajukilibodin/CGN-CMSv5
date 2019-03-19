@@ -139,7 +139,7 @@
 </div>
 <div class="top-cart-item-desc">
 <a href="#">Erkek Mavi Tshirt</a>
-<span class="top-cart-item-price">19.99 tl</span>
+<span class="top-cart-item-price">19.99 TRY</span>
 <span class="top-cart-item-quantity">x 1</span>
 </div>
 </div>
@@ -148,14 +148,14 @@
 <a href="#"><img src="images/shop/small/6.jpg" alt="Light Blue Denim Dress" /></a>
 </div>
 <div class="top-cart-item-desc">
-<a href="#">Erkek Beyaz Tshirt</a>
-<span class="top-cart-item-price">24.99 tl</span>
+<a href="#">Kadın Beyaz Tshirt</a>
+<span class="top-cart-item-price">24.99 TRY</span>
 <span class="top-cart-item-quantity">x 1</span>
 </div>
 </div>
 </div>
 <div class="top-cart-action clearfix">
-<span class="fleft top-checkout-price">44.98 tl</span>
+<span class="fleft top-checkout-price">44.98 TRY</span>
 <button class="button button-3d button-small nomargin fright" onclick="sepetegit();">SEPETE GİT</button>
 </div>
 </div>

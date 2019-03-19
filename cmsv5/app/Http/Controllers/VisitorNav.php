@@ -45,9 +45,14 @@ class VisitorNav extends Controller
 
         if( $getUser->count() > 0 && \Hash::check($password ,$getUser->first()->Password) ){
           $_ttemp = Verify::where('UserID',$getUser->first()->id);
-          if($_ttemp->count() > 0 && $_ttemp->first()->Type == 'NewRegister')
+          if($_ttemp->count() > 0 )
           {
-            return redirect('/login')->with('error', 'Kullanıcı hesabınızı mailinizden onaylayınız!');
+            if($_ttemp->first()->Type == 'NewRegister'){
+              return redirect('/login')->with('error', 'Kullanıcı hesabınızı mailinizden onaylayınız!');
+            }
+            else {
+              $_ttemp->first()->delete();
+            }
           }
           $getUser = $getUser->first();
           $cookietime = 60*24; //60 min * 24 hour = 1 day
@@ -60,6 +65,7 @@ class VisitorNav extends Controller
         }
         else{
           return back()->with('error', 'Yanlış Kullanıcı Bilgileri');
+          // TODO: şifrenizi mi unuttunuz???
         }
       }
     }
@@ -77,7 +83,7 @@ class VisitorNav extends Controller
         $t_user->LastLogin = \Carbon\Carbon::now();
         $t_user->save();
         $getUser->delete();
-        return redirect('/')->with('welcomemessage', 'Hesabın aktifleştirildi.<br>Hoşgeldin '.$t_user->Name );
+        return redirect('/')->with('welcomemessage', 'Hesabın aktifleştirildi. Hoşgeldin '.$t_user->Name );
       }
       else {
         redirect('/');
@@ -129,9 +135,10 @@ class VisitorNav extends Controller
         $newcustomer->MailSub = $mailsub;
         $newcustomer->save();
 
-        Verify::create(['UserID' => $newcustomer->id, 'Token' => Str::random(90)]);
-        
-        return redirect('/')->with('welcomemessage', 'Sayın '.$name." ".$lname.", üyelik işleminiz mailinize ulaştırılan linki takip etmeniz ile tamamlanacaktır." );
+        $temp_token = Str::random(90);
+        Verify::create(['UserID' => $newcustomer->id, 'Token' => $temp_token]);
+        return redirect('/')->with('reg_token', $temp_token)->with('reg_mail',$email)
+        ->with('welcomemessage', 'Sayın '.$name." ".$lname.", üyelik işleminiz mailinize ulaştırılan linki takip etmeniz ile tamamlanacaktır." );
       }
     }
 
