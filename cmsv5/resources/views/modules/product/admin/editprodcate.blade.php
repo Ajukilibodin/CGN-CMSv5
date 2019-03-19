@@ -15,15 +15,15 @@
 <div class="row">
   <div class="col-xs-9 col-md-6">
     <div class="form-group">
-    {{Form::label('prca-title', 'Özellik Başlığı')}}
+    {{Form::label('prca-title', 'Özellik Başlığı')}}<span class="badge-sonar ml-2" style="top:unset;"></span>
     {{Form::text('prca-title',$pagevalues->Title ,['class' => 'form-control', 'placeholder' => 'Özellik Başlığı'])}}
     </div>
     <div class="form-group">
-    {{Form::label('prca-name', 'Ünite Adı')}}
+    {{Form::label('prca-name', 'Ünite Adı')}}<span class="badge-sonar ml-2" style="top:unset;"></span>
     {{Form::text('prca-name',$pagevalues->UnitName ,['class' => 'form-control', 'placeholder' => 'Ünite Adı'])}}
     </div>
     <div class="form-group">
-    {{Form::label('prca-values', 'Alabildiği Değerler')}}
+    {{Form::label('prca-values', 'Alabildiği Değerler')}}<span class="badge-sonar ml-2" style="top:unset;"></span>
     {{Form::textarea('prca-values',$pagevalues->UnitList ,['class' => 'form-control', 'placeholder' => 'Alabildiği Değerler', 'rows' => '3'])}}
     <small>Alabileceği değerleri virgül (,) ile ayırarak yazınız...</small>
     </div>

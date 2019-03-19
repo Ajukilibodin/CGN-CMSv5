@@ -15,7 +15,7 @@
 <div class="row">
   <div class="col-xs-9 col-md-6">
     <div class="form-group">
-    {{Form::label('cate-title', 'Kategori Başlığı')}}
+    {{Form::label('cate-title', 'Kategori Başlığı')}}<span class="badge-sonar ml-2" style="top:unset;"></span>
     {{Form::text('cate-title','',['class' => 'form-control', 'placeholder' => 'Kategori Başlığı'])}}
     </div>
     @if( $c_id!=0 )

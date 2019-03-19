@@ -13,20 +13,20 @@
 </nav>
 {!! Form::open(['url' => 'ajan/addslider', 'files' => true]) !!}
 <div class="form-group">
-{{Form::label('slider-title', 'Slider Üst Başlığı')}}
+{{Form::label('slider-title', 'Slider Üst Başlığı')}}<span class="badge-sonar ml-2" style="top:unset;"></span>
 {{Form::text('slider-title','',['class' => 'form-control', 'placeholder' => 'Slider Üst Başlığı'])}}
 </div>
 <div class="form-group">
-{{Form::label('slider-bigtitle', 'Slider Büyük Başlık')}}
+{{Form::label('slider-bigtitle', 'Slider Büyük Başlık')}}<span class="badge-sonar ml-2" style="top:unset;"></span>
 {{Form::text('slider-bigtitle','',['class' => 'form-control', 'placeholder' => 'Slider Büyük Başlık'])}}
 </div>
 <div class="form-group">
-{{Form::label('slider-subtext', 'Başlık Altı Yazısı')}}
+{{Form::label('slider-subtext', 'Başlık Altı Yazısı')}}<span class="badge-sonar ml-2" style="top:unset;"></span>
 {{Form::text('slider-subtext','',['class' => 'form-control', 'placeholder' => 'Başlık Altı Yazısı'])}}
 </div>
 <div class="form-group row">
   <div class="col-4">
-    {{Form::label('slider-buttontext', 'Slider Button Yazısı')}}
+    {{Form::label('slider-buttontext', 'Slider Button Yazısı')}}<span class="badge-sonar ml-2" style="top:unset;"></span>
     {{Form::text('slider-buttontext','',['class' => 'form-control', 'placeholder' => 'Slider Button Yazısı'])}}
   </div>
   <div class="col-8">
@@ -37,7 +37,7 @@
 <div class="form-group row">
   <div class="col-8">
       <div class="form-group">
-          <label>Arkaplan Resmi</label>
+          <label>Arkaplan Resmi</label><span class="badge-sonar ml-2" style="top:unset;"></span>
           <div class="input-group mb-2">
               <span class="input-group-btn">
                   <span class="btn btn-primary btn-file mr-2">

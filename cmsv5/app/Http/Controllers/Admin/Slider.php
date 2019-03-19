@@ -32,6 +32,7 @@ class Slider extends Controller
           'slider-bigtitle' => 'required|max:250',
           'slider-subtext' => 'required|max:250',
           'slider-buttontext' => 'required|max:250',
+          'slider-filepath' => 'required'
         ]);
 
         $title = $request->input('slider-title');
