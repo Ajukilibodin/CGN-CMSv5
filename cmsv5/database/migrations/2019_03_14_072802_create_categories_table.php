@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->enum('Type', ['Category','Header'])->default('Category');
             $table->integer('ParentCategory')->default(0);
             $table->integer('UnitType')->default(0);
+            $table->string('ImgUrl')->default('');
             $table->timestamps();
         });
         \App\Category::create([

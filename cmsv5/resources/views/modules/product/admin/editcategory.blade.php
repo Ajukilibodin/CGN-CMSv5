@@ -11,7 +11,7 @@
     <li class="breadcrumb-item active" aria-current="page">Kategori Düzenle</li>
   </ol>
 </nav>
-{!! Form::open(['url' => 'ajan/editcategory/'.$c_id]) !!}
+{!! Form::open(['url' => 'ajan/editcategory/'.$c_id, 'files' => true]]) !!}
 @php($cate = App\Category::where('id',$c_id)->first())
 <div class="row">
   <div class="col-xs-9 col-md-6">
@@ -30,6 +30,18 @@
       </select>
     </div>
     @endif
+    <div class="form-group">
+        <label>Kategori Resmi</label><span class="badge-sonar ml-2" style="top:unset;"></span>
+        <div class="input-group mb-2">
+            <span class="input-group-btn">
+                <span class="btn btn-primary btn-file mr-2">
+                    Dosya Aç... <input type="file" id="imgInp" name="cate-filepath">
+                </span>
+            </span>
+            <input type="text" class="form-control" readonly>
+        </div>
+        <img id='img-upload' style="width:100%;" src="{{$cate->ImgUrl}}"/>
+    </div>
     <div class="form-group float-right">
       {{Form::submit('Kaydet', ['class' => 'btn btn-primary'])}}
       <a class="btn btn-secondary" href="/ajan/categories">Geri</a>

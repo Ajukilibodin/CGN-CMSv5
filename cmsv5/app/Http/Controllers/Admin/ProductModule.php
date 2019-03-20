@@ -58,21 +58,37 @@ class ProductModule extends Controller
   public function addcategorypost(Request $request, $c_id)
   {
     if(\Cookie::get('ajanlogin')){
-      $this->validate($request, ['cate-title' => 'required|max:250']);
+      $this->validate($request, ['cate-title' => 'required|max:250','cate-filepath'=>'required']);
       $ctitle = $request->input('cate-title');
+      $filepath = $request->file('cate-filepath')->getClientOriginalName();
+
       if($c_id==0){
-        Category::create([
-          'Title' => $ctitle,
-          'Type' => 2
-        ]);
+        $_cate = new Category;
+        $_cate->Title = $ctitle;
+        $_cate->Type = 2;
+        $_cate->save();
+
+        $file = ($temp->id).(substr($filepath, strrpos($filepath,'.')));
+        $request->file('cate-filepath')->storeAs('modules/category', $file, 'public_uploads');
+
+        $_cate->ImgUrl = $file;
+        $_cate->save();
+
         return redirect('/ajan/categories/');
       }
       else{
-        Category::create([
-          'Title' => $ctitle,
-          'ParentCategory' => $c_id,
-          'UnitType' => $request->input('cate-type')
-        ]);
+        $_cate = new Category;
+        $_cate->Title = $ctitle;
+        $_cate->ParentCategory = $c_id;
+        $_cate->UnitType = $request->input('cate-type');
+        $_cate->save();
+
+        $file = ($temp->id).(substr($filepath, strrpos($filepath,'.')));
+        $request->file('cate-filepath')->storeAs('modules/category', $file, 'public_uploads');
+
+        $_cate->ImgUrl = $file;
+        $_cate->save();
+
         return redirect('/ajan/categories/'.$c_id);
       }
     }
@@ -92,12 +108,25 @@ class ProductModule extends Controller
     if(\Cookie::get('ajanlogin')){
       $this->validate($request, ['cate-title' => 'required|max:250']);
       $ctitle = $request->input('cate-title');
+
+      if($request->hasFile('cate-filepath'))
+      $filepath = $request->file('cate-filepath')->getClientOriginalName();
+
       $temp = Category::where('id',$c_id)->first();
       $temp->Title = $ctitle;
       if($temp->Type=='Category'){
         $temp->UnitType = $request->input('cate-type');
       }
       $temp->save();
+
+      if($request->hasFile('cate-filepath')){
+        $file = ($temp->id).(substr($filepath, strrpos($filepath,'.')));
+        $request->file('cate-filepath')->storeAs('modules/category', $file, 'public_uploads');
+
+        $temp->ImgUrl = $file;
+        $temp->save();
+      }
+
       if($c_id==0){
         return redirect('/ajan/categories/');
       }

@@ -18,7 +18,8 @@ $(document).ready(function(){
     //$('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
 });
 </script>
-@if(Request::is('ajan/addproduct') or Request::is('ajan/modproduct/*'))
+@if(Request::is('ajan/addproduct') or Request::is('ajan/modproduct/*')
+or Request::is('ajan/addcategory/*') or Request::is('ajan/editcategory/*') )
 <script type="text/javascript">
 $(document).ready( function() {
     $(document).on('change', '.btn-file :file', function() {

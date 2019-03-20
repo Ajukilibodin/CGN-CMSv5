@@ -13,8 +13,8 @@
 					<img src="images/portfolio/4/1.jpg" alt="Open Imagination">
 				</a>
 				<div class="portfolio-overlay">
-					<a href="images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-					<a href="portfolio-single.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+					<a href="images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-ellipsis"></i></a>
+					<a href="portfolio-single.html" class="right-icon"><i class="icon-line-plus"></i></a>
 				</div>
 			</div>
 			<div class="portfolio-desc">
