@@ -237,6 +237,10 @@ class ProductModule extends Controller
       if($request->hasFile('prod-filepath'))
       $fpath = $request->file('prod-filepath')->getClientOriginalName();
 
+      $ribbon = 0;
+      if($request->input('check1')) $ribbon+=1;
+      if($request->input('check2')) $ribbon+=2;
+
       $catetext="";
       foreach (Category::where('Type', 'Header')->get() as $cate) {
         $catetemp = $request->input('radio'.$cate->id);
@@ -254,6 +258,7 @@ class ProductModule extends Controller
       $temp_product->Desc= ''.$pdesc;
       $temp_product->Price=$price;
       $temp_product->PriceExchange=$excha;
+      $temp_product->Ribbons=$ribbon;
       $temp_product->save();
 
       if($request->hasFile('prod-filepath')){
@@ -284,6 +289,10 @@ class ProductModule extends Controller
       $pdesc = $request->input('prod-desc');
       $fpath = $request->file('prod-filepath')->getClientOriginalName();
 
+      $ribbon = 0;
+      if($request->input('check1')) $ribbon+=1;
+      if($request->input('check2')) $ribbon+=2;
+
       $catetext="";
       $cd_id = 0; $cd_text="";
       foreach (Category::where('Type', 'Header')->get() as $cate) {
@@ -313,6 +322,7 @@ class ProductModule extends Controller
       $temp_product->PriceExchange=$excha;
       $temp_product->DetailID=$cd_id;
       $temp_product->Stock= $cd_text;
+      $temp_product->Ribbons=$ribbon;
       $temp_product->save();
 
       $file = ($temp_product->id).(substr($fpath, strrpos($fpath,'.')));

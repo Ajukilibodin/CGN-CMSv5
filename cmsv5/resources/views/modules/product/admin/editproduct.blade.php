@@ -87,6 +87,31 @@
     <small>Ürünü açıklayacak az ve öz bir metin ziyaretçi için kolaylık sağlayacaktır...</small>
     </div>
     <div class="form-group">
+      @php($ribbon = $pagevalues->Ribbons)
+      <input type="checkbox" name="check1" id="check1" value="1" autocomplete="off"
+      @if( ($ribbon%2)>=1 ){{'checked'}}@endif/>
+      <div class="btn-group">
+        <label for="check1" class="btn btn-primary">
+          <span class="fas fa-check"></span>
+          <span> </span>
+        </label>
+        <label for="check1" class="btn btn-light active">
+          Öne Çıkan Ürün
+        </label>
+      </div>
+      <input type="checkbox" name="check2" id="check2" value="2" autocomplete="off"
+      @if( ($ribbon%4)>=2 ){{'checked'}}@endif/>
+      <div class="btn-group">
+        <label for="check2" class="btn btn-primary">
+          <span class="fas fa-check"></span>
+          <span> </span>
+        </label>
+        <label for="check2" class="btn btn-light active">
+          Yeni Ürün
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
       @php($imagepath = $pagevalues->ImgPaths)
       @if(strpos($pagevalues->ImgPaths,','))
       @php($imagepath = substr($imagepath, 0 ,strpos($imagepath,',')))

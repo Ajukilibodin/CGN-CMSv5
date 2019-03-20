@@ -83,6 +83,28 @@
     <small>Ürünü açıklayacak az ve öz bir metin ziyaretçi için kolaylık sağlayacaktır...</small>
     </div>
     <div class="form-group">
+      <input type="checkbox" name="check1" id="check1" value="1" autocomplete="off"/>
+      <div class="btn-group">
+        <label for="check1" class="btn btn-primary">
+          <span class="fas fa-check"></span>
+          <span> </span>
+        </label>
+        <label for="check1" class="btn btn-light active">
+          Öne Çıkan Ürün
+        </label>
+      </div>
+      <input type="checkbox" name="check2" id="check2" value="2" autocomplete="off" checked/>
+      <div class="btn-group">
+        <label for="check2" class="btn btn-primary">
+          <span class="fas fa-check"></span>
+          <span> </span>
+        </label>
+        <label for="check2" class="btn btn-light active">
+          Yeni Ürün
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
         <label>Ürün Resmi</label><span class="badge-sonar ml-2" style="top:unset;"></span>
         <div class="input-group mb-2">
             <span class="input-group-btn">

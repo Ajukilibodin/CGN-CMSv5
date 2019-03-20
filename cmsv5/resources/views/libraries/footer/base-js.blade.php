@@ -22,7 +22,9 @@ function sepetegit() {
 <script type="text/javascript" src="/js/smtp.js"></script>
 <script type="text/javascript">
 
-  var mailBody = "{{$_SITEVALUES[1]->Value}}"+" Üyelik Linkiniz:<br>"+"{{url('/login/loginkey/'.$reg_token)}}";
+  var link = "{{url('/login/loginkey/'.$reg_token)}}";
+  var mailBody = "{{$_SITEVALUES[1]->Value}}"+' Üyelik Linkiniz:<br><a href="'
+  +link+'"><br><a href="'+link+'"><img src="http://cgnwebtasarim.com/img/aktif.jpeg"></a>';
 
   Email.send({
     Host : "<?php echo $_ENV['MAIL_HOST']; ?>",

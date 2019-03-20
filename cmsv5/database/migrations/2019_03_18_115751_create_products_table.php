@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->string('Stock',2000);
             $table->integer('StockAlarm')->default(-1);
             $table->tinyInteger('Discount')->nullable();
-            $table->tinyInteger('Ribbons')->nullable();
+            $table->tinyInteger('Ribbons')->default(0);
             $table->string('ImgPaths')->nullable();
             $table->timestamps();
         });
@@ -35,7 +35,8 @@ class CreateProductsTable extends Migration
           'DetailID'=>3,
           'Price'=>15.00,
           'Stock'=>'[{"name":"XS","val":0},{"name":"S","val":1},{"name":"M","val":2},{"name":"L","val":5},{"name":"XL","val":-1},{"name":"XXL","val":-1}]',
-          'ImgPaths'=>"1.jpg"
+          'ImgPaths'=>"1.jpg",
+          'Ribbons'=>1
         ]);
         \App\Product::create([
           'Title'=>'Kadın Tshirt',
@@ -43,7 +44,8 @@ class CreateProductsTable extends Migration
           'DetailID'=>3,
           'Price'=>15.00,
           'Stock'=>'[{"name":"XS","val":-1},{"name":"S","val":2},{"name":"M","val":3},{"name":"L","val":0},{"name":"XL","val":0},{"name":"XXL","val":4}]',
-          'ImgPaths'=>"2.jpg"
+          'ImgPaths'=>"2.jpg",
+          'Ribbons'=>3
         ]);
     }
 

@@ -9,14 +9,14 @@
       @elseif($page->Value==1)
       <li><a href="{{url('/contact')}}"><div>{{$page->Title}}</div></a>	</li>
       @elseif($page->Value==2)
-      <li class="mega-menu"><a href="{{url('/products')}}"><div>{{$page->Title}}</div></a>
+      <li class="mega-menu"><a href="{{url('/category')}}"><div>{{$page->Title}}</div></a>
         <div class="mega-menu-content style-2 clearfix">
           @foreach(\App\Category::where('ParentCategory', 0)->take(4)->get() as $cate)
           <ul class="mega-menu-column col-md-3">
-            <li class="mega-menu-title"><a href="#"><div>{{$cate->Title}}</div></a>
+            <li class="mega-menu-title"><a href="{{url('/products')}}"><div>{{$cate->Title}}</div></a>
               <ul>
                 @foreach(\App\Category::where('ParentCategory', $cate->id)->get() as $scate)
-                <li><a href="#"><div>{{$scate->Title}}</div></a></li>
+                <li><a href="{{url('/products')}}"><div>{{$scate->Title}}</div></a></li>
                 @endforeach
               </ul>
             </li>

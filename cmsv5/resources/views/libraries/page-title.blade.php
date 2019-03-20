@@ -19,6 +19,12 @@
       <li><a href="/">Anasayfa</a></li>
       <li class="active">{{\App\SitePage::where('id',$p_id)->first()->Title}}</li>
     </ol>
+    @elseif(Request::is('category'))
+    <h1>Katalog</h1>
+    <ol class="breadcrumb">
+      <li><a href="/">Anasayfa</a></li>
+      <li class="active">Katalog</li>
+    </ol>
     @else
     <h1>*ENTER-TITLE*</h1>
     <ol class="breadcrumb">
