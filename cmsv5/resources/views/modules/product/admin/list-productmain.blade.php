@@ -25,11 +25,11 @@
         <i class="fas fa-plus"></i> Yeni Ürün Ekle</a>
 
         <div id="accordion" class="mt-2">
-          @foreach(\App\Category::all()->where('ParentCategory', 0)->take(4) as $cate)
+          @foreach(\App\Category::where('ParentCategory', 0)->take(4)->get() as $cate)
           <div class="card">
             <div class="card-header" id="heading{{$cate->id}}">
               <h5 class="mb-0">
-                <button class="btn btn-info w-100 text-left" data-toggle="collapse" data-target="#collapse{{$cate->id}}" aria-expanded="true" aria-controls="collapse{{$cate->id}}">
+                <button class="btn btn-light w-100 text-left" data-toggle="collapse" data-target="#collapse{{$cate->id}}" aria-expanded="true" aria-controls="collapse{{$cate->id}}">
                   {{$cate->Title}}
                 </button>
               </h5>
@@ -38,8 +38,8 @@
             <div id="collapse{{$cate->id}}" class="collapse" aria-labelledby="heading{{$cate->id}}" data-parent="#accordion">
               <div class="card-body">
                 <ul style="list-style-type:none;">
-                  @foreach(\App\Category::all()->where('ParentCategory', $cate->id) as $scate)
-                  <li><a href="{{url('/ajan/products/'.$scate->id)}}" class="btn btn-info w-75 text-left m-1">{{$scate->Title}} (Ürün Adedi:
+                  @foreach(\App\Category::where('ParentCategory', $cate->id)->get() as $scate)
+                  <li><a href="{{url('/ajan/products/'.$scate->id)}}" class="btn btn-light border border-info w-75 text-left m-1">{{$scate->Title}} (Ürün Adedi:
                     @php($count = 0)
                     @foreach(\App\Product::all() as $prod)
                       @foreach(explode(',', $prod->Categories) as $prodcates)

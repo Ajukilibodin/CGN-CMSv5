@@ -55,7 +55,7 @@
             <th scope="col">Başlık</th>
             <th scope="col">Diğer Kategoriler</th>
             <th scope="col">Fiyat</th>
-            <th scope="col" style="width: 70px;">İşlem</th>
+            <th scope="col" style="width: 110px;">İşlem</th>
           </tr>
         </thead>
         <tbody>
@@ -67,7 +67,7 @@
             <td>
               @php($catetext = "")
               @foreach( explode(',', $pagevalue->Categories) as $prodcates )
-                @foreach( \App\Category::all()->where('id',$prodcates)->where('id','<>', $c_id) as $tempcate )
+                @foreach( \App\Category::where('id',$prodcates)->where('id','<>', $c_id)->get() as $tempcate )
                   @if($catetext=="")
                     @php($catetext .= $tempcate->Title)
                   @else
@@ -84,6 +84,8 @@
             <td>
               <a href="{{url('/ajan/modproduct/'.$pagevalue->id)}}" title="Ürün Düzenle" class="text-primary" data-toggle="tooltip">
                 <i class="fas fa-pencil-alt"></i></a>
+              <a href="{{url('/ajan/editstock/'.$pagevalue->id)}}" title="Stok Modülü" class="text-primary" data-toggle="tooltip">
+                <i class="fas fa-store"></i></a>
               <span data-href="{{url('/ajan/delproduct/'.$c_id.'/'.$pagevalue->id)}}" data-toggle="modal" data-target="#confirm-delete">
                 <a class="text-danger" title="Ürün Sil" href="javascript:;" data-toggle="tooltip">
                   <i class="fas fa-trash-alt"></i>

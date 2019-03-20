@@ -14,7 +14,7 @@
         <ul>
           <li><a href="#">TRY</a>
             <ul>
-              @foreach(\App\Exchange::all()->where('id','<>',1) as $excha)
+              @foreach(\App\Exchange::where('id','<>',1)->get() as $excha)
               <li><a href="#">{{$excha->Title.' ('.$excha->Multipler.')'}}</a></li>
               @endforeach
             </ul>

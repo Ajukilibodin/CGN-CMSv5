@@ -38,13 +38,13 @@
     <div class="form-group">
       <h5>{{Form::label('prod-cate', 'Ürün Kategorileri')}}<span class="badge-sonar ml-2" style="top:unset;"></span></h5>
       <div class="row">
-      @foreach(\App\Category::all()->where('Type','Header') as $category)
+      @foreach(\App\Category::where('Type','Header')->get() as $category)
       <div class="col-6">
         <div class="form-group">
         {{Form::label('prod-cate', 'Kategori: '.$category->Title)}}
         <br>
         @php($firstSCate = true)
-        @foreach(\App\Category::all()->where('ParentCategory',$category->id) as $scate)
+        @foreach(\App\Category::where('ParentCategory',$category->id)->get() as $scate)
         @if($firstSCate)
         <input type="radio" name="radio{{$category->id}}" id="radio{{$category->id}}" value="0" autocomplete="off" checked/>
         <div class="btn-group">

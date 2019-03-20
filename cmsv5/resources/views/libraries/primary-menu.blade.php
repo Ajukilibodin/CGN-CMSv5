@@ -11,11 +11,11 @@
       @elseif($page->Value==2)
       <li class="mega-menu"><a href="{{url('/products')}}"><div>{{$page->Title}}</div></a>
         <div class="mega-menu-content style-2 clearfix">
-          @foreach(\App\Category::all()->where('ParentCategory', 0)->take(4) as $cate)
+          @foreach(\App\Category::where('ParentCategory', 0)->take(4)->get() as $cate)
           <ul class="mega-menu-column col-md-3">
             <li class="mega-menu-title"><a href="#"><div>{{$cate->Title}}</div></a>
               <ul>
-                @foreach(\App\Category::all()->where('ParentCategory', $cate->id) as $scate)
+                @foreach(\App\Category::where('ParentCategory', $cate->id)->get() as $scate)
                 <li><a href="#"><div>{{$scate->Title}}</div></a></li>
                 @endforeach
               </ul>

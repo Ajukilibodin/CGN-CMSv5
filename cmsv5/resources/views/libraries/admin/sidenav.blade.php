@@ -107,7 +107,7 @@
       @if( Request::is('ajan/categories') or Request::is('ajan/categories/*') or Request::is('ajan/addcategory/*')
        or Request::is('ajan/prodcate') or Request::is('ajan/addprodcate') or Request::is('ajan/products')
         or Request::is('ajan/products/*') or Request::is('ajan/addproduct') or Request::is('ajan/modproduct/*')
-         or Request::is('ajan/exchanges') )
+         or Request::is('ajan/exchanges') or Request::is('ajan/editstock/*') )
       <li class="sidebar-dropdown active">
         <a href="javascript:;">
           <i class="fas fa-shopping-cart"></i>

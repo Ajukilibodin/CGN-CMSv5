@@ -238,12 +238,12 @@ class ProductModule extends Controller
       $fpath = $request->file('prod-filepath')->getClientOriginalName();
 
       $catetext="";
-      foreach (Category::all()->where('Type', 'Header') as $cate) {
+      foreach (Category::where('Type', 'Header')->get() as $cate) {
         $catetemp = $request->input('radio'.$cate->id);
         if($catetemp != '0'){
           if($catetext=="") $catetext = $catetemp;
           else $catetext .= ",".$catetemp;
-          $scate =Category::all()->where('id', $catetemp)->first();
+          $scate =Category::where('id', $catetemp)->get()->first();
         }
       }
       if($catetext=="") return back()->with('error','Ürün için en az 1 kategori tanımlanmalıdır.');
@@ -286,19 +286,24 @@ class ProductModule extends Controller
 
       $catetext="";
       $cd_id = 0; $cd_text="";
-      foreach (Category::all()->where('Type', 'Header') as $cate) {
+      foreach (Category::where('Type', 'Header')->get() as $cate) {
         $catetemp = $request->input('radio'.$cate->id);
         if($catetemp != '0'){
           if($catetext=="") $catetext = $catetemp;
           else $catetext .= ",".$catetemp;
-          $scate =Category::all()->where('id', $catetemp)->first();
+          $scate =Category::where('id', $catetemp)->get()->first();
           if($cd_text == "" && $scate->UnitType != 0){
             $cd_id = (int)$catetemp;
-            $cd_text = '{"'.str_replace(',','":-1,"', PCategory::where('id',$scate->UnitType)->first()->UnitList).'":-1}';
+            $cd_array = array();
+            foreach (explode (',',PCategory::where('id',$scate->UnitType)->first()->UnitList) as $unitname) {
+              array_push($cd_array , ['name'=>$unitname, 'val'=>-1]);
+            }
+            $cd_text = json_encode($cd_array);
           }
         }
       }
       if($catetext=="") return back()->with('error','Ürün için en az 1 kategori tanımlanmalıdır.');
+      if($cd_text=="") return back()->with('error','Ürün için en az 1 özellikli kategori(*) tanımlanmalıdır.');
 
       $temp_product = new \App\Product;
       $temp_product->Title=$title;
@@ -346,6 +351,36 @@ class ProductModule extends Controller
       $temp->Multipler = $request->input('sitevalue-input');
       $temp->save();
       return redirect('/ajan/exchanges')->with('successid', $e_id);
+    }
+    else return redirect('/ajan');
+  }
+  public function editstockload($p_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $product = \App\Product::where('id',$p_id)->first();
+      return view('modules/product/admin/editstock', ['product' => $product]);
+    }
+    else return redirect('/ajan');
+  }
+  public function editstockpost(Request $request, $action, $p_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $product = \App\Product::where('id',$p_id)->first();
+      if($action==1){
+        $stokTemp = json_decode($product->Stock);
+        for ($i=0; $i <count($stokTemp) ; $i++) {
+          $stokTemp[$i]->val = (int)( $request->input('stok-type-'.($i+1)) );
+        }
+        $product->Stock = json_encode($stokTemp);
+        $product->save();
+        return back()->with('a-success','Ürün stokları güncellendi.');
+      }
+      else{
+        $product->Barcode = $request->input('stok-barkod');
+        $product->StockAlarm = $request->input('stok-alarm');
+        $product->save();
+        return back()->with('a-success','Stok ayarları ürün için güncellendi.');
+      }
     }
     else return redirect('/ajan');
   }
