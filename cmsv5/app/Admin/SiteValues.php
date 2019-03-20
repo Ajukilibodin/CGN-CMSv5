@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class SiteValues extends Model
 {
       protected $table = 'cmsv5_sitevalues';
-      protected $fillable = ['Value', 'Desc'];
+      protected $guarded = ['id'];
       public $timestamps = false;
 }
