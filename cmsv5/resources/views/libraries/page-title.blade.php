@@ -20,7 +20,7 @@
       <li><a href="/">Anasayfa</a></li>
       <li class="active">{{$pagetitle}}</li>
     </ol>
-    @elseif(Request::is('category') or Request::is('products'))
+    @elseif(Request::is('category'))
     <h1>Katalog</h1>
     <ol class="breadcrumb">
       <li><a href="/">Anasayfa</a></li>
@@ -28,6 +28,14 @@
     </ol>
     @elseif(Request::is('products/*'))
     @php($title = $catevalues->Title)
+    <h1>{{$title}}</h1>
+    <ol class="breadcrumb">
+      <li><a href="/">Anasayfa</a></li>
+      <li><a href="/category">Katalog</a></li>
+      <li class="active">{{$title}}</li>
+    </ol>
+    @elseif(Request::is('product/*'))
+    @php($title = $pagevalues->Title)
     <h1>{{$title}}</h1>
     <ol class="breadcrumb">
       <li><a href="/">Anasayfa</a></li>

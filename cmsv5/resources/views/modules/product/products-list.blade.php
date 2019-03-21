@@ -14,11 +14,12 @@
 				if ( strpos($imagepath,',') ) $img2 = substr($imagepath, 0 , $temppos);
 				else $img2 = $imagepath;
 			?>
-			<a href="{{url('/product')}}"><img src="/uploads/modules/product/{{$img1}}" alt="{{$pagevalue->Title}}"></a>
-			<a href="{{url('/product')}}"><img src="/uploads/modules/product/{{$img2}}" alt="{{$pagevalue->Title}}"></a>
+			<a href="{{url('/product/'.$pagevalue->id)}}"><img src="/uploads/modules/product/{{$img1}}" alt="{{$pagevalue->Title}}"></a>
+			<a href="{{url('/product/'.$pagevalue->id)}}"><img src="/uploads/modules/product/{{$img2}}" alt="{{$pagevalue->Title}}"></a>
 			@else
-			<a href="{{url('/product')}}"><img src="/uploads/modules/product/{{$imagepath}}" alt="{{$pagevalue->Title}}"></a>
+			<a href="{{url('/product/'.$pagevalue->id)}}"><img src="/uploads/modules/product/{{$imagepath}}" alt="{{$pagevalue->Title}}"></a>
       @endif
+			
 			@php($ribbontext = "")
 			@if($pagevalue->Discount > 0)
 			@if($ribbontext!="")@php($ribbontext.=", ")@endif
@@ -40,7 +41,7 @@
 		</div>
 		<div class="product-desc center">
 			<div class="product-title">
-				<h3><a href="{{url('/product')}}">{{$pagevalue->Title}}</a></h3>
+				<h3><a href="{{url('/product/'.$pagevalue->id)}}">{{$pagevalue->Title}}</a></h3>
 			</div>
 			@if($pagevalue->Discount > 0)
 			<div class="product-price"><del>{{$pagevalue->Price}}&#8378;</del>

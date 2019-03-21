@@ -13,16 +13,16 @@
 	<div class="oc-item">
 		<div class="iportfolio">
 			<div class="portfolio-image">
-				<a href="{{url('/product')}}">
+				<a href="{{url('/product/'.$prod->id)}}">
 					<img src="/uploads/modules/product/{{$imagepath}}" alt="{{$prod->Title}}">
 				</a>
 				<div class="portfolio-overlay">
 					<a href="/uploads/modules/product/{{$imagepath}}" class="left-icon" data-lightbox="image"><i class="icon-line-search"></i></a>
-					<a href="{{url('/product')}}" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+					<a href="{{url('/product/'.$prod->id)}}" class="right-icon"><i class="icon-line-ellipsis"></i></a>
 				</div>
 			</div>
 			<div class="portfolio-desc">
-				<h3><a href="{{url('/product')}}">{{$prod->Title}}</a></h3>
+				<h3><a href="{{url('/product/'.$prod->id)}}">{{$prod->Title}}</a></h3>
 				<span>
 					@php($catelinktext = "")
 					@foreach(explode(',', $prod->Categories) as $prodcates)

@@ -224,8 +224,9 @@ class VisitorNav extends Controller
       ->with('pagevalues',$pagevalues);
     }
 
-    public function product(){
-      return view('pages/product');
+    public function product($p_id){
+      $pagevalues = \App\Product::where('id',$p_id)->get()->first();
+      return view('pages/product')->with('pagevalues',$pagevalues);
     }
 
     public function orderdetail(){

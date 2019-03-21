@@ -27,7 +27,8 @@ Route::get('/page/{p_id}', 'VisitorNav@page');
 Route::get('/category', 'VisitorNav@category');
 Route::get('/products', 'VisitorNav@red_category');
 Route::get('/products/{c_id}', 'VisitorNav@productsshow');
-Route::get('/product', 'VisitorNav@product');
+Route::get('/product', 'VisitorNav@red_category');
+Route::get('/product/{p_id}', 'VisitorNav@product');
 
 Route::get('/cart', 'VisitorNav@cart');
 Route::get('/checkout', 'VisitorNav@checkout');

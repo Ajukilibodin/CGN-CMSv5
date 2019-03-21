@@ -13,7 +13,7 @@ function sepetegit() {
   @include('libraries.footer.pagebased.index-js')
 @elseif(Request::is('checkout'))
   @include('libraries.footer.pagebased.checkout-page-js')
-@elseif(Request::is('product'))
+@elseif(Request::is('product/*'))
   @include('libraries.footer.pagebased.product-page-js')
 @endif
 

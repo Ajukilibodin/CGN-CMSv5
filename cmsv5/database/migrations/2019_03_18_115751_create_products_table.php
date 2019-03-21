@@ -37,7 +37,8 @@ class CreateProductsTable extends Migration
           'Stock'=>'[{"name":"XS","val":0},{"name":"S","val":1},{"name":"M","val":2},{"name":"L","val":5},{"name":"XL","val":-1},{"name":"XXL","val":-1}]',
           'ImgPaths'=>"1.jpg",
           'Ribbons'=>1,
-          'Discount'=>10
+          'Discount'=>10,
+          'Desc'=>'Şık tasarım ve rahat kumaşı ile'
         ]);
         \App\Product::create([
           'Title'=>'Kadın Tshirt',
@@ -46,7 +47,8 @@ class CreateProductsTable extends Migration
           'Price'=>15.00,
           'Stock'=>'[{"name":"XS","val":-1},{"name":"S","val":2},{"name":"M","val":3},{"name":"L","val":0},{"name":"XL","val":0},{"name":"XXL","val":4}]',
           'ImgPaths'=>"2.jpg",
-          'Ribbons'=>3
+          'Ribbons'=>3,
+          'Desc'=>'Şık tasarım ve rahat kumaşı ile'
         ]);
     }
 

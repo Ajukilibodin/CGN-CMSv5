@@ -10,13 +10,29 @@
 				<div class="fslider" data-pagi="false" data-arrows="false" data-thumbs="true">
 					<div class="flexslider">
 						<div class="slider-wrap" data-lightbox="gallery">
-							<div class="slide" data-thumb="img/demo/t1.jpg"><a href="img/demo/p1.png" title="" data-lightbox="gallery-item"><img src="img/demo/p1.png" alt=""></a></div>
-							<div class="slide" data-thumb="img/demo/t2.jpg"><a href="img/demo/p2.png" title="" data-lightbox="gallery-item"><img src="img/demo/p2.png" alt=""></a></div>
-							<div class="slide" data-thumb="img/demo/t3.jpg"><a href="img/demo/p3.png" title="" data-lightbox="gallery-item"><img src="img/demo/p3.png" alt=""></a></div>
+							@foreach(explode(',',$pagevalues->ImgPaths) as $p_pic)
+							<div class="slide" data-thumb="/uploads/modules/product/{{$p_pic}}">
+								<a href="/uploads/modules/product/{{$p_pic}}" title="" data-lightbox="gallery-item">
+									<img src="/uploads/modules/product/{{$p_pic}}" alt="">
+								</a>
+							</div>@endforeach
 						</div>
 					</div>
 				</div>
-				<div class="sale-flash">Yeni Sezon</div>
+				@php($ribbontext = "")
+				@if($pagevalues->Discount > 0)
+				@if($ribbontext!="")@php($ribbontext.=", ")@endif
+				@php($ribbontext.='<i class="icon-arrow-down"></i>'.$pagevalues->Discount.'%<i class="icon-arrow-down"></i>')
+				@endif
+				@if($pagevalues->Ribbons%4 >= 2)
+				@if($ribbontext!="")@php($ribbontext.=", ")@endif
+				@php($ribbontext.="Yeni")
+				@endif
+				@if($pagevalues->Ribbons%2 >= 1)
+				@if($ribbontext!="")@php($ribbontext.=", ")@endif
+				@php($ribbontext.="Öne Çıkan")
+				@endif
+				<div class="sale-flash">{!!$ribbontext!!}</div>
 			</div><!-- Product Single - Gallery End -->
 
 							</div>
@@ -25,12 +41,17 @@
 
 								<!-- Product Single - Price
 								============================================= -->
-								<div class="product-price"><del>39.99 &#8378;</del> <ins>24.99 &#8378;</ins></div><!-- Product Single - Price End -->
+								@if($pagevalues->Discount > 0)
+								<div class="product-price"><del>{{$pagevalues->Price}}&#8378;</del>
+									<ins>{{ $pagevalues->Price - ($pagevalues->Price/100 * $pagevalues->Discount) }}&#8378;</ins></div>
+								@else
+								<div class="product-price"><ins>{{$pagevalues->Price}}&#8378;</ins></div>
+								@endif
 
-								<!-- Product Single - Rating	 -->
+								<!-- Product Single - Rating
 								<div class="product-rating">
-Stokta Var
-								</div>
+										Stokta Var
+								</div>-->
 								<!-- Product Single - Rating End -->
 
 								<div class="clear"></div>
@@ -63,8 +84,7 @@ Stokta Var
 
 								<!-- Product Single - Short Description
 								============================================= -->
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero velit id eaque ex quae laboriosam nulla optio doloribus! Perspiciatis, libero, neque, perferendis at nisi optio dolor!</p>
-								<p>Perspiciatis ad eveniet ea quasi debitis quos laborum eum reprehenderit eaque explicabo assumenda rem modi.</p>
+								<p>{{$pagevalues->Desc}}</p>
 								<ul class="iconlist">
 									<li><i class="icon-caret-right"></i> % 100 pamuk</li>
 									<li><i class="icon-caret-right"></i> Hafif, pamuklu jarse kumaş</li>
