@@ -3,7 +3,7 @@
 <div id="portfolio" class="portfolio grid-container portfolio-3 clearfix">
 
 @foreach(\App\Category::orderBy('ParentCategory','asc')->get() as $cate)
-@php($link = url('/products'))
+@php($link = url('/products/'.$cate->id))
 <article class="portfolio-item ">
 <div class="portfolio-image">
 <a href="{{$link}}"><img src="/uploads/modules/category/{{$cate->ImgUrl}}" alt=""></a>

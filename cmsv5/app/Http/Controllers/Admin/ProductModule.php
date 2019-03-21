@@ -264,6 +264,7 @@ class ProductModule extends Controller
       $title = $request->input('prod-title');
       $price = $request->input('prod-price');
       $excha = $request->input('prod-exchange');
+      $pdisc = $request->input('prod-discount');
       $pdesc = $request->input('prod-desc');
       $pbcod = $request->input('prod-barkod');
       if($request->hasFile('prod-filepath'))
@@ -290,6 +291,7 @@ class ProductModule extends Controller
       $temp_product->Desc= ''.$pdesc;
       $temp_product->Price=$price;
       $temp_product->PriceExchange=$excha;
+      $temp_product->Discount=$pdisc;
       $temp_product->Ribbons=$ribbon;
       $temp_product->Barcode=$pbcod;
       $temp_product->save();
@@ -319,6 +321,7 @@ class ProductModule extends Controller
       $title = $request->input('prod-title');
       $price = $request->input('prod-price');
       $excha = $request->input('prod-exchange');
+      $pdisc = $request->input('prod-discount');
       $pdesc = $request->input('prod-desc');
       $pbcod = $request->input('prod-barkod');
       $fpath = $request->file('prod-filepath')->getClientOriginalName();
@@ -354,6 +357,7 @@ class ProductModule extends Controller
       $temp_product->Desc= ''.$pdesc;
       $temp_product->Price=$price;
       $temp_product->PriceExchange=$excha;
+      $temp_product->Discount=$pdisc;
       $temp_product->DetailID=$cd_id;
       $temp_product->Stock= $cd_text;
       $temp_product->Ribbons=$ribbon;
@@ -468,6 +472,7 @@ class ProductModule extends Controller
       $pagevalues->ImgPaths = str_replace(','.$i_name, "", $pagevalues->ImgPaths);
       $pagevalues->save();
       \File::delete(public_path('/uploads/modules/product/'.$i_name));
+      // TODO: bu delete yöntemini ürün silmede, kategori silmede vb kullanıcaz
       return back()->with('pagevalues', $pagevalues);
     }
     else return redirect('/ajan');

@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('Barcode')->nullable();
             $table->string('Stock',2000);
             $table->integer('StockAlarm')->default(-1);
-            $table->tinyInteger('Discount')->nullable();
+            $table->tinyInteger('Discount')->default(0);
             $table->tinyInteger('Ribbons')->default(0);
             $table->string('ImgPaths',2000)->nullable();
             $table->timestamps();
@@ -36,7 +36,8 @@ class CreateProductsTable extends Migration
           'Price'=>15.00,
           'Stock'=>'[{"name":"XS","val":0},{"name":"S","val":1},{"name":"M","val":2},{"name":"L","val":5},{"name":"XL","val":-1},{"name":"XXL","val":-1}]',
           'ImgPaths'=>"1.jpg",
-          'Ribbons'=>1
+          'Ribbons'=>1,
+          'Discount'=>10
         ]);
         \App\Product::create([
           'Title'=>'Kadın Tshirt',

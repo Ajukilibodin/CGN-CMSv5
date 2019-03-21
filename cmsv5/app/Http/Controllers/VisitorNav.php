@@ -209,8 +209,19 @@ class VisitorNav extends Controller
     }
 
     public function productsshow($c_id){
-      $pagevalues = \App\Category::where('id', $c_id)->get()->first();
-      return view('pages/products')->with('pagevalues',$pagevalues);
+      $catevalues = \App\Category::where('id', $c_id)->get()->first();
+      $pagevalues = array();
+      if($catevalues->ParentCategory==0){
+        foreach (\App\Category::where('ParentCategory', $catevalues->id)->get() as $scate) {
+          foreach (\App\Product::where('Categories','LIKE','%'.$scate->id.'%')->get() as $prod) {
+            array_push($pagevalues, $prod);
+          }
+        }
+      }
+      else $pagevalues = \App\Product::where('Categories','LIKE','%'.$catevalues->id.'%')->get();
+
+      return view('pages/products')->with('catevalues',$catevalues)
+      ->with('pagevalues',$pagevalues);
     }
 
     public function product(){

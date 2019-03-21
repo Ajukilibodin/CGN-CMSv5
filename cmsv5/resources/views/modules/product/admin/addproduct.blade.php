@@ -24,7 +24,7 @@
     </div>
     <div class="form-group">
       <div class="row">
-        <div class="col-8">
+        <div class="col-5">
         {{Form::label('prod-price', 'Ürün Fiyatı')}}
         {{Form::number('prod-price', 0.01 ,['class' => 'form-control',
          'placeholder' => 'Ürün Fiyatı', 'step' =>0.01 , 'min' => 0.01])}}
@@ -36,6 +36,10 @@
               <option value="{{$unit->id}}">{{$unit->Title}} (x{{$unit->Multipler}})</option>
             @endforeach
           </select>
+        </div>
+        <div class="col-3">
+        {{Form::label('prod-discount', 'İndirim')}}
+        {{Form::number('prod-discount', 0 ,['class' => 'form-control', 'max' =>100 , 'min' => 0])}}
         </div>
       </div>
     </div>

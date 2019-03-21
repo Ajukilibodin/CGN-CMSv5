@@ -27,7 +27,7 @@
       <li class="active">Katalog</li>
     </ol>
     @elseif(Request::is('products/*'))
-    @php($title = $pagevalues->Title)
+    @php($title = $catevalues->Title)
     <h1>{{$title}}</h1>
     <ol class="breadcrumb">
       <li><a href="/">Anasayfa</a></li>
