@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Category;
 use App\PCategory;
@@ -424,6 +426,49 @@ class ProductModule extends Controller
         $product->save();
         return back()->with('a-success','Stok ayarları ürün için güncellendi.');
       }
+    }
+    else return redirect('/ajan');
+  }
+
+  public function productalbumload($p_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $pagevalues = Product::where('id',$p_id)->get()->first();
+      return view('modules/product/admin/productalbum')->with('pagevalues', $pagevalues);
+    }
+    else return redirect('/ajan');
+  }
+
+  public function productalbumadd(Request $request, $p_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $this->validate($request, [ 'prod-filepath' => 'required' ]);
+      $fpath = $request->file('prod-filepath')->getClientOriginalName();
+
+
+      $pagevalues = Product::where('id',$p_id)->get()->first();
+      $file = "";
+      do {
+        $rand = Str::random(15);
+        $file = ($pagevalues->id).'-'.$rand.(substr($fpath, strrpos($fpath,'.')));
+      } while (file_exists('/uploads/modules/product/'.$file) );
+      $request->file('prod-filepath')->storeAs('modules/product', $file, 'public_uploads');
+      $pagevalues->ImgPaths .= ','.$file;
+      $pagevalues->save();
+
+      return back()->with('pagevalues', $pagevalues);
+    }
+    else return redirect('/ajan');
+  }
+
+  public function productalbumdel($p_id, $i_name)
+  {
+    if(\Cookie::get('ajanlogin')){
+      $pagevalues = Product::where('id',$p_id)->get()->first();
+      $pagevalues->ImgPaths = str_replace(','.$i_name, "", $pagevalues->ImgPaths);
+      $pagevalues->save();
+      \File::delete(public_path('/uploads/modules/product/'.$i_name));
+      return back()->with('pagevalues', $pagevalues);
     }
     else return redirect('/ajan');
   }

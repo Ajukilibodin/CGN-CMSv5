@@ -84,6 +84,8 @@
             <td>
               <a href="{{url('/ajan/modproduct/'.$pagevalue->id)}}" title="Ürün Düzenle" class="text-primary" data-toggle="tooltip">
                 <i class="fas fa-pencil-alt"></i></a>
+              <a href="{{url('/ajan/productalbum/'.$pagevalue->id)}}" title="Ürün Görselleri" class="text-primary" data-toggle="tooltip">
+                <i class="fas fa-images"></i></a>
               <a href="{{url('/ajan/editstock/'.$pagevalue->id)}}" title="Stok Modülü" class="text-primary" data-toggle="tooltip">
                 <i class="fas fa-store"></i></a>
               <span data-href="{{url('/ajan/delproduct/'.$c_id.'/'.$pagevalue->id)}}" data-toggle="modal" data-target="#confirm-delete">

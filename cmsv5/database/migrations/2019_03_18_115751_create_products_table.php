@@ -26,7 +26,7 @@ class CreateProductsTable extends Migration
             $table->integer('StockAlarm')->default(-1);
             $table->tinyInteger('Discount')->nullable();
             $table->tinyInteger('Ribbons')->default(0);
-            $table->string('ImgPaths')->nullable();
+            $table->string('ImgPaths',2000)->nullable();
             $table->timestamps();
         });
         \App\Product::create([

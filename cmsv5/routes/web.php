@@ -92,3 +92,7 @@ Route::post('/ajan/addproduct', 'Admin\ProductModule@addproductpost');
 Route::get('/ajan/delproduct/{c_id}/{p_id}', 'Admin\ProductModule@delproduct');
 Route::get('/ajan/modproduct/{p_id}', 'Admin\ProductModule@editproductload');
 Route::post('/ajan/modproduct/{p_id}', 'Admin\ProductModule@editproductpost');
+
+Route::get('/ajan/productalbum/{p_id}', 'Admin\ProductModule@productalbumload');
+Route::post('/ajan/productalbum/{p_id}', 'Admin\ProductModule@productalbumadd');
+Route::get('/ajan/productalbum/del/{p_id}/{i_name}', 'Admin\ProductModule@productalbumdel');

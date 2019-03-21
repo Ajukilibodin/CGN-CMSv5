@@ -19,7 +19,8 @@ $(document).ready(function(){
 });
 </script>
 @if(Request::is('ajan/addproduct') or Request::is('ajan/modproduct/*')
-or Request::is('ajan/addcategory/*') or Request::is('ajan/editcategory/*') )
+ or Request::is('ajan/addcategory/*') or Request::is('ajan/editcategory/*')
+ or Request::is('ajan/productalbum/*') )
 <script type="text/javascript">
 $(document).ready( function() {
     $(document).on('change', '.btn-file :file', function() {

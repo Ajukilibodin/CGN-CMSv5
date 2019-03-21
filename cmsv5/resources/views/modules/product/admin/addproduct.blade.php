@@ -20,7 +20,7 @@
     </div>
     <div class="form-group">
     {{Form::label('prod-barkod', 'Ürün Barkodu')}}
-    {{Form::text('prod-barkod',$pagevalues->Barcode,['class' => 'form-control', 'placeholder' => 'Ürün Barkodu'])}}
+    {{Form::text('prod-barkod','',['class' => 'form-control', 'placeholder' => 'Ürün Barkodu'])}}
     </div>
     <div class="form-group">
       <div class="row">
