@@ -204,8 +204,8 @@ class VisitorNav extends Controller
       return view('pages/page')->with('p_id', $p_id);
     }
 
-    public function products(){
-      return view('pages/category');
+    public function red_category(){
+      return redirect('/category');
     }
 
     public function productsshow($c_id){

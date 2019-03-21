@@ -25,7 +25,7 @@ Route::post('/profile/update', 'VisitorNav@profile_update');
 Route::get('/page/{p_id}', 'VisitorNav@page');
 
 Route::get('/category', 'VisitorNav@category');
-Route::get('/products', 'VisitorNav@products');
+Route::get('/products', 'VisitorNav@red_category');
 Route::get('/products/{c_id}', 'VisitorNav@productsshow');
 Route::get('/product', 'VisitorNav@product');
 
