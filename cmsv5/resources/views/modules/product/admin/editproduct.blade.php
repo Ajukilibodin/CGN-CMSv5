@@ -19,6 +19,10 @@
     {{Form::text('prod-title',$pagevalues->Title,['class' => 'form-control', 'placeholder' => 'Ürün Başlığı'])}}
     </div>
     <div class="form-group">
+    {{Form::label('prod-barkod', 'Ürün Barkodu')}}
+    {{Form::text('prod-barkod',$pagevalues->Barcode,['class' => 'form-control', 'placeholder' => 'Ürün Barkodu'])}}
+    </div>
+    <div class="form-group">
       <div class="row">
         <div class="col-8">
         {{Form::label('prod-price', 'Ürün Fiyatı')}}
@@ -70,7 +74,7 @@
                   <span> </span>
               </label>
               <label for="radio{{$scate->id}}" class="btn btn-light active">
-                  {{$scate->Title}}
+                  {{$scate->Title}}@if($scate->UnitType!=0){{' (*)'}}@endif
               </label>
           </div>
           @endforeach
@@ -116,14 +120,15 @@
       @if(strpos($pagevalues->ImgPaths,','))
       @php($imagepath = substr($imagepath, 0 ,strpos($imagepath,',')))
       @endif
-        <label>Ürün Resmi</label><span class="badge-sonar ml-2" style="top:unset;"></span>
+      <small><strong>Dikkat!</strong> Eğer ürüne yeni bir kapak fotoğrafı eklerseniz tüm alt fotoğraflar silinir!</small><br>
+        <label>Ürün Resmi</label>
         <div class="input-group mb-2">
             <span class="input-group-btn">
                 <span class="btn btn-primary btn-file mr-2">
                     Dosya Aç... <input type="file" id="imgInp" name="prod-filepath">
                 </span>
             </span>
-            <input type="text" class="form-control" value="*system*/{{$imagepath}}" readonly>
+            <input type="text" class="form-control" value="*system*" readonly>
         </div>
         <img id='img-upload' style="width:100%;" src="/uploads/modules/product/{{$imagepath}}"/>
     </div>

@@ -14,16 +14,25 @@
       <li class="active">Profilim</li>
     </ol>
     @elseif(Request::is('page/*'))
-    <h1>{{\App\SitePage::where('id',$p_id)->first()->Title}}</h1>
+    @php($pagetitle = \App\SitePage::where('id',$p_id)->first()->Title)
+    <h1>{{$pagetitle}}</h1>
     <ol class="breadcrumb">
       <li><a href="/">Anasayfa</a></li>
-      <li class="active">{{\App\SitePage::where('id',$p_id)->first()->Title}}</li>
+      <li class="active">{{$pagetitle}}</li>
     </ol>
-    @elseif(Request::is('category'))
+    @elseif(Request::is('category') or Request::is('products'))
     <h1>Katalog</h1>
     <ol class="breadcrumb">
       <li><a href="/">Anasayfa</a></li>
       <li class="active">Katalog</li>
+    </ol>
+    @elseif(Request::is('products/*'))
+    @php($title = $pagevalues->Title)
+    <h1>{{$title}}</h1>
+    <ol class="breadcrumb">
+      <li><a href="/">Anasayfa</a></li>
+      <li><a href="/category">Katalog</a></li>
+      <li class="active">{{$title}}</li>
     </ol>
     @else
     <h1>*ENTER-TITLE*</h1>

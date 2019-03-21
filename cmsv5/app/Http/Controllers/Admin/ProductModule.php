@@ -263,6 +263,7 @@ class ProductModule extends Controller
       $price = $request->input('prod-price');
       $excha = $request->input('prod-exchange');
       $pdesc = $request->input('prod-desc');
+      $pbcod = $request->input('prod-barkod');
       if($request->hasFile('prod-filepath'))
       $fpath = $request->file('prod-filepath')->getClientOriginalName();
 
@@ -288,6 +289,7 @@ class ProductModule extends Controller
       $temp_product->Price=$price;
       $temp_product->PriceExchange=$excha;
       $temp_product->Ribbons=$ribbon;
+      $temp_product->Barcode=$pbcod;
       $temp_product->save();
 
       if($request->hasFile('prod-filepath')){
@@ -316,6 +318,7 @@ class ProductModule extends Controller
       $price = $request->input('prod-price');
       $excha = $request->input('prod-exchange');
       $pdesc = $request->input('prod-desc');
+      $pbcod = $request->input('prod-barkod');
       $fpath = $request->file('prod-filepath')->getClientOriginalName();
 
       $ribbon = 0;
@@ -352,6 +355,7 @@ class ProductModule extends Controller
       $temp_product->DetailID=$cd_id;
       $temp_product->Stock= $cd_text;
       $temp_product->Ribbons=$ribbon;
+      $temp_product->Barcode=$pbcod;
       $temp_product->save();
 
       $file = ($temp_product->id).(substr($fpath, strrpos($fpath,'.')));

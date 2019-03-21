@@ -13,10 +13,10 @@
         <div class="mega-menu-content style-2 clearfix">
           @foreach(\App\Category::where('ParentCategory', 0)->take(4)->get() as $cate)
           <ul class="mega-menu-column col-md-3">
-            <li class="mega-menu-title"><a href="{{url('/products')}}"><div>{{$cate->Title}}</div></a>
+            <li class="mega-menu-title"><a href="{{url('/products/'.$cate->id)}}"><div>{{$cate->Title}}</div></a>
               <ul>
                 @foreach(\App\Category::where('ParentCategory', $cate->id)->get() as $scate)
-                <li><a href="{{url('/products')}}"><div>{{$scate->Title}}</div></a></li>
+                <li><a href="{{url('/products/'.$scate->id)}}"><div>{{$scate->Title}}</div></a></li>
                 @endforeach
               </ul>
             </li>

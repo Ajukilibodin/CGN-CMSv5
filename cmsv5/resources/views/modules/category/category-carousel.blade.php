@@ -28,7 +28,7 @@
 					@foreach(explode(',', $prod->Categories) as $prodcates)
 					@php( $get_prodcate = \App\Category::where('id',$prodcates)->get()->first() )
 					@if($catelinktext != "")@php($catelinktext .= ", ")@endif
-					@php($catelinktext .= '<a href="'.url('/products').'">'.$get_prodcate->Title.'</a>')
+					@php($catelinktext .= '<a href="'.url('/products/'.$get_prodcate->id).'">'.$get_prodcate->Title.'</a>')
 					@endforeach
 					{!!$catelinktext!!}
 				</span>

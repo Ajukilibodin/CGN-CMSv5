@@ -205,7 +205,12 @@ class VisitorNav extends Controller
     }
 
     public function products(){
-      return view('pages/products');
+      return view('pages/category');
+    }
+
+    public function productsshow($c_id){
+      $pagevalues = \App\Category::where('id', $c_id)->get()->first();
+      return view('pages/products')->with('pagevalues',$pagevalues);
     }
 
     public function product(){
