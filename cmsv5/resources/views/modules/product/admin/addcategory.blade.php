@@ -11,7 +11,7 @@
     <li class="breadcrumb-item active" aria-current="page">Kategori Ekle</li>
   </ol>
 </nav>
-{!! Form::open(['url' => 'ajan/addcategory/'.$c_id, 'files' => true]]) !!}
+{!! Form::open(['url' => 'ajan/addcategory/'.$c_id, 'files' => true]) !!}
 <div class="row">
   <div class="col-xs-9 col-md-6">
     <div class="form-group">

@@ -2,61 +2,16 @@
 
 <div id="portfolio" class="portfolio grid-container portfolio-3 clearfix">
 
+@foreach(\App\Category::orderBy('ParentCategory','asc')->get() as $cate)
+@php($link = url('/products'))
 <article class="portfolio-item ">
 <div class="portfolio-image">
-<a href=""><img src="images/portfolio/3/1.jpg" alt=""></a>
+<a href="{{$link}}"><img src="/uploads/modules/category/{{$cate->ImgUrl}}" alt=""></a>
 </div>
 <div class="portfolio-desc">
-<h3><a href="">Open Imagination</a></h3>
+<h3><a href="{{$link}}">{{$cate->Title}}</a></h3>
 </div>
 </article>
-
-<article class="portfolio-item ">
-<div class="portfolio-image">
-<a href=""><img src="images/portfolio/3/1.jpg" alt=""></a>
-</div>
-<div class="portfolio-desc">
-<h3><a href="">Open Imagination</a></h3>
-</div>
-</article>
-
-<article class="portfolio-item ">
-<div class="portfolio-image">
-<a href=""><img src="images/portfolio/3/1.jpg" alt=""></a>
-</div>
-<div class="portfolio-desc">
-<h3><a href="">Open Imagination</a></h3>
-</div>
-</article>
-
-<article class="portfolio-item ">
-<div class="portfolio-image">
-<a href=""><img src="images/portfolio/3/1.jpg" alt=""></a>
-</div>
-<div class="portfolio-desc">
-<h3><a href="">Open Imagination</a></h3>
-</div>
-</article>
-
-<article class="portfolio-item ">
-<div class="portfolio-image">
-<a href=""><img src="images/portfolio/3/1.jpg" alt=""></a>
-</div>
-<div class="portfolio-desc">
-<h3><a href="">Open Imagination</a></h3>
-</div>
-</article>
-
-<article class="portfolio-item ">
-<div class="portfolio-image">
-<a href=""><img src="images/portfolio/3/1.jpg" alt=""></a>
-</div>
-<div class="portfolio-desc">
-<h3><a href="">Open Imagination</a></h3>
-</div>
-</article>
-
-
-
+@endforeach
 
 </div>

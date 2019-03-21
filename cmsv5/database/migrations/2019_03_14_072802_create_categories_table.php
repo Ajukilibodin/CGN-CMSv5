@@ -24,33 +24,40 @@ class CreateCategoriesTable extends Migration
         });
         \App\Category::create([
           'Title' => 'Giyim',
-          'Type' => 2
+          'Type' => 2,
+          'ImgUrl' => '1.jpg'
         ]);
         \App\Category::create([
           'Title' => 'Cinsiyet',
-          'Type' => 2
+          'Type' => 2,
+          'ImgUrl' => '2.jpg'
         ]);
         \App\Category::create([
           'Title' => 'T-shirt',
           'ParentCategory' => 1,
-          'UnitType' => 1
+          'UnitType' => 1,
+          'ImgUrl' => '3.jpg'
         ]);
         \App\Category::create([
           'Title' => 'Ayakkabı',
           'ParentCategory' => 1,
-          'UnitType' => 2
+          'UnitType' => 2,
+          'ImgUrl' => '4.jpg'
         ]);
         \App\Category::create([
           'Title' => 'Kadın',
-          'ParentCategory' => 2
+          'ParentCategory' => 2,
+          'ImgUrl' => '5.jpg'
         ]);
         \App\Category::create([
           'Title' => 'Erkek',
-          'ParentCategory' => 2
+          'ParentCategory' => 2,
+          'ImgUrl' => '6.jpg'
         ]);
         \App\Category::create([
           'Title' => 'Unisex',
-          'ParentCategory' => 2
+          'ParentCategory' => 2,
+          'ImgUrl' => '7.jpg'
         ]);
     }
 

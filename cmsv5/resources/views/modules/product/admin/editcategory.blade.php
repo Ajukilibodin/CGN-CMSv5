@@ -11,7 +11,7 @@
     <li class="breadcrumb-item active" aria-current="page">Kategori Düzenle</li>
   </ol>
 </nav>
-{!! Form::open(['url' => 'ajan/editcategory/'.$c_id, 'files' => true]]) !!}
+{!! Form::open(['url' => 'ajan/editcategory/'.$c_id, 'files' => true]) !!}
 @php($cate = App\Category::where('id',$c_id)->first())
 <div class="row">
   <div class="col-xs-9 col-md-6">
@@ -40,7 +40,7 @@
             </span>
             <input type="text" class="form-control" readonly>
         </div>
-        <img id='img-upload' style="width:100%;" src="{{$cate->ImgUrl}}"/>
+        <img id='img-upload' style="width:100%;" src="/uploads/modules/category/{{$cate->ImgUrl}}"/>
     </div>
     <div class="form-group float-right">
       {{Form::submit('Kaydet', ['class' => 'btn btn-primary'])}}
