@@ -62,17 +62,32 @@
 								<div class="cart nobottommargin clearfix" method="post" enctype='multipart/form-data'>
 
 									<div class="quantity clearfix allmargin-xs">
-										<input type="button" value="-" class="minus">
-										<input type="text" step="1" min="1"  name="quantity" value="1" title="Qty" class="qty" size="4" />
-										<input type="button" value="+" class="plus">
+										<input type="button" value="-" class="minus" onclick="chnVal(-1)">
+										<input type="text" step="1" min="1" id="p_quantity" name="quantity" value="1" title="Qty" class="qty" size="4" />
+										<input type="button" value="+" class="plus" onclick="chnVal(1)">
+										<script type="text/javascript">
+										function chnVal(num)
+										{
+											var value = parseInt(document.getElementById('p_quantity').value, 10);
+											value+=num;
+											if(value < 1) value = 1;
+											document.getElementById('p_quantity').value = value;
+										}
+										</script>
 									</div>
 
 
 										<select class="select-hide form-control allmargin-xs" style="width:25%;">
-											<option value="S">SMALL</option>
-											<option value="M" disabled="disabled">MEDIUM</option>
-											<option value="L">LARGE</option>
-											<option value="XL">X LARGE</option>
+											<?php
+											$prodstok = json_decode($pagevalues->Stock);
+											foreach ($prodstok as $key) {
+												echo '<option value="'.$key->name.'" ';
+												if($key->val==-1 || $key->val==0) echo 'disabled="disabled"';
+												echo '>'.$key->name;
+												if($key->val>-1) echo ' (Stok: '.$key->val.')';
+												echo '</option>';
+											}
+											 ?>
 										</select>
 
 
@@ -85,19 +100,27 @@
 								<!-- Product Single - Short Description
 								============================================= -->
 								<p>{{$pagevalues->Desc}}</p>
-								<ul class="iconlist">
-									<li><i class="icon-caret-right"></i> % 100 pamuk</li>
-									<li><i class="icon-caret-right"></i> Hafif, pamuklu jarse kumaş</li>
-									<li><i class="icon-caret-right"></i> Ön taraf baskılı</li>
-								</ul><!-- Product Single - Short Description End -->
+								<!-- Product Single - Short Description End -->
 
 								<!-- Product Single - Meta
 								============================================= -->
 								<div class="panel panel-default product-meta">
 									<div class="panel-body">
-										<span itemprop="productID" class="sku_wrapper">Stok No: <span class="sku">8465415</span></span>
-										<span><a href="#"> BEDEN TABLOSU </a> <a href="#"> TAKSİT SEÇENEKLERİ</a></span>
-										<span class="tagged_as">Etiketler: <a href="#" rel="tag">Tshirt</a>, <a href="#" rel="tag">Quicksilver</a>, <a href="#" rel="tag">Summer</a>, <a href="#" rel="tag">Bisiklet Yaka</a>.</span>
+										@if($pagevalues->Barcode)
+										<span itemprop="productID" class="sku_wrapper">Barkod No: <span class="sku">{{$pagevalues->Barcode}}</span></span>
+										@endif
+										<span class="tagged_as">Kategoriler:
+										@php($catetext = "")
+										@foreach(explode(',', $pagevalues->Categories) as $scate)
+										@php($temp_cate = \App\Category::where('id', $scate)->get()->first())
+										@if($catetext == "")
+										@php($catetext .= '<a href="'.url('/products/'.$scate).'" rel="tag">'.$temp_cate->Title.'</a>')
+										@else
+										@php($catetext .= ', <a href="'.url('/products/'.$scate).'" rel="tag">'.$temp_cate->Title.'</a>')
+										@endif
+										@endforeach
+										{!! $catetext !!}
+										</span>
 									</div>
 								</div><!-- Product Single - Meta End -->
 
