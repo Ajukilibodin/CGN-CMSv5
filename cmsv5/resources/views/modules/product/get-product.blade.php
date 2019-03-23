@@ -59,16 +59,16 @@
 
 								<!-- Product Single - Quantity & Cart Button
 								============================================= -->
-								<div class="cart nobottommargin clearfix" method="post" enctype='multipart/form-data'>
-
+								<form class="cart nobottommargin clearfix" method="post" action="/addcart/{{$pagevalues->id}}" enctype='multipart/form-data'>
+								@csrf
 									<div class="quantity clearfix allmargin-xs">
 										<input type="button" value="-" class="minus" onclick="chnVal(-1)">
-										<input type="text" step="1" min="1" id="p_quantity" name="quantity" value="1" title="Qty" class="qty" size="4" />
+										<input type="text" step="1" min="1" id="p_quantity" name="p_quantity" value="1" title="Qty" class="qty" size="4" />
 										<input type="button" value="+" class="plus" onclick="chnVal(1)">
 										<script type="text/javascript">
 										function chnVal(num)
 										{
-											var value = parseInt(document.getElementById('p_quantity').value, 10);
+											var value = parseInt(document.getElementById('quantity').value, 10);
 											value+=num;
 											if(value < 1) value = 1;
 											document.getElementById('p_quantity').value = value;
@@ -77,7 +77,7 @@
 									</div>
 
 
-										<select class="select-hide form-control allmargin-xs" style="width:25%;">
+										<select class="select-hide form-control allmargin-xs" style="width:25%;" id="p_type" name="p_type">
 											<?php
 											$prodstok = json_decode($pagevalues->Stock);
 											foreach ($prodstok as $key) {
@@ -127,31 +127,19 @@
 								<!-- Product Single - Share
 								============================================= -->
 								<div class="si-share noborder clearfix">
-									<span>Paylaş:</span>
+									<span>İşlem:</span>
 									<div>
-										<a href="#" class="social-icon si-borderless si-facebook">
-											<i class="icon-facebook"></i>
-											<i class="icon-facebook"></i>
+										<a href="#" class="social-icon si-borderless si-pinterest">
+											<i class="icon-heart"></i>
+											<i class="icon-heart"></i>
 										</a>
 										<a href="#" class="social-icon si-borderless si-twitter">
-											<i class="icon-twitter"></i>
-											<i class="icon-twitter"></i>
-										</a>
-										<a href="#" class="social-icon si-borderless si-pinterest">
-											<i class="icon-pinterest"></i>
-											<i class="icon-pinterest"></i>
-										</a>
-										<a href="#" class="social-icon si-borderless si-gplus">
-											<i class="icon-gplus"></i>
-											<i class="icon-gplus"></i>
-										</a>
-										<a href="#" class="social-icon si-borderless si-rss">
-											<i class="icon-rss"></i>
-											<i class="icon-rss"></i>
+											<i class="icon-arrow-down"></i>
+											<i class="icon-arrow-down"></i>
 										</a>
 										<a href="#" class="social-icon si-borderless si-email3">
-											<i class="icon-email3"></i>
-											<i class="icon-email3"></i>
+											<i class="icon-box"></i>
+											<i class="icon-box"></i>
 										</a>
 									</div>
 								</div><!-- Product Single - Share End -->

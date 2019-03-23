@@ -31,6 +31,9 @@ Route::get('/product', 'VisitorNav@red_category');
 Route::get('/product/{p_id}', 'VisitorNav@product');
 
 Route::get('/cart', 'VisitorNav@cart');
+Route::post('/addcart/{p_id}', 'ShopAction@addcart');
+Route::get('/clearcart', 'ShopAction@clearcart');
+
 Route::get('/checkout', 'VisitorNav@checkout');
 Route::get('/orderdetail', 'VisitorNav@orderdetail');
 

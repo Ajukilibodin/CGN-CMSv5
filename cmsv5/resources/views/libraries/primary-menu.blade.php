@@ -127,7 +127,8 @@
 
 <!-- Top Cart	============================================= -->
 <div id="top-cart">
-<a href="#" id="top-cart-trigger"><i class="icon-shopping-cart"></i><span>2</span></a>
+  @php( $c_count = count( json_decode(\Cookie::get('customercart')) ) )
+<a href="#" id="top-cart-trigger"><i class="icon-shopping-cart"></i><span>{{$c_count}}</span></a>
 <div class="top-cart-content">
 <div class="top-cart-title">
 <h4>SEPET</h4>

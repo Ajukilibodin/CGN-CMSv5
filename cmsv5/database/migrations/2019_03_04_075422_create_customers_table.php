@@ -24,6 +24,7 @@ class CreateCustomersTable extends Migration
             $table->text('WishList')->nullable();//->default(json([]));
             $table->boolean('MailSub')->default(false);
             $table->dateTime('LastLogin')->nullable();
+            $table->string('TempCart')->nullable();
             $table->timestamps();
         });
 

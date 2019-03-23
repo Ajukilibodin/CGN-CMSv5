@@ -55,7 +55,7 @@
 </tr>
 <tr class="cart_item">
 <td>
-    <a href="#" class="button button-3d nomargin fright">SEPETİ GÜNCELLE</a>
+    <a href="/clearcart" class="button button-3d nomargin fright">SEPETİ TEMİZLE</a>
 </td>
 <td>
     <a href="/checkout" class="button button-3d notopmargin fright">SİPARİŞİ TAMAMLA >> </a>
