@@ -16,7 +16,7 @@ class ShopAction extends Controller
       $count = (int)$request->input('p_quantity');
       $added = false;
       foreach ($temp_cart as $key) {
-        if($key->type == $type){
+        if($key->type == $type && $key->p_id == $p_id){
           $key->count += $count;
           $added = true;
         }
@@ -26,11 +26,31 @@ class ShopAction extends Controller
         array_push($temp_cart, ["p_id"=>(int)$p_id, "type"=>$type, "count"=>$count]);
 
       \Cookie::queue(\Cookie::make('customercart', json_encode($temp_cart), 60*24*30));
-
       $c_id = \Cookie::get('customerlogin');
       if($c_id){
         $customer = \App\Customer::where('id', $c_id)->get()->first();
         $customer->TempCart = json_encode($temp_cart);
+        $customer->save();
+      }
+      return back();
+    }
+    public function delcart($p_id)
+    {
+      $temp_cart = json_decode(\Cookie::get('customercart'));
+      if($temp_cart==null) $temp_cart = array();
+      $new_cart = array();
+
+      foreach ($temp_cart as $key) {
+        if($key->p_id != (int)$p_id){
+          array_push($new_cart, $key);
+        }
+      }
+
+      \Cookie::queue(\Cookie::make('customercart', json_encode($new_cart), 60*24*30));
+      $c_id = \Cookie::get('customerlogin');
+      if($c_id){
+        $customer = \App\Customer::where('id', $c_id)->get()->first();
+        $customer->TempCart = json_encode($new_cart);
         $customer->save();
       }
       return back();
@@ -42,6 +62,24 @@ class ShopAction extends Controller
       if($c_id){
         $customer = \App\Customer::where('id', $c_id)->get()->first();
         $customer->TempCart = null;
+        $customer->save();
+      }
+      return back();
+    }
+    public function updatecart(Request $request)
+    {
+      $temp_cart = array();
+      $count = $request->input('cartcount');
+      for ($i=1; $i <= $count ; $i++) {
+        $temp_one = json_decode($request->input('cart_item'.$i));
+        $temp_one->count = (int)$request->input('p_quantity'.$i);
+        array_push($temp_cart, $temp_one);
+      }
+      \Cookie::queue(\Cookie::make('customercart', json_encode($temp_cart), 60*24*30));
+      $c_id = \Cookie::get('customerlogin');
+      if($c_id){
+        $customer = \App\Customer::where('id', $c_id)->get()->first();
+        $customer->TempCart = json_encode($temp_cart);
         $customer->save();
       }
       return back();

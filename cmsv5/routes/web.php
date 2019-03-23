@@ -32,7 +32,9 @@ Route::get('/product/{p_id}', 'VisitorNav@product');
 
 Route::get('/cart', 'VisitorNav@cart');
 Route::post('/addcart/{p_id}', 'ShopAction@addcart');
+Route::get('/delcart/{p_id}', 'ShopAction@delcart');
 Route::get('/clearcart', 'ShopAction@clearcart');
+Route::post('/updatecart', 'ShopAction@updatecart');
 
 Route::get('/checkout', 'VisitorNav@checkout');
 Route::get('/orderdetail', 'VisitorNav@orderdetail');

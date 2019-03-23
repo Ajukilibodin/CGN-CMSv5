@@ -68,7 +68,7 @@
 										<script type="text/javascript">
 										function chnVal(num)
 										{
-											var value = parseInt(document.getElementById('quantity').value, 10);
+											var value = parseInt(document.getElementById('p_quantity').value, 10);
 											value+=num;
 											if(value < 1) value = 1;
 											document.getElementById('p_quantity').value = value;

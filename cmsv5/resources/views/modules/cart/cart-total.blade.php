@@ -23,15 +23,18 @@
 
     <table class="table cart">
       <tbody>
-
+        @php($cart_total = 0)
+        @foreach(json_decode(\Cookie::get('customercart')) as $cart_item)
+        @php ($c_prod = \App\Product::where('id',$cart_item->p_id)->get()->first())
+        @php( ($cart_total += ($c_prod->Price - ($c_prod->Price/100*$c_prod->Discount)) * $cart_item->count) )
+        @endforeach
         <tr class="cart_item">
             <div class="col-md-4 col-xs-4 nopadding">
           <td class="cart-product-name">
             <strong>Sepet Ara Toplamı</strong>
           </td>
-
           <td class="cart-product-name">
-            <span class="amount">64.97  &#8378;</span>
+            <span class="amount">{{$cart_total}}  &#8378;</span>
           </td>
         </tr>
         <tr class="cart_item">
@@ -49,7 +52,7 @@
           </td>
 
           <td class="cart-product-name">
-            <span class="amount color lead"><strong>64.97  &#8378;</strong></span>
+            <span class="amount color lead"><strong>{{$cart_total}}  &#8378;</strong></span>
           </td>
             </div>
 </tr>
