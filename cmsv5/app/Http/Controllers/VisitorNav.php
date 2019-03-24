@@ -24,7 +24,6 @@ class VisitorNav extends Controller
     public function logout(){
       \Cookie::queue(\Cookie::forget('customerlogin'));
       \Cookie::queue(\Cookie::forget('customername'));
-      \Cookie::queue(\Cookie::forget('customercart'));
       return redirect('/');
     }
 
@@ -63,7 +62,7 @@ class VisitorNav extends Controller
           \Cookie::queue(\Cookie::make('customername', $getUser->Name, $cookietime));
           $getUser->LastLogin = \Carbon\Carbon::now();
           if($getUser->TempCart){
-            \Cookie::queue(\Cookie::make('customercart', json_encode($getUser->TempCart), 60*24*30));
+            \Cookie::queue(\Cookie::make('customercart', $getUser->TempCart, 60*24*30));
           }
           else{
             $getUser->TempCart = \Cookie::get('customercart');
