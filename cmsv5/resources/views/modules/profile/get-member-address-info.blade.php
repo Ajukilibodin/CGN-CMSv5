@@ -12,7 +12,8 @@
     <div class="tab-content clearfix" id="tabs-1">
       <div class="col-md-12">
 
-        <form id="billing-form" name="billing-form" class="nobottommargin" action="#" method="post">
+        <form id="billing-form" name="billing-form" class="nobottommargin" action="/profile/updateaddress" method="post">
+          @csrf
           @if($currentcustomer = \App\Customer::where('id',\Cookie::get('customerlogin'))->first() )
           <div class="col_half">
             <label for="billing-form-name">Adınız:</label>
@@ -25,30 +26,28 @@
           </div>
 
           <div class="clear"></div>
-
-          <!-- <div class="col_full">
-            <label for="billing-form-companyname">Company Name:</label>
-            <input type="text" id="billing-form-companyname" name="billing-form-companyname" value="" class="sm-form-control" />
-          </div> -->
-
+          @php( $addr = explode('<br>',$currentcustomer->Address) )
           <div class="col_full">
             <label for="billing-form-address">Adres:</label>
-            <input type="text" id="billing-form-address" name="billing-form-address" value="" class="sm-form-control" />
+            <input type="text" id="billing-form-address" name="billing-form-address" value="{{$addr[0]}}" class="sm-form-control" />
           </div>
-
+          @php( $addr2 = "")
+          @if(count($addr)>1)
+          @php($addr2 = $addr[1])
+          @endif
           <div class="col_full">
-            <input type="text" id="billing-form-address2" name="billing-form-adress" value="" class="sm-form-control" />
+            <input type="text" id="billing-form-address2" name="billing-form-address2" value="{{$addr2}}" class="sm-form-control" />
           </div>
 
           <div class="col_full">
             <label for="billing-form-city">İliniz</label>
-            <input type="text" id="billing-form-city" name="billing-form-city" value="" class="sm-form-control" />
+            <input type="text" id="billing-form-city" name="billing-form-city" value="{{$currentcustomer->State}}" class="sm-form-control" />
           </div>
 
 
 
           <div class="col_full">
-        <a href="#" class="button button-3d fright">BİLGİLERİ GÜNCELLE</a>
+              <button type="submit" class="button button-3d fright">BİLGİLERİ GÜNCELLE</button>
           </div>
         @endif
         </form>

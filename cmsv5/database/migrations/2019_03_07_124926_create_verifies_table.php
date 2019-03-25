@@ -17,7 +17,7 @@ class CreateVerifiesTable extends Migration
             $table->increments('id');
             $table->integer('UserID');
             $table->string('Token', 100);
-            $table->enum('Type',['NewRegister','ForgotPassword'])->default('NewRegister');
+            $table->enum('Type',['NewRegister','ForgotPassword','ShopCustomer'])->default('NewRegister');
             $table->timestamp('created_at');
         });
     }

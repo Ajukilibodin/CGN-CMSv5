@@ -195,12 +195,40 @@ class VisitorNav extends Controller
       }
     }
 
-    public function cart(){
-      return view('pages/cart');
+    public function updateaddress(Request $request){
+      if( !\Cookie::get('customerlogin') )
+        return redirect('/');
+      else{
+        $rules = [
+          'billing-form-address' => 'required|max:1000',
+          'billing-form-address2' => 'required|max:1000',
+          'billing-form-city' => 'required|max:255'
+        ];
+
+        $this->validate($request, $rules);
+
+        $addr1 = $request->input('billing-form-address');
+        $addr2 = $request->input('billing-form-address2');
+        $city = $request->input('billing-form-city');
+
+        $getUser = Customer::where('id', \Cookie::get('customerlogin'));
+
+        if($getUser->count() > 0)
+        {
+          $getUser = $getUser->first();
+          $getUser->Address = $addr1.'<br>'.$addr2;
+          $getUser->State = $city;
+          $getUser->save();
+          return back()->with('success', 'Üyelik bilgileriniz güncellenmiştir.');
+        }
+        else{
+          return back()->with('error', 'Giriş yapan kullanıcı sistemde bulunamadı!');
+        }
+      }
     }
 
-    public function checkout(){
-      return view('pages/checkout');
+    public function cart(){
+      return view('pages/cart');
     }
 
     public function category(){
@@ -234,9 +262,5 @@ class VisitorNav extends Controller
     public function product($p_id){
       $pagevalues = \App\Product::where('id',$p_id)->get()->first();
       return view('pages/product')->with('pagevalues',$pagevalues);
-    }
-
-    public function orderdetail(){
-      return view('pages/order-detail');
     }
 }

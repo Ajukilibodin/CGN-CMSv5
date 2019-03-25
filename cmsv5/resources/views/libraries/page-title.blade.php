@@ -48,6 +48,13 @@
       <li><a href="/">Anasayfa</a></li>
       <li class="active">Sepet</li>
     </ol>
+    @elseif(Request::is('checkout'))
+    <h1>Ödeme</h1>
+    <ol class="breadcrumb">
+      <li><a href="/">Anasayfa</a></li>
+      <li>Sepet</li>
+      <li class="active">Ödeme</li>
+    </ol>
     @else
     <h1>*ENTER-TITLE*</h1>
     <ol class="breadcrumb">

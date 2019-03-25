@@ -23,8 +23,10 @@ class CreateCustomersTable extends Migration
             $table->char('Phone', 11)->nullable();
             $table->text('WishList')->nullable();//->default(json([]));
             $table->boolean('MailSub')->default(false);
-            $table->dateTime('LastLogin')->nullable();
-            $table->string('TempCart')->nullable();
+            $table->dateTime('LastLogin')->nullable()->default($datenow);
+            $table->string('TempCart',3000)->nullable();
+            $table->string('Address', 2500)->nullable();
+            $table->string('State')->nullable();
             $table->timestamps();
         });
 
@@ -32,8 +34,7 @@ class CreateCustomersTable extends Migration
           'Name' => 'CGN',
           'Surname' => 'Yazılım',
           'Email' => 'cgn@cgnyazilim.com',
-          'Password' => \Hash::make('123'),
-          'LastLogin' => $datenow
+          'Password' => \Hash::make('123')
         ]);
     }
 

@@ -61,7 +61,10 @@
     <a href="/clearcart" class="button button-3d nomargin fright">SEPETİ TEMİZLE</a>
 </td>
 <td>
-    <a href="/checkout" class="button button-3d notopmargin fright">SİPARİŞİ TAMAMLA >> </a>
+  <form class="" action="/checkout" method="post">
+    @csrf
+    <button type="submit" class="button button-3d notopmargin fright">SİPARİŞİ TAMAMLA >> </button>
+  </form>
 </td>
 </tr>
 </tbody>

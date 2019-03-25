@@ -21,6 +21,7 @@ Route::get('/login/loginkey/{key}', 'VisitorNav@loginkey');
 
 Route::get('/profile', 'VisitorNav@profile');
 Route::post('/profile/update', 'VisitorNav@profile_update');
+Route::post('/profile/updateaddress', 'VisitorNav@updateaddress');
 
 Route::get('/page/{p_id}', 'VisitorNav@page');
 
@@ -36,8 +37,10 @@ Route::get('/delcart/{p_id}', 'ShopAction@delcart');
 Route::get('/clearcart', 'ShopAction@clearcart');
 Route::post('/updatecart', 'ShopAction@updatecart');
 
-Route::get('/checkout', 'VisitorNav@checkout');
-Route::get('/orderdetail', 'VisitorNav@orderdetail');
+Route::post('/checkoutback','ShopAction@checkoutback');
+Route::post('/checkout', 'ShopAction@checkout');
+
+Route::post('/orderdetail', 'ShopAction@orderdetail');
 
 /*********************************************************/
 

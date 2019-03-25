@@ -84,4 +84,55 @@ class ShopAction extends Controller
       }
       return back();
     }
+
+    public function checkout(Request $request)
+    {
+      $temp_cart = \Cookie::get('customercart');
+      if( !$temp_cart )
+        return redirect('/cart')->with('error','Boş sepet için ödeme yapamazsınız.');
+
+      $c_id = \Cookie::get('customerlogin');
+      $temp_customer = null;
+      if( !$c_id ){
+        $clientIP = \Request::ip();
+        //request()->ip();
+        //$request->ip();
+        $temp_customer = \App\Customer::firstOrCreate(
+            ['Name' => 'Non-Customer', 'Surname' => $clientIP],
+            ['Email' => 'none', 'Password' => 'none']
+        );
+        $temp_customer->save();
+        $c_id = $temp_customer->id;
+      }
+      else{
+        $temp_customer = \App\Customer::where('id',$c_id)->get()->first();
+      }
+
+      $cart_total = 0;
+      foreach (json_decode($temp_cart) as $key){
+        $temp_prod = \App\Product::where('id',$key->p_id)->get()->first();
+        $cart_total += $key->count * ($temp_prod->Price - ($temp_prod->Price/100*$temp_prod->Discount));
+      }
+
+      $temp_order = \App\Order::updateOrCreate(
+          ['OrderState' => 'W_Confirm', 'CustomerID' => $c_id],
+          ['Address' => '', 'State' => '', 'Cart' => $temp_cart, 'CartTotal' => $cart_total]
+      );
+      $temp_order->save();
+
+      return view('pages/checkout')->with('c_id',$c_id)->with('cart_total',$cart_total)
+      ->with('temp_customer',$temp_customer)->with('temp_order',$temp_order);
+    }
+    public function checkoutback()
+    {
+      //order db tablosunda temp olarak bekleyen sepeti kaldır.
+      return redirect('/cart');
+    }
+
+    public function orderdetail(Request $request){
+      return $request;
+      // TODO: order state istenilen konuma getir ve order kaydet
+      //request olarak istenmeyen durumları back()->with('error','mesaj')
+      return view('pages/order-detail');
+    }
 }

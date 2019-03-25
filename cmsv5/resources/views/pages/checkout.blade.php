@@ -5,13 +5,16 @@
 <div class="content-wrap topmargin bottommargin">
 <div class="container clearfix">
   <div class="row clearfix">
-    <div class="col-md-6">
-      @include("modules.cart.shipping-billing-info")
-    </div>
+    <form class="" action="{{url('/orderdetail')}}" method="post">
+      @csrf
+      <div class="col-md-6">
+        @include("modules.cart.shipping-billing-info")
+      </div>
 
-    <div class="col-md-6">
-      @include("modules.cart.payment")
-    </div>
+      <div class="col-md-6">
+        @include("modules.cart.payment")
+      </div>
+    </form>
   </div>
 </div>
 </div>
