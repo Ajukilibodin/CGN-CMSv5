@@ -87,6 +87,7 @@ class ShopAction extends Controller
 
     public function checkout(Request $request)
     {
+      //return $request;
       $temp_cart = \Cookie::get('customercart');
       if( !$temp_cart )
         return redirect('/cart')->with('error','Boş sepet için ödeme yapamazsınız.');
@@ -120,19 +121,84 @@ class ShopAction extends Controller
       );
       $temp_order->save();
 
-      return view('pages/checkout')->with('c_id',$c_id)->with('cart_total',$cart_total)
-      ->with('temp_customer',$temp_customer)->with('temp_order',$temp_order);
+      return view('pages/checkout')
+      ->with('c_id',$c_id)->with('t_id',$temp_order->id)
+      ->with('cart_total',$cart_total)->with('cart',$temp_cart);
     }
     public function checkoutback()
     {
-      //order db tablosunda temp olarak bekleyen sepeti kaldır.
+      $clientIP = \Request::ip();
+      $c_id = \App\Customer::where('Surname',$clientIP)->get()->first();
+      if($c_id) \App\Order::where('CustomerID',$c_id)->delete();
+
       return redirect('/cart');
     }
 
     public function orderdetail(Request $request){
-      return $request;
-      // TODO: order state istenilen konuma getir ve order kaydet
-      //request olarak istenmeyen durumları back()->with('error','mesaj')
-      return view('pages/order-detail');
+      //return $request;
+
+      $this->validate($request, [
+        'billing-form-name'=>'required|max:250',
+        'billing-form-lname'=>'required|max:250',
+        'billing-form-address'=>'required|max:1000',
+        'billing-form-city'=>'required|max:250',
+        'billing-form-email' => 'required|email'
+      ]);
+
+      $payType = $request->input('paymenttype');
+      if($payType=="3"){
+        //kredi kartı
+        $this->validate($request, [
+          'cardNumber'=>'required',
+          'cardExpiry'=>'required',
+          'cardCVC'=>'required',
+          'cardHolder'=>'required'
+        ]);
+        // NOTE: 3D ödeme gelene kadar geçici
+        return back()->with('error', 'Sistemimizde geçici olarak 3D ödeme sistemi kullanılamamaktadır.');
+      }
+
+      $name = $request->input('billing-form-name');
+      $lname = $request->input('billing-form-lname');
+      $address = $request->input('billing-form-address').'<br>'.$request->input('billing-form-address2');
+      $city = $request->input('billing-form-city');
+      $email = $request->input('billing-form-email');
+      $phone = $request->input('billing-form-phone');
+      $cart = $request->input('cart');
+      $cart_total = $request->input('cart_total');
+      $c_number = $request->input('cardNumber');
+      $c_exp = $request->input('cardExpiry');
+      $c_cvc = $request->input('cardCVC');
+      $c_holder = $request->input('cardHolder');
+      $c_id = $request->input('c_id');
+
+      $temp_customer = \App\Customer::where('id',$c_id)->get()->first();
+      if($temp_customer->Email == 'none') $temp_customer->Email = $email;
+      if($temp_customer->Password == 'none') $temp_customer->Password = $name.' '.$lname;
+      if( !$temp_customer->Address ) $temp_customer->Address = $address;
+      if( !$temp_customer->State ) $temp_customer->State = $city;
+      if( !$temp_customer->Phone ) $temp_customer->Phone = $phone;
+      $temp_customer->save();
+
+      $temp_order = \App\Order::where('id',$request->input('t_id'))->get()->first();
+      switch ($payType) {
+        case '1': $temp_order->OrderType = 'Kapida'; break;
+        case '2': $temp_order->OrderType = 'Havale'; break;
+        case '3': $temp_order->OrderType = 'Kredi'; break;
+      }
+      if($payType=='2') $temp_order->OrderState = 'W_Pay';
+      else $temp_order->OrderState = 'W_Ship';
+      $temp_order->Address = $address;
+      $temp_order->State = $city;
+      $temp_order->Cart = $cart;
+      $temp_order->CartTotal = $cart_total;
+      // TODO: cart exchange ekle
+      $temp_order->save();
+
+      $temp_customer->TempCart=null;
+      $temp_customer->save();
+      \Cookie::queue(\Cookie::make('customercart', json_encode(array()), 60*24*30));
+
+      return view('pages/order-detail')->with('c_id'.$c_id)->with('o_id'.$temp_order->id);
     }
 }

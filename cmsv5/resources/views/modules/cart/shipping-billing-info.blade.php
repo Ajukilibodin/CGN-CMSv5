@@ -21,7 +21,7 @@
           <div class="col_half">
             <label for="billing-form-name">Adınız:</label>
             @if($userlogin)
-            <input disabled type="text" id="billing-form-name" name="billing-form-name" value="{{$currentcustomer->Name}}" class="sm-form-control" />
+            <input type="text" id="billing-form-name" name="billing-form-name" value="{{$currentcustomer->Name}}" class="sm-form-control" />
             @else
             <input type="text" id="billing-form-name" name="billing-form-name" value="" class="sm-form-control" />
             @endif
@@ -30,7 +30,7 @@
           <div class="col_half col_last">
             <label for="billing-form-lname">Soyadınız:</label>
             @if($userlogin)
-            <input disabled type="text" id="billing-form-lname" name="billing-form-lname" value="{{$currentcustomer->Surname}}" class="sm-form-control" />
+            <input type="text" id="billing-form-lname" name="billing-form-lname" value="{{$currentcustomer->Surname}}" class="sm-form-control" />
             @else
             <input type="text" id="billing-form-lname" name="billing-form-lname" value="" class="sm-form-control" />
             @endif
@@ -46,11 +46,11 @@
           @endif
           <div class="col_full">
             <label for="billing-form-address">Adres:</label>
-            <input disabled type="text" id="billing-form-address" name="billing-form-address" value="{{$addr[0]}}" class="sm-form-control" />
+            <input type="text" id="billing-form-address" name="billing-form-address" value="{{$addr[0]}}" class="sm-form-control" />
           </div>
 
           <div class="col_full">
-            <input disabled type="text" id="billing-form-address2" name="billing-form-address2" value="{{$addr2}}" class="sm-form-control" />
+            <input type="text" id="billing-form-address2" name="billing-form-address2" value="{{$addr2}}" class="sm-form-control" />
           </div>
           @else
           <div class="col_full">
@@ -66,7 +66,7 @@
           <div class="col_full">
             <label for="billing-form-city">İliniz</label>
             @if($userlogin &&  $currentcustomer->State != null)
-            <input disabled type="text" id="billing-form-city" name="billing-form-city" value="{{$currentcustomer->State}}" class="sm-form-control" />
+            <input type="text" id="billing-form-city" name="billing-form-city" value="{{$currentcustomer->State}}" class="sm-form-control" />
             @else
             <input type="text" id="billing-form-city" name="billing-form-city" value="" class="sm-form-control" />
             @endif
@@ -75,7 +75,7 @@
           <div class="col_half">
             <label for="billing-form-email">Email adresimiz:</label>
             @if($userlogin)
-            <input disabled type="email" id="billing-form-email" name="billing-form-email" value="{{$currentcustomer->Email}}" class="sm-form-control" />
+            <input type="email" id="billing-form-email" name="billing-form-email" value="{{$currentcustomer->Email}}" class="sm-form-control" />
             @else
             <input type="email" id="billing-form-email" name="billing-form-email" value="" class="sm-form-control" />
             @endif
@@ -84,7 +84,7 @@
           <div class="col_half col_last">
             <label for="billing-form-phone">Telefon:</label>
             @if($userlogin && $currentcustomer->Phone!=null)
-            <input disabled type="text" id="billing-form-phone" name="billing-form-phone" value="{{$currentcustomer->Phone}}" class="sm-form-control" />
+            <input type="text" id="billing-form-phone" name="billing-form-phone" value="{{$currentcustomer->Phone}}" class="sm-form-control" />
             @else
             <input type="text" id="billing-form-phone" name="billing-form-phone" value="" class="sm-form-control" />
             @endif

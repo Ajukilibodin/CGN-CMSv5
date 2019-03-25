@@ -23,7 +23,7 @@ class CreateCustomersTable extends Migration
             $table->char('Phone', 11)->nullable();
             $table->text('WishList')->nullable();//->default(json([]));
             $table->boolean('MailSub')->default(false);
-            $table->dateTime('LastLogin')->nullable()->default($datenow);
+            $table->dateTime('LastLogin')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->string('TempCart',3000)->nullable();
             $table->string('Address', 2500)->nullable();
             $table->string('State')->nullable();

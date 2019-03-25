@@ -10,6 +10,8 @@ use App\Verify;
 class VisitorNav extends Controller
 {
     public function index(){
+      //\Cookie::queue(\Cookie::make('customercart', json_encode(array()), 60*24*30));
+
       return view('pages/index');
     }
 

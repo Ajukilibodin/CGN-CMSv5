@@ -39,6 +39,7 @@ Route::post('/updatecart', 'ShopAction@updatecart');
 
 Route::post('/checkoutback','ShopAction@checkoutback');
 Route::post('/checkout', 'ShopAction@checkout');
+Route::get('/checkout', 'ShopAction@checkout');
 
 Route::post('/orderdetail', 'ShopAction@orderdetail');
 

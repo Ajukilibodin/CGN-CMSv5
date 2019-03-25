@@ -15,8 +15,8 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('cmsv5_orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('OrderType',['Kredi', 'Havale', 'Kapıda'])->nullable();
-            $table->enum('OrderState', ['W_Confirm','W_Pay','W_Ship', 'W_Arrive', 'W_CustomerConfirm']);
+            $table->enum('OrderType',['Kredi', 'Havale', 'Kapida'])->nullable();
+            $table->enum('OrderState', ['W_Confirm', 'W_Pay', 'W_Ship', 'W_Arrive', 'Done']);
             $table->integer('CustomerID');
             $table->string('Address', 3000);
             $table->string('State');

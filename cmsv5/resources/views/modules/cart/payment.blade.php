@@ -3,11 +3,6 @@
     <h4>ÖDEME İŞLEMİ</h4>
     <table class="table cart">
       <tbody>
-        @php($cart_total = 0)
-        @foreach(json_decode(\Cookie::get('customercart')) as $cart_item)
-        @php ($c_prod = \App\Product::where('id',$cart_item->p_id)->get()->first())
-        @php( ($cart_total += ($c_prod->Price - ($c_prod->Price/100*$c_prod->Discount)) * $cart_item->count) )
-        @endforeach
           <tr class="cart_item">
               <td class="notopborder cart-product-name">
                   <strong>Ürünler Toplamı:</strong>
@@ -30,6 +25,8 @@
               </td>
               <td class="cart-product-name">
                   <span class="amount color lead"><strong>{{$cart_total}} &#8378;</strong></span>
+                  <input type="text" name="cart" value="{{$cart}}" hidden>
+                  <input type="text" name="cart_total" value="{{$cart_total}}" hidden>
               </td>
           </tr>
       </tbody>
@@ -66,6 +63,8 @@
       <button type="submit" class="button button-3d fright"> << SEPETE DÖN</button>
   </form>
   <input type="text" id="paymenttype" name="paymenttype" value="0" hidden>
+  <input type="text" name="t_id" value="{{$t_id}}" hidden>
+  <input type="text" name="c_id" value="{{$c_id}}" hidden>
 </div>
 <script type="text/javascript">
   function setPayment(num) {
