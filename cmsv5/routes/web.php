@@ -50,7 +50,7 @@ Route::post('/ajan/loginsubmit', 'AdminAuth@submit');
 Route::get('/ajan/logout', 'AdminAuth@logout');
 
 Route::get('/ajan/sitesettings', 'Admin\SiteEdit@mainload');
-Route::post('/ajan/sitesettings/update/{w_id}', 'Admin\SiteEdit@saveSetting');
+Route::post('/ajan/sitesettings', 'Admin\SiteEdit@savesettings');
 
 Route::get('/ajan/customers', 'Admin\CustomerEdit@mainload');
 Route::get('/ajan/customers/delete/{w_id}', 'Admin\CustomerEdit@deleteCustomer');
