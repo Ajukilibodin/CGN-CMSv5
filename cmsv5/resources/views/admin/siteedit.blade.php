@@ -53,18 +53,32 @@
       </div>
     </div>
 
-      <div class="col-6">
-        <div class="form-group">
-          {{Form::label('val-addr1', 'Adres 1. Satır')}}
-          {{Form::text('val-addr1',$sitevalues[5]->Value,['class' => 'form-control'])}}
-        </div>
+    <div class="col-6">
+      <div class="form-group">
+        {{Form::label('val-addr1', 'Adres 1. Satır')}}
+        {{Form::text('val-addr1',$sitevalues[5]->Value,['class' => 'form-control'])}}
       </div>
-      <div class="col-6">
-        <div class="form-group">
-          {{Form::label('val-addr2', 'Adres 2. Satır')}}
-          {{Form::text('val-addr2',$sitevalues[6]->Value,['class' => 'form-control'])}}
-        </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        {{Form::label('val-addr2', 'Adres 2. Satır')}}
+        {{Form::text('val-addr2',$sitevalues[6]->Value,['class' => 'form-control'])}}
       </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        {{Form::label('val-smyani', 'Anasayfa Sosyal Medya Yanı Yazısı')}}
+        {{Form::text('val-smyani',$sitevalues[7]->Value,['class' => 'form-control'])}}
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        {{Form::label('val-footer', 'Footer Sloganı')}}
+        {{Form::text('val-footer',$sitevalues[8]->Value,['class' => 'form-control'])}}
+      </div>
+    </div>
 
     <div class="col-12">
       <div class="form-group float-right">

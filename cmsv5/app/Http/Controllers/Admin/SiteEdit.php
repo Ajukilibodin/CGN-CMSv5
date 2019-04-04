@@ -26,7 +26,9 @@ class SiteEdit extends Controller
           'val-phone' => 'required|max:250',
           'val-mobile' => 'required|max:250',
           'val-addr1' => 'required|max:250',
-          'val-addr2' => 'required|max:250'
+          'val-addr2' => 'required|max:250',
+          'val-smyani' => 'required|max:250',
+          'val-footer' => 'required|max:250'
         ]);
         $temp = \App\Admin\SiteValues::all();
         $temp[0]->Value = $request->input('val-toptext');
@@ -43,6 +45,10 @@ class SiteEdit extends Controller
         $temp[5]->save();
         $temp[6]->Value = $request->input('val-addr2');
         $temp[6]->save();
+        $temp[7]->Value = $request->input('val-smyani');
+        $temp[7]->save();
+        $temp[8]->Value = $request->input('val-footer');
+        $temp[8]->save();
         return redirect('/ajan/sitesettings')->with('success', 'Site Ayarları Güncellenmiştir.');
       }
       else return redirect('/ajan');
