@@ -1,6 +1,6 @@
 @include('libraries.head.head')
 <body class="stretched">
-  @php($_SITEVALUES = \App\Admin\SiteValues::all())
+   
   <div id="wrapper" class="clearfix">
     @include('libraries.topbar')
     @include('libraries.header')

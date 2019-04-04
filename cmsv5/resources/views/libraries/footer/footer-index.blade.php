@@ -16,17 +16,17 @@
 
 								<img src="images/footer-widget-logo.png" alt="" class="footer-logo">
 
-								<p>Sizin için <strong>yaz</strong>  &amp;  <strong>kış</strong> <strong>macera</strong> ürünleri tasarlıyoruz.</p>
+								<p>{{\App\Admin\SiteValues::find(9)->Value}}</p>
 
 								<div>
 									<address>
-										<strong>Merkezimiz:</strong><br>
-										{{$_SITEVALUES[5]->Value}}<br>
-										{{$_SITEVALUES[6]->Value}}<br>
+										<strong>Merkez:</strong><br>
+										{{\App\Admin\SiteValues::find(6)->Value}}<br>
+										{{\App\Admin\SiteValues::find(7)->Value}}<br>
 									</address>
-									<abbr title="Phone Number"><strong>Tel:</strong></abbr> {{$_SITEVALUES[3]->Value}}<br>
-									<abbr title="Mobile Phone Number"><strong>Mobil:</strong></abbr> {{$_SITEVALUES[4]->Value}}<br>
-									<abbr title="Email Address"><strong>Email:</strong></abbr> {{$_SITEVALUES[2]->Value}}
+									<abbr title="Phone Number"><strong>Tel:</strong></abbr> {{\App\Admin\SiteValues::find(4)->Value}}<br>
+									<abbr title="Mobile Phone Number"><strong>Mobil:</strong></abbr> {{\App\Admin\SiteValues::find(5)->Value}}<br>
+									<abbr title="Email Address"><strong>Email:</strong></abbr> {{\App\Admin\SiteValues::find(3)->Value}}
 								</div>
 
 							</div>
@@ -172,11 +172,13 @@ Giyim - Termal İçlik - Polar - Mont - Koşu Ayakkabısı - Outdoor Ayakkabı -
 
 
 <div class="col_half">
-Copyrights &copy; 2019 All Rights Reserved by WSA
+Copyrights &copy; 2019 All Rights Reserved by {{\App\Admin\SiteValues::find(2)->Value}}
 </div>
 
 <div class="col_half col_last tright">
-CGN
+	<a href="http://www.cgnwebtasarim.com" target="_blank">
+	CGN
+	</a>
 </div>
 
 </div>

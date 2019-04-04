@@ -28,6 +28,8 @@ class CreateSiteValuesTable extends Migration
         \App\Admin\SiteValues::create(['Desc' => 'Mobil', 'Value' => '0232 343 4491']);
         \App\Admin\SiteValues::create(['Desc' => 'Adres1', 'Value' => 'Adalet Mah. 1593/1 No:15']);
         \App\Admin\SiteValues::create(['Desc' => 'Adres2', 'Value' => 'Bayraklı/İZMİR']);
+        \App\Admin\SiteValues::create(['Desc' => 'SM Yanı Text', 'Value' => 'Doğaya ve spora tutkuyla bağlı olanların markası W.S.A, çeşitli kategorilerde sunduğu spor giyim ürünleri ile yaz kış maceranızı destekliyor..']);
+        \App\Admin\SiteValues::create(['Desc' => 'Footer Slogan', 'Value' => 'Sizin için yaz & kış macera ürünleri tasarlıyoruz.']);
     }
 
     /**

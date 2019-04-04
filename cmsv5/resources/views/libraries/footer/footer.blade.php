@@ -5,9 +5,9 @@
       <div class="col-md-3">
         <div class="widget widget_links clearfix">
           <ul>
-          <li><a href="">{{$_SITEVALUES[3]->Value}}</a></li>
-          <li><a href="">{{$_SITEVALUES[4]->Value}}</a></li>
-          <li><a href="">{{$_SITEVALUES[2]->Value}}</a></li>
+          <li><a href="">{{\App\Admin\SiteValues::find(4)->Value}}</a></li>
+          <li><a href="">{{\App\Admin\SiteValues::find(5)->Value}}</a></li>
+          <li><a href="">{{\App\Admin\SiteValues::find(3)->Value}}</a></li>
           </ul>
         </div>
       </div>
@@ -43,7 +43,7 @@
 
       </div>
       <div class="col_half col_last tright">
-      Copyrights &copy; 2019 All Rights Reserved by WSA
+      Copyrights &copy; 2019 All Rights Reserved by {{\App\Admin\SiteValues::find(2)->Value}}
       </div>
     </div>
   </div><!-- #copyrights end -->

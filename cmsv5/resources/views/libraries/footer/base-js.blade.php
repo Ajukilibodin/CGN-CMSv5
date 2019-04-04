@@ -23,7 +23,7 @@ function sepetegit() {
 <script type="text/javascript">
 
   var link = "{{url('/login/loginkey/'.$reg_token)}}";
-  var mailBody = "{{$_SITEVALUES[1]->Value}}"+' Üyelik Linkiniz:<br><a href="'
+  var mailBody = "{{\App\Admin\SiteValues::find(2)->Value}}"+' Üyelik Linkiniz:<br><a href="'
   +link+'"><br><a href="'+link+'"><img src="http://cgnwebtasarim.com/img/aktif.jpeg"></a>';
 
   Email.send({
@@ -32,7 +32,7 @@ function sepetegit() {
     Username : "<?php echo $_ENV['MAIL_USERNAME']; ?>",
     Password : "<?php echo $_ENV['MAIL_PASSWORD']; ?>",
     To : '<?php echo $reg_mail; ?>',
-    Subject : "{{$_SITEVALUES[1]->Value}}"+" Üyelik Linki",
+    Subject : "{{\App\Admin\SiteValues::find(2)->Value}}"+" Üyelik Linki",
     Body : mailBody
     }).then(message => mailResult(message));
 

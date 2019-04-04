@@ -12,9 +12,9 @@
 		<div class="clear topmargin bottommargin-sm"></div>
 		<div class="col_one_third">
 			<div class="fancy-title title-border">
-			<h4>W.S.A</h4>
+			<h4>{{\App\Admin\SiteValues::find(2)->Value}}</h4>
 			</div>
-			<p>Doğaya ve spora tutkuyla bağlı olanların markası W.S.A, çeşitli kategorilerde sunduğu spor giyim ürünleri ile yaz kış maceranızı destekliyor..</p>
+			<p>{{\App\Admin\SiteValues::find(8)->Value}}</p>
 		</div>
 		<div class="col_one_third subscribe-widget">
 			<div class="fancy-title title-border">

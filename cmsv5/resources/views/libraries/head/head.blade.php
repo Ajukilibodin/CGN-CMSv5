@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="tr">
 <head>
-@php($_SITEVALUES = \App\Admin\SiteValues::all())
+ 
 @include('libraries.head.meta')
 @include('libraries.head.favicons')
 @include('libraries.head.base-css')

@@ -2,11 +2,11 @@
 <div id="top-bar" class="hidden-xs">
   <div class="container clearfix">
     <div class="col-md-4 fleft nobottommargin">
-      <p class="nobottommargin"> {{$_SITEVALUES[3]->Value}} | {{$_SITEVALUES[2]->Value}}</p>
+      <p class="nobottommargin"> {{\App\Admin\SiteValues::find(4)->Value}} | {{\App\Admin\SiteValues::find(3)->Value}}</p>
     </div>
     <div class="col-md-4 nobottommargin">
       <div class="slideInRight animated" alt="" title="" data-animate="slideInRight">
-        {{$_SITEVALUES[0]->Value}}
+        {{\App\Admin\SiteValues::find(1)->Value}}
       </div>
     </div>
     <div class="col-md-4 col_last fright nobottommargin">
