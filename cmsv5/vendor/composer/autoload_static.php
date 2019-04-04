@@ -458,6 +458,7 @@ class ComposerStaticInit0c23a2f427f04edded77e1ef754097cf
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Showcase\\ShowcaseCategory' => __DIR__ . '/../..' . '/app/Showcase/ShowcaseCategory.php',
         'App\\SitePage' => __DIR__ . '/../..' . '/app/SitePage.php',
         'App\\Slider' => __DIR__ . '/../..' . '/app/Slider.php',
         'App\\Verify' => __DIR__ . '/../..' . '/app/Verify.php',

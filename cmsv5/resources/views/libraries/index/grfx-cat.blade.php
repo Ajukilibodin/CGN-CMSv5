@@ -3,31 +3,28 @@
 .mt-25-imp{
   margin-top: 25px !important;
 }
+.relative{
+  position:relative;
+}
+.absolute-text{
+  position:absolute;
+  bottom:0;
+  background:rgba(251,251,251,0.5);
+  padding:10px 20px;
+  width:100%;
+  text-align:center;
+}
 </style>
-
-<div class="col-md-4 mt-25-imp">
-<a href="/products/1" class="hvr-outline-out"><img src="/uploads/modules/category/1.jpg" alt="Image"></a>
+@foreach(\App\Showcase\ShowcaseCategory::all() as $showcate)
+<div class="col-md-{{$showcate->ShowcaseWidth*4}} col-sm-{{$showcate->ShowcaseWidth*6}} mt-25-imp relative">
+  <a href="/products/{{$showcate->CateID}}" class="hvr-outline-out">
+    <img src="/uploads/modules/category/{{$showcate->CateID}}.jpg" alt="Image">
+    <h4 class="absolute-text">{{$showcate->Title}}
+      <br><small style="color:black;">{{$showcate->SubText}}</small>
+    </h4>
+  </a>
 </div>
-
-<div class="col-md-4 mt-25-imp">
-<a href="/products/2" class="hvr-outline-out"><img src="/uploads/modules/category/2.jpg" alt="Image"></a>
-</div>
-
-<div class="col-md-4 mt-25-imp">
-<a href="/products/3" class="hvr-outline-out"><img src="/uploads/modules/category/3.jpg" alt="Image"></a>
-</div>
-
-<div class="col-md-4 mt-25-imp">
-<a href="/products/4" class="hvr-outline-out"><img src="/uploads/modules/category/4.jpg" alt="Image"></a>
-</div>
-
-<div class="col-md-4 mt-25-imp">
-<a href="/products/5" class="hvr-outline-out"><img src="/uploads/modules/category/5.jpg" alt="Image"></a>
-</div>
-
-<div class="col-md-4 mt-25-imp">
-<a href="/products/6" class="hvr-outline-out"><img src="/uploads/modules/category/6.jpg" alt="Image"></a>
-</div>
+@endforeach
 
 <!--
 <div class="col-md-8 mt-25-imp">

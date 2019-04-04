@@ -38,6 +38,7 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\Showcase\\ShowcaseCategory' => $baseDir . '/app/Showcase/ShowcaseCategory.php',
     'App\\SitePage' => $baseDir . '/app/SitePage.php',
     'App\\Slider' => $baseDir . '/app/Slider.php',
     'App\\Verify' => $baseDir . '/app/Verify.php',
