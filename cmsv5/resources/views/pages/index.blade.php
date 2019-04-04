@@ -135,7 +135,7 @@
       			<i class="icon-credit-cards"></i>
       			</div>
       			<h3>ÖDEME SEÇENEKLERİ</h3>
-      			<p class="notopmargin">Kredi kartı, haale ve kapıda ödeme seçeneklirimiz vardır.</p>
+      			<p class="notopmargin">Kredi kartı, havale ve kapıda ödeme seçeneklerimiz vardır.</p>
     			</div>
   			</div>
   			<div class="col_one_fourth nobottommargin">
