@@ -14,18 +14,18 @@
       <div class="col-md-3">
         <div class="widget widget_links clearfix">
           <ul>
-          <li><a href="">Garanti Şartları</a></li>
-          <li><a href="">Kullanıcı Sözleşmesi</a></li>
-          <li><a href="">Gizlilik Bildirimi</a></li>
+          <li><a href="{{url('/page/2')}}">Garanti Şartları</a></li>
+          <li><a href="{{url('/page/2')}}">Kullanıcı Sözleşmesi</a></li>
+          <li><a href="{{url('/page/2')}}">Gizlilik Bildirimi</a></li>
           </ul>
         </div>
       </div>
       <div class="col-md-3">
         <div class="widget widget_links clearfix">
           <ul>
-          <li><a href="">İade ve Değişim</a></li>
-          <li><a href="">Site Güvenliği</a></li>
-          <li><a href="">Sıkça Sorulan Sorular</a></li>
+          <li><a href="{{url('/page/2')}}">İade ve Değişim</a></li>
+          <li><a href="{{url('/page/2')}}">Site Güvenliği</a></li>
+          <li><a href="{{url('/page/2')}}">Sıkça Sorulan Sorular</a></li>
           </ul>
         </div>
       </div>
