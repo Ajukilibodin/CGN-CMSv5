@@ -8,7 +8,7 @@
   </div>
   @endif
   @include('libraries.errorpopper')
-  <form id="" name="member-info-form" class="nobottommargin" action="/profile/update" method="post">
+  <form id="" name="member-info-form" class="nobottommargin" action="{{url('/profile/update')}}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     @if($currentcustomer = \App\Customer::where('id',\Cookie::get('customerlogin'))->first() )
     <div class="col_half">

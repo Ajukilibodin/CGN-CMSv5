@@ -58,7 +58,7 @@
             <button type="submit" onclick="setPayment(1)" class="button button-3d fright">ÖDEMEYİ GERÇEKLEŞTİR >> </a>
     </div>
   </div>
-  <form class="" action="/checkoutback" method="post">
+  <form class="" action="{{url('/checkoutback')}}" method="post">
       @csrf
       <button type="submit" class="button button-3d fright"> << SEPETE DÖN</button>
   </form>

@@ -21,17 +21,17 @@
           </li>
           <li><a href="#">TR</a>
             <ul>
-              <li><a href="#"><img src="/images/icons/flags/english.png" alt="English"> EN</a></li>
-              <li><a href="#"><img src="/images/icons/flags/french.png" alt="French"> FR</a></li>
-              <li><a href="#"><img src="/images/icons/flags/italian.png" alt="Italian"> IT</a></li>
-              <li><a href="#"><img src="/images/icons/flags/german.png" alt="German"> DE</a></li>
+              <li><a href="#"><img src="{{url('/images/icons/flags/english.png')}}" alt="English"> EN</a></li>
+              <li><a href="#"><img src="{{url('/images/icons/flags/french.png')}}" alt="French"> FR</a></li>
+              <li><a href="#"><img src="{{url('/images/icons/flags/italian.png')}}" alt="Italian"> IT</a></li>
+              <li><a href="#"><img src="{{url('/images/icons/flags/german.png')}}" alt="German"> DE</a></li>
             </ul>
           </li>
           @if( !\Cookie::get('customerlogin') )
-          <li><a href="/login">Yeni Üye</a></li>
+          <li><a href="{{url('/login')}}">Yeni Üye</a></li>
           <li><a href="#">Giriş</a>
             <div class="top-link-section">
-              <form id="top-login" role="form" method="post" action="/login/login">
+              <form id="top-login" role="form" method="post" action="{{url('/login/login')}}">
                 @csrf
                 <div class="input-group" id="top-login-username">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
@@ -63,7 +63,7 @@
           <li><a href="#">Takip Listem</a></li>
           <li><a href="#">Siparişlerim</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="/logout">Çıkış <i class="icon-signout"></i></a></li>
+          <li><a href="{{url('/logout')}}">Çıkış <i class="icon-signout"></i></a></li>
         </ul>
       </div>
       @endif

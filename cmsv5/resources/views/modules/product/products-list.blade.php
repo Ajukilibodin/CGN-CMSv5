@@ -14,12 +14,12 @@
 				if ( strpos($imagepath,',') ) $img2 = substr($imagepath, 0 , $temppos);
 				else $img2 = $imagepath;
 			?>
-			<a href="{{url('/product/'.$pagevalue->id)}}"><img src="/uploads/modules/product/{{$img1}}" alt="{{$pagevalue->Title}}"></a>
-			<a href="{{url('/product/'.$pagevalue->id)}}"><img src="/uploads/modules/product/{{$img2}}" alt="{{$pagevalue->Title}}"></a>
+			<a href="{{url('/product/'.$pagevalue->id)}}"><img src="{{url('/uploads/modules/product/'.$img1)}}" alt="{{$pagevalue->Title}}"></a>
+			<a href="{{url('/product/'.$pagevalue->id)}}"><img src="{{url('/uploads/modules/product/'.$img2)}}" alt="{{$pagevalue->Title}}"></a>
 			@else
-			<a href="{{url('/product/'.$pagevalue->id)}}"><img src="/uploads/modules/product/{{$imagepath}}" alt="{{$pagevalue->Title}}"></a>
+			<a href="{{url('/product/'.$pagevalue->id)}}"><img src="{{url('/uploads/modules/product/'.$imagepath)}}" alt="{{$pagevalue->Title}}"></a>
       @endif
-			
+
 			@php($ribbontext = "")
 			@if($pagevalue->Discount > 0)
 			@if($ribbontext!="")@php($ribbontext.=", ")@endif
@@ -36,7 +36,7 @@
 			<div class="sale-flash">{!!$ribbontext!!}</div>
 			<div class="product-overlay">
 				<a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Sepete At</span></a>
-				<a href="/include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Göz At</span></a>
+				<a href="{{url('/include/ajax/shop-item.html')}}" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Göz At</span></a>
 			</div>
 		</div>
 		<div class="product-desc center">

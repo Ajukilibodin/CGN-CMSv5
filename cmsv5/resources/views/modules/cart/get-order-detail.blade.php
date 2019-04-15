@@ -2,7 +2,7 @@
 	<h3>SİPARİŞ DETAYI</h3>
 <table class="table table-hover">
 <tbody>
-
+<?php // TODO: sipariş detayını göster ?>
 <tr>
 <td>Sipariş Numarası :</td>
 <td>SIP0699937325</td>

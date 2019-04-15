@@ -9,18 +9,18 @@
         @php ($c_prod = \App\Product::where('id',$cart_item->p_id)->get()->first())
         <tr class="cart_item">
           <td class="cart-product-remove">
-            <a href="/delcart/{{$c_prod->id}}" class="remove" title="Ürünü Sepetten Kaldır"><i class="icon-trash2"></i></a>
+            <a href="{{url('/delcart/'.$c_prod->id)}}" class="remove" title="Ürünü Sepetten Kaldır"><i class="icon-trash2"></i></a>
           </td>
           @php($imagepath = $c_prod->ImgPaths)
           @if(strpos($imagepath,','))
           @php($imagepath = substr($imagepath, 0 ,strpos($imagepath,',')))
           @endif
           <td class="cart-product-thumbnail">
-            <a href="/product/{{$c_prod->id}}"><img width="64" height="64" src="/uploads/modules/product/{{$imagepath}}" alt="{{$c_prod->Title}}"></a>
+            <a href="{{url('/product/'.$c_prod->id)}}"><img width="64" height="64" src="{{url('/uploads/modules/product/'.$imagepath)}}" alt="{{$c_prod->Title}}"></a>
           </td>
 
           <td class="cart-product-name">
-            <a href="#">{{$c_prod->Title}} ({{$cart_item->type}})</a>
+            <a href="{{url('/product/'.$c_prod->id)}}">{{$c_prod->Title}} ({{$cart_item->type}})</a>
           </td>
 
           <td class="cart-product-price">

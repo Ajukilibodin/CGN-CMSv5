@@ -58,10 +58,10 @@
 </tr>
 <tr class="cart_item">
 <td>
-    <a href="/clearcart" class="button button-3d nomargin fright">SEPETİ TEMİZLE</a>
+    <a href="{{url('/clearcart')}}" class="button button-3d nomargin fright">SEPETİ TEMİZLE</a>
 </td>
 <td>
-  <form class="" action="/checkout" method="post">
+  <form class="" action="{{url('/checkout')}}" method="post">
     @csrf
     <button type="submit" class="button button-3d notopmargin fright">SİPARİŞİ TAMAMLA >> </button>
   </form>

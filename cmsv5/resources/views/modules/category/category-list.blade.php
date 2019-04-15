@@ -6,7 +6,7 @@
 @php($link = url('/products/'.$cate->id))
 <article class="portfolio-item ">
 <div class="portfolio-image">
-<a href="{{$link}}"><img src="/uploads/modules/category/{{$cate->ImgUrl}}" alt=""></a>
+<a href="{{$link}}"><img src="{{url('/uploads/modules/category/'.$cate->ImgUrl)}}" alt=""></a>
 </div>
 <div class="portfolio-desc">
 <h3><a href="{{$link}}">{{$cate->Title}}</a></h3>

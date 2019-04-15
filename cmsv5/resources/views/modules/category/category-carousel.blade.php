@@ -14,10 +14,10 @@
 		<div class="iportfolio">
 			<div class="portfolio-image">
 				<a href="{{url('/product/'.$prod->id)}}">
-					<img src="/uploads/modules/product/{{$imagepath}}" alt="{{$prod->Title}}">
+					<img src="{{url('/uploads/modules/product/'.$imagepath)}}" alt="{{$prod->Title}}">
 				</a>
 				<div class="portfolio-overlay">
-					<a href="/uploads/modules/product/{{$imagepath}}" class="left-icon" data-lightbox="image"><i class="icon-line-search"></i></a>
+					<a href="{{url('/uploads/modules/product/'.$imagepath)}}" class="left-icon" data-lightbox="image"><i class="icon-line-search"></i></a>
 					<a href="{{url('/product/'.$prod->id)}}" class="right-icon"><i class="icon-line-ellipsis"></i></a>
 				</div>
 			</div>

@@ -11,9 +11,9 @@
 					<div class="flexslider">
 						<div class="slider-wrap" data-lightbox="gallery">
 							@foreach(explode(',',$pagevalues->ImgPaths) as $p_pic)
-							<div class="slide" data-thumb="/uploads/modules/product/{{$p_pic}}">
-								<a href="/uploads/modules/product/{{$p_pic}}" title="" data-lightbox="gallery-item">
-									<img src="/uploads/modules/product/{{$p_pic}}" alt="">
+							<div class="slide" data-thumb="{{url('/uploads/modules/product/'.$p_pic)}}">
+								<a href="{{url('/uploads/modules/product/'.$p_pic)}}" title="" data-lightbox="gallery-item">
+									<img src="{{url('/uploads/modules/product/'.$p_pic)}}" alt="">
 								</a>
 							</div>@endforeach
 						</div>
@@ -59,7 +59,7 @@
 
 								<!-- Product Single - Quantity & Cart Button
 								============================================= -->
-								<form class="cart nobottommargin clearfix" method="post" action="/addcart/{{$pagevalues->id}}" enctype='multipart/form-data'>
+								<form class="cart nobottommargin clearfix" method="post" action="{{url('/addcart/'.$pagevalues->id)}}" enctype='multipart/form-data'>
 								@csrf
 									<div class="quantity clearfix allmargin-xs">
 										<input type="button" value="-" class="minus" onclick="chnVal(-1)">
@@ -91,7 +91,7 @@
 										</select>
 
 
-									<button type="submit" class="add-to-cart button allmargin-xs" onclick="sepetegit();">SEPETE EKLE</button>
+									<button type="submit" class="add-to-cart button allmargin-xs">SEPETE EKLE</button>
 								</form><!-- Product Single - Quantity & Cart Button End -->
 
 								<div class="clear"></div>

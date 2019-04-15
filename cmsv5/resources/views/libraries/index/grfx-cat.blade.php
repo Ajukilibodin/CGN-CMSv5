@@ -17,8 +17,8 @@
 </style>
 @foreach(\App\Showcase\ShowcaseCategory::all() as $showcate)
 <div class="col-md-{{$showcate->ShowcaseWidth*4}} col-sm-{{$showcate->ShowcaseWidth*6}} mt-25-imp relative">
-  <a href="/products/{{$showcate->CateID}}" class="hvr-outline-out">
-    <img src="/uploads/modules/category/{{$showcate->CateID}}.jpg" alt="Image">
+  <a href="{{url('/products/'.$showcate->CateID)}}" class="hvr-outline-out">
+    <img src="{{url('/uploads/modules/category/'.$showcate->CateID.'.jpg')}}" alt="Image">
     <h4 class="absolute-text">{{$showcate->Title}}
       <br><small style="color:black;">{{$showcate->SubText}}</small>
     </h4>

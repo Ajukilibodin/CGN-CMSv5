@@ -12,7 +12,7 @@
     <div class="tab-content clearfix" id="tabs-1">
       <div class="col-md-12">
 
-        <form id="billing-form" name="billing-form" class="nobottommargin" action="/profile/updateaddress" method="post">
+        <form id="billing-form" name="billing-form" class="nobottommargin" action="{{url('/profile/updateaddress')}}" method="post">
           @csrf
           @if($currentcustomer = \App\Customer::where('id',\Cookie::get('customerlogin'))->first() )
           <div class="col_half">

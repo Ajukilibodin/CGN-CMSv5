@@ -1,11 +1,11 @@
 <!--  BASE External JavaScripts	============================================= -->
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/plugins.js"></script>
-<script type="text/javascript" src="/js/functions.js"></script>
+<script type="text/javascript" src="{{url('/js/jquery.js')}}"></script>
+<script type="text/javascript" src="{{url('/js/plugins.js')}}"></script>
+<script type="text/javascript" src="{{url('/js/functions.js')}}"></script>
 
 <script type="text/javascript">
 function sepetegit() {
-   window.location.href = "/cart";
+   window.location.href = "{{url('/cart')}}";
  }
 </script>
 
@@ -19,7 +19,7 @@ function sepetegit() {
 
 @if($reg_token = Session::get('reg_token'))
 @php($reg_mail = Session::get('reg_mail'))
-<script type="text/javascript" src="/js/smtp.js"></script>
+<script type="text/javascript" src="{{url('/js/smtp.js')}}"></script>
 <script type="text/javascript">
 
   var link = "{{url('/login/loginkey/'.$reg_token)}}";
