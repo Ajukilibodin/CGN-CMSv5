@@ -23,6 +23,8 @@ class CreateOrdersTable extends Migration
             $table->string('Cart',3000);
             $table->double('CartTotal',10,2);
             $table->integer('CartExchange')->default(1);
+            $table->string('CargoName')->nullable();
+            $table->string('CargoFollow')->nullable();
             $table->timestamps();
         });
     }

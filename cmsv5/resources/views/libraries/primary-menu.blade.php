@@ -168,7 +168,7 @@
                           <img src="{{url('/uploads/modules/product/'.$imagepath)}}" alt="{{$c_prod->Title}}" /></a>
                     </div>
                     <div class="top-cart-item-desc">
-                        <a href="{{url('/product/'.$c_prod->id)}}">{{$c_prod->Title}}</a>
+                        <a href="{{url('/product/'.$c_prod->id)}}">{{$c_prod->Title}} ({{$cart_item->type}})</a>
                         <span class="top-cart-item-price">{{$c_prod->Price - ($c_prod->Price/100*$c_prod->Discount)}} TRY</span>
                         <span class="top-cart-item-quantity">x {{$cart_item->count}}</span>
                     </div>

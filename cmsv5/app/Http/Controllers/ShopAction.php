@@ -91,6 +91,8 @@ class ShopAction extends Controller
       $temp_cart = \Cookie::get('customercart');
       if( !$temp_cart )
         return redirect('/cart')->with('error','Boş sepet için ödeme yapamazsınız.');
+      else if( count(json_decode($temp_cart))==0 )
+        return redirect('/cart')->with('error','Boş sepet için ödeme yapamazsınız.');
 
       $c_id = \Cookie::get('customerlogin');
       $temp_customer = null;
@@ -199,6 +201,6 @@ class ShopAction extends Controller
       $temp_customer->save();
       \Cookie::queue(\Cookie::make('customercart', json_encode(array()), 60*24*30));
 
-      return view('pages/order-detail')->with('c_id'.$c_id)->with('o_id'.$temp_order->id);
+      return view('pages/order-detail')->with('temp_order',$temp_order);
     }
 }

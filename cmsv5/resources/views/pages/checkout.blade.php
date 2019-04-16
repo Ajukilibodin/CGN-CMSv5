@@ -4,6 +4,7 @@
 <section id="content">
 <div class="content-wrap topmargin bottommargin">
 <div class="container clearfix">
+  @include('libraries.errorpopper')
   <div class="row clearfix">
     <form class="" action="{{url('/orderdetail')}}" method="post">
       @csrf

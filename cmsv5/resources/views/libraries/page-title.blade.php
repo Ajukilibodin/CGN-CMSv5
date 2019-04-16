@@ -55,6 +55,14 @@
       <li>Sepet</li>
       <li class="active">Ödeme</li>
     </ol>
+    @elseif(Request::is('orderdetail'))
+    <h1>Sipariş Detayı</h1>
+    <ol class="breadcrumb">
+      <li><a href="{{url('/')}}">Anasayfa</a></li>
+      <li>Sepet</li>
+      <li>Ödeme</li>
+      <li class="active">Sipariş Detayı</li>
+    </ol>
     @else
     <h1>*ENTER-TITLE*</h1>
     <ol class="breadcrumb">
