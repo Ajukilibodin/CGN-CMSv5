@@ -370,8 +370,9 @@ class ProductModule extends Controller
       $temp_product->ImgPaths = $file;
       $temp_product->save();
 
-      // TODO: eklediği ürüne stok girme penceresini aç
-      return redirect('/ajan/products');
+      //direkt eklenilen ürünün stok düzenleme penceresini açma
+      return redirect('/ajan/editstock/'.$temp_product->id);
+      //return redirect('/ajan/products');
     }
     else return redirect('/ajan');
   }

@@ -96,9 +96,6 @@
               <a href="/ajan/customers">Üye Kayıtları</a>
             </li>
             <li>
-              <a href="javascript:;">Üye Siparişleri</a>
-            </li>
-            <li>
               <a href="javascript:;">Kazanım Raporları</a>
             </li>
           </ul>
@@ -137,6 +134,34 @@
             </li>
             <li>
               <a href="javascript:;">Stok Takip Sistemi</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      @if( Request::is('ajan/orders') or Request::is('ajan/orders/*') )
+      <li class="sidebar-dropdown active">
+        <a href="javascript:;">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Sipariş Yönetimi</span>
+        </a>
+        <div class="sidebar-submenu" style="display:block;">
+      @else
+      <li class="sidebar-dropdown">
+        <a href="javascript:;">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Sipariş Yönetimi</span>
+        </a>
+        <div class="sidebar-submenu">
+      @endif
+          <ul>
+            <li>
+              <a href="{{url('/ajan/orders/current')}}">Güncel Siparişler</a>
+            </li>
+            <li>
+              <a href="{{url('/ajan/orders/done')}}">Tamamlanmış Siparişler</a>
+            </li>
+            <li>
+              <a href="{{url('/ajan/orders')}}">Tüm Siparişler</a>
             </li>
           </ul>
         </div>

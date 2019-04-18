@@ -106,3 +106,7 @@ Route::post('/ajan/modproduct/{p_id}', 'Admin\ProductModule@editproductpost');
 Route::get('/ajan/productalbum/{p_id}', 'Admin\ProductModule@productalbumload');
 Route::post('/ajan/productalbum/{p_id}', 'Admin\ProductModule@productalbumadd');
 Route::get('/ajan/productalbum/del/{p_id}/{i_name}', 'Admin\ProductModule@productalbumdel');
+
+Route::get('/ajan/orders', 'Admin\OrderManage@listorder');
+Route::get('/ajan/orders/current', 'Admin\OrderManage@listcurrent');
+Route::get('/ajan/orders/done', 'Admin\OrderManage@listold');

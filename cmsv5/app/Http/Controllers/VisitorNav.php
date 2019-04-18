@@ -132,7 +132,7 @@ class VisitorNav extends Controller
         if($password != $repassword)
           return back()->with('error', 'Şifreler birbirine uyuşmuyor.');
 
-        if(Customer::where('Email',$email)->count() > 0)
+        if(Customer::where('Name','<>','Non-Customer')->where('Email',$email)->count() > 0)
           return back()->with('error', 'Bu mail ile başka bir kullanıcı mevcuttur. Şifrenizi mi unuttunuz?');
 
         $newcustomer = new \App\Customer;
