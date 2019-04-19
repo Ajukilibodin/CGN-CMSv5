@@ -11,5 +11,5 @@ class Customer extends Model
     public $timestamps = true;
 
     public function Orders()
-    { return $this->hasMany('App\Order', 'CustomerID', 'id'); }
+    { return $this->hasMany('App\Order', 'CustomerID', 'id')->orderBy('created_at','desc'); }
 }

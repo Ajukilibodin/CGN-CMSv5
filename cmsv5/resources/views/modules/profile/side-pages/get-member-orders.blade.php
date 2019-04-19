@@ -13,7 +13,6 @@
     </thead>
     <tbody>
       @foreach ($customer_values->Orders as $customer_order)
-      <?php // TODO: bunun için bi order_by var mı kontrol et ?>
       <tr>
         <td>{{ $customer_order->created_at }}</td>
         <th scope="row">SIP0{{ sprintf("%09d", $customer_order->id) }}</th>
