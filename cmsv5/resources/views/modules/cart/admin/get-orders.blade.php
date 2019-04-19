@@ -54,20 +54,18 @@
             <th scope="col">Tip</th>
             <th scope="col">Durum</th>
             <th scope="col">Müşteri</th>
-            <th scope="col">Ürün Sayısı</th>
-            <th scope="col">Toplam Ücret</th>
             <th scope="col" style="width: 70px;">İşlem</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($pagevalues as $pagevalue)
           <tr>
-            <th scope="row">{{ $pagevalue->id }}</th>
+            <th scope="row">SIP0{{ sprintf("%09d", $pagevalue->id) }}</th>
             <td>{{ $pagevalue->created_at }}</td>
             <td>{{ $pagevalue->OrderType }}</td>
             <td>
               @switch($pagevalue->OrderState)
-              @case('W_Confirm') {!!'<label class="bg-info">Sipariş Vermeyi Bekliyor</label>'!!} @break
+              @case('W_Confirm') {!!'<label class="bg-danger">Sipariş Vermeyi Bekliyor</label>'!!} @break
               @case('W_Pay') {!!'<label class="bg-info">Ödeme Bekliyor</label>'!!} @break
               @case('W_Ship') {!!'<label class="bg-warning">Kargolanacak</label>'!!} @break
               @case('W_Arrive') {!!'<label class="bg-info">Kargoda</label>'!!} @break
@@ -81,15 +79,13 @@
             <td>{{ $pagevalue->Customer->Name }} {{ $pagevalue->Customer->Surname }}</td>
             @endif
 
-            <td>{{ count(json_decode($pagevalue->Cart)) }} </td>
-            <td>{{ $pagevalue->CartTotal.' '.$pagevalue->Exchange->Title }}
-            </td>
             <td>
-              <a href="/ajan/editcategory/{{$pagevalue->id}}" title="Kategori Düzenle" class="text-primary" data-toggle="tooltip">
+              <a href="{{url('/ajan/orders/'.$pagevalue->id)}}" title="Sipariş Güncelle" class="text-primary" data-toggle="tooltip">
                 <i class="fas fa-pencil-alt"></i></a>
               <span data-href="#" data-toggle="modal" data-target="#confirm-delete">
                 <a class="text-danger" title="Sipariş Sil" href="javascript:;" data-toggle="tooltip">
                   <i class="fas fa-trash-alt"></i>
+                  <?php // TODO: order iptal edebilsin ?>
                 </a>
               </span>
             </td>

@@ -110,3 +110,5 @@ Route::get('/ajan/productalbum/del/{p_id}/{i_name}', 'Admin\ProductModule@produc
 Route::get('/ajan/orders', 'Admin\OrderManage@listorder');
 Route::get('/ajan/orders/current', 'Admin\OrderManage@listcurrent');
 Route::get('/ajan/orders/done', 'Admin\OrderManage@listold');
+Route::get('/ajan/orders/{o_id}', 'Admin\OrderManage@editorder');
+Route::post('/ajan/orders/{o_id}', 'Admin\OrderManage@editorderpost');

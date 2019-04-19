@@ -40,7 +40,7 @@ class AdminAuth extends Controller
         \Cookie::queue(\Cookie::make('ajanlogin', $username, 24*60)); //60 minute * 24 hour = 1 day
         $getUser->first()->LastLogin = \Carbon\Carbon::now();
         $getUser->first()->save();
-        return back();
+        return redirect('/ajan');
       }
       else{
         return back()->with('error', 'Yanlış Kullanıcı Bilgileri');

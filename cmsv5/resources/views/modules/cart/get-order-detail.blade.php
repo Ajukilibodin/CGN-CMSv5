@@ -4,7 +4,7 @@
 <tbody>
 <tr>
 <td>Sipariş Numarası :</td>
-<td>SIP0{{ sprintf("%09d", $temp_order->id) }}</td>
+<td>SIP-{{ sprintf("%09d", $temp_order->id) }}</td>
 </tr>
 <tr>
 	<td>Ürün Bilgisi: </td>
