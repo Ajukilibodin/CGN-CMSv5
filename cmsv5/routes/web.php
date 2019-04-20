@@ -22,6 +22,7 @@ Route::get('/login/loginkey/{key}', 'VisitorNav@loginkey');
 Route::get('/profile', 'VisitorNav@profile');
 Route::post('/profile/update', 'VisitorNav@profile_update');
 Route::post('/profile/updateaddress', 'VisitorNav@updateaddress');
+Route::post('/profile/changepassword', 'VisitorNav@changepassword');
 
 Route::get('/page/{p_id}', 'VisitorNav@page');
 

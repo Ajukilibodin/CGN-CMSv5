@@ -229,6 +229,40 @@ class VisitorNav extends Controller
       }
     }
 
+    public function changepassword(Request $request){
+      if( !\Cookie::get('customerlogin') )
+        return redirect('/');
+      else{
+        $rules = [
+          'password-form-oldpass' => 'required|max:100',
+          'password-form-newpass1' => 'required|max:100',
+          'password-form-newpass2' => 'required|max:100'
+        ];
+
+        $this->validate($request, $rules);
+
+        $oldpass = $request->input('password-form-oldpass');
+        $pass1 = $request->input('password-form-newpass1');
+        $pass2 = $request->input('password-form-newpass2');
+
+        if($pass1 != $pass2)
+          return back()->with('error', 'Girdiğiniz iki şifre birbirine uyuşmuyor!');
+
+        $getUser = Customer::find(\Cookie::get('customerlogin'));
+
+        if( \Hash::check($oldpass , $getUser->Password) )
+        {
+          $getUser->Password = \Hash::make($pass1);
+          $getUser->save();
+
+          return back()->with('success', 'Üyelik şifreniz güncellenmiştir.');
+        }
+        else{
+          return back()->with('error', 'Girdiğiniz eski şifreniz hatalı!');
+        }
+      }
+    }
+
     public function cart(){
       return view('pages/cart');
     }

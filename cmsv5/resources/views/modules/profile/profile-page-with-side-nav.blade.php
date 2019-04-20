@@ -28,7 +28,7 @@
 
 <div id="snav-content6">
 <h3>ŞİFRE DEĞİŞTİRME</h3>
-<h4>Bu panel şu an aktif değildir.</h4>
+@include("modules.profile.side-pages.get-change-password")
 </div>
 
 <div id="snav-content7">
