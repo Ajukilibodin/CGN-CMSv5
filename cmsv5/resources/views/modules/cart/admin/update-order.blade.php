@@ -97,7 +97,7 @@
       <h5><strong>Adres: </strong><br>{!!$pagevalues->Address!!}</h5>
       <h5><strong>İl: </strong>{{$pagevalues->State}}</h5>
       <h5><strong>Sepet Toplam: </strong>{{$pagevalues->CartTotal.$pagevalues->Exchange->Title}}</h5>
-      <h5><strong>Kargo: </strong>{{Form::text('order-cargoname',$pagevalues->CargoName,['class' => 'form-control'])}}</h5>
+      <h5><strong>Kargo Şirketi: </strong>{{Form::text('order-cargoname',$pagevalues->CargoName,['class' => 'form-control'])}}</h5>
       <h5><strong>Kargo Takip Kodu: </strong>{{Form::text('order-cargofollow',$pagevalues->CargoFollow,['class' => 'form-control'])}}</h5>
     </div>
     <div class="col-12 table-responsive">
@@ -109,8 +109,9 @@
             <th scope="col">Ürün Adı</th>
             <th scope="col">Türü</th>
             <th scope="col">Tekil Fiyat</th>
-            <th scope="col">Adedi</th>
             <th scope="col">Toplam Fiyat</th>
+            <th scope="col">Adedi</th>
+            <th scope="col">Stok</th>
           </tr>
         </thead>
         <tbody>
@@ -121,8 +122,17 @@
             <td>{{ $c_prod->Title }}</td>
             <td>{{ $cart_item->type }}</td>
             <td>{{ $c_prod->Price - ($c_prod->Price/100*$c_prod->Discount) }}</td>
-            <td>{{ $cart_item->count }}</td>
             <td>{{ ($c_prod->Price - ($c_prod->Price/100*$c_prod->Discount)) * $cart_item->count }}</td>
+            <td>{{ $cart_item->count }}</td>
+            @php ($stock_count = 0)
+            @foreach( json_decode($c_prod->Stock) as $stok_item )
+            @if($stok_item->name == $cart_item->type)
+            @php($stock_count = $stok_item->val)
+            @endif
+            @endforeach
+            <th scope="row">{{ $stock_count }}
+              <a href="{{url('/ajan/editstock/'.$cart_item->p_id)}}" title="Stok Modülü" class="text-primary" data-toggle="tooltip">
+              <i class="fas fa-store"></i></a></th>
           </tr>
           @endforeach
         </tbody>

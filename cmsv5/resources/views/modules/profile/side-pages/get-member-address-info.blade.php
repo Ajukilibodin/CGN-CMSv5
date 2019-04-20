@@ -61,7 +61,7 @@
 <label class="checkbox">
 <input type="checkbox" value="remember-me"> Fatura adresim başka
 </label></h3>
-<?php // TODO: kargo adresi girebilme ?>
+<?php // TODO: fatura adresi girebilme ?>
 
         <form id="shipping-form" name="shipping-form" class="nobottommargin" action="#" method="post">
 

@@ -42,4 +42,9 @@ array_push($searchVal, "slider-subtext");
 array_push($replaceVal, "Slider Altyazısı");
 array_push($searchVal, "slider-buttontext");
 array_push($replaceVal, "Slider Button Yazısı");
+
+array_push($searchVal, "order-cargoname");
+array_push($replaceVal, "Kargo Şirketi");
+array_push($searchVal, "order-cargofollow");
+array_push($replaceVal, "Kargo Takip Numarası");
 ?>

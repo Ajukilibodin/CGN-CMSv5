@@ -63,6 +63,7 @@
 <td>
   <form class="" action="{{url('/checkout')}}" method="post">
     @csrf
+    <?php // TODO: stoktakinden fazla ürün var ise uyar ve ileri götürme! ?>
     <button type="submit" class="button button-3d notopmargin fright">SİPARİŞİ TAMAMLA >> </button>
   </form>
 </td>
