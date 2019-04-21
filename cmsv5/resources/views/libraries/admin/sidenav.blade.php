@@ -46,7 +46,7 @@
               <a href="/ajan/slidersettings">Slider</a>
             </li>
             <li>
-              <a href="javascript:;">Referanslarım</a>
+              <a href="/ajan/nonpage">Referanslarım</a>
             </li>
             <li>
               <a href="/ajan/menupage">Menü & Sayfa</a>
@@ -62,13 +62,13 @@
         <div class="sidebar-submenu">
           <ul>
             <li>
-              <a href="javascript:;">Makale Paylaşımı</a>
+              <a href="/ajan/nonpage">Makale Paylaşımı</a>
             </li>
             <li>
-              <a href="javascript:;">Haber Paylaşımı</a>
+              <a href="/ajan/nonpage">Haber Paylaşımı</a>
             </li>
             <li>
-              <a href="javascript:;">Blog Paylaşımı</a>
+              <a href="/ajan/nonpage">Blog Paylaşımı</a>
             </li>
           </ul>
         </div>
@@ -96,15 +96,16 @@
               <a href="/ajan/customers">Üye Kayıtları</a>
             </li>
             <li>
-              <a href="javascript:;">Kazanım Raporları</a>
+              <a href="/ajan/nonpage">Kazanım Raporları</a>
             </li>
           </ul>
         </div>
       </li>
       @if( Request::is('ajan/categories') or Request::is('ajan/categories/*') or Request::is('ajan/addcategory/*')
        or Request::is('ajan/prodcate') or Request::is('ajan/addprodcate') or Request::is('ajan/products')
-        or Request::is('ajan/products/*') or Request::is('ajan/addproduct') or Request::is('ajan/modproduct/*')
-         or Request::is('ajan/exchanges') or Request::is('ajan/editstock/*') )
+       or Request::is('ajan/products/*') or Request::is('ajan/addproduct') or Request::is('ajan/modproduct/*')
+       or Request::is('ajan/exchanges') or Request::is('ajan/editstock/*')
+       or Request::is('ajan/faststock') or Request::is('ajan/faststock/*') )
       <li class="sidebar-dropdown active">
         <a href="javascript:;">
           <i class="fas fa-shopping-cart"></i>
@@ -133,7 +134,7 @@
               <a href="{{url('/ajan/products')}}">Ürünlerim</a>
             </li>
             <li>
-              <a href="javascript:;">Stok Takip Sistemi</a>
+              <a href="{{url('/ajan/faststock')}}">Stok Takip Sistemi</a>
             </li>
           </ul>
         </div>
@@ -167,7 +168,7 @@
         </div>
       </li>
       <li>
-        <a href="javascript:;">
+        <a href="/ajan/nonpage">
           <i class="fas fa-life-ring"></i>
           <span>Müşteri Destek</span>
         </a>
@@ -176,7 +177,7 @@
         <span>Teknik İşlemler</span>
       </li>
       <li>
-        <a href="javascript:;">
+        <a href="/ajan/nonpage">
           <i class="fas fa-mail-bulk"></i>
           <span>E-Bülten Paneli</span>
         </a>

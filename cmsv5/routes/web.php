@@ -47,6 +47,7 @@ Route::post('/orderdetail', 'ShopAction@orderdetail');
 /*********************************************************/
 
 Route::get('/ajan', 'AdminAuth@mainload');
+Route::get('/ajan/nonpage', 'AdminAuth@nonpage');
 Route::post('/ajan/loginsubmit', 'AdminAuth@submit');
 Route::get('/ajan/logout', 'AdminAuth@logout');
 
@@ -107,6 +108,9 @@ Route::post('/ajan/modproduct/{p_id}', 'Admin\ProductModule@editproductpost');
 Route::get('/ajan/productalbum/{p_id}', 'Admin\ProductModule@productalbumload');
 Route::post('/ajan/productalbum/{p_id}', 'Admin\ProductModule@productalbumadd');
 Route::get('/ajan/productalbum/del/{p_id}/{i_name}', 'Admin\ProductModule@productalbumdel');
+
+Route::get('/ajan/faststock', 'Admin\FastStockManage@load');
+Route::post('/ajan/faststock/{barkod}', 'Admin\FastStockManage@load2');
 
 Route::get('/ajan/orders', 'Admin\OrderManage@listorder');
 Route::get('/ajan/orders/current', 'Admin\OrderManage@listcurrent');
