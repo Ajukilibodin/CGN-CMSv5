@@ -24,8 +24,15 @@
           @php($prod = \App\Product::find($wishlist->prod))
           <td><a href="{{url('/product/'.$prod->id )}}">{{ $prod->Title }}</a></td>
           <td>{{ $wishlist->stok }}</td>
-          <td>{{ $prod->Price - ($prod->Price/100 * $prod->Discount) }}&#8378;</td>
-          <td>{{ '***' }}</td>
+          <td>
+            @if($prod->Discount > 0)
+            <del>{{$prod->Price}}&#8378;</del>
+              {{ $prod->Price - ($prod->Price/100 * $prod->Discount) }}&#8378;
+            @else
+            {{$prod->Price}}&#8378;
+            @endif
+            </td>
+          <td><a href="#"><i class="icon-trash2"></i></a></td>
           <?php // TODO: takipten çıkma işlemi ?>
         </tr>
         @endforeach

@@ -28,7 +28,6 @@
         </td>
         <td>{{ $customer_order->updated_at }}</td>
         <td> <a href="javascript:;" onclick="seecart({{$customer_order->id}})"><i class="icon-shopping-cart"></i></a></td>
-        <?php // TODO: sepetini görebileceği bi sistem ?>
       </tr>
       @endforeach
     </tbody>
