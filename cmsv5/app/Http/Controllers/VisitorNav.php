@@ -280,6 +280,7 @@ class VisitorNav extends Controller
     }
 
     public function productsshow($c_id){
+      //return redirect('/products?category='.$c_id);
       $catevalues = \App\Category::where('id', $c_id)->get()->first();
       $pagevalues = array();
       if($catevalues->ParentCategory==0){
@@ -298,5 +299,46 @@ class VisitorNav extends Controller
     public function product($p_id){
       $pagevalues = \App\Product::where('id',$p_id)->get()->first();
       return view('pages/product')->with('pagevalues',$pagevalues);
+    }
+
+    public function products_all(){
+      $pagevalues = \App\Product::where('id','<>','0');
+
+
+      if( isset($_GET['ordertype']) ){
+        $type = $_GET['ordertype'];
+        if($type=='name'){
+          $pagevalues = $pagevalues->orderBy('Title', 'asc');
+        }
+        if($type=='p_up'){
+          $pagevalues = $pagevalues->orderBy('Price', 'asc');
+        }
+        if($type=='p_down'){
+          $pagevalues = $pagevalues->orderBy('Price', 'desc');
+        }
+      }
+
+      $productlist = array();
+      if( isset($_GET['category']) ){
+        foreach (explode(',',$_GET['category']) as $key) {
+          if(\App\Category::find($key)->ParentCategory == 0){
+            foreach (\App\Category::where('ParentCategory', $key)->get() as $scate) {
+              foreach ( $pagevalues->where('Categories','LIKE','%'.$scate->id.'%')->get() as $prod) {
+                if( !array_search($prod, $productlist) )
+                  array_push($productlist, $prod);
+              }
+            }
+          }
+          else{
+            foreach ( $pagevalues->where('Categories','LIKE','%'.$key.'%')->get() as $prod) {
+              if( !array_search($prod, $productlist) )
+                array_push($productlist, $prod);
+            }
+          }
+        }
+      }
+      else $productlist = $pagevalues->get();
+
+      return view('pages/products')->with('pagevalues',$productlist);
     }
 }

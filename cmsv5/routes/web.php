@@ -27,7 +27,7 @@ Route::post('/profile/changepassword', 'VisitorNav@changepassword');
 Route::get('/page/{p_id}', 'VisitorNav@page');
 
 Route::get('/category', 'VisitorNav@category');
-Route::get('/products', 'VisitorNav@red_category');
+Route::get('/products', 'VisitorNav@red_category');//products_all
 Route::get('/products/{c_id}', 'VisitorNav@productsshow');
 Route::get('/product', 'VisitorNav@red_category');
 Route::get('/product/{p_id}', 'VisitorNav@product');

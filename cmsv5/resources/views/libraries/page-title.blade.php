@@ -34,6 +34,13 @@
       <li><a href="/category">Katalog</a></li>
       <li class="active">{{$title}}</li>
     </ol>
+    @elseif(Request::is('products'))
+    <h1>Ürünlerimiz</h1>
+    <ol class="breadcrumb">
+      <li><a href="{{url('/')}}">Anasayfa</a></li>
+      <li><a href="/category">Katalog</a></li>
+      <li class="active">Ürünlerimiz</li>
+    </ol>
     @elseif(Request::is('product/*'))
     @php($title = $pagevalues->Title)
     <h1>{{$title}}</h1>
