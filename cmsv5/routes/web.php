@@ -110,7 +110,7 @@ Route::post('/ajan/productalbum/{p_id}', 'Admin\ProductModule@productalbumadd');
 Route::get('/ajan/productalbum/del/{p_id}/{i_name}', 'Admin\ProductModule@productalbumdel');
 
 Route::get('/ajan/faststock', 'Admin\FastStockManage@load');
-Route::post('/ajan/faststock/{barkod}', 'Admin\FastStockManage@load2');
+Route::post('/ajan/faststock', 'Admin\FastStockManage@load2');
 
 Route::get('/ajan/orders', 'Admin\OrderManage@listorder');
 Route::get('/ajan/orders/current', 'Admin\OrderManage@listcurrent');
