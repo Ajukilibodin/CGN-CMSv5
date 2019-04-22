@@ -4,6 +4,7 @@
 <script type="text/javascript" src="{{url('/js/functions.js')}}"></script>
 
 <script type="text/javascript">
+$.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
 function sepetegit() {
    window.location.href = "{{url('/cart')}}";
  }
@@ -15,6 +16,8 @@ function sepetegit() {
   @include('libraries.footer.pagebased.checkout-page-js')
 @elseif(Request::is('product/*'))
   @include('libraries.footer.pagebased.product-page-js')
+@elseif(Request::is('profile'))
+  @include('libraries.footer.pagebased.profile-page-js')
 @endif
 
 @if($reg_token = Session::get('reg_token'))
