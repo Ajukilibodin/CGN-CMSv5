@@ -18,7 +18,7 @@
             @switch($wishlist->act)
             @case('1') {!!'<label class="bg-danger">Favori</label>'!!} @break
             @case('2') {!!'<label class="bg-info">İndirim Alarmı</label>'!!} @break
-            @case('3') {!!'<label class="bg-primary">Stok Takibi</label>'!!} @break
+            @case('3') {!!'<label class="bg-warning">Stok Takibi</label>'!!} @break
             @endswitch
           </th>
           @php($prod = \App\Product::find($wishlist->prod))

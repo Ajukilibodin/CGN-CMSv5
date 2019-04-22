@@ -5,9 +5,9 @@
       <div class="col-md-3">
         <div class="widget widget_links clearfix">
           <ul>
-          <li><a href="">{{\App\Admin\SiteValues::find(4)->Value}}</a></li>
-          <li><a href="">{{\App\Admin\SiteValues::find(5)->Value}}</a></li>
-          <li><a href="">{{\App\Admin\SiteValues::find(3)->Value}}</a></li>
+          <li><a href="tel:{{\App\Admin\SiteValues::find(4)->Value}}">{{\App\Admin\SiteValues::find(4)->Value}}</a></li>
+          <li><a href="tel:{{\App\Admin\SiteValues::find(5)->Value}}">{{\App\Admin\SiteValues::find(5)->Value}}</a></li>
+          <li><a href="mailto:{{\App\Admin\SiteValues::find(3)->Value}}">{{\App\Admin\SiteValues::find(3)->Value}}</a></li>
           </ul>
         </div>
       </div>
