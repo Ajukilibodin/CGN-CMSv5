@@ -11,3 +11,4 @@
 <meta name="designer" 		content="CGN yazilim & bilisim hizmetleri">
 <meta name="author" 			content="CGN yazilim & bilisim hizmetleri"/>
 <meta name="robots" 			content="index, follow">
+<meta name="csrf-token" content="{{ csrf_token() }}">

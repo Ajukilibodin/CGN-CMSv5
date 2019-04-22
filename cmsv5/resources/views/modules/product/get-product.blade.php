@@ -81,11 +81,13 @@
 											<?php
 											$prodstok = json_decode($pagevalues->Stock);
 											foreach ($prodstok as $key) {
-												echo '<option value="'.$key->name.'" ';
-												if($key->val==-1 || $key->val==0) echo 'disabled="disabled"';
-												echo '>'.$key->name;
-												if($key->val>-1) echo ' (Stok: '.$key->val.')';
-												echo '</option>';
+												if($key->val!=-1){
+													echo '<option value="'.$key->name.'" ';
+													if($key->val==-1 || $key->val==0) echo 'disabled="disabled"';
+													echo '>'.$key->name;
+													if($key->val>-1) echo ' (Stok: '.$key->val.')';
+													echo '</option>';
+												}
 											}
 											 ?>
 										</select>
@@ -129,15 +131,15 @@
 								<div class="si-share noborder clearfix">
 									<span>İşlem:</span>
 									<div>
-										<a href="#" class="social-icon si-borderless si-pinterest">
+										<a class="social-icon si-borderless si-pinterest" onclick="setlist(1,{{$pagevalues->id}})">
 											<i class="icon-heart"></i>
 											<i class="icon-heart"></i>
 										</a>
-										<a href="#" class="social-icon si-borderless si-twitter">
+										<a class="social-icon si-borderless si-twitter" onclick="setlist(2,{{$pagevalues->id}})">
 											<i class="icon-arrow-down"></i>
 											<i class="icon-arrow-down"></i>
 										</a>
-										<a href="#" class="social-icon si-borderless si-email3">
+										<a class="social-icon si-borderless si-email3" onclick="setlist(3,{{$pagevalues->id}})">
 											<i class="icon-box"></i>
 											<i class="icon-box"></i>
 										</a>

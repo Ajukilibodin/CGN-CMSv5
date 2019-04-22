@@ -18,7 +18,7 @@
 
 <div id="snav-content4">
 <h3>TAKİP LİSTEM</h3>
-<h4>Bu panel şu an aktif değildir.</h4>
+@include("modules.profile.side-pages.get-member-whislist")
 </div>
 
 <div id="snav-content5">

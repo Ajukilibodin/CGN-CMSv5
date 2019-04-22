@@ -7,6 +7,30 @@
 <script type="text/javascript" src="/js/components/selectsplitter.js"></script>
 
 <script type="text/javascript">
+$.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
+
+function setlist(act, prod) {
+
+  var stok = $("select[id='p_type']").val();
+  $.ajax({
+    type	: "POST",
+    url:'/product-setlist',
+    data:{_act:act, _prod:prod, _stok:stok},
+  	success:function(donen_veri)
+  	{
+      if(donen_veri == 'NonLogin'){
+        alert('Öncelikle Giriş Yapmalısınız!');
+      }
+      else if(donen_veri == 'OK'){
+        alert('Ürün Takip Listenize Eklendi.');
+      }
+      else alert(donen_veri);
+  	}
+  });
+}
+</script>
+
+<script type="text/javascript">
 jQuery(document).ready( function($){
 
 // Multiple Select
