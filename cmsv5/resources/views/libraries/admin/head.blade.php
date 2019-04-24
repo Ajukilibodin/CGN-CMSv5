@@ -18,4 +18,5 @@ integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9
 <link href="{{url('/assets/plugins/DataTables/css/data-table.css')}}" rel="stylesheet" />
 <!-- ================== END BASE CSS STYLE ================== -->
 
+<link href="{{url('/assets/css/adminfancyradio.css')}}" rel="stylesheet" />
 <!-- <link rel="stylesheet" href="/css/app.css"> -->

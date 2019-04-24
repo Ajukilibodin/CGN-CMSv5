@@ -3,23 +3,36 @@
   <head>
     @include('libraries.admin.head')
   </head>
+  @if ( Cookie::get('ajanlogin') )
+  <body>
+  @else
   <body class="pace-top">
+  @endif
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade in"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
+
       @if ( Cookie::get('ajanlogin') )
-      @include('libraries.admin.sidenav')
-      <div class="page-wrapper chiller-theme toggled">
-        <main class="page-content">
-          <div class="container-fluid">
+      <!-- begin #page-container -->
+      <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+
+        @include('libraries.admin.header')
+
+        @include('libraries.admin.sidenav')
+
+        <!-- begin #content -->
+    		<div id="content" class="content">
           @yield('contenttitle')
           @include('libraries.errorpopper')
           @yield('content')
-          </div>
-        </main>
-      </div>
-      @else
-        <!-- begin #page-loader -->
-        <div id="page-loader" class="fade in"><span class="spinner"></span></div>
-        <!-- end #page-loader -->
+      	</div><!-- end #content -->
 
+        <!-- begin scroll to top btn -->
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <!-- end scroll to top btn -->
+      </div>
+      <!-- end page container -->
+      @else
         <!-- begin #page-container -->
         <div id="page-container" class="fade">
           <!-- begin login -->
@@ -27,13 +40,16 @@
             @yield('contenttitle')
             @include('libraries.errorpopper')
             @yield('content')
-
           </div>
           <!-- end login -->
         </div>
         <!-- end page container -->
       @endif
-      
+
+    @if ( Cookie::get('ajanlogin') )
+    @include('libraries.admin.footer-admin')
+    @else
     @include('libraries.admin.footer-login')
+    @endif
   </body>
 </html>
