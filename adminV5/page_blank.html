@@ -1,149 +1,147 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-<meta charset="utf-8" />
-<title>cms [v5]</title>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 
-<!-- ================== BEGIN BASE CSS STYLE ================== -->
-<link href="assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
-<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-<link href="assets/css/animate.min.css" rel="stylesheet" />
-<link href="assets/css/style.min.css" rel="stylesheet" />
-<link href="assets/css/style-responsive.min.css" rel="stylesheet" />
-<link href="assets/css/theme/default.css" rel="stylesheet" id="theme" />
+<head>
+	<meta charset="utf-8" />
+	<title>cms [v5]</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="assets/css/animate.min.css" rel="stylesheet" />
+	<link href="assets/css/style.min.css" rel="stylesheet" />
+	<link href="assets/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="assets/css/theme/default.css" rel="stylesheet" id="theme" />
 	<link href="assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
-<!-- ================== END BASE CSS STYLE ================== -->
+	<!-- ================== END BASE CSS STYLE ================== -->
 </head>
+
 <body>
 
-<!-- begin #page-loader -->
-<div id="page-loader" class="fade in"><span class="spinner"></span></div>
-<!-- end #page-loader -->
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
+	<!-- end #page-loader -->
 
-<!-- begin #page-container -->
-<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
-<!-- begin #header -->
-<div id="header" class="header navbar navbar-default navbar-fixed-top">
-<!-- begin container-fluid -->
-<div class="container-fluid">
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+		<!-- begin #header -->
+		<div id="header" class="header navbar navbar-default navbar-fixed-top">
+			<!-- begin container-fluid -->
+			<div class="container-fluid">
 
-<!-- begin mobile sidebar expand / collapse button -->
-<div class="navbar-header">
-<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span>CGN / cms[v5]</a>
-<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-</button>
-</div>
-<!-- end mobile sidebar expand / collapse button -->
-
-
-<!-- begin header navigation right -->
-<ul class="nav navbar-nav navbar-right">
-
-<li class="dropdown">
-<a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
-<i class="fa fa-bell-o"></i>
-<span class="label">5</span>
-</a>
-<ul class="dropdown-menu media-list pull-right animated fadeInDown">
-<li class="dropdown-header">Notifications (5)</li>
-</ul>
-</li>
-</ul>
-<!-- end header navigation right -->
-</div>
-<!-- end container-fluid -->
-</div>
-<!-- end #header -->
-<!-- begin #sidebar -->
-<div id="sidebar" class="sidebar">
-<!-- begin sidebar scrollbar -->
-<div data-scrollbar="true" data-height="100%">
-<!-- begin sidebar nav -->
-<ul class="nav">
-
-<li class="nav-header">YÖNETİM PANELİ</li>
-
-<li><a href="index.php"><i class="fa fa-laptop"></i><span>Panel Giriş</span></a></li>
-<li class="has-sub"><a href="javascript:;"><b class="caret pull-right"></b><i
-class="fa fa-envelope"></i><span>E-Mail Yönetimi</span></a>
-<ul class="sub-menu">
-<li><a href="http://mail.baglantiparcasi.com/webmail/" target="_blank">Mail Kontrol</a></li>
-<li><a href="modules/mail/mailrequest.php">Yeni Mail Oluştur</a></li>
-</ul>
-</li>
-<li class="has-sub"><a href="javascript:;"><b class="caret pull-right"></b><i
-class="fa fa-file-o"></i><span>Sayfa Yönetimi</span></a>
-<ul class="sub-menu">
-<li><a href="modules/page/pages.php">Sayfalar</a></li>
-<li><a href="modules/footer/footers.php">Footer Menü</a></li>
-</ul>
-</li>
-<li class="has-sub"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-camera"></i>
-<span>Media Yönetimi</span></a>
-<ul class="sub-menu">
-<li><a href="modules/gallery/gallery.php"> Resim Galerisi</a></li>
-<li><a href="modules/video/videogallery.php"> Video Galeri</a></li>
-</ul>
-</li>
-
-<li class="has-sub"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-user"></i>
-<span>Üye Yönetimi</span></a>
-<ul class="sub-menu">
-<li><a href="modules/member/addmember.php"><span>Yeni Üye Ekleme</span></a></li>
-<li><a href="modules/member/member.php"><span>Üyeler </span></a></li>
-</ul>
-</li>
-
-<li class="has-sub">
-<a href="javascript:;"> <b class="caret pull-right"></b> <i class="fa fa-cart-arrow-down"></i><span>Ürün Yönetimi</span></a>
-<ul class="sub-menu">
-<li><a href="modules/category/categories.php">Kategori ve Ürünler</a></li>
-</ul>
-</li>
-
-<li class="has-sub">
-<a href="javascript:;"> <b class="caret pull-right"></b> <i class="fa fa-ship"></i><span>Sipariş Yönetimi</span></a>
-<ul class="sub-menu">
-<li><a href="modules/order/unshippedorder.php">Kargolanmamış Siparişler</a></li>
-<li><a href="modules/order/unshippedguestorder.php">Kargolanmamış Siparişler (Üyeliksiz)</a></li>
-<li><a href="modules/order/shippedorder.php">Kargolanmış Siparişler</a></li>
-</ul>
-</li>
-
-<li><a href="modules/report/productclick.php"><i class="fa fa-line-chart"></i><span>Raporlar </span></a>
-</li>
-<li><a href="modules/home/banner.php"><i class="fa fa-exchange"></i><span>Slider </span></a></li>
-<li><a href="modules/fManagement/photomanagement.php"><i
-class="fa fa-upload"></i><span>Dosya Yönetimi</span></a></li>
-<li><a href="modules/socialmedia/social.php"><i
-class="fa fa-heart-o"></i><span>Sosyal Medya Yönetimi </span></a>
-</li>
+				<!-- begin mobile sidebar expand / collapse button -->
+				<div class="navbar-header">
+					<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span>CGN / cms[v5]</a>
+					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- end mobile sidebar expand / collapse button -->
 
 
-<li><a href="modules/settings/user.php"><i class="fa fa-cog"></i><span>Kullanıcılar </span></a></li>
-<li><a href="modules/parameter/parameter.php"><i class="fa fa-cogs"></i><span>Parametreler </span></a></li>
+				<!-- begin header navigation right -->
+				<ul class="nav navbar-nav navbar-right">
 
-<li><a href="#"><i class="fa fa-life-ring"></i><span>Yardım </span></a></li>
-<li><a href="logout.php"><i class="fa fa-sign-out"></i><span>Çıkış </span></a></li>
+					<li class="dropdown">
+						<a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+							<i class="fa fa-bell-o"></i>
+							<span class="label">5</span>
+						</a>
+						<ul class="dropdown-menu media-list pull-right animated fadeInDown">
+							<li class="dropdown-header">Notifications (5)</li>
+						</ul>
+					</li>
+				</ul>
+				<!-- end header navigation right -->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end #header -->
+		<!-- begin #sidebar -->
+		<div id="sidebar" class="sidebar">
+			<!-- begin sidebar scrollbar -->
+			<div data-scrollbar="true" data-height="100%">
+				<!-- begin sidebar nav -->
+				<ul class="nav">
+
+					<li class="nav-header">YÖNETİM PANELİ</li>
+
+					<li><a href="index.php"><i class="fa fa-laptop"></i><span>Panel Giriş</span></a></li>
+					<li class="has-sub"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-envelope"></i><span>E-Mail Yönetimi</span></a>
+						<ul class="sub-menu">
+							<li><a href="http://mail.baglantiparcasi.com/webmail/" target="_blank">Mail Kontrol</a></li>
+							<li><a href="modules/mail/mailrequest.php">Yeni Mail Oluştur</a></li>
+						</ul>
+					</li>
+					<li class="has-sub"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-file-o"></i><span>Sayfa Yönetimi</span></a>
+						<ul class="sub-menu">
+							<li><a href="modules/page/pages.php">Sayfalar</a></li>
+							<li><a href="modules/footer/footers.php">Footer Menü</a></li>
+						</ul>
+					</li>
+					<li class="has-sub"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-camera"></i>
+							<span>Media Yönetimi</span></a>
+						<ul class="sub-menu">
+							<li><a href="modules/gallery/gallery.php"> Resim Galerisi</a></li>
+							<li><a href="modules/video/videogallery.php"> Video Galeri</a></li>
+						</ul>
+					</li>
+
+					<li class="has-sub"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-user"></i>
+							<span>Üye Yönetimi</span></a>
+						<ul class="sub-menu">
+							<li><a href="modules/member/addmember.php"><span>Yeni Üye Ekleme</span></a></li>
+							<li><a href="modules/member/member.php"><span>Üyeler </span></a></li>
+						</ul>
+					</li>
+
+					<li class="has-sub">
+						<a href="javascript:;"> <b class="caret pull-right"></b> <i class="fa fa-cart-arrow-down"></i><span>Ürün Yönetimi</span></a>
+						<ul class="sub-menu">
+							<li><a href="modules/category/categories.php">Kategori ve Ürünler</a></li>
+						</ul>
+					</li>
+
+					<li class="has-sub">
+						<a href="javascript:;"> <b class="caret pull-right"></b> <i class="fa fa-ship"></i><span>Sipariş Yönetimi</span></a>
+						<ul class="sub-menu">
+							<li><a href="modules/order/unshippedorder.php">Kargolanmamış Siparişler</a></li>
+							<li><a href="modules/order/unshippedguestorder.php">Kargolanmamış Siparişler (Üyeliksiz)</a></li>
+							<li><a href="modules/order/shippedorder.php">Kargolanmış Siparişler</a></li>
+						</ul>
+					</li>
+
+					<li><a href="modules/report/productclick.php"><i class="fa fa-line-chart"></i><span>Raporlar </span></a>
+					</li>
+					<li><a href="modules/home/banner.php"><i class="fa fa-exchange"></i><span>Slider </span></a></li>
+					<li><a href="modules/fManagement/photomanagement.php"><i class="fa fa-upload"></i><span>Dosya Yönetimi</span></a></li>
+					<li><a href="modules/socialmedia/social.php"><i class="fa fa-heart-o"></i><span>Sosyal Medya Yönetimi </span></a>
+					</li>
 
 
-<!-- begin sidebar minify button -->
-<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
-<!-- end sidebar minify button -->
-</ul>
-<!-- end sidebar nav -->
-</div>
-<!-- end sidebar scrollbar -->
-</div>
-<div class="sidebar-bg"></div>
-<!-- end #sidebar -->
+					<li><a href="modules/settings/user.php"><i class="fa fa-cog"></i><span>Kullanıcılar </span></a></li>
+					<li><a href="modules/parameter/parameter.php"><i class="fa fa-cogs"></i><span>Parametreler </span></a></li>
 
-<!-- begin #content -->
+					<li><a href="#"><i class="fa fa-life-ring"></i><span>Yardım </span></a></li>
+					<li><a href="logout.php"><i class="fa fa-sign-out"></i><span>Çıkış </span></a></li>
+
+
+					<!-- begin sidebar minify button -->
+					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+					<!-- end sidebar minify button -->
+				</ul>
+				<!-- end sidebar nav -->
+			</div>
+			<!-- end sidebar scrollbar -->
+		</div>
+		<div class="sidebar-bg"></div>
+		<!-- end #sidebar -->
+
+		<!-- begin #content -->
 		<div id="content" class="content">
 
 			<!-- begin page-header -->
@@ -151,17 +149,17 @@ class="fa fa-heart-o"></i><span>Sosyal Medya Yönetimi </span></a>
 			<!-- end page-header -->
 
 			<div class="panel panel-inverse">
-			    <div class="panel-heading">
+				<div class="panel-heading">
 
-			        <h4 class="panel-title">Panel Title here</h4>
-			    </div>
-			    <div class="panel-body">
-			        Panel Content Here
-			    </div>
+					<h4 class="panel-title">Panel Title here</h4>
+				</div>
+				<div class="panel-body">
+					Panel Content Here
+				</div>
 			</div>
 		</div>
 		<!-- end #content -->
-	
+
 
 		<!-- begin scroll to top btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
@@ -191,4 +189,5 @@ class="fa fa-heart-o"></i><span>Sosyal Medya Yönetimi </span></a>
 </body>
 
 <!-- Mirrored from seantheme.com/color-admin-v1.7/admin/html/page_blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Apr 2015 11:01:37 GMT -->
+
 </html>

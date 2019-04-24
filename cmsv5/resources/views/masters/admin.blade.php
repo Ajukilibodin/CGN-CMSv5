@@ -3,30 +3,37 @@
   <head>
     @include('libraries.admin.head')
   </head>
-  <body>
-    <div class="page-wrapper chiller-theme toggled">
+  <body class="pace-top">
       @if ( Cookie::get('ajanlogin') )
       @include('libraries.admin.sidenav')
-      <main class="page-content">
-        <div class="container-fluid">
-        @yield('contenttitle')
-        @include('libraries.errorpopper')
-        @yield('content')
-        </div>
-      </main>
-      @else
-      <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10">
+      <div class="page-wrapper chiller-theme toggled">
+        <main class="page-content">
+          <div class="container-fluid">
           @yield('contenttitle')
           @include('libraries.errorpopper')
           @yield('content')
-        </div>
-        <div class="col-1"></div>
+          </div>
+        </main>
       </div>
+      @else
+        <!-- begin #page-loader -->
+        <div id="page-loader" class="fade in"><span class="spinner"></span></div>
+        <!-- end #page-loader -->
+
+        <!-- begin #page-container -->
+        <div id="page-container" class="fade">
+          <!-- begin login -->
+          <div class="login bg-black animated fadeInDown">
+            @yield('contenttitle')
+            @include('libraries.errorpopper')
+            @yield('content')
+
+          </div>
+          <!-- end login -->
+        </div>
+        <!-- end page container -->
       @endif
-      <!-- page-content" -->
-    </div>
-    @include('libraries.admin.footer')
+      
+    @include('libraries.admin.footer-login')
   </body>
 </html>
