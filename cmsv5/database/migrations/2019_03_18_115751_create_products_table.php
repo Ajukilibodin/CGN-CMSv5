@@ -44,7 +44,7 @@ class CreateProductsTable extends Migration
           'Title'=>'Kadın Tshirt',
           'Categories'=>'3,5',
           'DetailID'=>3,
-          'Price'=>15.00,
+          'Price'=>16.00,
           'Stock'=>'[{"name":"XS","val":-1},{"name":"S","val":2},{"name":"M","val":3},{"name":"L","val":0},{"name":"XL","val":0},{"name":"XXL","val":4}]',
           'ImgPaths'=>"2.jpg",
           'Ribbons'=>3,
