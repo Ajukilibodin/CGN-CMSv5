@@ -15,6 +15,16 @@
 <script src="{{url('/assets/js/apps.min.js')}}"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#data-table').DataTable( {
+    "language": {
+          "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+      }
+  } );
+} );
+</script>
+
 <script>
   $(document).ready(function() {
     App.init();
@@ -37,6 +47,8 @@ $(document).ready(function(){
     //$('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
 });
 </script>
+
+<!-- ================== BEGIN OF MANUAL JS ================== -->
 
 @if(Request::is('ajan/addproduct') or Request::is('ajan/modproduct/*')
  or Request::is('ajan/addcategory/*') or Request::is('ajan/editcategory/*')

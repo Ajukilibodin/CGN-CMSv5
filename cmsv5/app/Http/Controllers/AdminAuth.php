@@ -56,7 +56,7 @@ class AdminAuth extends Controller
     public function nonpage()
     {
       if(\Cookie::get('ajanlogin')){
-        return view('libraries/admin/nonpage');
+        return view('admin/nonpage');
       }
       else return redirect('/ajan');
     }

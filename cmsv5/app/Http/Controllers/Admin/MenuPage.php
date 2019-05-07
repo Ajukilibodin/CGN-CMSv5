@@ -20,7 +20,7 @@ class MenuPage extends Controller
   public function pagesload($p_id)
   {
       if(\Cookie::get('ajanlogin')){
-        $pagevalues = SitePage::where('Value', $p_id)->paginate(10);
+        $pagevalues = SitePage::where('Value', $p_id)->get();
         return view('modules/page/admin/pagelist', ['pagevalues' => $pagevalues, 'p_id' => $p_id]);
       }
       else return redirect('/ajan');
