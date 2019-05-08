@@ -11,7 +11,7 @@ class MenuPage extends Controller
   public function mainload()
   {
       if(\Cookie::get('ajanlogin')){
-        $pagevalues = SitePage::where('Type','<>', 2)->paginate(10);
+        $pagevalues = SitePage::where('Type','<>', 2)->get();
         return view('modules/page/admin/menupage', ['pagevalues' => $pagevalues]);
       }
       else return redirect('/ajan');

@@ -18,6 +18,8 @@ function sepetegit() {
   @include('libraries.footer.pagebased.product-page-js')
 @elseif(Request::is('profile'))
   @include('libraries.footer.pagebased.profile-page-js')
+@elseif(Request::is('contact'))
+  @include('libraries.footer.pagebased.contact-page-js')
 @endif
 
 @if($reg_token = Session::get('reg_token'))

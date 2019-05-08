@@ -1,16 +1,14 @@
 @extends('masters.admin')
 
 @section('contenttitle')
-<h1>Sayfa Ekle</h1>
+<ol class="breadcrumb pull-right">
+  <li><a href="/ajan">Anasayfa</a></li>
+  <li><a href="/ajan/menupage">Menü & Sayfa</a></li>
+  <li class="active">Sayfa Ekle</li>
+</ol>
+<h1 class="page-header">Sayfa Ekle <small></small></h1>
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/ajan">Anasayfa</a></li>
-    <li class="breadcrumb-item"><a href="/ajan/menupage">Menü & Sayfa</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Sayfa Ekle</li>
-  </ol>
-</nav>
 {!! Form::open(['url' => 'ajan/addpage/'.$p_id, 'onsubmit'=> '$( "#page-content" ).val(CKEDITOR.instances.auctionDescription.getData());']) !!}
 <div class="form-group">
 {{Form::label('page-title', 'Sayfa Başlığı')}}

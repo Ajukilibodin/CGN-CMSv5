@@ -25,6 +25,7 @@ Route::post('/profile/updateaddress', 'VisitorNav@updateaddress');
 Route::post('/profile/changepassword', 'VisitorNav@changepassword');
 
 Route::get('/page/{p_id}', 'VisitorNav@page');
+Route::get('/contact', 'VisitorNav@contact');
 
 Route::get('/category', 'VisitorNav@category');
 Route::get('/products', 'VisitorNav@red_category');//products_all

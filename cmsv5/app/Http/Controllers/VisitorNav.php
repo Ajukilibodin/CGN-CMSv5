@@ -267,6 +267,10 @@ class VisitorNav extends Controller
       return view('pages/cart');
     }
 
+    public function contact(){
+      return view('pages/contact');
+    }
+
     public function category(){
       return view('pages/category');
     }

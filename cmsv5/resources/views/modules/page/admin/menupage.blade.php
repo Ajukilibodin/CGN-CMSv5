@@ -1,15 +1,13 @@
 @extends('masters.admin')
 
 @section('contenttitle')
-<h1>Menü & Sayfa</h1>
+<ol class="breadcrumb pull-right">
+  <li><a href="/ajan">Anasayfa</a></li>
+  <li class="active">Menü & Sayfa</li>
+</ol>
+<h1 class="page-header">Menü & Sayfa <small>Tüm menü link ve sayfalarınız...</small></h1>
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/ajan">Anasayfa</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Menü & Sayfa</li>
-  </ol>
-</nav>
 @if($message = Session::get('successmsg'))
 <div class="alert alert-success">
   {{$message}}
@@ -23,8 +21,8 @@
         <div class="modal-content">
 
             <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <h4 class="modal-title" id="myModalLabel">Menü Silme</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
 
             <div class="modal-body">
@@ -40,64 +38,78 @@
         </div>
     </div>
 </div>
-<section class="content">
-  <div class="row">
-    <div class="col-12 table-responsive">
-      <a title="Yeni Ekle" class="btn btn-primary text-white m-1" data-toggle="tooltip" href="/ajan/addmenu">
-        <i class="fas fa-plus"></i> Yeni Menü Ekle</a>
-      <div class="float-right">
-        {{ $pagevalues->links() }}
+<div class="form-group">
+  <a href="/ajan/addmenu" title="Yeni Ekle" class="btn btn-primary text-white m-1" data-toggle="tooltip">
+    <i class="fas fa-plus"></i> Yeni Menü Ekle</a>
+</div>
+
+<!-- begin row -->
+<div class="row">
+  <!-- begin col-12 -->
+  <div class="col-md-12">
+    <!-- begin panel -->
+    <div class="panel panel-inverse">
+      <div class="panel-heading">
+        <h4 class="panel-title">Menü & Sayfa Listesi</h4>
       </div>
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">id</th>
-            <th scope="col">Başlık</th>
-            <th scope="col">Tür</th>
-            <th scope="col" style="width: 70px;">İşlem</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($pagevalues as $pagevalue)
-          <tr>
-            <th scope="row">{{ $pagevalue->id }}</th>
-            <td>{{ $pagevalue->Title }}</td>
-            @if($pagevalue->Type == 'DefinedPage')
-            <td>Tanımlı Sayfa (
-              @if($pagevalue->Value == 0) {{"Ana Sayfa"}}
-              @elseif($pagevalue->Value == 1) {{"İletişim"}}
-              @elseif($pagevalue->Value == 2) {{"Ürünler"}}
-              @endif
-              )</td>
-            <td>
-              <a href="/ajan/modmenu/{{$pagevalue->id}}" title="Tanımlı Sayfa Değiştir" class="text-primary" data-toggle="tooltip">
-                <i class="fas fa-pencil-alt"></i></a>
-              <span data-href="/ajan/delmenu/{{$pagevalue->id}}" data-toggle="modal" data-target="#confirm-delete">
-                <a class="text-danger" title="Menü Sil" href="javascript:;" data-toggle="tooltip">
-                  <i class="fas fa-trash-alt"></i>
-                </a>
-              </span>
-            </td>
-            @elseif($pagevalue->Type == 'PageHeader')
-            <td>Sayfa Başlığı</td>
-            <td>
-              <a title="Alt Sayfaları İncele" href="/ajan/menupage/{{ $pagevalue->id }}" class="text-primary" data-toggle="tooltip">
-                <i class="fas fa-swatchbook"></i></a>
-              <span data-href="/ajan/delmenu/{{$pagevalue->id}}" data-toggle="modal" data-target="#confirm-delete">
-                <a class="text-danger" title="Menü Sil" href="javascript:;" data-toggle="tooltip">
-                  <i class="fas fa-trash-alt"></i>
-                </a>
-              </span>
-            </td>
-            @else
-            <td></td>
-            <td></td>
-            @endif
-          </tr>
-          @endforeach
-        </tbody>
-      </table>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table id="data-table" class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Başlık</th>
+                <th>Tür</th>
+                <th style="width: 70px;">İşlem</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($pagevalues as $pagevalue)
+              <tr>
+                <th scope="row">{{ $pagevalue->id }}</th>
+                <td>{{ $pagevalue->Title }}</td>
+                @if($pagevalue->Type == 'DefinedPage')
+                <td>Tanımlı Sayfa (
+                  @if($pagevalue->Value == 0) {{"Ana Sayfa"}}
+                  @elseif($pagevalue->Value == 1) {{"İletişim"}}
+                  @elseif($pagevalue->Value == 2) {{"Ürünler"}}
+                  @endif
+                  )</td>
+                <td>
+                  <a href="/ajan/modmenu/{{$pagevalue->id}}" title="Tanımlı Sayfa Değiştir" class="text-primary" data-toggle="tooltip">
+                    <i class="fas fa-pencil-alt"></i></a>
+                  <span data-href="/ajan/delmenu/{{$pagevalue->id}}" data-toggle="modal" data-target="#confirm-delete">
+                    <a class="text-danger" title="Menü Sil" href="javascript:;" data-toggle="tooltip">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
+                  </span>
+                </td>
+                @elseif($pagevalue->Type == 'PageHeader')
+                <td>Sayfa Başlığı</td>
+                <td>
+                  <a title="Alt Sayfaları İncele" href="/ajan/menupage/{{ $pagevalue->id }}" class="text-primary" data-toggle="tooltip">
+                    <i class="fas fa-swatchbook"></i></a>
+                  <span data-href="/ajan/delmenu/{{$pagevalue->id}}" data-toggle="modal" data-target="#confirm-delete">
+                    <a class="text-danger" title="Menü Sil" href="javascript:;" data-toggle="tooltip">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
+                  </span>
+                </td>
+                @else
+                <td></td>
+                <td></td>
+                @endif
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+    <!-- end panel -->
   </div>
-</section>
+  <!-- end col-12 -->
+</div>
+<!-- end row -->
+
 @endsection

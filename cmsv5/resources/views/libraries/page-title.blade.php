@@ -13,6 +13,12 @@
       <li><a href="{{url('/')}}">Anasayfa</a></li>
       <li class="active">Profilim</li>
     </ol>
+    @elseif(Request::is('contact'))
+    <h1>İLETİŞİM</h1>
+    <ol class="breadcrumb">
+      <li><a href="{{url('/')}}">Anasayfa</a></li>
+      <li class="active">İletişim</li>
+    </ol>
     @elseif(Request::is('page/*'))
     @php($pagetitle = \App\SitePage::where('id',$p_id)->first()->Title)
     <h1>{{$pagetitle}}</h1>

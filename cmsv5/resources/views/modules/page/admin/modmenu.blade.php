@@ -1,16 +1,15 @@
 @extends('masters.admin')
 
 @section('contenttitle')
-<h1>Menü Düzenle</h1>
+<ol class="breadcrumb pull-right">
+  <li><a href="/ajan">Anasayfa</a></li>
+  <li><a href="/ajan/menupage">Menü & Sayfa</a></li>
+  <li class="active">Menü Düzenle</li>
+</ol>
+<h1 class="page-header">Menü Düzenle <small></small></h1>
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/ajan">Anasayfa</a></li>
-    <li class="breadcrumb-item"><a href="/ajan/menupage">Menü & Sayfa</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Menü Düzenle</li>
-  </ol>
-</nav>
+
 {!! Form::open(['url' => 'ajan/modmenu/'.$menuvalues->id]) !!}
 <div class="form-group">
 {{Form::label('menu-title', 'Menü Başlığı')}}
