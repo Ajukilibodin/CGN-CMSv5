@@ -10,7 +10,7 @@ class Slider extends Controller
   public function mainload()
   {
       if(\Cookie::get('ajanlogin')){
-        $sliders = \App\Slider::paginate(12);
+        $sliders = \App\Slider::all();
         return view('modules/slider/admin/sliderlist', ['sliders' => $sliders]);
       }
       else return redirect('/ajan');

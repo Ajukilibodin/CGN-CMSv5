@@ -1,22 +1,20 @@
 @extends('masters.admin')
 
 @section('contenttitle')
-<h1>Slider</h1>
+<ol class="breadcrumb pull-right">
+  <li><a href="/ajan">Anasayfa</a></li>
+  <li class="active">Slider</li>
+</ol>
+<h1 class="page-header">Slider <small>Anasayfanızda sıralanan görseller...</small></h1>
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/ajan">Anasayfa</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Slider</li>
-  </ol>
-</nav>
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <h4 class="modal-title" id="myModalLabel">Slider Silme</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
 
             <div class="modal-body">
@@ -32,19 +30,17 @@
         </div>
     </div>
 </div>
-<section class="content">
+
+<div class="form-group">
+  <a href="/ajan/addslider" title="Yeni Ekle" class="btn btn-primary text-white m-1" data-toggle="tooltip">
+    <i class="fas fa-plus"></i> Yeni Slider Ekle</a>
+</div>
+
   <div class="row">
-    <div class="col-12">
-      <a title="Yeni Ekle" class="btn btn-primary text-white m-1" data-toggle="tooltip" href="/ajan/addslider">
-        <i class="fas fa-plus"></i> Yeni Slider Ekle</a>
-      <div class="float-right">
-        {{ $sliders->links() }}
-      </div>
-    </div>
     @foreach ($sliders as $slider)
-    <div class="col-4 m-2">
-      <img src="/uploads/modules/slider/{{$slider->FilePath}}" style="width: inherit;">
-      <img src="/uploads/modules/slider/{{$slider->PicPath}}" style=" position: absolute; height: 120px; top: 10px; right: 20px;">
+    <div class="col-sm-4 m-2">
+      <img src="/uploads/modules/slider/{{$slider->FilePath}}" style="width: 100%;">
+      <img src="/uploads/modules/slider/{{$slider->PicPath}}" style=" position: absolute; height: 160px; top: 10px; right: 20px;">
       <div class="m-2"></div>
       <span data-href="/ajan/delslider/{{$slider->id}}" data-toggle="modal" data-target="#confirm-delete">
         <a class="text-danger float-right" title="Slider Sil" href="javascript:;" data-toggle="tooltip">
@@ -63,5 +59,4 @@
     </div>
     @endforeach
   </div>
-</section>
 @endsection

@@ -1,23 +1,21 @@
 @extends('masters.admin')
 
 @section('contenttitle')
-<h1>Üye Kayıtları</h1>
+<ol class="breadcrumb pull-right">
+  <li><a href="/ajan">Anasayfa</a></li>
+  <li class="active">Üye Kayıtları</li>
+</ol>
+<h1 class="page-header">Üye Kayıtları <small>Sisteminize üye olan kullanıcılar...</small></h1>
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/ajan">Anasayfa</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Üye Kayıtları</li>
-  </ol>
-</nav>
 
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <h4 class="modal-title" id="myModalLabel">Kullanıcı Silme</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
 
             <div class="modal-body">
@@ -34,40 +32,51 @@
     </div>
 </div>
 
-<section class="content">
-  <div class="row">
-    <div class="col-12 table-responsive">
-      <div class="float-right">
-        {{ $customers->links() }}
+<!-- begin row -->
+<div class="row">
+  <!-- begin col-12 -->
+  <div class="col-md-12">
+    <!-- begin panel -->
+    <div class="panel panel-inverse">
+      <div class="panel-heading">
+        <h4 class="panel-title">Kullanıcılar</h4>
       </div>
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">id</th>
-            <th scope="col">Ad Soyad</th>
-            <th scope="col">Son Giriş</th>
-            <th scope="col" style="width: 70px;">İşlem</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($customers as $customer)
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table id="data-table" class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Ad Soyad</th>
+                <th>Son Giriş</th>
+                <th style="width: 70px;">İşlem</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($customers as $customer)
 
-          <tr>
-            <th scope="row">{{ $customer->id }}</th>
-            <td>{{ $customer->Name }} {{ $customer->Surname }}</td>
-            <td>{{ $customer->LastLogin }}</td>
-            <td>
-              <span data-href="/ajan/customers/delete/{{$customer->id}}" data-toggle="modal" data-target="#confirm-delete">
-                <a class="text-danger" title="Kullanıcı Sil" href="javascript:;" data-toggle="tooltip">
-                  <i class="fas fa-trash-alt"></i>
-                </a>
-              </span>
-            </td>
-          </tr>
-          @endforeach
-        </tbody>
-      </table>
+              <tr>
+                <th scope="row">{{ $customer->id }}</th>
+                <td>{{ $customer->Name }} {{ $customer->Surname }}</td>
+                <td>{{ $customer->LastLogin }}</td>
+                <td>
+                  <span data-href="/ajan/customers/delete/{{$customer->id}}" data-toggle="modal" data-target="#confirm-delete">
+                    <a class="text-danger" title="Kullanıcı Sil" href="javascript:;" data-toggle="tooltip">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
+                  </span>
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+    <!-- end panel -->
   </div>
-</section>
+  <!-- end col-12 -->
+</div>
+<!-- end row -->
+  
 @endsection

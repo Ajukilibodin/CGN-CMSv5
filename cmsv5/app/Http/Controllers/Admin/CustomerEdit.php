@@ -10,7 +10,7 @@ class CustomerEdit extends Controller
     public function mainload()
     {
         if(\Cookie::get('ajanlogin')){
-          $customers = \App\Customer::where('Name','<>','Non-Customer')->paginate(10);
+          $customers = \App\Customer::where('Name','<>','Non-Customer')->get();
           return view('admin/customers', ['customers' => $customers]);
         }
         else return redirect('/ajan');

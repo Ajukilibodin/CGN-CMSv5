@@ -1,20 +1,17 @@
 @extends('masters.admin')
 
 @section('contenttitle')
-<h1>Sipariş Güncelle</h1>
+<ol class="breadcrumb pull-right">
+  <li><a href="/ajan">Anasayfa</a></li>
+  <li><a href="/ajan/orders/current">Siparişler</a></li>
+  <li class="active">Sipariş Güncelle</li>
+</ol>
+<h1 class="page-header">Sipariş Güncelle <small></small></h1>
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/ajan">Anasayfa</a></li>
-    <li class="breadcrumb-item"><a href="/ajan/orders/current">Siparişler</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Sipariş Güncelle</li>
-  </ol>
-</nav>
-<section class="content">
   {!! Form::open(['url' => 'ajan/orders/'.$pagevalues->id]) !!}
   <div class="row">
-    <div class="col-4">
+    <div class="col-md-4">
       <h4>Sipariş Durumu</h4>
         <div class="form-group">
 
@@ -23,7 +20,7 @@
           {{'checked'}}
           @endif
           />
-          <div class="btn-group">
+          <div class="btn-group m-2">
               <label for="radio1" class="btn btn-primary">
                   <span class="fas fa-check"></span>
                   <span> </span>
@@ -36,7 +33,7 @@
           {{'checked'}}
           @endif
           />
-          <div class="btn-group">
+          <div class="btn-group m-2">
               <label for="radio2" class="btn btn-primary">
                   <span class="fas fa-check"></span>
                   <span> </span>
@@ -49,7 +46,7 @@
           {{'checked'}}
           @endif
           />
-          <div class="btn-group">
+          <div class="btn-group m-2">
               <label for="radio3" class="btn btn-primary">
                   <span class="fas fa-check"></span>
                   <span> </span>
@@ -62,7 +59,7 @@
           {{'checked'}}
           @endif
           />
-          <div class="btn-group">
+          <div class="btn-group m-2">
               <label for="radio4" class="btn btn-primary">
                   <span class="fas fa-check"></span>
                   <span> </span>
@@ -75,7 +72,7 @@
           {{'checked'}}
           @endif
           />
-          <div class="btn-group">
+          <div class="btn-group m-2">
               <label for="radio5" class="btn btn-primary">
                   <span class="fas fa-check"></span>
                   <span> </span>
@@ -84,7 +81,7 @@
           </div>
         </div>
     </div>
-    <div class="col-8">
+    <div class="col-md-8">
       <h4>Sipariş Bilgileri</h4>
       <h5><strong>Sipariş Kodu: </strong>SIP-{{sprintf("%09d", $pagevalues->id)}}</h5>
 
@@ -100,7 +97,7 @@
       <h5><strong>Kargo Şirketi: </strong>{{Form::text('order-cargoname',$pagevalues->CargoName,['class' => 'form-control'])}}</h5>
       <h5><strong>Kargo Takip Kodu: </strong>{{Form::text('order-cargofollow',$pagevalues->CargoFollow,['class' => 'form-control'])}}</h5>
     </div>
-    <div class="col-12 table-responsive">
+    <div class="col-md-12 table-responsive">
       <h4>Sepet İçeriği</h4>
       <table class="table">
         <thead class="thead-dark">
@@ -138,13 +135,12 @@
         </tbody>
       </table>
     </div>
-    <div class="col-12">
+    <div class="col-md-12">
       <div class="form-group float-right">
         {{Form::submit('Kaydet', ['class' => 'btn btn-primary'])}}
-        <a class="btn btn-secondary" href="{{url('/ajan/orders')}}">Geri</a>
+        <a class="btn btn-secondary" href="{{url('/ajan/orders/current')}}">Geri</a>
       </div>
     </div>
   </div>
   {!! Form::close() !!}
-</section>
 @endsection
