@@ -46,7 +46,7 @@
     <!-- begin panel -->
     <div class="panel panel-inverse">
       <div class="panel-heading">
-        <h4 class="panel-title">Data Table - Default</h4>
+        <h4 class="panel-title">Siparişler</h4>
       </div>
       <div class="panel-body">
         <div class="table-responsive">
