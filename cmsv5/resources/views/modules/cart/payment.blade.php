@@ -47,10 +47,10 @@
     <div class="acc_content clearfix">
       <h5>Banka Hesap Bilgileri</h5>
       <p>
-          Garanti Bankası</br>
-          Şube Kodu: Marmara Ticari - 1605</br>
-          Hesap Numarası: 6299758</br>
-          IBAN NO : TR04 0006 2001 6050 0006 2997 58
+          {{\App\Admin\SiteValues::find(10)->Value}}</br>
+          Şube Kodu: {{\App\Admin\SiteValues::find(11)->Value}}</br>
+          Hesap Numarası: {{\App\Admin\SiteValues::find(12)->Value}}</br>
+          IBAN NO : {{\App\Admin\SiteValues::find(13)->Value}}
       </p>
       <button type="submit" onclick="setPayment(2)" class="button button-3d fright">ÖDEMEYİ GERÇEKLEŞTİR >> </a>
     </div>

@@ -77,6 +77,31 @@
     </div>
   </div>
 
+  <div class="col-md-6">
+    <div class="form-group">
+      {{Form::label('val-bank1', 'Banka Adı')}}
+      {{Form::text('val-bank1',$sitevalues[9]->Value,['class' => 'form-control'])}}
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      {{Form::label('val-bank2', 'Şube Kodu')}}
+      {{Form::text('val-bank2',$sitevalues[10]->Value,['class' => 'form-control'])}}
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      {{Form::label('val-bank3', 'Hesap Numarası')}}
+      {{Form::text('val-bank3',$sitevalues[11]->Value,['class' => 'form-control'])}}
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      {{Form::label('val-bank4', 'IBAN No')}}
+      {{Form::text('val-bank4',$sitevalues[12]->Value,['class' => 'form-control'])}}
+    </div>
+  </div>
+
   <div class="col-md-12">
     <div class="form-group float-right">
       {{Form::submit('Kaydet', ['class' => 'btn btn-primary'])}}
