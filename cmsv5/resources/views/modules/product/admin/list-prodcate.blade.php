@@ -1,15 +1,13 @@
 @extends('masters.admin')
 
 @section('contenttitle')
-<h1>Ürün Özellik Yönetimi</h1>
+<ol class="breadcrumb pull-right">
+  <li><a href="/ajan">Anasayfa</a></li>
+  <li class="active">Ürün Özellik Yönetimi</li>
+</ol>
+<h1 class="page-header">Ürün Özellik Yönetimi <small> Kategorilere tanımlı ürünlerin alabileceği alt değerler listesi</small></h1>
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/ajan">Anasayfa</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Ürün Özellik Yönetimi</li>
-  </ol>
-</nav>
 @if($message = Session::get('successmsg'))
 <div class="alert alert-success">
   {{$message}}
@@ -23,8 +21,8 @@
         <div class="modal-content">
 
             <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <h4 class="modal-title" id="myModalLabel">Ürün Özelliği Silme</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
 
             <div class="modal-body">
@@ -40,16 +38,25 @@
         </div>
     </div>
 </div>
-<section class="content">
-  <div class="row">
-    <div class="col-12 table-responsive">
-      <a title="Yeni Ekle" class="btn btn-primary text-white m-1" data-toggle="tooltip" href="/ajan/addprodcate/">
-        <i class="fas fa-plus"></i> Yeni Ürün Özelliği Ekle</a>
-      <div class="float-right">
-        {{ $pagevalues->links() }}
-      </div>
-      <table class="table">
-        <thead class="thead-dark">
+
+<div class="form-group">
+  <a title="Yeni Ekle" class="btn btn-primary text-white m-1" data-toggle="tooltip" href="/ajan/addprodcate/">
+    <i class="fas fa-plus"></i> Yeni Ürün Özelliği Ekle</a>
+</div>
+
+<!-- begin row -->
+<div class="row">
+<!-- begin col-12 -->
+<div class="col-md-12">
+  <!-- begin panel -->
+  <div class="panel panel-inverse">
+    <div class="panel-heading">
+      <h4 class="panel-title">Ürün Özellikleri</h4>
+    </div>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table id="data-table" class="table table-striped table-bordered">
+          <thead>
           <tr>
             <th scope="col">id</th>
             <th scope="col">Başlık</th>
@@ -80,5 +87,10 @@
       </table>
     </div>
   </div>
-</section>
+</div>
+<!-- end panel -->
+</div>
+<!-- end col-12 -->
+</div>
+<!-- end row -->
 @endsection

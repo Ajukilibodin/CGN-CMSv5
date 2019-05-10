@@ -1,22 +1,16 @@
 @extends('masters.admin')
 
 @section('contenttitle')
-<h1>Kur Girişi</h1>
+<ol class="breadcrumb pull-right">
+  <li><a href="/ajan">Anasayfa</a></li>
+  <li class="active">Kur Girişi</li>
+</ol>
+<h1 class="page-header">Kur Girişi <small></small></h1>
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/ajan">Anasayfa</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Kur Girişi</li>
-  </ol>
-</nav>
 
-<section class="content">
-  <div class="row">
+  <div class="row panel panel-inverse">
     <div class="col-12 table-responsive">
-      <div class="float-right">
-        {{ $sitevalues->links() }}
-      </div>
       <table class="table">
         <thead class="thead-dark">
           <tr>
@@ -35,13 +29,13 @@
               <th scope="row">{{ $sitevalue->id }}</th>
               <td>
                 <div class="row">
-                  <div class="col-2">
+                  <div class="col-md-2">
                     <label for="sitevalue-input">{{'1 TRY = '}}</label>
                   </div>
-                  <div class="col-6">
+                  <div class="col-md-6">
                     <input type="number" step="0.01" min="0.01" name="sitevalue-input" class="form-control" value="{{ $sitevalue->Multipler }}">
                   </div>
-                  <div class="col-4">
+                  <div class="col-md-4">
                     <label for="sitevalue-input">{{ $sitevalue->Title }}</label>
                   </div>
                 </div>
@@ -62,5 +56,4 @@
       </table>
     </div>
   </div>
-</section>
 @endsection

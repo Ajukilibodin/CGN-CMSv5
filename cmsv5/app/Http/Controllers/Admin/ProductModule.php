@@ -15,7 +15,7 @@ class ProductModule extends Controller
   public function categoryload()
   {
       if(\Cookie::get('ajanlogin')){
-        $pagevalues = Category::where('Type', 2)->paginate(10);
+        $pagevalues = Category::where('Type', 2)->get();
         return view('modules/product/admin/list-categories', ['pagevalues' => $pagevalues]);
       }
       else return redirect('/ajan');
@@ -24,7 +24,7 @@ class ProductModule extends Controller
   public function subcateload($c_id)
   {
     if(\Cookie::get('ajanlogin')){
-      $pagevalues = Category::where('ParentCategory', $c_id)->paginate(10);
+      $pagevalues = Category::where('ParentCategory', $c_id)->get();
       return view('modules/product/admin/list-subcategories', ['pagevalues' => $pagevalues, 'c_id' => $c_id]);
     }
     else return redirect('/ajan');
@@ -142,7 +142,7 @@ class ProductModule extends Controller
   public function prodcateload()
   {
     if(\Cookie::get('ajanlogin')){
-      $pagevalues = PCategory::paginate(10);
+      $pagevalues = PCategory::all();
       return view('modules/product/admin/list-prodcate', ['pagevalues' => $pagevalues]);
     }
     else return redirect('/ajan');
@@ -221,7 +221,7 @@ class ProductModule extends Controller
   public function productsload()
   {
     if(\Cookie::get('ajanlogin')){
-      $pagevalues = PCategory::paginate(10);
+      $pagevalues = PCategory::all();
       return view('modules/product/admin/list-productmain', ['pagevalues' => $pagevalues]);
     }
     else return redirect('/ajan');
@@ -230,7 +230,7 @@ class ProductModule extends Controller
   public function productlist($c_id)
   {
     if(\Cookie::get('ajanlogin')){
-      $pagevalues = Product::paginate(10);
+      $pagevalues = Product::all();
       return view('modules/product/admin/list-products', ['pagevalues' => $pagevalues, 'c_id'=>$c_id]);
     }
     else return redirect('/ajan');
@@ -388,7 +388,7 @@ class ProductModule extends Controller
   public function exchangesload()
   {
     if(\Cookie::get('ajanlogin')){
-      $sitevalues = \App\Exchange::where('id','<>',1)->paginate(10);
+      $sitevalues = \App\Exchange::where('id','<>',1)->get();
       return view('modules/product/admin/editexchange', ['sitevalues' => $sitevalues]);
     }
     else return redirect('/ajan');

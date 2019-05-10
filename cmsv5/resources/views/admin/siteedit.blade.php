@@ -17,7 +17,7 @@
 </div>
 @endif
 {!! Form::open(['url' => 'ajan/sitesettings']) !!}
-<div class="row">
+<div class="row panel panel-inverse">
   <div class="col-md-6">
     <div class="form-group">
       {{Form::label('val-title', 'Site Başlığı')}}

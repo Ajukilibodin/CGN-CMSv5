@@ -1,16 +1,14 @@
 @extends('masters.admin')
 
 @section('contenttitle')
-<h1>Alt Kategoriler</h1>
+<ol class="breadcrumb pull-right">
+  <li><a href="/ajan">Anasayfa</a></li>
+  <li><a href="/ajan/categories">Kategori Yönetimi</a></li>
+  <li class="active">Alt Kategoriler</li>
+</ol>
+<h1 class="page-header">Alt Kategoriler <small></small></h1>
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/ajan">Anasayfa</a></li>
-    <li class="breadcrumb-item"><a href="/ajan/categories">Kategori Yönetimi</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Alt Kategoriler</li>
-  </ol>
-</nav>
 @if($message = Session::get('successmsg'))
 <div class="alert alert-success">
   {{$message}}
@@ -24,8 +22,8 @@
         <div class="modal-content">
 
             <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <h4 class="modal-title" id="myModalLabel">Kategori Silme</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
 
             <div class="modal-body">
@@ -41,22 +39,33 @@
         </div>
     </div>
 </div>
-<section class="content">
-  <div class="row">
-    <div class="col-12 table-responsive">
-      <a title="Yeni Ekle" class="btn btn-primary text-white m-1" data-toggle="tooltip" href="/ajan/addcategory/{{$c_id}}">
-        <i class="fas fa-plus"></i> Yeni Kategori Ekle</a>
-      <div class="float-right">
-        {{ $pagevalues->links() }}
+
+<div class="form-group">
+  <a title="Geri" class="btn btn-light text-black m-1" data-toggle="tooltip" href="/ajan/categories">
+    <i class="fas fa-angle-left"></i> Geri</a>
+  <a title="Yeni Ekle" class="btn btn-primary text-white m-1" data-toggle="tooltip" href="/ajan/addcategory/{{$c_id}}">
+    <i class="fas fa-plus"></i> Yeni Kategori Ekle</a>
+</div>
+
+<!-- begin row -->
+<div class="row">
+  <!-- begin col-12 -->
+  <div class="col-md-12">
+    <!-- begin panel -->
+    <div class="panel panel-inverse">
+      <div class="panel-heading">
+        <h4 class="panel-title">Alt Kategoriler</h4>
       </div>
-      <table class="table">
-        <thead class="thead-dark">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table id="data-table" class="table table-striped table-bordered">
+            <thead>
           <tr>
-            <th scope="col">id</th>
-            <th scope="col">Başlık</th>
-            <th scope="col">Ürün Sayısı</th>
-            <th scope="col">Ürün Özellik Türü</th>
-            <th scope="col" style="width: 70px;">İşlem</th>
+            <th>id</th>
+            <th>Başlık</th>
+            <th>Ürün Sayısı</th>
+            <th>Ürün Özellik Türü</th>
+            <th style="width: 70px;">İşlem</th>
           </tr>
         </thead>
         <tbody>
@@ -85,5 +94,10 @@
       </table>
     </div>
   </div>
-</section>
+</div>
+<!-- end panel -->
+</div>
+<!-- end col-12 -->
+</div>
+<!-- end row -->
 @endsection

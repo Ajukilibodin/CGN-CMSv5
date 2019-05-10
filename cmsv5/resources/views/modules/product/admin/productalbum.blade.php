@@ -1,18 +1,16 @@
 @extends('masters.admin')
 
 @section('contenttitle')
-<h1>Ürün Görselleri</h1>
+<ol class="breadcrumb pull-right">
+  <li><a href="/ajan">Anasayfa</a></li>
+  <li><a href="/ajan/products">Ürünlerim</a></li>
+  <li class="active">Ürün Görselleri</li>
+</ol>
+<h1 class="page-header">Ürün Görselleri <small></small></h1>
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/ajan">Anasayfa</a></li>
-    <li class="breadcrumb-item"><a href="/ajan/products">Ürünlerim</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Ürün Görselleri</li>
-  </ol>
-</nav>
-<div class="row">
-  <div class="col-8">
+<div class="row panel panel-inverse">
+  <div class="col-md-8">
     {!! Form::open(['url' => 'ajan/productalbum/'.$pagevalues->id, 'files' => true]) !!}
     <div class="form-group">
         <label>Resim Ekle</label>
@@ -39,7 +37,7 @@
       @foreach(explode(",", $pagevalues->ImgPaths) as $subpic)
       @if($s_first)@php($s_first = false)
       @else
-      <div class="col-6 border border-dark">
+      <div class="col-md-6 border border-dark">
         <img style="width:100%;" src="/uploads/modules/product/{{$subpic}}">
         <a class="text-danger" style="position: absolute; top: 0px; right: 0px;"
           title="Görsel Sil" href="/ajan/productalbum/del/{{$pagevalues->id}}/{{$subpic}}" data-toggle="tooltip">
@@ -51,7 +49,7 @@
       </div>
     </div>
   </div>
-  <div class="col-4">
+  <div class="col-md-4">
     @php($imagepath = $pagevalues->ImgPaths)
     @if(strpos($pagevalues->ImgPaths,','))
     @php($imagepath = substr($imagepath, 0 ,strpos($imagepath,',')))

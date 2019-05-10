@@ -1,18 +1,16 @@
 @extends('masters.admin')
 
 @section('contenttitle')
-<h1>Stok Girişi</h1>
+<ol class="breadcrumb pull-right">
+  <li><a href="/ajan">Anasayfa</a></li>
+  <li><a href="/ajan/products">Ürünlerim</a></li>
+  <li class="active">Stok Girişi</li>
+</ol>
+<h1 class="page-header">Stok Girişi <small></small></h1>
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/ajan">Anasayfa</a></li>
-    <li class="breadcrumb-item"><a href="/ajan/products">Ürünlerim</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Stok Girişi</li>
-  </ol>
-</nav>
-<div class="row">
-  <div class="col-8">
+<div class="row panel panel-inverse">
+  <div class="col-md-8">
     {!! Form::open(['url' => 'ajan/editstock/1/'.$product->id]) !!}
     <small class="float-right">"-1" değeri bu ürünün bu özellikte çeşidi olmadığı anlamına gelir.</small><br>
     <small class="float-right">"0" değeri bu ürünün stokta tükendiği anlamına gelir.</small>
@@ -22,10 +20,10 @@
         @php($stok = json_decode($product->Stock))
         @php($_scount = 1)
         @foreach($stok as $item)
-        <div class="col-2">
+        <div class="col-md-2">
           {{Form::label('stok-type-'.$_scount, $item->name,['class'=>'mt-2 float-right'])}}
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
           {{Form::number('stok-type-'.$_scount, $item->val ,['class' => 'form-control m-1', 'min' => '-1'])}}
         </div>
         @php($_scount += 1)
@@ -39,7 +37,7 @@
     {!! Form::close() !!}
   </div>
 
-  <div class="col-4">
+  <div class="col-md-4">
       {!! Form::open(['url' => 'ajan/editstock/2/'.$product->id]) !!}
       <div class="form-group">
       {{Form::label('stok-barkod', 'Ürün Barkodu')}}
