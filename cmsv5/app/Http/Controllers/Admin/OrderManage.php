@@ -11,7 +11,7 @@ class OrderManage extends Controller
   public function listorder()
   {
     if(\Cookie::get('ajanlogin')){
-      $pagevalues = Order::paginate(10);
+      $pagevalues = Order::all();
       return view('modules/cart/admin/get-orders', ['pagevalues' => $pagevalues]);
     }
     else return redirect('/ajan');
@@ -20,7 +20,7 @@ class OrderManage extends Controller
   public function listcurrent()
   {
     if(\Cookie::get('ajanlogin')){
-      $pagevalues = Order::where('OrderState','<>','Done')->where('OrderState','<>','W_Confirm')->paginate(10);
+      $pagevalues = Order::where('OrderState','<>','Done')->where('OrderState','<>','W_Confirm')->get();
       return view('modules/cart/admin/get-orders', ['pagevalues' => $pagevalues]);
     }
     else return redirect('/ajan');
@@ -29,7 +29,7 @@ class OrderManage extends Controller
   public function listold()
   {
     if(\Cookie::get('ajanlogin')){
-      $pagevalues = Order::where('OrderState','Done')->where('OrderState','<>','W_Confirm')->paginate(10);
+      $pagevalues = Order::where('OrderState','Done')->where('OrderState','<>','W_Confirm')->get();
       return view('modules/cart/admin/get-orders', ['pagevalues' => $pagevalues]);
     }
     else return redirect('/ajan');
