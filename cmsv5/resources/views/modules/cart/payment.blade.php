@@ -34,11 +34,15 @@
   </div>
 
   <div class="accordion clearfix">
+    <!-- ======================= BEGIN 3D Öde ============================= -->
+    <!--
     <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Kredi Kartı </div>
     <div class="acc_content clearfix">
-      @include('modules.cart.credit-card-form')
+      @ X include('modules.cart.credit-card-form')
       <button type="submit" onclick="setPayment(3)" class="button button-3d fright">ÖDEMEYİ GERÇEKLEŞTİR >> </a>
     </div>
+    <!-- ======================= END 3D Öde ============================= -->
+    <!-- ======================= BEGIN Banka Öde ============================= -->
     <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Banka Transferi</div>
     <div class="acc_content clearfix">
       <h5>Banka Hesap Bilgileri</h5>
@@ -50,13 +54,16 @@
       </p>
       <button type="submit" onclick="setPayment(2)" class="button button-3d fright">ÖDEMEYİ GERÇEKLEŞTİR >> </a>
     </div>
-
+    <!-- ======================= END Banka Öde ============================= -->
+    <!-- ======================= BEGIN Kapıda Öde ============================= -->
+    <!--
     <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Kapıda Ödeme</div>
     <div class="acc_content clearfix">
         <p>Kapıda ödeme seçenekli alışverişleriniz de adres bilgilerinizi ve telefon bilgilerinizi eksiksiz girmeniz gerekmektedir. Telefon ile müşteri temsilcilerimiz tarafından gün içerisinde teyid alınmaktadır. Telefon bilgileri eksik yanlış
             veya farklı girilmesi dahilinde siparişiniz iptal edilerek gönderilmeyecektir.</p>
             <button type="submit" onclick="setPayment(1)" class="button button-3d fright">ÖDEMEYİ GERÇEKLEŞTİR >> </a>
     </div>
+    <!-- ======================= END Kapıda Öde ============================= -->
   </div>
   <form class="" action="{{url('/checkoutback')}}" method="post">
       @csrf
