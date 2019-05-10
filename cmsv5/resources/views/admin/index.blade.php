@@ -54,13 +54,13 @@
 <div class="row">
 
   <!-- analytıc grafik başlangıç -->
-  <div class="col-md-12">
+  <div class="col-md-8">
     <div class="panel panel-inverse" data-sortable-id="index-1">
       <div class="panel-heading">
         <h4 class="panel-title">Website Analytics (Son 30 Gün)</h4>
       </div>
       <div class="panel-body">
-        <div id="interactive-chart" class="height-sm"></div>
+        <iframe style="align:center;" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSo-_0RdKQ08RUWAEukkwyiDCRAGA-qQr47aImanmEEXKZQTMSN74wNp-NAbJJnscpFMmF20x8Cnol8/pubchart?oid=1608731341&amp;format=image"></iframe>
       </div>
     </div>
   </div>
