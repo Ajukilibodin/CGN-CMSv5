@@ -92,4 +92,13 @@ class OrderManage extends Controller
     }
     else return redirect('/ajan');
   }
+
+  public function delorder($o_id)
+  {
+    if(\Cookie::get('ajanlogin')){
+      Order::destroy($o_id);
+      return back();
+    }
+    else return redirect('/ajan');
+  }
 }

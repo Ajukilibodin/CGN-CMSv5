@@ -86,10 +86,9 @@
                 <td>
                   <a href="{{url('/ajan/orders/'.$pagevalue->id)}}" title="Sipariş Güncelle" class="text-primary" data-toggle="tooltip">
                     <i class="fas fa-pencil-alt"></i></a>
-                  <span data-href="#" data-toggle="modal" data-target="#confirm-delete">
+                  <span data-href="{{url('/ajan/orders/delorder/'.$pagevalue->id)}}" data-toggle="modal" data-target="#confirm-delete">
                     <a class="text-danger" title="Sipariş Sil" href="javascript:;" data-toggle="tooltip">
                       <i class="fas fa-trash-alt"></i>
-                      <?php // TODO: order iptal edebilsin ?>
                     </a>
                   </span>
                 </td>

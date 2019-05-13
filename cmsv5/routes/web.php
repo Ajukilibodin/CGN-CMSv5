@@ -121,3 +121,4 @@ Route::get('/ajan/orders/current', 'Admin\OrderManage@listcurrent');
 Route::get('/ajan/orders/done', 'Admin\OrderManage@listold');
 Route::get('/ajan/orders/{o_id}', 'Admin\OrderManage@editorder');
 Route::post('/ajan/orders/{o_id}', 'Admin\OrderManage@editorderpost');
+Route::get('/ajan/orders/delorder/{o_id}', 'Admin\OrderManage@delorder');
