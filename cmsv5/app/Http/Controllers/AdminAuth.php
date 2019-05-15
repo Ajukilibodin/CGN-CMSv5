@@ -36,7 +36,7 @@ class AdminAuth extends Controller
       $getUser = AdminLogin::where('Username', $username);
 
       if( $getUser->count() > 0 && \Hash::check($password ,$getUser->first()->Password) ){
-        \Cookie::queue(\Cookie::forget('ajanlogin'));
+        \Cookie::forget('ajanlogin');
         \Cookie::queue(\Cookie::make('ajanlogin', $username, 24*60)); //60 minute * 24 hour = 1 day
         $getUser->first()->LastLogin = \Carbon\Carbon::now();
         $getUser->first()->save();
