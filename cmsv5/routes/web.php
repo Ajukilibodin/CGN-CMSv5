@@ -14,6 +14,7 @@
 Route::post('/test', function (Request $request) { return $request; });
 
 Route::get('/', 'VisitorNav@index')->name('index');
+Route::post('/subscribe', 'VisitorNav@subscribe');
 
 Route::get('/login', 'VisitorNav@login');
 Route::get('/logout', 'VisitorNav@logout');

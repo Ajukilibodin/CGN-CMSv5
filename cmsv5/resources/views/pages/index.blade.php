@@ -16,13 +16,13 @@
 			</div>
 			<p>{{\App\Admin\SiteValues::find(8)->Value}}</p>
 		</div>
-		<div class="col_one_third subscribe-widget">
+		<div class="col_one_third ">
 			<div class="fancy-title title-border">
 			<h4>Fırsalar için kaydolun</h4>
 			</div>
 			<p>İndirimler ve kaçırılmayacak fırsatlar için e-mail listemize kayıt olun.</p>
-			<div class="widget-subscribe-form-result"></div>
-			<form id="widget-subscribe-form2" action="include/subscribe.php" role="form" method="post" class="nobottommargin">
+			<form  action="{{url('/subscribe')}}" method="post" class="nobottommargin">
+				@csrf
   			<div class="input-group divcenter">
     			<span class="input-group-addon"><i class="icon-email2"></i></span>
     			<input type="email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Email adresini giriniz">

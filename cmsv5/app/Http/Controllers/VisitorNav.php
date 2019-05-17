@@ -15,6 +15,13 @@ class VisitorNav extends Controller
       return view('pages/index');
     }
 
+    public function subscribe(Request $request)
+    {
+      $mail = $request->input('widget-subscribe-form-email');
+      \App\Subscriber::firstOrCreate(['Mail'=>$mail]);
+      return redirect('/')->with('welcomemessage', 'Mail Listemize Abone Oldunuz!' );
+    }
+
     public function login(){
       if(\Cookie::get('customerlogin'))
         return redirect('/');//redirect()->route('index');
