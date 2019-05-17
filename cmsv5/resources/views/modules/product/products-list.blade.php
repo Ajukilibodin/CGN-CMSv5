@@ -35,7 +35,7 @@
 			@endif
 			<div class="sale-flash">{!!$ribbontext!!}</div>
 			<div class="product-overlay">
-				<a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Sepete At</span></a>
+				<a href="{{url('/product/'.$pagevalue->id)}}" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Sepete At</span></a>
 				<a href="{{url('/product_pre/'.$pagevalue->id)}}" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Göz At</span></a>
 			</div>
 		</div>
