@@ -90,6 +90,9 @@
             @endif
           </div>
           <div class="col_full">
+            <input type="checkbox" name="billing-gift-wrap" id="billing-gift-wrap" value="1">
+            <label for="billing-gift-wrap"> Hediye Paketi</label>
+            <br>
             <label for="billing-form-message">Notunuz <small>*</small></label>
             <textarea class="sm-form-control" id="billing-form-message" name="billing-form-message" rows="6" cols="30"></textarea>
           </div>

@@ -98,6 +98,7 @@
       <h5><strong>Adres: </strong><br>{!!$pagevalues->Address!!}</h5>
       <h5><strong>İl: </strong>{{$pagevalues->State}}</h5>
       <h5><strong>Sepet Toplam: </strong>{{$pagevalues->CartTotal.$pagevalues->Exchange->Title}}</h5>
+      <h5><strong>Hediye Paketi: </strong> @if($pagevalues->GiftWrap){!!'Hediye Paketi <b>OLACAK</b>'!!}@else{{'Hayır'}}@endif </h5>
       <h5><strong>Sipariş Notu: </strong>{{$pagevalues->OrderNote}}</h5>
       <br>
       <h5><strong>Kargo Şirketi: </strong>{{Form::text('order-cargoname',$pagevalues->CargoName,['class' => 'form-control'])}}</h5>

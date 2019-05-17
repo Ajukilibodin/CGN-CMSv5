@@ -218,6 +218,7 @@ class ShopAction extends Controller
       $temp_order->Cart = $cart;
       $temp_order->CartTotal = $cart_total;
       $temp_order->OrderNote = $ordernote;
+      if($request->input('billing-gift-wrap')) $temp_order->GiftWrap = true;
       // TODO: cart exchange ekle
       $temp_order->save();
 

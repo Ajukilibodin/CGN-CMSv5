@@ -26,6 +26,7 @@ class CreateOrdersTable extends Migration
             $table->string('CargoName')->nullable();
             $table->string('CargoFollow')->nullable();
             $table->string('OrderNote')->nullable();
+            $table->boolean('GiftWrap')->default(false);
             $table->timestamps();
         });
     }
