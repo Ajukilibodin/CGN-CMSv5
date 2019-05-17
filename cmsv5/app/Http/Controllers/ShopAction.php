@@ -94,6 +94,27 @@ class ShopAction extends Controller
       else if( count(json_decode($temp_cart))==0 )
         return redirect('/cart')->with('error','Boş sepet için ödeme yapamazsınız.');
 
+      foreach (json_decode($temp_cart) as $key){
+        $temp_prod = \App\Product::where('id',$key->p_id)->get()->first();
+        foreach (json_decode($temp_prod->Stock) as $prod_stok){
+          if($prod_stok->name == $key->type){
+            if($key->count > $prod_stok->val){
+              if($prod_stok->val > 0){
+                return redirect('/cart')->with('error',
+                'Stoklarımızda istediğiniz kadar ürün bulunmamaktadır. '
+                .$temp_prod->Title.' ('.$key->type.') ürününden stoklarımızda "'.$prod_stok->val.'" adet kaldı.');
+              }
+              else{
+                return redirect('/cart')->with('error',
+                'Stoklarımızda istediğiniz kadar ürün bulunmamaktadır. '
+                .$temp_prod->Title.' ('.$key->type.') ürünü stoklarımızda tükendi!');
+              }
+            }
+            break;
+          }
+        }
+      }
+
       $c_id = \Cookie::get('customerlogin');
       $temp_customer = null;
       if( !$c_id ){
