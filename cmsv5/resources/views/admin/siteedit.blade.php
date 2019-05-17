@@ -77,6 +77,55 @@
     </div>
   </div>
 
+  <div class="col-md-12">
+    <h5>Ödeme Seçenekleri:</h5>
+    <div class="col-md-4">
+      <div class="form-group">
+        <input type="checkbox" name="val-pay1" id="val-pay1" value="1" autocomplete="off"
+        @if( ( (int)($sitevalues[13]->Value) %2)>=1 ){{'checked'}}@endif/>
+        <div class="btn-group m-2">
+          <label for="val-pay1" class="btn btn-primary">
+            <span class="fas fa-check"></span>
+            <span> </span>
+          </label>
+          <label for="val-pay1" class="btn btn-light active">
+            3D Ödeme (CGN Aktivasyon İle !!!)
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <input type="checkbox" name="val-pay2" id="val-pay2" value="2" autocomplete="off"
+        @if( ( (int)($sitevalues[13]->Value) %4)>=2 ){{'checked'}}@endif/>
+        <div class="btn-group m-2">
+          <label for="val-pay2" class="btn btn-primary">
+            <span class="fas fa-check"></span>
+            <span> </span>
+          </label>
+          <label for="val-pay2" class="btn btn-light active">
+            Havale İle Ödeme
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <input type="checkbox" name="val-pay3" id="val-pay3" value="4" autocomplete="off"
+        @if( ( (int)($sitevalues[13]->Value) %8)>=4 ){{'checked'}}@endif/>
+        <div class="btn-group m-2">
+          <label for="val-pay3" class="btn btn-primary">
+            <span class="fas fa-check"></span>
+            <span> </span>
+          </label>
+          <label for="val-pay3" class="btn btn-light active">
+            Kapıda Ödeme
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="col-md-6">
     <div class="form-group">
       {{Form::label('val-bank1', 'Banka Adı')}}
@@ -104,7 +153,7 @@
 
   <div class="col-md-12">
     <div class="form-group float-right">
-      {{Form::submit('Kaydet', ['class' => 'btn btn-primary'])}}
+      {{Form::submit('Hepsini Kaydet', ['class' => 'btn btn-primary'])}}
     </div>
   </div>
 </div>

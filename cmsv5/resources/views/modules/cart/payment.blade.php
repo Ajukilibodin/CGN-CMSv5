@@ -35,14 +35,16 @@
 
   <div class="accordion clearfix">
     <!-- ======================= BEGIN 3D Öde ============================= -->
-    <!--
+    @if((int)(\App\Admin\SiteValues::find(14)->Value) %2 >=1)
     <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Kredi Kartı </div>
     <div class="acc_content clearfix">
-      @ X include('modules.cart.credit-card-form')
+      @include('modules.cart.credit-card-form')
       <button type="submit" onclick="setPayment(3)" class="button button-3d fright">ÖDEMEYİ GERÇEKLEŞTİR >> </a>
     </div>
+    @endif
     <!-- ======================= END 3D Öde ============================= -->
     <!-- ======================= BEGIN Banka Öde ============================= -->
+    @if((int)(\App\Admin\SiteValues::find(14)->Value) %4 >=2)
     <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Banka Transferi</div>
     <div class="acc_content clearfix">
       <h5>Banka Hesap Bilgileri</h5>
@@ -54,15 +56,17 @@
       </p>
       <button type="submit" onclick="setPayment(2)" class="button button-3d fright">ÖDEMEYİ GERÇEKLEŞTİR >> </a>
     </div>
+    @endif
     <!-- ======================= END Banka Öde ============================= -->
     <!-- ======================= BEGIN Kapıda Öde ============================= -->
-    <!--
+    @if((int)(\App\Admin\SiteValues::find(14)->Value) %8 >=4)
     <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Kapıda Ödeme</div>
     <div class="acc_content clearfix">
         <p>Kapıda ödeme seçenekli alışverişleriniz de adres bilgilerinizi ve telefon bilgilerinizi eksiksiz girmeniz gerekmektedir. Telefon ile müşteri temsilcilerimiz tarafından gün içerisinde teyid alınmaktadır. Telefon bilgileri eksik yanlış
             veya farklı girilmesi dahilinde siparişiniz iptal edilerek gönderilmeyecektir.</p>
             <button type="submit" onclick="setPayment(1)" class="button button-3d fright">ÖDEMEYİ GERÇEKLEŞTİR >> </a>
     </div>
+    @endif
     <!-- ======================= END Kapıda Öde ============================= -->
   </div>
   <a href="{{url('/checkoutback')}}" class="button button-3d fright"> << SEPETE DÖN</a>

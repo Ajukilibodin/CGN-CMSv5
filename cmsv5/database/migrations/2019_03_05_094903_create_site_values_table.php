@@ -34,6 +34,7 @@ class CreateSiteValuesTable extends Migration
         \App\Admin\SiteValues::create(['Desc' => 'Şube Kodu', 'Value' => 'Marmara Ticari - 1605']);
         \App\Admin\SiteValues::create(['Desc' => 'Hesap Numarası', 'Value' => '6299758']);
         \App\Admin\SiteValues::create(['Desc' => 'IBAN No', 'Value' => 'TR04 0006 2001 6050 0006 2997 58']);
+        \App\Admin\SiteValues::create(['Desc' => 'Ödeme Tipleri', 'Value' => '7']);
     }
 
     /**

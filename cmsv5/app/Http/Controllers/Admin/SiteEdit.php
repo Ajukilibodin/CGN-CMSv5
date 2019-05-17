@@ -61,6 +61,14 @@ class SiteEdit extends Controller
         $temp[11]->save();
         $temp[12]->Value = $request->input('val-bank4');
         $temp[12]->save();
+
+        $ribbon = 0;
+        if($request->input('val-pay1')) $ribbon+=1;
+        if($request->input('val-pay2')) $ribbon+=2;
+        if($request->input('val-pay3')) $ribbon+=4;
+        $temp[13]->Value = $ribbon;
+        $temp[13]->save();
+
         return redirect('/ajan/sitesettings')->with('success', 'Site Ayarları Güncellenmiştir.');
       }
       else return redirect('/ajan');
