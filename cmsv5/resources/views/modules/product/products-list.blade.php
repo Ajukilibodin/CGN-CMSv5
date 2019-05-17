@@ -33,6 +33,14 @@
 			@if($ribbontext!="")@php($ribbontext.=", ")@endif
 			@php($ribbontext.="Öne Çıkan")
 			@endif
+			@if($pagevalue->Ribbons%8 >= 4)
+			@if($ribbontext!="")@php($ribbontext.=", ")@endif
+			@php($ribbontext.="Tükenmek Üzere")
+			@endif
+			@if($pagevalue->Ribbons%16 >= 8)
+			@if($ribbontext!="")@php($ribbontext.=", ")@endif
+			@php($ribbontext.="Haftanın Ürünü")
+			@endif
 			<div class="sale-flash">{!!$ribbontext!!}</div>
 			<div class="product-overlay">
 				<a href="{{url('/product/'.$pagevalue->id)}}" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Sepete At</span></a>

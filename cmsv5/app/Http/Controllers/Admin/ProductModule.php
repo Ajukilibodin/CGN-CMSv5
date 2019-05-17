@@ -273,6 +273,8 @@ class ProductModule extends Controller
       $ribbon = 0;
       if($request->input('check1')) $ribbon+=1;
       if($request->input('check2')) $ribbon+=2;
+      if($request->input('check4')) $ribbon+=4;
+      if($request->input('check8')) $ribbon+=8;
 
       $catetext="";
       foreach (Category::where('Type', 'Header')->get() as $cate) {
@@ -329,6 +331,8 @@ class ProductModule extends Controller
       $ribbon = 0;
       if($request->input('check1')) $ribbon+=1;
       if($request->input('check2')) $ribbon+=2;
+      if($request->input('check4')) $ribbon+=4;
+      if($request->input('check8')) $ribbon+=8;
 
       $catetext="";
       $cd_id = 0; $cd_text="";

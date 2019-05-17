@@ -109,6 +109,26 @@
           Yeni Ürün
         </label>
       </div>
+      <input type="checkbox" name="check4" id="check4" value="4" autocomplete="off"/>
+      <div class="btn-group m-2">
+        <label for="check4" class="btn btn-primary">
+          <span class="fas fa-check"></span>
+          <span> </span>
+        </label>
+        <label for="check4" class="btn btn-light active">
+          Tükenmek Üzere
+        </label>
+      </div>
+      <input type="checkbox" name="check8" id="check8" value="8" autocomplete="off"/>
+      <div class="btn-group m-2">
+        <label for="check8" class="btn btn-primary">
+          <span class="fas fa-check"></span>
+          <span> </span>
+        </label>
+        <label for="check8" class="btn btn-light active">
+          Haftanın Ürünleri
+        </label>
+      </div>
     </div>
     <div class="form-group">
         <label>Ürün Resmi</label><span class="badge-sonar ml-2" style="top:unset;"></span>

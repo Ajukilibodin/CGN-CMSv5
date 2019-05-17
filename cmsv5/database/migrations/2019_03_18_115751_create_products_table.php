@@ -36,7 +36,7 @@ class CreateProductsTable extends Migration
           'Price'=>15.00,
           'Stock'=>'[{"name":"XS","val":0},{"name":"S","val":1},{"name":"M","val":2},{"name":"L","val":5},{"name":"XL","val":-1},{"name":"XXL","val":-1}]',
           'ImgPaths'=>"1.jpg",
-          'Ribbons'=>1,
+          'Ribbons'=>12,
           'Discount'=>10,
           'Desc'=>'Şık tasarım ve rahat kumaşı ile'
         ]);

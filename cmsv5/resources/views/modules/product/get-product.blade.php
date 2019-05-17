@@ -32,6 +32,14 @@
 				@if($ribbontext!="")@php($ribbontext.=", ")@endif
 				@php($ribbontext.="Öne Çıkan")
 				@endif
+				@if($pagevalues->Ribbons%8 >= 4)
+				@if($ribbontext!="")@php($ribbontext.=", ")@endif
+				@php($ribbontext.="Tükenmek Üzere")
+				@endif
+				@if($pagevalues->Ribbons%16 >= 8)
+				@if($ribbontext!="")@php($ribbontext.=", ")@endif
+				@php($ribbontext.="Haftanın Ürünü")
+				@endif
 				<div class="sale-flash">{!!$ribbontext!!}</div>
 			</div><!-- Product Single - Gallery End -->
 
