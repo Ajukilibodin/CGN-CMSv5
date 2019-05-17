@@ -37,6 +37,7 @@
                   </div>
                   <div class="col-md-4">
                     <label for="sitevalue-input">{{ $sitevalue->Title }}</label>
+                    <a href="https://www.google.com.tr/search?q={{$sitevalue->Title}}" target="_blank"><i class="fas fa-globe"></i></a>
                   </div>
                 </div>
               </td>

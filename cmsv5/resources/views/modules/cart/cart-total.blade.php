@@ -26,7 +26,8 @@
         @php($cart_total = 0)
         @foreach(json_decode(\Cookie::get('customercart')) as $cart_item)
         @php ($c_prod = \App\Product::where('id',$cart_item->p_id)->get()->first())
-        @php( ($cart_total += ($c_prod->Price - ($c_prod->Price/100*$c_prod->Discount)) * $cart_item->count) )
+        @php($fiyatTR = $c_prod->Price * $c_prod->Exchange->Multipler)
+        @php( ($cart_total += round( $fiyatTR - ($fiyatTR/100*$c_prod->Discount) ,2) * $cart_item->count) )
         @endforeach
         <tr class="cart_item">
             <div class="col-md-4 col-xs-4 nopadding">

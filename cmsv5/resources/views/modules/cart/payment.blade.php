@@ -65,10 +65,7 @@
     </div>
     <!-- ======================= END Kapıda Öde ============================= -->
   </div>
-  <form class="" action="{{url('/checkoutback')}}" method="post">
-      @csrf
-      <button type="submit" class="button button-3d fright"> << SEPETE DÖN</button>
-  </form>
+  <a href="{{url('/checkoutback')}}" class="button button-3d fright"> << SEPETE DÖN</a>
   <input type="text" id="paymenttype" name="paymenttype" value="0" hidden>
   <input type="text" name="t_id" value="{{$t_id}}" hidden>
   <input type="text" name="c_id" value="{{$c_id}}" hidden>

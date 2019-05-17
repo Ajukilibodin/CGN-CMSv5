@@ -2,18 +2,20 @@
 <div class="sidebar nobottommargin">
 <div class="sidebar-widgets-wrap">
 
-	<div class="widget widget-filter-links clearfix">
+	<form id="quick-contact-form" name="quick-contact-form" action="/test" method="post">
+		@csrf
+
+	<div class="widget widget-filter-links clearfix notopmargin notoppadding">
 		<h4>Sırala</h4>
 		<ul class="shop-sorting">
-			<li class="widget-filter-reset active-filter"><a href="#" data-sort-by="original-order">Clear</a></li>
-			<li><a href="?ordertype=name" data-sort-by="name">İsime Göre</a></li>
-			<li><a href="?ordertype=p_up" data-sort-by="price_lh">Fiyat: En Düşük Fiyat</a></li>
-			<li><a href="?ordertype=p_down" data-sort-by="price_hl">Fiyat: En Yüksek Fiyat</a></li>
+			<li> <input type="radio" id="p-order1" name="p-order" value="0" checked> <label for="p-order1"> İsime Göre</label> </li>
+			<li> <input type="radio" id="p-order2" name="p-order" value="1"> <label for="p-order2"> Fiyat: En Düşük Fiyat</label> </li>
+			<li> <input type="radio" id="p-order3" name="p-order" value="2"> <label for="p-order3"> Fiyat: En Yüksek Fiyat</label> </li>
 		</ul>
 	</div>
 
 @foreach(\App\Category::where('ParentCategory', 0)->get() as $cate)
-<div class="widget widget-filter-links clearfix">
+<div class="widget widget-filter-links clearfix notopmargin">
 <h4>{{$cate->Title}} Kategorisi Seç</h4>
 
 @foreach(\App\Category::where('ParentCategory', $cate->id)->get() as $subcate)
@@ -27,20 +29,18 @@
 @endforeach
 
 
-<div id="q-contact" class="widget quick-contact-widget clearfix">
+<div id="q-contact" class="widget quick-contact-widget clearfix notopmargin">
 <h4 class="highlight-me">Fiyat Aralığı</h4>
 <div class="quick-contact-form-result"></div>
-<form id="quick-contact-form" name="quick-contact-form" action="include/quickcontact.php" method="post" class="quick-contact-form nobottommargin">
 <div class="form-process"></div>
 <input type="text"value="" placeholder="Alt Limit" />
 <input type="text" value="" placeholder="Üst Limit" />
-<input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
 <button type="submit" class="button button-small button-3d nomargin" value="submit">Filtrele</button>
-</form>
 </div>
+</form>
 
 
-
+<!--
 <div id="tags" class="widget clearfix">
 <h4 class="highlight-me">Tag Cloud</h4>
 <div class="tagcloud">
@@ -55,7 +55,7 @@
 <a href="#">coupons</a>
 <a href="#">modern</a>
 </div>
-</div>
+</div>-->
 
 <div class="widget clearfix">
 <h4 class="highlight-me">En Son Ziyaret Edilenler</h4>
@@ -64,7 +64,7 @@
 
 <div class="spost clearfix">
 <div class="entry-image">
-<a href="#"><img src="images/shop/small/3.jpg" alt="Image"></a>
+<a href="#"><img src="/images/shop/small/3.jpg" alt="Image"></a>
 </div>
 <div class="entry-c">
 <div class="entry-title">
@@ -78,7 +78,7 @@
 
 <div class="spost clearfix">
 <div class="entry-image">
-<a href="#"><img src="images/shop/small/10.jpg" alt="Image"></a>
+<a href="#"><img src="/images/shop/small/10.jpg" alt="Image"></a>
 </div>
 <div class="entry-c">
 <div class="entry-title">
@@ -92,7 +92,7 @@
 
 <div class="spost clearfix">
 <div class="entry-image">
-<a href="#"><img src="images/shop/small/11.jpg" alt="Image"></a>
+<a href="#"><img src="/images/shop/small/11.jpg" alt="Image"></a>
 </div>
 <div class="entry-c">
 <div class="entry-title">

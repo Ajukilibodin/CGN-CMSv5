@@ -5,3 +5,6 @@
 <link href="{{url('/css/font-icons.css')}}"  			rel="stylesheet" type="text/css" />
 <link href="{{url('/css/responsive.css')}}" 			rel="stylesheet" type="text/css" />
 <link href="{{url('/css/custom.css')}}" 					rel="stylesheet" type="text/css" />
+
+    <!-- cookiealert styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">

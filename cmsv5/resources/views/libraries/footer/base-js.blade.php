@@ -3,6 +3,9 @@
 <script type="text/javascript" src="{{url('/js/plugins.js')}}"></script>
 <script type="text/javascript" src="{{url('/js/functions.js')}}"></script>
 
+<!-- Include cookiealert script -->
+<script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+
 <script type="text/javascript">
 $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
 function sepetegit() {

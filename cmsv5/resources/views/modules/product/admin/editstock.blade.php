@@ -12,7 +12,7 @@
 <div class="row panel panel-inverse">
   <div class="col-md-8">
     {!! Form::open(['url' => 'ajan/editstock/1/'.$product->id]) !!}
-    <small class="float-right">"-1" değeri bu ürünün bu özellikte çeşidi olmadığı anlamına gelir.</small><br>
+    <small class="float-right">"-1" değeri bu ürünün bu özellikte çeşidi olmadığı/üretilmediği anlamına gelir.</small><br>
     <small class="float-right">"0" değeri bu ürünün stokta tükendiği anlamına gelir.</small>
     <h3>Ürün Stokları</h3>
 

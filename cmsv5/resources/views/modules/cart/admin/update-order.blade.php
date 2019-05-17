@@ -21,7 +21,7 @@
           @endif
           />
           <div class="btn-group m-2">
-              <label for="radio1" class="btn btn-primary">
+              <label for="radio1" class="btn btn-danger">
                   <span class="fas fa-check"></span>
                   <span> </span>
               </label>
@@ -34,7 +34,7 @@
           @endif
           />
           <div class="btn-group m-2">
-              <label for="radio2" class="btn btn-primary">
+              <label for="radio2" class="btn btn-info">
                   <span class="fas fa-check"></span>
                   <span> </span>
               </label>
@@ -47,7 +47,7 @@
           @endif
           />
           <div class="btn-group m-2">
-              <label for="radio3" class="btn btn-primary">
+              <label for="radio3" class="btn btn-warning">
                   <span class="fas fa-check"></span>
                   <span> </span>
               </label>
@@ -60,7 +60,7 @@
           @endif
           />
           <div class="btn-group m-2">
-              <label for="radio4" class="btn btn-primary">
+              <label for="radio4" class="btn btn-info">
                   <span class="fas fa-check"></span>
                   <span> </span>
               </label>
@@ -73,7 +73,7 @@
           @endif
           />
           <div class="btn-group m-2">
-              <label for="radio5" class="btn btn-primary">
+              <label for="radio5" class="btn btn-success">
                   <span class="fas fa-check"></span>
                   <span> </span>
               </label>
@@ -84,6 +84,10 @@
     <div class="col-md-8">
       <h4>Sipariş Bilgileri</h4>
       <h5><strong>Sipariş Kodu: </strong>SIP-{{sprintf("%09d", $pagevalues->id)}}</h5>
+      <h5><strong>Sipariş İlk Oluşturma : </strong>{{$pagevalues->created_at}}</h5>
+      <h5><strong>Sipariş Son Güncelleme: </strong>{{$pagevalues->updated_at}}</h5>
+
+      <br>
 
       @if($pagevalues->Customer->Name == 'Non-Customer')
       <h5><strong>Müşteri Adı: </strong>{{ '(Üyeliksiz) '.$pagevalues->Customer->Password }}</h5>
@@ -94,6 +98,8 @@
       <h5><strong>Adres: </strong><br>{!!$pagevalues->Address!!}</h5>
       <h5><strong>İl: </strong>{{$pagevalues->State}}</h5>
       <h5><strong>Sepet Toplam: </strong>{{$pagevalues->CartTotal.$pagevalues->Exchange->Title}}</h5>
+      <h5><strong>Sipariş Notu: </strong>{{$pagevalues->OrderNote}}</h5>
+      <br>
       <h5><strong>Kargo Şirketi: </strong>{{Form::text('order-cargoname',$pagevalues->CargoName,['class' => 'form-control'])}}</h5>
       <h5><strong>Kargo Takip Kodu: </strong>{{Form::text('order-cargofollow',$pagevalues->CargoFollow,['class' => 'form-control'])}}</h5>
     </div>
@@ -118,8 +124,8 @@
             <th scope="row">{{ $cart_item->p_id }}</th>
             <td>{{ $c_prod->Title }}</td>
             <td>{{ $cart_item->type }}</td>
-            <td>{{ $c_prod->Price - ($c_prod->Price/100*$c_prod->Discount) }}</td>
-            <td>{{ ($c_prod->Price - ($c_prod->Price/100*$c_prod->Discount)) * $cart_item->count }}</td>
+            <td>{{ ($c_prod->Price - ($c_prod->Price/100*$c_prod->Discount))." ".$c_prod->Exchange->Title }}</td>
+            <td><b>{{ (($c_prod->Price - ($c_prod->Price/100*$c_prod->Discount)) * $cart_item->count)." ".$c_prod->Exchange->Title }}</b></td>
             <td>{{ $cart_item->count }}</td>
             @php ($stock_count = 0)
             @foreach( json_decode($c_prod->Stock) as $stok_item )

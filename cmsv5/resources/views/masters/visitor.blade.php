@@ -1,6 +1,14 @@
 @include('libraries.head.head')
 <body class="stretched">
-   
+  <div class="alert text-center cookiealert" role="alert">
+   <b>Bu web sayfasında size daha etkili hizmet verebilmek adına cookie kullanılmaktadır. </b>
+   &#x1F36A; <a href="https://cookiesandyou.com/" target="_blank">Cookie Nedir?</a>
+
+   <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">
+       Kabul Ediyorum
+   </button>
+  </div>
+
   <div id="wrapper" class="clearfix">
     @include('libraries.topbar')
     @include('libraries.header')

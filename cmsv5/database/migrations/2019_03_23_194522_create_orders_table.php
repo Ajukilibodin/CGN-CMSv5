@@ -25,6 +25,7 @@ class CreateOrdersTable extends Migration
             $table->integer('CartExchange')->default(1);
             $table->string('CargoName')->nullable();
             $table->string('CargoFollow')->nullable();
+            $table->string('OrderNote')->nullable();
             $table->timestamps();
         });
     }

@@ -114,7 +114,8 @@ class ShopAction extends Controller
       $cart_total = 0;
       foreach (json_decode($temp_cart) as $key){
         $temp_prod = \App\Product::where('id',$key->p_id)->get()->first();
-        $cart_total += $key->count * ($temp_prod->Price - ($temp_prod->Price/100*$temp_prod->Discount));
+        $fiyatTR = $temp_prod->Price * $temp_prod->Exchange->Multipler;
+        $cart_total += $key->count * round($fiyatTR - ($fiyatTR/100*$temp_prod->Discount) ,2);
       }
 
       $temp_order = \App\Order::updateOrCreate(
@@ -173,6 +174,7 @@ class ShopAction extends Controller
       $c_cvc = $request->input('cardCVC');
       $c_holder = $request->input('cardHolder');
       $c_id = $request->input('c_id');
+      $ordernote = $request->input('billing-form-message');
 
       $temp_customer = \App\Customer::where('id',$c_id)->get()->first();
       if($temp_customer->Email == 'none') $temp_customer->Email = $email;
@@ -194,6 +196,7 @@ class ShopAction extends Controller
       $temp_order->State = $city;
       $temp_order->Cart = $cart;
       $temp_order->CartTotal = $cart_total;
+      $temp_order->OrderNote = $ordernote;
       // TODO: cart exchange ekle
       $temp_order->save();
 

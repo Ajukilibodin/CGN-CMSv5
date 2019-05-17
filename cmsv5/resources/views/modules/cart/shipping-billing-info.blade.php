@@ -90,8 +90,8 @@
             @endif
           </div>
           <div class="col_full">
-            <label for="shipping-form-message">Notunuz <small>*</small></label>
-            <textarea class="sm-form-control" id="shipping-form-message" name="shipping-form-message" rows="6" cols="30"></textarea>
+            <label for="billing-form-message">Notunuz <small>*</small></label>
+            <textarea class="sm-form-control" id="billing-form-message" name="billing-form-message" rows="6" cols="30"></textarea>
           </div>
         </div>
       </div>

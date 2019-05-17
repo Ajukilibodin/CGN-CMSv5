@@ -41,11 +41,12 @@
 
 								<!-- Product Single - Price
 								============================================= -->
+								@php($fiyatTR = $pagevalues->Price * $pagevalues->Exchange->Multipler)
 								@if($pagevalues->Discount > 0)
-								<div class="product-price"><del>{{$pagevalues->Price}}&#8378;</del>
-									<ins>{{ $pagevalues->Price - ($pagevalues->Price/100 * $pagevalues->Discount) }}&#8378;</ins></div>
+								<div class="product-price"><del>{{$fiyatTR}}&#8378;</del>
+									<ins>{{ round( $fiyatTR - ($fiyatTR/100 * $pagevalues->Discount) ,2) }}&#8378;</ins></div>
 								@else
-								<div class="product-price"><ins>{{$pagevalues->Price}}&#8378;</ins></div>
+								<div class="product-price"><ins>{{$fiyatTR}}&#8378;</ins></div>
 								@endif
 
 								<!-- Product Single - Rating

@@ -7,6 +7,7 @@
         @foreach(json_decode(\Cookie::get('customercart')) as $cart_item)
         <input type="text" name="cart_item{{$count}}" value="{{json_encode($cart_item)}}" hidden>
         @php ($c_prod = \App\Product::where('id',$cart_item->p_id)->get()->first())
+        @php($fiyatTR = $c_prod->Price * $c_prod->Exchange->Multipler)
         <tr class="cart_item">
           <td class="cart-product-remove">
             <a href="{{url('/delcart/'.$c_prod->id)}}" class="remove" title="Ürünü Sepetten Kaldır"><i class="icon-trash2"></i></a>
@@ -24,7 +25,7 @@
           </td>
 
           <td class="cart-product-price">
-            <span class="amount">{{$c_prod->Price - ($c_prod->Price/100*$c_prod->Discount)}}  &#8378;</span>
+            <span class="amount">{{round( $fiyatTR - ($fiyatTR/100*$c_prod->Discount) ,2)}}  &#8378;</span>
           </td>
 
           <td class="cart-product-quantity">
@@ -45,7 +46,7 @@
           </td>
 
           <td class="cart-product-subtotal">
-            <span class="amount">{{($c_prod->Price - ($c_prod->Price/100*$c_prod->Discount)) * $cart_item->count}} &#8378;</span>
+            <span class="amount">{{round( $fiyatTR - ($fiyatTR/100*$c_prod->Discount) ,2) * $cart_item->count}} &#8378;</span>
           </td>
         </tr>
         @php($count++)
