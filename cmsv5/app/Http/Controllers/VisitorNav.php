@@ -305,6 +305,11 @@ class VisitorNav extends Controller
       return view('pages/product')->with('pagevalues',$pagevalues);
     }
 
+    public function product_pre($p_id){
+      $pagevalues = \App\Product::where('id',$p_id)->get()->first();
+      return view('modules/product/product-pre')->with('pagevalues',$pagevalues);
+    }
+
     public function products_all(){
       $pagevalues = \App\Product::where('id','<>','0');
 
