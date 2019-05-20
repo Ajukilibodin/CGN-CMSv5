@@ -44,6 +44,7 @@ return array(
     'App\\Showcase\\ShowcaseCategory' => $baseDir . '/app/Showcase/ShowcaseCategory.php',
     'App\\SitePage' => $baseDir . '/app/SitePage.php',
     'App\\Slider' => $baseDir . '/app/Slider.php',
+    'App\\Social' => $baseDir . '/app/Social.php',
     'App\\Subscriber' => $baseDir . '/app/Subscriber.php',
     'App\\Verify' => $baseDir . '/app/Verify.php',
     'BeyondCode\\DumpServer\\DumpServerCommand' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',

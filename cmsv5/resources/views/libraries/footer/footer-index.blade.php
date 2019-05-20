@@ -102,10 +102,11 @@
 
 
 
-						<div class="widget subscribe-widget clearfix">
+						<div class="widget clearfix">
 							<h5><strong>İndirimler ve kaçırılmayacak fırsatlar </strong> için e-mail listemize kayıt olun:</h5>
 							<div class="widget-subscribe-form-result"></div>
-							<form id="widget-subscribe-form" action="include/subscribe.php" role="form" method="post" class="nobottommargin">
+							<form  action="{{url('/subscribe')}}" method="post" class="nobottommargin">
+								@csrf
 								<div class="input-group divcenter">
 									<span class="input-group-addon"><i class="icon-email2"></i></span>
 									<input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Email adresinizi girin">
@@ -118,24 +119,7 @@
 
 						<div class="widget clearfix" style="margin-bottom: -20px;">
 
-							<div class="row">
-
-								<div class="col-md-6 clearfix bottommargin-sm">
-									<a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
-										<i class="icon-facebook"></i>
-										<i class="icon-facebook"></i>
-									</a>
-									<a href="#"><small style="display: block; margin-top: 3px;"><strong>BEĞENİN</strong><br>Facebook</small></a>
-								</div>
-								<div class="col-md-6 clearfix">
-									<a href="#" class="social-icon si-dark si-colored si-instagram nobottommargin" style="margin-right: 10px;">
-										<i class="icon-instagram"></i>
-										<i class="icon-instagram"></i>
-									</a>
-									<a href="#"><small style="display: block; margin-top: 3px;"><strong>TAKİP EDİN</strong><br>instagram</small></a>
-								</div>
-
-							</div>
+							
 
 <div class="row">
 <div class="widget clearfix">

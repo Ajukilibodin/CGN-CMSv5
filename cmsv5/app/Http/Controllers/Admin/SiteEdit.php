@@ -73,4 +73,30 @@ class SiteEdit extends Controller
       }
       else return redirect('/ajan');
     }
+
+    public function socialaccounts()
+    {
+      if(\Cookie::get('ajanlogin')){
+        $sociallist = \App\Social::orderBy('Order')->get();
+        return view('admin/social-accounts', ['sociallist' => $sociallist]);
+      }
+      else return redirect('/ajan');
+    }
+
+    public function socialpost(Request $request)
+    {
+      if(\Cookie::get('ajanlogin')){
+        $this->validate($request, [
+          'social-link' => 'required|max:250'
+        ]);
+
+        \App\Social::create([
+          'Type'=>$request->input('social-type'),
+          'Link'=>$request->input('social-link')
+        ]);
+
+        return redirect('/ajan/socialaccounts')->with('success', 'Yeni Sosyal Medyanız Eklenmiştir.');
+      }
+      else return redirect('/ajan');
+    }
 }

@@ -12,6 +12,7 @@
         <ul class="sub-menu">
           <li><a href="javascript:;" target="_blank">Mail Kontrol</a></li>
           <li><a href="/ajan/nonpage">Yeni Mail Oluştur</a></li>
+          <li><a href="/ajan/nonpage">Mail Abonelik Listesi</a></li>
         </ul>
       </li>
       <li class="has-sub"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-cog"></i><span>Site Yönetimi</span></a>
@@ -20,7 +21,7 @@
           <li><a href="/ajan/menupage">Menü & Sayfa</a></li>
           <li><a href="/ajan/slidersettings">Slider</a></li>
           <li><a href="/ajan/nonpage">Referanslarım</a></li>
-          <li><a href="/ajan/nonpage">Sosyal Medya Yönetimi</a></li>
+          <li><a href="/ajan/socialaccounts">Sosyal Medya Yönetimi</a></li>
         </ul>
       </li>
       <li class="has-sub"><a href="javascript:;"><b class="caret pull-right"></b><i class="fa fa-camera"></i>

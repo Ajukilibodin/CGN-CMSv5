@@ -42,44 +42,34 @@
 			<i class="icon-facebook"></i>
 			</a>
 
-			<a href="#" class="social-icon si-delicious" data-toggle="tooltip" data-placement="top" title="Delicious">
-			<i class="icon-delicious"></i>
-			<i class="icon-delicious"></i>
+			<a href="#" class="social-icon si-instagram" data-toggle="tooltip" data-placement="top" title="Instagram">
+			<i class="icon-instagram"></i>
+			<i class="icon-instagram"></i>
 			</a>
 
-			<a href="#" class="social-icon si-paypal" data-toggle="tooltip" data-placement="top" title="PayPal">
-			<i class="icon-paypal"></i>
-			<i class="icon-paypal"></i>
+			<a href="#" class="social-icon si-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+			<i class="icon-twitter"></i>
+			<i class="icon-twitter"></i>
 			</a>
 
-			<a href="#" class="social-icon si-flattr" data-toggle="tooltip" data-placement="top" title="Flattr">
-			<i class="icon-flattr"></i>
-			<i class="icon-flattr"></i>
+			<a href="#" class="social-icon si-youtube" data-toggle="tooltip" data-placement="top" title="Youtube">
+			<i class="icon-youtube"></i>
+			<i class="icon-youtube"></i>
 			</a>
 
-			<a href="#" class="social-icon si-android" data-toggle="tooltip" data-placement="top" title="Android">
-			<i class="icon-android"></i>
-			<i class="icon-android"></i>
+			<a href="#" class="social-icon si-pinterest" data-toggle="tooltip" data-placement="top" title="Pinterest">
+			<i class="icon-pinterest"></i>
+			<i class="icon-pinterest"></i>
 			</a>
 
-			<a href="#" class="social-icon si-smashmag" data-toggle="tooltip" data-placement="top" title="Smashing Magazine">
-			<i class="icon-smashmag"></i>
-			<i class="icon-smashmag"></i>
+			<a href="#" class="social-icon si-linkedin" data-toggle="tooltip" data-placement="top" title="LinkedIN">
+			<i class="icon-linkedin"></i>
+			<i class="icon-linkedin"></i>
 			</a>
 
-			<a href="#" class="social-icon si-gplus" data-toggle="tooltip" data-placement="top" title="Google+">
-			<i class="icon-gplus"></i>
-			<i class="icon-gplus"></i>
-			</a>
-
-			<a href="#" class="social-icon si-wikipedia" data-toggle="tooltip" data-placement="top" title="Wikipedia">
-			<i class="icon-wikipedia"></i>
-			<i class="icon-wikipedia"></i>
-			</a>
-
-			<a href="#" class="social-icon si-stumbleupon" data-toggle="tooltip" data-placement="top" title="StumbleUpon">
-			<i class="icon-stumbleupon"></i>
-			<i class="icon-stumbleupon"></i>
+			<a href="#" class="social-icon si-blogger" data-toggle="tooltip" data-placement="top" title="Blogger">
+			<i class="icon-blogger"></i>
+			<i class="icon-blogger"></i>
 			</a>
 
 			<a href="#" class="social-icon si-foursquare" data-toggle="tooltip" data-placement="top" title="FourSquare">
@@ -87,24 +77,19 @@
 			<i class="icon-foursquare"></i>
 			</a>
 
-			<a href="#" class="social-icon si-call" data-toggle="tooltip" data-placement="top" title="Call">
-			<i class="icon-call"></i>
-			<i class="icon-call"></i>
+			<a href="#" class="social-icon si-tumblr" data-toggle="tooltip" data-placement="top" title="Tumblr">
+			<i class="icon-tumblr"></i>
+			<i class="icon-tumblr"></i>
 			</a>
 
-			<a href="#" class="social-icon si-ninetyninedesigns" data-toggle="tooltip" data-placement="top" title="Ninety Nine Design">
-			<i class="icon-ninetyninedesigns"></i>
-			<i class="icon-ninetyninedesigns"></i>
+			<a href="#" class="social-icon si-soundcloud" data-toggle="tooltip" data-placement="top" title="SoundCloud">
+			<i class="icon-soundcloud"></i>
+			<i class="icon-soundcloud"></i>
 			</a>
 
-			<a href="#" class="social-icon si-forrst" data-toggle="tooltip" data-placement="top" title="Forrst">
-			<i class="icon-forrst"></i>
-			<i class="icon-forrst"></i>
-			</a>
-
-			<a href="#" class="social-icon si-digg" data-toggle="tooltip" data-placement="top" title="Digg">
-			<i class="icon-digg"></i>
-			<i class="icon-digg"></i>
+			<a href="#" class="social-icon si-wikipedia" data-toggle="tooltip" data-placement="top" title="Wikipedia">
+			<i class="icon-wikipedia"></i>
+			<i class="icon-wikipedia"></i>
 			</a>
 		</div>
 		<div class="clear"></div>
@@ -135,7 +120,14 @@
       			<i class="icon-credit-cards"></i>
       			</div>
       			<h3>ÖDEME SEÇENEKLERİ</h3>
-      			<p class="notopmargin">Kredi kartı, havale ve kapıda ödeme seçeneklerimiz vardır.</p>
+						<?php
+						$pay_ways = (int)(\App\Admin\SiteValues::find(14)->Value);
+						$pay_string = "";
+						if($pay_ways%2 >= 1) $pay_string .= ($pay_string==""?"":", ")."Kredi Kartı";
+						if($pay_ways%4 >= 2) $pay_string .= ($pay_string==""?"":", ")."Havale";
+						if($pay_ways%8 >= 4) $pay_string .= ($pay_string==""?"":", ")."Kapıda";
+						 ?>
+      			<p class="notopmargin">{{$pay_string}} ödeme seçeneklerimiz vardır.</p>
     			</div>
   			</div>
   			<div class="col_one_fourth nobottommargin">

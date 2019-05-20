@@ -464,6 +464,7 @@ class ComposerStaticInit0c23a2f427f04edded77e1ef754097cf
         'App\\Showcase\\ShowcaseCategory' => __DIR__ . '/../..' . '/app/Showcase/ShowcaseCategory.php',
         'App\\SitePage' => __DIR__ . '/../..' . '/app/SitePage.php',
         'App\\Slider' => __DIR__ . '/../..' . '/app/Slider.php',
+        'App\\Social' => __DIR__ . '/../..' . '/app/Social.php',
         'App\\Subscriber' => __DIR__ . '/../..' . '/app/Subscriber.php',
         'App\\Verify' => __DIR__ . '/../..' . '/app/Verify.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
