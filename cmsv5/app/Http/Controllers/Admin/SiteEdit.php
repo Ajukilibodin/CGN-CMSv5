@@ -77,7 +77,7 @@ class SiteEdit extends Controller
     public function socialaccounts()
     {
       if(\Cookie::get('ajanlogin')){
-        $sociallist = \App\Social::orderBy('Order')->get();
+        $sociallist = \App\Social::all();
         return view('admin/social-accounts', ['sociallist' => $sociallist]);
       }
       else return redirect('/ajan');
@@ -96,6 +96,21 @@ class SiteEdit extends Controller
         ]);
 
         return redirect('/ajan/socialaccounts')->with('success', 'Yeni Sosyal Medyanız Eklenmiştir.');
+      }
+      else return redirect('/ajan');
+    }
+
+    public function delsocial($s_id)
+    {
+      \App\Social::destroy($s_id);
+      return redirect('/ajan/socialaccounts')->with('success', 'Seçilen Sosyal Medya Kaldırıldı.');
+    }
+
+    public function subscribers()
+    {
+      if(\Cookie::get('ajanlogin')){
+        $subscribers = \App\Subscriber::all();
+        return view('admin/subscribe-list', ['pagevalues' => $subscribers]);
       }
       else return redirect('/ajan');
     }

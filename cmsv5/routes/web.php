@@ -62,8 +62,11 @@ Route::get('/ajan/logout', 'AdminAuth@logout');
 Route::get('/ajan/sitesettings', 'Admin\SiteEdit@mainload');
 Route::post('/ajan/sitesettings', 'Admin\SiteEdit@savesettings');
 
+Route::get('/ajan/subscribers', 'Admin\SiteEdit@subscribers');
+
 Route::get('/ajan/socialaccounts', 'Admin\SiteEdit@socialaccounts');
 Route::post('/ajan/socialaccounts', 'Admin\SiteEdit@socialpost');
+Route::get('/ajan/delsocial/{s_id}', 'Admin\SiteEdit@delsocial');
 
 Route::get('/ajan/customers', 'Admin\CustomerEdit@mainload');
 Route::get('/ajan/customers/delete/{w_id}', 'Admin\CustomerEdit@deleteCustomer');

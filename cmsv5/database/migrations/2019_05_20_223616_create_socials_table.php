@@ -27,6 +27,16 @@ class CreateSocialsTable extends Migration
           'Type'=>2,
           'Link'=>'http://instagram.com/cgnyazilim'
         ]);
+
+        \App\Social::create([
+          'Type'=>6,
+          'Link'=>'https://www.linkedin.com/in/cgn-yazilim/'
+        ]);
+
+        \App\Social::create([
+          'Type'=>7,
+          'Link'=>'https://www.cgnyazilim.com/blog/'
+        ]);
     }
 
     /**

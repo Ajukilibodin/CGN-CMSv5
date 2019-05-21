@@ -66,15 +66,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-                @foreach($sociallist as $social)
-                <td>{{$social->id}}</td>
-								<td>{{$social->Type}}</td>
-								<td>{{$social->Link}}</td>
-								<td>1.7</td>
-                <?php // TODO: silme işlemi ekle (modal ile) ?>
-                @endforeach
-							</tr>
+              @foreach($sociallist as $social)
+					       <tr>
+                  <td>{{$social->id}}</td>
+  								<td>{{$social->Type}}</td>
+  								<td>{{$social->Link}}</td>
+  								<td><a href="{{url('/ajan/delsocial/'.$social->id)}}" class="text-danger"><i class="fas fa-trash-alt"></i></a></td>
+				         </tr>
+              @endforeach
 						</tbody>
 					</table>
 				</div>

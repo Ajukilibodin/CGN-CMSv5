@@ -37,60 +37,79 @@
   			<h4>Bizi Takip Edin</h4>
 			</div>
 
-			<a href="#" class="social-icon si-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
-			<i class="icon-facebook"></i>
-			<i class="icon-facebook"></i>
-			</a>
+			@if(\App\Social::all()->count() > 0)
+			@foreach(\App\Social::orderBy('Order')->get() as $social)
+			@switch($social->Type)
+				@case("Facebook")
+				<a href="{{$social->Link}}" class="social-icon si-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+				<i class="icon-facebook"></i>
+				<i class="icon-facebook"></i>
+				</a>
+				@break
+				@case("Instagram")
+				<a href="{{$social->Link}}" class="social-icon si-instagram" data-toggle="tooltip" data-placement="top" title="Instagram">
+				<i class="icon-instagram"></i>
+				<i class="icon-instagram"></i>
+				</a>
+				@break
+				@case("Twitter")
+				<a href="{{$social->Link}}" class="social-icon si-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+				<i class="icon-twitter"></i>
+				<i class="icon-twitter"></i>
+				</a>
+				@break
+				@case("Youtube")
+				<a href="{{$social->Link}}" class="social-icon si-youtube" data-toggle="tooltip" data-placement="top" title="Youtube">
+				<i class="icon-youtube"></i>
+				<i class="icon-youtube"></i>
+				</a>
+				@break
+				@case("Pinterest")
+				<a href="{{$social->Link}}" class="social-icon si-pinterest" data-toggle="tooltip" data-placement="top" title="Pinterest">
+				<i class="icon-pinterest"></i>
+				<i class="icon-pinterest"></i>
+				</a>
+				@break
+				@case("LinkedIN")
+				<a href="{{$social->Link}}" class="social-icon si-linkedin" data-toggle="tooltip" data-placement="top" title="LinkedIN">
+				<i class="icon-linkedin"></i>
+				<i class="icon-linkedin"></i>
+				</a>
+				@break
+				@case("Blogger")
+				<a href="{{$social->Link}}" class="social-icon si-blogger" data-toggle="tooltip" data-placement="top" title="Blogger">
+				<i class="icon-blogger"></i>
+				<i class="icon-blogger"></i>
+				</a>
+				@break
+				@case("FourSquare")
+				<a href="{{$social->Link}}" class="social-icon si-foursquare" data-toggle="tooltip" data-placement="top" title="FourSquare">
+				<i class="icon-foursquare"></i>
+				<i class="icon-foursquare"></i>
+				</a>
+				@break
+				@case("Tumblr")
+				<a href="{{$social->Link}}" class="social-icon si-tumblr" data-toggle="tooltip" data-placement="top" title="Tumblr">
+				<i class="icon-tumblr"></i>
+				<i class="icon-tumblr"></i>
+				</a>
+				@break
+				@case("SoundCloud")
+				<a href="{{$social->Link}}" class="social-icon si-soundcloud" data-toggle="tooltip" data-placement="top" title="SoundCloud">
+				<i class="icon-soundcloud"></i>
+				<i class="icon-soundcloud"></i>
+				</a>
+				@break
+				@case("Wikipedia")
+				<a href="{{$social->Link}}" class="social-icon si-wikipedia" data-toggle="tooltip" data-placement="top" title="Wikipedia">
+				<i class="icon-wikipedia"></i>
+				<i class="icon-wikipedia"></i>
+				</a>
+				@break
+			@endswitch
+			@endforeach
+			@endif
 
-			<a href="#" class="social-icon si-instagram" data-toggle="tooltip" data-placement="top" title="Instagram">
-			<i class="icon-instagram"></i>
-			<i class="icon-instagram"></i>
-			</a>
-
-			<a href="#" class="social-icon si-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
-			<i class="icon-twitter"></i>
-			<i class="icon-twitter"></i>
-			</a>
-
-			<a href="#" class="social-icon si-youtube" data-toggle="tooltip" data-placement="top" title="Youtube">
-			<i class="icon-youtube"></i>
-			<i class="icon-youtube"></i>
-			</a>
-
-			<a href="#" class="social-icon si-pinterest" data-toggle="tooltip" data-placement="top" title="Pinterest">
-			<i class="icon-pinterest"></i>
-			<i class="icon-pinterest"></i>
-			</a>
-
-			<a href="#" class="social-icon si-linkedin" data-toggle="tooltip" data-placement="top" title="LinkedIN">
-			<i class="icon-linkedin"></i>
-			<i class="icon-linkedin"></i>
-			</a>
-
-			<a href="#" class="social-icon si-blogger" data-toggle="tooltip" data-placement="top" title="Blogger">
-			<i class="icon-blogger"></i>
-			<i class="icon-blogger"></i>
-			</a>
-
-			<a href="#" class="social-icon si-foursquare" data-toggle="tooltip" data-placement="top" title="FourSquare">
-			<i class="icon-foursquare"></i>
-			<i class="icon-foursquare"></i>
-			</a>
-
-			<a href="#" class="social-icon si-tumblr" data-toggle="tooltip" data-placement="top" title="Tumblr">
-			<i class="icon-tumblr"></i>
-			<i class="icon-tumblr"></i>
-			</a>
-
-			<a href="#" class="social-icon si-soundcloud" data-toggle="tooltip" data-placement="top" title="SoundCloud">
-			<i class="icon-soundcloud"></i>
-			<i class="icon-soundcloud"></i>
-			</a>
-
-			<a href="#" class="social-icon si-wikipedia" data-toggle="tooltip" data-placement="top" title="Wikipedia">
-			<i class="icon-wikipedia"></i>
-			<i class="icon-wikipedia"></i>
-			</a>
 		</div>
 		<div class="clear"></div>
 		</div>
