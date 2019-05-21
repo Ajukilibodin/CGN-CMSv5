@@ -18,6 +18,8 @@ class CreateSubscribersTable extends Migration
             $table->string('Mail');
             $table->timestamps();
         });
+
+        \App\Subscriber::create(['Mail'=>'bilgi@cgnyazilim.com']);
     }
 
     /**
